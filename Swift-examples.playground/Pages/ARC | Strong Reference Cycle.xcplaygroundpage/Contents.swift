@@ -28,3 +28,5 @@ final class Car {
     }
 }
 
+var p1: Person? = Person(name: "Ulan")
+var c1: Car? = Car(name: "Yamaha")
