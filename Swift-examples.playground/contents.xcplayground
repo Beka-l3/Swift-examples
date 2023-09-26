@@ -3,5 +3,6 @@
     <pages>
         <page name='ARC | Strong Reference intro'/>
         <page name='ARC | Strong Reference Cycle'/>
+        <page name='ARC | Prevent SRC'/>
     </pages>
 </playground>
