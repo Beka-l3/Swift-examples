@@ -1,12 +1,29 @@
 import Foundation
 
+/// Swift uses Automatic Reference Counting (ARC) to track and manage your app’s memory usage.
+/// In most cases, this means that memory management `just works` in Swift,
+/// and you don’t need to think about memory management yourself.
+/// ARC automatically frees up the memory used by class instances when those instances are no longer needed. <When RC == 0>
+/// ``Reference counting is only applied to instances of classes``
+
+/// Well, ARC counts references. If `RC != 0` then memory is not freed up
+/// To remove a reference, need to set it to `nil`.
+/// Example `var obj = Object()`
+/// Now instance of an `Object` has created , let 's call it ``TheObject``, and it's `RC == 1`
+/// However, to be able to set a var to `nil` we need to decalre it as an `Optional`
+/// Example `var obj: Object? = Object()`
+/// Now we can set it to `nil`
+/// `obj = nil`
+/// now ``TheObject`` has no reference to it and it's `RC == 0`
+/// Now ARC can remove ``TheObject`` from the memory
+
 final class Person {
     let name: String
     var vehicle: Car?
     
     init(name: String) {
         self.name = name
-        print("Person has be initialized: \(name)")
+        print("Person has been initialized: \(name)")
     }
     
     deinit {
