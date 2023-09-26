@@ -1,8 +1,16 @@
 import Foundation
 
 /// There are 2 ways to prevent Strong Reference Cycle
-/// ``weak``
-/// ``unowned``
+/// ``weak`` `var`
+/// ``unowned``  `var`
+/// They both are the mechanisms that ``does not increase`` `Reference Count (RC)`
+/// The difference is that ``unowned`` guaranties that the object is not `nil`
+/// If the object is deinited then ``weak`` points to `nil`
+/// however ``unowned`` will cause `runtime error`
+/// Use a weak reference when the other instance has a shorter lifetime — that is, when the other instance can be deallocated first.
+/// Use an unowned reference when the other instance has the same lifetime or a longer lifetime.
+
+/// ``Weak`` Property observers aren’t called when ARC sets a weak reference to nil.
 
 // MARK: - Method 1      weak
 final class Person {
