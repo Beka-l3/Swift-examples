@@ -5,6 +5,8 @@
         <page name='ARC | Strong Reference Cycle'/>
         <page name='ARC | Prevent SRC'/>
         <page name='ARC | SRC for Closures'/>
+        <page name='Tail Recursion'/>
         <page name='Structures &amp; Classes'/>
+        <page name='Dispatherization'/>
     </pages>
 </playground>
