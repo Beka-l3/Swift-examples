@@ -135,3 +135,102 @@ print("                          ")
 print(" i1 ----->  Blue Balooon  ")
 print("\n")
 
+
+// MARK: - Method 2         unowned
+
+/// We can make `unowned` property as `let`
+/// because we guarantee that it is always has a value
+/// but ARC will not count a strong reference
+
+/// example 1
+final class Customer {
+    let name: String
+    var card: CreditCard?
+    
+    init(name: String) {
+        self.name = name
+        print("This person has registered in our bank: \(name)")
+    }
+    
+    deinit {
+        print("Our client left our bank: \(name)")
+    }
+}
+
+final class CreditCard {
+    let number: UInt64
+    unowned let customer: Customer
+    
+    init(number: UInt64, customer: Customer) {
+        self.number = number
+        self.customer = customer
+        print("Card got it's customer: #\(number), \(customer.name)")
+    }
+    deinit { print("Card lost it's owner: #\(number)") }
+}
+
+var beka: Customer?
+beka = Customer(name: "Bekzhan Talgat")
+beka!.card = CreditCard(number: 1234_5678_9012_3456, customer: beka!)
+
+print("Current refferences look like this\n")
+
+print(" p1 -----> Beka           ")
+print("           |  ^           ")
+print("           |  :           ")
+print("           ˇ  :           ")
+print("           Card           ")
+print("\n")
+
+beka = nil
+
+print("In CreditCards deinit, we cannot access customer, because it is already deinited")
+
+/// example 2
+/// `unowned` can be also a `var` and `Optional`
+/// And it will behave like a `weak`
+class Department {
+    var name: String
+    var courses: [Course]
+    init(name: String) {
+        self.name = name
+        self.courses = []
+    }
+}
+
+class Course {
+    var name: String
+    unowned var department: Department
+    unowned var nextCourse: Course?
+    init(name: String, in department: Department) {
+        self.name = name
+        self.department = department
+        self.nextCourse = nil
+    }
+}
+
+
+/// example 3
+/// `unowned` can be `Implicitly Unwrapped Optiona`
+/// It will be like a just `Optional` and default value is `nil`
+/// This means that the capitalCity property has a default value of `nil`,
+/// like any other` optional`,
+/// but can be accessed without the need to unwrap its value as described in
+class Country {
+    let name: String
+    var capitalCity: City!
+    init(name: String, capitalName: String) {
+        self.name = name
+        self.capitalCity = City(name: capitalName, country: self)
+    }
+}
+
+
+class City {
+    let name: String
+    unowned let country: Country
+    init(name: String, country: Country) {
+        self.name = name
+        self.country = country
+    }
+}

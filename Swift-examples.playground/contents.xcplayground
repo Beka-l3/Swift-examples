@@ -4,5 +4,6 @@
         <page name='ARC | Strong Reference intro'/>
         <page name='ARC | Strong Reference Cycle'/>
         <page name='ARC | Prevent SRC'/>
+        <page name='ARC | SRC for Closures'/>
     </pages>
 </playground>
