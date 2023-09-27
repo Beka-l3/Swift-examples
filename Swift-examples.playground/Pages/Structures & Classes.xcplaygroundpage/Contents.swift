@@ -3,6 +3,7 @@ import Foundation
 /// Structures and Enumerations are `value types`
 /// A value type is a type whose value is copied when it’s assigned to a variable or constant, or when it’s passed to a function.
 
+/// ``Copy on change``
 /// `Collections` defined by the standard library like arrays, dictionaries, and strings
 /// use an optimization to reduce the performance cost of copying.
 /// Instead of making a copy immediately,
@@ -60,13 +61,42 @@ print("The current direction is \(currentDirection)")
 print("The remembered direction is \(rememberedDirection)\n\n")
 
 
+/// Unlike value types, reference types are not copied when they’re assigned to a variable or constant,
+/// or when they’re passed to a function.
+/// Rather than a copy, a reference to the same existing instance is used.
+
+let tenEighty = VideoMode()
+tenEighty.resolution = hd
+tenEighty.interlaced = true
+tenEighty.name = "1080i"
+tenEighty.frameRate = 25.0
+
+let alsoTenEighty = tenEighty
+
+print("Current refferences look like this\n")
+print(" tenEighty ---------> frame rate: 25.0  ")
+print("                        ^               ")
+print("                        |               ")
+print("                        |               ")
+print("                 alsoTenEighty          ")
+print("\n")
+
+alsoTenEighty.frameRate = 30.0
+
+print("The frameRate property of tenEighty is now \(tenEighty.frameRate)\n")
 
 
+print("Current refferences look like this\n")
+print(" tenEighty ---------> frame rate: 30.0  ")
+print("                        ^               ")
+print("                        |               ")
+print("                        |               ")
+print("                 alsoTenEighty          ")
+print("\n")
 
-
-
-
-
-
-
+// MARK: - Identity operator
+/// It can sometimes be useful to find out whether two constants or variables refer to exactly the same instance of a class.
+/// To enable this, Swift provides two identity operators:
+/// Identical to `===`
+/// Not identical to `!==`
 
