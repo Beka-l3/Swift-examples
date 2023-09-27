@@ -5,5 +5,6 @@
         <page name='ARC | Strong Reference Cycle'/>
         <page name='ARC | Prevent SRC'/>
         <page name='ARC | SRC for Closures'/>
+        <page name='Structures &amp; Classes'/>
     </pages>
 </playground>
