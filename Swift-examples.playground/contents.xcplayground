@@ -7,6 +7,6 @@
         <page name='ARC | SRC for Closures'/>
         <page name='Tail Recursion'/>
         <page name='Structures &amp; Classes'/>
-        <page name='Dispatherization'/>
+        <page name='Method Dispatch'/>
     </pages>
 </playground>
