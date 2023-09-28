@@ -110,14 +110,14 @@ class ClassExample4 {
 
 // MARK: Example 1 - Virtual Table
 /// Separate ``Virtual Table`` is created for each of classes
-/// a    ` ---------------------------- `       ` ---------------------------- `
-/// a    `|`              ClassExample5                   `|`       `|`              SubclassExample5             `|`
+/// a    ` ---------------------------- `      ` ---------------------------- `
+/// a    `|`              ClassExample5                   `|`      `|`              SubclassExample5              `|`
 /// a    `|----------------------------|`       `|----------------------------|`
-/// a    `|`         ClassExample5    `|` 0xxB1C`|`       `|`  SubclassExample5     `|`0xxB1C `|`
+/// a    `|`         ClassExample5    `|` 0xxB1C`|`      `|`  SubclassExample5      `|`0xxB1C `|`
 /// a    `|-------------------|--------|`       `|-------------------|--------|`
 /// a    `|`        doSomething()      `|` 0xx9C2`|`       `|`        doSomething()       `|` 0xx8D1`|`
 /// a    ` ---------------------------- `       `|-------------------|--------|`
-/// a                                                                                  `|`        doSomething2()     `|` 0xx7A9`|`
+/// a                                                                                  `|`       doSomething2()      `|` 0xx7A9`|`
 /// a                                                                                  ` ---------------------------- `
 class ClassExample5 {
     func doSomething() {
