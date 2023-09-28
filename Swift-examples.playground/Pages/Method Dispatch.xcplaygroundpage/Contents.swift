@@ -105,7 +105,7 @@ class ClassExample4 {
 /// This helps to find appropriate <link to> method implementation / instructions for CPU
 
 /// `OOP is preserved` - ``advantage``
-/// `Slower that Direct Dispatch` - **disadvantage
+/// `Slower than Direct Dispatch` - **disadvantage
 
 
 // MARK: Example 1 - Virtual Table
@@ -134,6 +134,18 @@ class SubclassExample5: ClassExample5 {
         print("Method of subclass")
     }
 }
+
+
+// MARK: - Virtual Table
+/// ``Witness Table``  is used with `Protocol`
+/// For every class that is conforming/implementing to a protocol
+
+/// same as Virtual Table
+/// `OOP is preserved` - ``advantage``
+/// `Slower than Direct Dispatch` - **disadvantage
+
+
+
 
 
 
