@@ -15,11 +15,13 @@ import Foundation
 
 // MARK: - Direct Dispatch      aka Static Dispatch
 /// `The fastest way to send the method` - ``advantade``
-/// `OOP is limited` - **disadvantage
+/// `OOP is limited` - **disadvantage**
 
 /// `Value types` use ``Direct Dispatch``
 
-/// Example 1 - Final Class
+
+
+// MARK: Example 1 - Final Class
 /// `final` forbids `inheritance`
 /// and methods cannot be `override`d
 /// and ``Direct Dispatch`` is used
@@ -62,6 +64,7 @@ classExample2.doSomething()
 // MARK: Example 3 - Class Extension
 /// methods in extension cannot be `override`d
 /// and it uses ``Direct Dispatch``
+///
 class ClassExample3 {}
 
 extension ClassExample3 {
@@ -81,6 +84,7 @@ classExample3.doSomething()
 // MARK: Example 4 - Access Control
 /// `private` methods can not be `override`d
 /// so it uses ``Direct Dispatch``
+///
 class ClassExample4 {
     
     func doSomething() {
@@ -92,6 +96,9 @@ class ClassExample4 {
         print("Example 4 - Access Control")
     }
 }
+
+
+
 
 
 
@@ -119,6 +126,7 @@ class ClassExample4 {
 /// a    ` ---------------------------- `       `|-------------------|--------|`
 /// a                                                                                  `|`       doSomething2()      `|` 0xx7A9`|`
 /// a                                                                                  ` ---------------------------- `
+///
 class ClassExample5 {
     func doSomething() {
         print("Example 5 - Virtual Table")
@@ -134,6 +142,7 @@ class SubclassExample5: ClassExample5 {
         print("Method of subclass")
     }
 }
+
 
 
 // MARK: - Virtual Table
@@ -152,6 +161,7 @@ class SubclassExample5: ClassExample5 {
 /// a    `|-------------------|--------|`       `|-------------------|--------|`
 /// a    `|`        doSomething()      `|` 0xx1D2`|`       `|`        doSomething()       `|`0xxFO4`|`
 /// a    ` ---------------------------- `       ` ---------------------------- `
+///
 protocol ProtocolExample6 {
     func doSomething()
 }
@@ -175,6 +185,58 @@ class AnotherClassExample6: ProtocolExample6 {
 
 
 
+// MARK: - Message Dispatch
+/// The most `Dynamic` Dispatch that uses `Objective-C`
+/// It works during `Runtime`
+/// It iin the base of KVO (and in reactive programming), UIAppearance, CoreData.
+
+/// Since it works during Runtime, method implementation can be changes. It is called `Method Swizziling`
+
+/// It is often used during `Testing`
+/// Less in `Prod`
+/// Because it is not safe enough
+
+/// `Method Swizziling` - ``advantage``
+/// `The most dynamic` - ``advantage``
+/// `The slowest Dispatch` - **disadvantage**
+
+/// To implement ``Message Dispatch`` prefix `@objc dynamic` is used. Or `@objcMembers` before `class` -> all methods become `@objc` by default
+
+
+
+// MARK: Example 7 - All types of dispatching
+/// Here, all the Dispatchs are included
+/// But ``Message Dispatch`` is discussed
+/// During `Runtim` when `doSomething` is called
+/// First look up is done in `Subclass`
+/// If not found, then in` ParrentClass`
+/// if not found, then in `NSObject`
+///  if method is used with `performSelector` and not found then we get `crash` with error **NSInvalidArgumentException: unrecognized selector sent to instance**
+///
+protocol ProtocolExample7 {
+    func doSomethingWithWitnessTable()
+}
+
+class ClassExample7: NSObject {
+    @objc dynamic func doSomething() {
+        print("Example 7 - Message Dispatch")
+    }
+}
+
+class SubclassExample7: ClassExample7, ProtocolExample7 {
+    private func doSomethingWithDirectDispatch() {
+        print("Direct Dispatch")
+    }
+    func doSomethingWithVirtualTable() {
+        print("Virtual Table")
+    }
+    func doSomethingWithWitnessTable() {
+        print("Witness Table")
+    }
+    @objc override dynamic func doSomething() {
+        print("Override with Message Dispatch")
+    }
+}
 
 
 
