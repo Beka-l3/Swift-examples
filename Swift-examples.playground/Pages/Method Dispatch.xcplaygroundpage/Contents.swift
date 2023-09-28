@@ -105,7 +105,7 @@ class ClassExample4 {
 /// This helps to find appropriate <link to> method implementation / instructions for CPU
 
 /// `OOP is preserved` - ``advantage``
-/// `Slower than Direct Dispatch` - **disadvantage
+/// `Slower than Direct Dispatch` - **disadvantage**
 
 
 // MARK: Example 1 - Virtual Table
@@ -140,10 +140,33 @@ class SubclassExample5: ClassExample5 {
 /// ``Witness Table``  is used with `Protocol`
 /// For every class that is conforming/implementing to a protocol
 
-/// same as Virtual Table
-/// `OOP is preserved` - ``advantage``
-/// `Slower than Direct Dispatch` - **disadvantage
+/// `Plymorphism` - ``advantage``
+/// `Slower than Direct Dispatch` - **disadvantage**
+/// `Inheritance is not presented` - **disadvantage**
 
+// MARK: Example 6 - Witness Table
+/// a    ` ---------------------------- `      ` ---------------------------- `
+/// a    `|`              ClassExample6                   `|`      `|`           AnotherClassExample6          `|`
+/// a    `|----------------------------|`       `|----------------------------|`
+/// a    `|`      ProtocolExample6   `|`0xxCD0`|`       `|`    ProtocolExample6     `|`0xxCD0`|`
+/// a    `|-------------------|--------|`       `|-------------------|--------|`
+/// a    `|`        doSomething()      `|` 0xx1D2`|`       `|`        doSomething()       `|`0xxFO4`|`
+/// a    ` ---------------------------- `       ` ---------------------------- `
+protocol ProtocolExample6 {
+    func doSomething()
+}
+
+class ClassExample6: ProtocolExample6 {
+    func doSomething() {
+        print("Example 6 - Witness Table")
+    }
+}
+
+class AnotherClassExample6: ProtocolExample6 {
+    func doSomething() {
+        print("Hello World")
+    }
+}
 
 
 
