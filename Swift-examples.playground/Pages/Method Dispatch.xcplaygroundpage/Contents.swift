@@ -3,7 +3,7 @@ import Foundation
 /// Method Dispatch heppens always when a method is called
 /// It is a process during which the program chooses which instructions to run
 /// It looks like this  `Method call -> Method Dispatch -> Method Processing`
-/// Method Dispatch tells CPU where to find in memory the instructions of the method
+/// Method Dispatch tells CPU where to find in memory the instructions of the <link to>  method
 /// There are three types of Method Dispatch
 /// 1) ``Direct Dispatch``
 /// 2) ``Table Dispatch``
@@ -14,8 +14,9 @@ import Foundation
 
 
 // MARK: - Direct Dispatch      aka Static Dispatch
-/// The fastest way to send the method
-/// OOP is limited
+/// `The fastest way to send the method` - ``advantade``
+/// `OOP is limited` - **disadvantage
+
 /// `Value types` use ``Direct Dispatch``
 
 /// Example 1 - Final Class
@@ -96,9 +97,43 @@ class ClassExample4 {
 
 
 
-// MARK: - Virtual Dispatch
+// MARK: - Table Dispatch
+
+// MARK: - Virtual Table
+/// ``Virtual Table`` is used in `Inheritance`
+/// For every class and it's subclass ``Virual table`` is used
+/// This helps to find appropriate <link to> method implementation / instructions for CPU
+
+/// `OOP is preserved` - ``advantage``
+/// `Slower that Direct Dispatch` - **disadvantage
 
 
+// MARK: Example 1 - Virtual Table
+/// Separate ``Virtual Table`` is created for each of classes
+///     ` ---------------------------- `                                ` ---------------------------- `
+///     `|`              ClassExample5                   `|`                                `|`              SubclassExample5             `|`
+///     `|----------------------------|`                                `|----------------------------|`
+///     `|`         ClassExample5    `|` 0xxB1C`|`                                `|`  SubclassExample5     `|`0xxB1C `|`
+///     `|-------------------|--------|`                                `|-------------------|--------|`
+///     `|`        doSomething()      `|` 0xx9C2`|`                                `|`        doSomething()       `|` 0xx8D1`|`
+///     ` ---------------------------- `                                `|-------------------|--------|`
+///                                                   `|`        doSomething2()     `|` 0xx7A9`|`
+///                                                   ` ---------------------------- `
+class ClassExample5 {
+    func doSomething() {
+        print("Example 5 - Virtual Table")
+    }
+}
+
+class SubclassExample5: ClassExample5 {
+    override func doSomething() {
+        print("Override for subclass")
+    }
+
+    func doSomething2() {
+        print("Method of subclass")
+    }
+}
 
 
 
