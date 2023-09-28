@@ -240,3 +240,60 @@ class SubclassExample7: ClassExample7, ProtocolExample7 {
 
 
 
+
+
+// MARK: - Bug
+/// There are some bugs around Method Dispatch
+/// But with updates they are being fixed
+///
+/// Here is one bug that is still present
+print("\n\n")
+
+// MARK: Example 8 - First Bug
+/// We should see `Required Implementation` prented 2 times
+/// Howerver, in the second case `Default Implementation` is used and that is ``Direct Dispatch``
+/// But we implemented our own `doSomething` in the class. And that is ``Witness Tabel``
+
+protocol ProtocolExample8 {}
+
+extension ProtocolExample8 {
+    func doSomething() {
+        print("Default Implementation")
+    }
+}
+
+class ClassExample8: ProtocolExample8 {
+    func doSomething() {
+        print("Required Implementation")
+    }
+}
+
+let first = ClassExample8()
+let second: ProtocolExample8 = ClassExample8()
+first.doSomething()
+second.doSomething()
+print("\n")
+
+
+/// To fix it wee need to add ``blueprint`` of the method in `protocol`
+
+protocol ProtocolExample9 {
+    func doSomething()
+}
+
+extension ProtocolExample9 {
+    func doSomething() {
+        print("Default Implementation")
+    }
+}
+
+class ClassExample9: ProtocolExample9 {
+    func doSomething() {
+        print("Required Implementation")
+    }
+}
+
+let first2 = ClassExample9()
+let second2: ProtocolExample9 = ClassExample9()
+first2.doSomething()
+second2.doSomething()
