@@ -33,13 +33,20 @@ import UIKit
 /// The `frame` property defines the origin and dimensions of the view in the coordinate system of its superview.
 /// The `bounds` property defines the internal dimensions of the view as it sees them, and its use is almost exclusive to custom drawing code.
 /// The `center` property provides a convenient way to reposition a view without changing its frame or bounds properties directly.
-///
 
+// MARK: - Create a view
+/// When creating a view, you typically specify its initial size and position relative to its future superview.
 
+let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
+let myView = UIView(frame: rect)
 
+/// To add a subview to another view, call the `addSubview(_:)` method on the superview.
+/// You may add any number of subviews to a view, and sibling views may overlap each other without any issues in iOS.
+/// Each call to the`addSubview(_:)` method places the new view on top of all other siblings.
+/// You can specify the relative `z-order` of subview by adding it using the `insertSubview(_:aboveSubview:)` and `insertSubview(_:belowSubview:)` methods.
+/// You can also exchange the position of already added subviews using the `exchangeSubview(at:withSubviewAt:)` method.
 
-
-
+/// After creating a view, create Auto Layout rules to govern how the size and position of the view change in response to changes in the rest of the view hierarchy.
 
 
 
