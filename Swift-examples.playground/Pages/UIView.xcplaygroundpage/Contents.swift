@@ -59,6 +59,21 @@ let myView = UIView(frame: rect)
 /// Because it waits until the next drawing cycle to update the view, you can call these methods on multiple views to update them at the same time.
 
 
+// MARK: - Animate View
+/// Changes to several view properties can be animated — that is, changing the property creates an animation starting at the current value and ending at the new value that you specify.
+/// The following properties of the ``UIView`` class are animatable:
+/// - `frame`
+/// - `bounds`
+/// - `center`
+/// - `transform`
+/// - `alpha`
+/// - `backgroundColor`
+/// To animate your changes, create a UIViewPropertyAnimator object and use its handler block to change the values of your view’s properties.
+/// The `UIViewPropertyAnimator` class lets you specify the duration and timing of your animations, but it performs the actual animations.
+/// You can pause a property-based animator that’s currently running to interrupt the animation and drive it interactively.
+
+
+// MARK: - Threading Consideration
 
 
 
