@@ -49,6 +49,8 @@ func foo() {
 //Task { await foo() }
 
 
+
+
 // MARK: - Asyn Sequence
 /// The` listPhotos(inGallery:)` function in the previous section asynchronously returns the whole array at once,
 /// after all of the array’s elements are ready. Another approach is to wait for one element of the collection at a time using an asynchronous sequence.
@@ -67,6 +69,8 @@ func readFile() async throws {
 
 /// In the same way that you can use your own types in a `for-in loop` by adding conformance to the `Sequence` protocol,
 /// you can use your own types in a `for-await-in loop` by adding conformance to the ``AsyncSequence`` protocol
+
+
 
 
 // MARK: - Calling Asyn funcs in Parallel
@@ -134,6 +138,8 @@ func foo2() async {
 /// the program needs the results from these asynchronous calls, so you write await to pause execution until all three photos finish downloading
 
 
+
+
 // MARK: - Task and TaskGroup
 /// A `task` is a unit of work that can be run `asynchronously` as part of your program
 /// `All` asynchronous code runs as part of some `task`.
@@ -160,6 +166,8 @@ func foo3() async {
 }
 
 //Task { await foo3() }
+
+
 
 
 // MARK: - Unstructured Concurrency
@@ -198,3 +206,91 @@ func foo4() async {
 }
 
 //Task { await foo4() }
+
+
+// MARK: Cancellation
+/// Swift concurrency uses a `cooperative` cancellation model.
+/// Each task checks whether it has been canceled at the appropriate points in its execution,
+/// and responds to cancellation in whatever way is appropriate.
+/// Depending on the work you’re doing, that usually means one of the following:
+/// - **Throwing an error like CancellationError**
+/// - **Returning nil or an empty collection**
+/// - **Returning the partially completed work**
+
+/// To check for cancellation, either call `Task.checkCancellation()`, which throws `CancellationError` if the task has been canceled,
+/// or check the value of `Task.isCancelled` and handle the cancellation in your own code.
+/// For example, a task that’s downloading photos from a gallery might need to delete partial downloads and close network connections.
+
+/// To propagate cancellation manually, call `Task.cancel()`
+
+
+
+
+// MARK: - Actors
+/// You can use tasks to break up your program into isolated, concurrent pieces.
+/// Tasks are isolated from each other, which is what makes it safe for them to run at the same time,
+/// but sometimes you need to share some information between tasks.
+/// ``Actors`` let you safely share information between concurrent code.
+
+/// Like classes, ``actors`` are `reference types`,
+/// so the comparison of value types and reference types in Classes Are Reference Types applies to actors as well as classes.
+/// Unlike `classes`, ``actors`` allow `only one task` to access their mutable state `at a time`,
+/// which makes it safe for code in multiple tasks to interact with the same instance of an actor.
+
+actor TemperatureLogger {
+    let label: String
+    var measurements: [Int]
+    private(set) var max: Int
+
+    init(label: String, measurement: Int) {
+        self.label = label
+        self.measurements = [measurement]
+        self.max = measurement
+    }
+}
+
+/// You create an instance of an actor using the same initializer syntax as structures and classes.
+/// When you access a property or method of an actor, you use `await` to mark the potential suspension point.
+
+func foo5() async {
+    let logger = TemperatureLogger(label: "Outdoors", measurement: 25)
+    print(await logger.max)
+}
+
+//Task { await foo5() }
+
+/// In contrast, code that’s part of the actor doesn’t write await when accessing the actor’s properties
+
+extension TemperatureLogger {
+    func update(with measurement: Int) {
+        measurements.append(measurement)
+        if measurement > max {
+            max = measurement
+        }
+    }
+}
+
+/// Preventing multiple tasks from interacting with the same instance simultaneously prevents problems like the following sequence of events
+/// 1) Your code calls the update(with:) method. It updates the measurements array first.
+/// 2) Before your code can update max, code elsewhere reads the maximum value and the array of temperatures
+/// 3) Your code finishes its update by changing max
+
+/// In this case, the code running elsewhere would `read incorrect information` because its access to the actor was interleaved in
+/// the middle of the call to `update(with:)` while the data was `temporarily invalid`.
+/// You can `prevent` this problem when using Swift `actors` because they ``only allow one operation on their state at a time,``
+/// and because that code can be interrupted only in places where await marks a suspension point.
+/// Because `update(with:)` doesn’t contain any suspension points, no other code can access the data in the middle of an update
+
+/// If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error
+/// `print(logger.max)`  // Error
+
+/// Accessing `logger.max` without writing `await` fails because the properties of an actor are part of that actor’s isolated local state.
+/// Swift guarantees that only code inside an actor can access the actor’s local state. This guarantee is known as `actor isolation`.
+
+
+
+
+
+
+
+
