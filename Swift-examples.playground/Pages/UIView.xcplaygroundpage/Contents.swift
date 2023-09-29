@@ -34,6 +34,7 @@ import UIKit
 /// The `bounds` property defines the internal dimensions of the view as it sees them, and its use is almost exclusive to custom drawing code.
 /// The `center` property provides a convenient way to reposition a view without changing its frame or bounds properties directly.
 
+
 // MARK: - Create a view
 /// When creating a view, you typically specify its initial size and position relative to its future superview.
 
@@ -47,6 +48,16 @@ let myView = UIView(frame: rect)
 /// You can also exchange the position of already added subviews using the `exchangeSubview(at:withSubviewAt:)` method.
 
 /// After creating a view, create Auto Layout rules to govern how the size and position of the view change in response to changes in the rest of the view hierarchy.
+
+
+// MARK: - Draw Views
+/// View drawing occurs on an as-needed basis.
+/// For views that contain custom content using UIKit or Core Graphics, the system calls the view’s `draw(_:)` method.
+/// When the actual content of your view changes, it’s your responsibility to notify the system that your view needs to be redrawn.
+/// You do this by calling your view’s `setNeedsDisplay()` or `setNeedsDisplay(_:)` method of the view.
+/// These methods let the system know that it should update the view during the next `drawing cycle`.
+/// Because it waits until the next drawing cycle to update the view, you can call these methods on multiple views to update them at the same time.
+
 
 
 
