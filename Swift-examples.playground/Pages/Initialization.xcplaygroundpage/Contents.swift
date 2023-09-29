@@ -195,3 +195,46 @@ let centerRect = Rect(
 /// - Finally, any convenience initializers in the chain have the option to customize the instance and to work with self.
 
 
+
+class Food {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    convenience init() {
+        self.init(name: "[Unnamed]")
+    }
+}
+
+let namedMeat = Food(name: "Bacon")
+// namedMeat's name is "Bacon"
+
+let mysteryMeat = Food()
+// mysteryMeat's name is "[Unnamed]"
+
+class RecipeIngredient: Food {
+    var quantity: Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    override convenience init(name: String) {
+        self.init(name: name, quantity: 1)
+    }
+}
+
+let oneMysteryItem = RecipeIngredient()                     //    name: [Unnamed]   quantity: 1
+let oneBacon = RecipeIngredient(name: "Bacon")              //    name: Bacon       quantity: 1
+let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)   //    name: Eggs        quantity: 6
+
+
+/// `ShoppingListItem` doesn’t define an initializer to provide an initial value for purchased,
+///  because items in a shopping list (as modeled here) always start out unpurchased.
+class ShoppingListItem: RecipeIngredient {
+    var purchased = false
+    var description: String {
+        var output = "\(quantity) x \(name)"
+        output += purchased ? " ✔" : " ✘"
+        return output
+    }
+}
