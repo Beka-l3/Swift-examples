@@ -74,8 +74,16 @@ let myView = UIView(frame: rect)
 
 
 // MARK: - Threading Consideration
+/// Manipulations to your app’s user interface must occur on the `main thread`.
+/// Thus, you should always call the methods of the ``UIView`` class from code running in the main thread of your app.
+/// The only time this may not be strictly necessary is when creating the view object itself, but all other manipulations should occur on the main thread.
 
 
+// MARK: - SubClassing notes
+/// The UIView class is a key subclassing point for visual content that also requires user interactions.
+/// Although there are many good reasons to subclass ``UIView``,
+/// it is recommended that you do so only when the basic ``UIView`` class or the standard system views do not provide the capabilities that you need.
+/// Subclassing requires more work on your part to implement the view and to `tune` its `performance`.
 
 
 
