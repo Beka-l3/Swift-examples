@@ -26,13 +26,15 @@ import UIKit
 /// The ``Task.sleep(until:tolerance:clock:)`` method is useful when writing simple code to learn how concurrency works.
 /// This method does nothing, but waits at least the given number of nanoseconds before it returns.
 
-func listPhotos(inGallery name: String) async throws -> [String] {
+func listPhotos(inGallery name: String) async -> [String] {
+    print("Fetching list of photos\n")
     do {
         try await Task.sleep(until: .now + .seconds(2), clock: .continuous)
     } catch {
         print("something went wrong")
     }
     
+    print("Returning list of photos\n")
     return ["IMG001", "IMG99", "IMG0404"]
 }
 
@@ -40,9 +42,11 @@ func foo() {
     print("Hopa")
     
     Task {
-        print(try await listPhotos(inGallery: ""))
+        print( await listPhotos(inGallery: "") )
     }
 }
+
+//Task { await foo() }
 
 
 // MARK: - Asyn Sequence
@@ -130,3 +134,67 @@ func foo2() async {
 /// the program needs the results from these asynchronous calls, so you write await to pause execution until all three photos finish downloading
 
 
+// MARK: - Task and TaskGroup
+/// A `task` is a unit of work that can be run `asynchronously` as part of your program
+/// `All` asynchronous code runs as part of some `task`.
+/// The `async-let` syntax described in the previous section creates a `child task` for you.
+/// You can also create a` task group` and add child tasks to that group, which gives you more control over `priority` and `cancellation`,
+/// and lets you create a `dynamic` number of tasks
+
+/// Tasks are arranged in a hierarchy. Each task in a task group has the same parent task, and each task can have child tasks
+/// Because of the explicit relationship between tasks and task groups, this approach is called ``structured concurrency``
+
+/// Although you take on some of the responsibility for `correctness`,
+/// the explicit parent-child relationships between tasks let Swift handle some behaviors like propagating cancellation for you,
+/// and lets Swift detect some errors at compile time
+
+func foo3() async {
+    await withTaskGroup(of: String.self) { taskGroup in
+        print("Start of task group\n")
+        let photoNames = await listPhotos(inGallery: "Summer Vacation")
+        for name in photoNames {
+            taskGroup.addTask { await downloadPhoto(named: name) }
+        }
+        print("End of task group\n")
+    }
+}
+
+//Task { await foo3() }
+
+
+// MARK: - Unstructured Concurrency
+/// In addition to the structured approaches to concurrency described in the previous sections,
+/// Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an unstructured task doesn’t have a parent task.
+/// You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness.
+
+/// To create an unstructured task that runs on the current `actor`, call the ``Task.init(priority:operation:)`` initializer.
+/// To create an unstructured task that’s `not` part of the current actor, known more specifically as a `detached task`,
+/// call the ``Task.detached(priority:operation:)`` class method.
+/// Both of these operations return a task that you can interact with — for example, to wait for its result or to cancel it
+func add(_ photo: String, toGalleryNamed: String) async -> Bool {
+    print("Let's add some photo\n")
+    
+    do {
+        try await Task.sleep(until: .now + .seconds(.random(in: 1...3)), clock: .continuous)
+    } catch {
+        print("Something went wrong ;)")
+        return false
+    }
+    
+    print("Added photo: \(photo) into gallerry: \(toGalleryNamed)\n")
+    return true
+}
+
+func foo4() async {
+    print("Add new photo\n")
+    
+    let newPhoto = "Hola"
+    let handle = Task {
+        return await add(newPhoto, toGalleryNamed: "Spring Adventures")
+    }
+    let result = await handle.value
+    
+    print(result, "\n")
+}
+
+//Task { await foo4() }
