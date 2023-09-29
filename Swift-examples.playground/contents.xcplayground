@@ -10,5 +10,6 @@
         <page name='Method Dispatch'/>
         <page name='UIView playground'/>
         <page name='UIView | Intro'/>
+        <page name='Initialization'/>
     </pages>
 </playground>
