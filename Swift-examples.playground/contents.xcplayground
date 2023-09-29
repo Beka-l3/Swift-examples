@@ -8,5 +8,6 @@
         <page name='Tail Recursion'/>
         <page name='Structures &amp; Classes'/>
         <page name='Method Dispatch'/>
+        <page name='UIView'/>
     </pages>
 </playground>

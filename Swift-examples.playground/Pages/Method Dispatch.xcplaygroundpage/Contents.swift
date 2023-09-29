@@ -16,6 +16,7 @@ import Foundation
 // MARK: - Direct Dispatch      aka Static Dispatch
 /// `The fastest way to send the method` - ``advantade``
 /// `OOP is limited` - **disadvantage**
+///     `No polymophism` - **disadvantage**
 
 /// `Value types` use ``Direct Dispatch``
 
@@ -113,6 +114,7 @@ class ClassExample4 {
 
 /// `OOP is preserved` - ``advantage``
 /// `Slower than Direct Dispatch` - **disadvantage**
+/// `Extension of the class does not extend the table` - **disadvantage**
 
 
 // MARK: Example 1 - Virtual Table
