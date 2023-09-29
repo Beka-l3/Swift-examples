@@ -106,5 +106,92 @@ let centerRect = Rect(
 /// Classes, however, can inherit from other classes
 /// This means that classes have additional responsibilities for ensuring that `all stored properties` they inherit are assigned a suitable value during initialization.
 
+/// All of a class’s `stored properties` — including any properties the class `inherits` from its superclass — must be assigned an initial value during initialization.
+/// Swift defines two kinds of initializers for class types to help ensure all stored properties receive an initial value.
+/// These are known as `designated` initializers and `convenience` initializers
+/// Every class must have at least one designated initializer
+
+
+// MARK: Designated
+/// ``Designated initializers`` are the primary initializers for a class.
+/// A designated initializer `fully initializes all properties` introduced by that class and
+/// calls an appropriate `superclass initializer` to continue the initialization process up the superclass chain
+
+// init(<#parameters#>) {
+//    <#statements#>
+// }
+
+
+// MARK: Convenience
+/// ``Convenience initializers`` are secondary, supporting initializers for a class.
+/// You can define a convenience initializer to call a designated initializer from the same class as the convenience initializer with some of
+/// the designated initializer’s parameters set to default values.
+/// You can also define a convenience initializer to create an instance of that class for a specific use case or input value type
+
+// convenience init(<#parameters#>) {
+//    <#statements#>
+// }
+
+
+// MARK: Rules
+/// 1) **A designated initializer must call a designated initializer from its immediate superclass.**
+/// 2) **A convenience initializer must call another initializer from the same class.**
+/// 3) ** A convenience initializer must ultimately call a designated initializer.**
+///
+/// - Designated initializers must always delegate up.
+/// - Convenience initializers must always delegate across.
+
+
+/*
+ 
+ superclass:-------------------------------------------------------------
+ |
+ |             designated  <------ convenience  <--------- convenience
+ |                     ^
+  --------------------- \ ------------------------------------------------
+                         \
+ subclass:--------------- \ ----------------------------------------------
+ |                         \
+ |   convenience ------> designated  <-------- convenience
+ |
+  ------------------------------------------------------------------------
+ 
+*/
+
+
+
+// MARK: - Two Phase Init
+/// Class initialization in Swift is a two-phase process
+/// `The first phase`:  each stored property is assigned an initial value by the class that introduced it
+/// `The second phase`: each class is given the opportunity to customize its stored properties further before the new instance is considered ready for use
+
+/// The use of a two-phase initialization process makes initialization safe
+/// Two-phase initialization prevents property values from being accessed before they’re initialized,
+/// and prevents property values from being set to a different value by another initializer unexpectedly
+
+// MARK: Safety Check
+/// 1) A designated initializer must ensure that all of the properties introduced by its class are initialized before it delegates up to a superclass initializer
+
+/// 2) A designated initializer must delegate up to a superclass initializer before assigning a value to an inherited property.
+///   If it doesn’t, the new value the designated initializer assigns will be overwritten by the superclass as part of its own initialization.
+
+/// 3) A convenience initializer must delegate to another initializer before assigning a value to any property (including properties defined by the same class).
+///   If it doesn’t, the new value the convenience initializer assigns will be overwritten by its own class’s designated initializer.
+
+/// 4) An initializer can’t call any instance methods, read the values of any instance properties, or refer to self as a value until after the first phase of initialization is complete.
+
+// MARK: Pahse 1
+/// - A designated or convenience initializer is called on a class.
+/// - Memory for a new instance of that class is allocated. The memory isn’t yet initialized.
+/// - A designated initializer for that class confirms that all stored properties introduced by that class have a value. The memory for these stored properties is now initialized.
+/// - The designated initializer hands off to a superclass initializer to perform the same task for its own stored properties.
+/// - This continues up the class inheritance chain until the top of the chain is reached.
+/// - Once the top of the chain is reached, and the final class in the chain has ensured that all of its stored properties have a value, the instance’s memory is considered to be fully initialized, and phase 1 is complete.
+
+// MARK: Phase 2
+/// - Working back down from the top of the chain, each designated initializer in the chain has the option to customize the instance further.
+///   Initializers are now able to access self and can modify its properties, call its instance methods, and so on.
+
+/// - Finally, any convenience initializers in the chain have the option to customize the instance and to work with self.
 
 
