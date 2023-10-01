@@ -71,6 +71,27 @@ import UIKit
 /// This is called when the view is disappeared from the screen. The view is removed from the view hierarchy at the moment
 
 
+/*
+  
+                                                                                            ----> (did Deceive Memory Warning)
+                                                                                            |           |
+                                                                                            |           |
+                           yes                                                              |           ˇ
+     Does view exist -----------> [view Will Appear] ------> [view Did appear] -------> view is visible on screen
+      ^                 |                    ^                                                               |
+      |                 | no                 |                                                               |
+      |                 |                    |                                                               |
+      |                 ˇ                    |                                                               |
+      |            [load view] -----> [view did load]                                                        | view removed
+      |                                                                                                      | from screen
+      |                                                                                                      |
+      |   view asked                                                                                         |
+      |   to appear                                                                                          |
+      |                                                                                                      |
+      |                                                                                                      |
+      -------------------------------------------- [view Did Disappear] <----------- [view Will Disappear] <--
+        view not visible on screen
+*/
 
 
 
