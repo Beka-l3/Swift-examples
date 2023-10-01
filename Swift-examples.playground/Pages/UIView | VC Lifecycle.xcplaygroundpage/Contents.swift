@@ -93,7 +93,58 @@ import UIKit
         view not visible on screen
 */
 
+/// We took a look at the most common relationship, view and view controller relationship which was also a default one implemented by UIKit.
+/// But the view controller not only gets in a relationship with a view but also with other view controllers like a child and parent
 
 
+
+
+// MARK: - Relationship
+/// Understanding this relationship and the lifecycle of the view controller is important if we `embed` one view controller into another.
+/// Because we might need to manually call some lifecycle methods to inform the system about the state
+
+
+// MARK: Adding a ViewController as a child to Another ViewController
+let childViewController = UIViewController()
+let parentViewController = UIViewController()
+parentViewController.addChild(childViewController)
+parentViewController.view.addSubview(childViewController.view)
+
+// Time to setup auto-layout constraints for childViewController.view
+// Example:
+//   NSLayoutConstraint.activate([
+//       childViewController.view.topAnchor.constraint(equalTo: parentViewController.view.topAnchor)
+//   ])
+
+childViewController.didMove(toParent: parentViewController)
+
+
+/// After creating view controllers, we add the child to the parent.
+/// This addition automatically calls `childViewController.willMove(toParent: parentViewController)` for us.
+/// So, we don’t need to call it manually.
+
+/// Then, we need to add the child view controller’s view to the parent’s view to have a `child-parent` relationship for views.
+/// The system will `load both views` and will add one to another with our call `addSubview`.
+
+/// Then we inform the system by calling d`idMove(toParent:).`
+/// The system will handle the rest of displaying the view controller and calling the view controller’s necessary methods in its lifecycle like `viewDidLoad`, `viewDidAppear`, etc
+
+
+// MARK: Removing the Child ViewController from the Parent ViewController
+childViewController.willMove(toParent: nil)
+childViewController.view.removeFromSuperview()
+childViewController.removeFromParent()
+
+
+/// While removing the child view controller from the parent,
+/// we have to call `willMove(toParent:)` method with nil to inform the system that the child view controller will be removed from the parent.
+/// Then, we remove its view and later itself from the parent.
+
+///  As we see, we don’t need to call `didMove(toParent:)` method while we’re removing it.
+///  `removeFromParent` method automatically calls that method for us.
+
+/// Additionally, we can override both `willMove(toParent:)` and `didMove(toParent:)`.
+/// If we need to know in a view controller that it’s been added as a child to another view controller,
+/// we can `override` these methods and implement our custom actions
 
 
