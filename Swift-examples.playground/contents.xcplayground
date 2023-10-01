@@ -12,5 +12,7 @@
         <page name='UIView | Intro'/>
         <page name='Initialization'/>
         <page name='Concurrency'/>
+        <page name='UIView | VC Lifecycle'/>
+        <page name='Application Lifecycle'/>
     </pages>
 </playground>
