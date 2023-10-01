@@ -99,7 +99,7 @@ import UIKit
 
 
 
-// MARK: - Relationship
+// MARK: - VC Relationship
 /// Understanding this relationship and the lifecycle of the view controller is important if we `embed` one view controller into another.
 /// Because we might need to manually call some lifecycle methods to inform the system about the state
 
@@ -148,3 +148,27 @@ childViewController.removeFromParent()
 /// we can `override` these methods and implement our custom actions
 
 
+
+
+// MARK: - View relationships
+/// In this relationship, most of the lifecycle is handled automatically by the system and no need for
+/// calling some methods like parent and child view controllers relationship.
+/// For example, even if we try to call `willRemoveSubview` method, it does nothing.
+/// The default implementation is empty. The system calls the below functions only to inform us when something is changed.
+/// There are not so many things to talk about.
+
+/// Learning that we can detect when the subview is added, the view is added as a subview or
+/// moved to the window opens up opportunities for implementing extra actions during those phases
+
+/// Here are the mentioned lifecycle methods for `UIView`:
+/// 1) `didAddSubview(_:)`
+/// 2) `willRemoveSubview(_:)`
+/// 3) `willMove(toSuperView:)`
+/// 4) `didMoveToSuperview()`
+/// 5) `willMove(toWindow:)`
+/// 6) `didMoveToWindow()`
+
+/// The only important thing to know here is `removeFromSuperview` method.
+/// We can call this if we want to remove the view from its parent.
+/// Calling this method removes all `constraints` in the view and in its `subtrees`.
+/// We shouldn’t call this method inside the view’s `draw(_:)` method.
