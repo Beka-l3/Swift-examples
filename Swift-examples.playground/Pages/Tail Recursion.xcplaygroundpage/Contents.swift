@@ -33,6 +33,8 @@ class Some {
 /// The main issue is that functions have a `prelude`,
 /// a chunk of code that runs after the function body, which makes release calls on any ARC-managed objects used during the function.
 
+
+
 /// So long as your function's last statement is a recursive call (with no extra bells and whistles, like `recurse() + [value], recurse() + 1)`,
 /// and your functions doesn't use any ARC--managed objects, then the compiler should be able to tail-call optimize it.
 /// But again, don't rely on it.
