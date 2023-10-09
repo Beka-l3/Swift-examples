@@ -21,7 +21,7 @@ import UIKit
 /// Because code with `await` needs to be able to suspend execution, only certain places in your program can call asynchronous functions or methods:
 /// - Code in the body of an `asynchronous` function, method, or property
 /// - Code in the `static main()` method of a structure, class, or enumeration that’s marked with `@main`.
-/// - Code in an unstructured child task, as shown in Unstructured Concurrency below.
+/// - Code in an unstructured child task, as shown in `Unstructured Concurrency` below.
 
 /// The ``Task.sleep(until:tolerance:clock:)`` method is useful when writing simple code to learn how concurrency works.
 /// This method does nothing, but waits at least the given number of nanoseconds before it returns.

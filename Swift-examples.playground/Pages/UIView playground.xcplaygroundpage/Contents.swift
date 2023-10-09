@@ -46,4 +46,31 @@ final class MyViewController: UIViewController {
     
 }
 
-PlaygroundPage.current.liveView = MyViewController()
+
+final class MyViewController1: UIViewController {
+    override func loadView() {
+        let view = UIView()
+        view.backgroundColor = .black
+        self.view = view
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.isHidden = true
+        print("Hello form Will")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("Hello form Did")
+    }
+}
+
+PlaygroundPage.current.liveView = MyViewController1()
