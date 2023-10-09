@@ -89,7 +89,50 @@ func foo1() {
     foo()
     print("\n")
 }
-foo1()
+//foo1()
+
+func foo2() {
+    var heading: HTMLElement? = HTMLElement(name: "p")
+    let defaultText = "Some text"
+    heading!.asHTML = {
+        return "<\(heading!.name)>\(heading!.text ?? defaultText)</\(heading!.name)>"
+    }
+    print(heading!.asHTML())
+    heading = nil
+    
+    /// This code does not cause a `Strong Reference Cycle`
+    /// because the closure used for the `asHTML` property
+    /// captures `self` as an ``unowned`` reference, not a `strong` reference
+    
+    print("\n")
+}
+//foo2()
+
+func foo3() {
+    var heading: HTMLElement? = HTMLElement(name: "a")
+    let defaultText = "Hello world"
+    
+    heading?.asHTML = {
+        return "<\(heading?.name)>\(heading?.text ?? defaultText)</\(heading?.name)>"
+    }
+    print(heading?.asHTML())
+    heading = nil
+    
+    /// The topic is closures and memory management in Swift, specifically related to avoiding strong reference cycles.
+    
+    /// When a variable is `captured` by a closure, it means that the closure is referencing that variable in its execution.
+    /// In this case, heading is being captured by the closure as an `optional` value.
+
+    /// Capturing a variable as an optional in a closure means that the closure is `not` `creating` a `strong` `reference` to the variable,
+    /// but rather holding onto it as an optional value. This allows the variable to be deallocated if necessary without causing a strong reference cycle.
+
+    /// It is not explicitly weak, unowned, or strong, but rather the capture list in the closure determines how the variable is captured.
+    /// In this case, since heading is captured as an optional, it is not creating a strong reference cycle.
+    
+    print("\n")
+}
+//foo3()
+
 
 // MARK: - Resolve SRC
 protocol SomeDelegate: AnyObject { }
@@ -144,21 +187,22 @@ class HTMLElement2 {
     }
 }
 
-var paragraph2: HTMLElement2? = HTMLElement2(name: "p", text: "hello, world")
-print(paragraph2!.asHTML())
-
-print("Current refferences look like this\n")
-
-print(" paragraph -----> p: hellow world          ")
-print("                     |     ^               ")
-print("                     |     :               ")
-print("                     ˇ     :               ")
-print("                closure: () -> String      ")
-print("\n")
-
-paragraph2 = nil
-
-
+func foo4() {
+    var paragraph2: HTMLElement2? = HTMLElement2(name: "p", text: "hello, world")
+    print(paragraph2!.asHTML())
+    
+    print("Current refferences look like this\n")
+    
+    print(" paragraph -----> p: hellow world          ")
+    print("                     |     ^               ")
+    print("                     |     :               ")
+    print("                     ˇ     :               ")
+    print("                closure: () -> String      ")
+    print("\n")
+    
+    paragraph2 = nil
+}
+//foo4()
 
 
 
