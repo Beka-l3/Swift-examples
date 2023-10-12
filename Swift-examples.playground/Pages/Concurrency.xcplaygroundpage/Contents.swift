@@ -68,18 +68,25 @@ func readFile() async throws {
 /// In the same way that you can use your own types in a `for-in loop` by adding conformance to the `Sequence` protocol,
 /// you can use your own types in a `for-await-in loop` by adding conformance to the ``AsyncSequence`` protocol
 
-func forLoopCaseLet() {
+func forLoopCaseLetCasting() {
     let array: [Any] = [1, 1.2, "Hello", true, [1, 2, 3], "World!"]
     for case let str as String in array {
         print(str)
     }
 }
-//forLoopCaseLet()
+//forLoopCaseLetCasting()
 
+func anotherForLoopCasting() {
+//    for case let (index, button as AClass) in view.subviews.enumerated() {
+//    }
+    
+//    for button in view.subviews as! [AClass] {
+//    }
+}
 
 
 // MARK: - Calling Asyn funcs in Parallel
-/// Calling an asynchronous function with await runs only one piece of code at a time.
+/// Calling an asynchronous function with `await` runs only one piece of code at a time.
 /// While the asynchronous code is running, the caller waits for that code to finish before moving on to run the next line of code.
 /// For example, to fetch the first three photos from a gallery, you could await three calls to the `downloadPhoto(named:)` function as follows
 func show(_ arr: [String]) {
@@ -133,9 +140,9 @@ func foo2() async {
     show(photos)
 }
 
-//Task { await foo2() }
+Task { await foo2() }
 
-/// In this example, all three calls to downloadPhoto(named:) start without waiting for the previous one to complete.
+/// In this example, all three calls to `downloadPhoto(named:)` start without waiting for the previous one to complete.
 /// If there are enough system resources available, they can run at the same time.
 /// None of these function calls are marked with await because the code doesn’t suspend to wait for the function’s result.
 
