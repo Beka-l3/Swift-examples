@@ -198,6 +198,11 @@ func add(_ photo: String, toGalleryNamed: String) async -> Bool {
     do {
         try await Task.sleep(until: .now + .seconds(.random(in: 1...3)), clock: .continuous)
     } catch {
+        do {
+            try Task.checkCancellation()
+        } catch {
+            print("Task is canceled")
+        }
         print("Something went wrong ;)")
         return false
     }
@@ -214,14 +219,22 @@ func foo4() async {
     
     print("Hola")
     let handle = Task {
+        do {
+            try Task.checkCancellation()
+        } catch {
+            print("Task is canceled")
+        }
         return await add(newPhoto, toGalleryNamed: "Spring Adventures")
     }
     
     if .random() {
         handle.cancel()
         print("Canceled")
+        
+        let canceledResult = await handle.value
+        print(canceledResult)
     }
-    
+        
     if !handle.isCancelled {
         print("Start")
         let result = await handle.value
@@ -231,7 +244,7 @@ func foo4() async {
     }
 }
 
-Task { await foo4() }
+//Task { await foo4() }
 
 
 // MARK: Cancellation
