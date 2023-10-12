@@ -4,15 +4,17 @@ import PlaygroundSupport
 //let url = URL(staticString: "https://source.unsplash.com/random")
 
 struct Movie {
-    let title: String
-    let year: Int
-    let rating: Float
+//    let title: String
+//    let year: Int
+//    let rating: Float
+//
+//    let description: String
+//    let actor: [String]
+//
+//    let director: String
+//    let country: String
     
-    let description: String
-    let actor: [String]
-    
-    let director: String
-    let country: String
+    let posterUrl: String
 }
 
 // MARK: - HIG
@@ -24,6 +26,31 @@ extension Design {
         static let tableCellHeight = preferredContentSize.width / 2
     }
 }
+
+
+final class NetworkService {
+    
+    static let shared: NetworkService = .init()
+    
+    
+    func getRatedMovies() -> [Movie] {
+        return [
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/54409_240x360_crop_center.progressive.jpg?v=1642690615"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/54362_2_240x360_crop_center.progressive.png.jpg?v=1634831916"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.12.11_240x360_crop_center.progressive.jpg?v=1607720303"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.53995_240x360_crop_center.progressive.jpg?v=1588361012"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/965a99756171f61611b6d6667b9f4004_240x360_crop_center.progressive.jpg?v=1573572622"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/migration_240x360_crop_center.progressive.jpg?v=1690896894"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/scan_af722215-7d13-4828-b20a-eea0ad296ea9_240x360_crop_center.progressive.jpg?v=1695238505"),
+            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/napoleon_49dn2vko_240x360_crop_center.progressive.jpg?v=1691162741"),
+            .init(posterUrl: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar3_a0a26c30-d23a-47e6-ba9f-3e5e95e89eef_500x749.jpg?v=1673036749"),
+//            .init(posterUrl: ""),
+        ]
+    }
+    
+}
+
 
 // MARK: - View controller
 final class MyVC: UIViewController {
@@ -40,6 +67,11 @@ final class MyVC: UIViewController {
         setupViews()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ratedMovies = NetworkService.shared.getRatedMovies()
+    }
     
 //    MARK:  exposed func
     
@@ -59,14 +91,13 @@ extension MyVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        ratedMovies.count
-        10
+        ratedMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.reuseIdentifier) as! MyCell
-//        cell.setData(movie: ratedMovies[indexPath.row])
-        cell.title = "\(indexPath.row)"
+        cell.setData(movie: ratedMovies[indexPath.row])
+//        cell.title = "\(indexPath.row)"
         return cell
     }
 }
@@ -89,10 +120,10 @@ final class MyVCViewComponents {
         parent.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.topAnchor, constant: 16),
-            tableView.leadingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            tableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            tableView.bottomAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            tableView.topAnchor.constraint(equalTo: parent.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 }
@@ -145,17 +176,30 @@ final class MyCell: UITableViewCell {
 
 final class MyCellViewComponents {
     
-    lazy var poster: UIImageView = {
+    lazy var bgPoster: UIImageView = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         
-        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    lazy var blurredDesk: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        blurEffectView.clipsToBounds = true
+        
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return blurEffectView
     }()
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 24)
-        label.textColor = .black
+        label.textColor = .white
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -164,11 +208,21 @@ final class MyCellViewComponents {
     
 //    MARK: exposed func
     func setupViews(parent: UIView) {
-        parent.addSubview(titleLabel)
+//        parent.addSubview(titleLabel)
+//        parent.addSubview(bgPoster)
+//        bgPoster.frame = parent.bounds
+        
+        parent.backgroundColor = [UIColor.systemBlue, .systemPurple, .systemPink, .systemCyan, .systemMint].randomElement()!
+        parent.addSubview(blurredDesk)
         
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: parent.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            blurredDesk.topAnchor.constraint(equalTo: parent.topAnchor),
+            blurredDesk.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: .random(in: 0...100)),
+            blurredDesk.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -.random(in: 0...100)),
+            blurredDesk.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+            
+//            titleLabel.centerYAnchor.constraint(equalTo: parent.centerYAnchor),
+//            titleLabel.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
         ])
     }
 }
