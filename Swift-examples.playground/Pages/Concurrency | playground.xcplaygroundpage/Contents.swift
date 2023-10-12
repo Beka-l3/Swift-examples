@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 import PlaygroundSupport
 
@@ -22,8 +23,11 @@ enum Design {}
 
 extension Design {
     enum HIG {
+        static let paddingSmall: CGFloat = 6
+        static let padding: CGFloat = 16
+        
         static let preferredContentSize = CGSize(width: 390, height: 844)
-        static let tableCellHeight = preferredContentSize.width / 2
+        static let tableCellHeight = preferredContentSize.width / 2 + paddingSmall
     }
 }
 
@@ -96,8 +100,7 @@ extension MyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.reuseIdentifier) as! MyCell
-        cell.setData(movie: ratedMovies[indexPath.row])
-//        cell.title = "\(indexPath.row)"
+        cell.setData(movie: ratedMovies[indexPath.row], indexRow: indexPath.row)
         return cell
     }
 }
@@ -134,10 +137,6 @@ final class MyCell: UITableViewCell {
     
     static let reuseIdentifier = "MyCellId"
     
-    private enum Constants {
-        static let height: CGFloat = Design.HIG.tableCellHeight
-    }
-    
     private let viewComponents: MyCellViewComponents = .init()
     
     var title: String {
@@ -163,8 +162,8 @@ final class MyCell: UITableViewCell {
     
     
 //    MARK: exposed func
-    func setData(movie: Movie) {
-        
+    func setData(movie: Movie, indexRow: Int) {
+        viewComponents.checkConstraints(for: indexRow)
     }
     
     
@@ -175,6 +174,17 @@ final class MyCell: UITableViewCell {
 }
 
 final class MyCellViewComponents {
+    
+    private enum Constants {
+        static let height: CGFloat = Design.HIG.tableCellHeight
+        static let width: CGFloat = Design.HIG.preferredContentSize.width
+        
+        static let blurredDeskWidth = height
+        static let frontPosterWidth = width - blurredDeskWidth
+    }
+    
+    private var leftAlignedConstraints: [NSLayoutConstraint] = []
+    private var rightAlignedConstraints: [NSLayoutConstraint] = []
     
     lazy var bgPoster: UIImageView = {
         let view = UIImageView()
@@ -208,22 +218,27 @@ final class MyCellViewComponents {
     
 //    MARK: exposed func
     func setupViews(parent: UIView) {
-//        parent.addSubview(titleLabel)
-//        parent.addSubview(bgPoster)
-//        bgPoster.frame = parent.bounds
-        
         parent.backgroundColor = [UIColor.systemBlue, .systemPurple, .systemPink, .systemCyan, .systemMint].randomElement()!
         parent.addSubview(blurredDesk)
         
         NSLayoutConstraint.activate([
             blurredDesk.topAnchor.constraint(equalTo: parent.topAnchor),
-            blurredDesk.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: .random(in: 0...100)),
-            blurredDesk.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -.random(in: 0...100)),
             blurredDesk.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
-            
-//            titleLabel.centerYAnchor.constraint(equalTo: parent.centerYAnchor),
-//            titleLabel.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            blurredDesk.widthAnchor.constraint(equalToConstant: Design.HIG.tableCellHeight)
         ])
+        
+        leftAlignedConstraints.append(blurredDesk.leadingAnchor.constraint(equalTo: parent.leadingAnchor))
+        rightAlignedConstraints.append(blurredDesk.trailingAnchor.constraint(equalTo: parent.trailingAnchor))
+    }
+    
+    func checkConstraints(for indexRow: Int) {
+        if indexRow.isMultiple(of: 2) {
+            leftAlignedConstraints.forEach { $0.isActive = false }
+            rightAlignedConstraints.forEach { $0.isActive = true }
+        } else {
+            rightAlignedConstraints.forEach { $0.isActive = false }
+            leftAlignedConstraints.forEach { $0.isActive = true }
+        }
     }
 }
 
@@ -231,6 +246,117 @@ final class MyCellViewComponents {
 // MARK: - Extensions
 extension String {
     @inline(__always) static let empty: String = ""
+}
+
+
+
+
+// MARK: - Image Service
+
+public enum HTTPError: String, Error {
+    case parametersNil = "Error: Parameters are nil"
+    case headersNil = "Error: Headers are nil"
+    case encodingFailed = "Error: Parameter encoding failed"
+    case decodingFailed = "Error: Unable to decode the data"
+    case missingURL = "Error: The URL is nil"
+    case couldNotParse = "Error: Unable to parse the JSON response"
+    case noData = "Error: The data from API is nil"
+    case fragmentResponse = "Error  The API's response's body has fragments"
+    case unwrappingError = "Error: Unable to unwrap the data"
+    case dataTaskFailed = "Error: The data task object failed"
+    case authenticationError = "Error: You must be authenticated"
+    case badRequest = "Error: Bad request"
+    case pageNotFound = "Error: Page/Route requested not found"
+    case failed = "Error: Network request failed"
+    case serverSideError = "Error: Server error"
+    case missingURLComponents = "Error: The URL with components is nil"
+}
+
+protocol Cancellable {
+    func cancel()
+}
+
+extension URLSessionDataTask: Cancellable {}
+
+protocol ImageService: AnyObject {
+    func fetchImage(
+        with url: String,
+        completion: @escaping (Result<UIImage, HTTPError>) -> Void
+    ) -> Cancellable?
+}
+
+
+final class ImageServiceImp: ImageService {
+    
+    // MARK:  Properties
+    
+    private let urlSession: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = .init(
+            memoryCapacity: Constants.memoryCapacity,
+            diskCapacity: Constants.diskCapacity
+        )
+        let session = URLSession(configuration: configuration)
+        return session
+    }()
+    
+    static var shared: ImageServiceImp = .init()
+
+    // MARK:  Lifecycle
+    
+    private init() {}
+    
+    // MARK:  Public
+    
+    @discardableResult
+    func fetchImage(
+        with url: String,
+        completion: @escaping (Result<UIImage, HTTPError>) -> Void
+    ) -> Cancellable? {
+        if let image = UIImage(named: url) {
+            completion(.success(image))
+            return nil
+        }
+                
+        guard let requestUrl = URL(string: url) else {
+            completion(.failure(HTTPError.missingURL))
+            return nil
+        }
+
+        
+        let task = urlSession.dataTask(with: requestUrl) { data, response, error in
+            guard
+                let data = data,
+                let image = UIImage(data: data)
+            else {
+                DispatchQueue.main.async {
+                    completion(.failure(HTTPError.noData))
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success(image))
+            }
+        }
+        task.resume()
+        
+        
+        return task
+    }
+}
+
+
+// MARK: - Cached Image
+
+
+
+// MARK: - Nested types
+
+extension ImageServiceImp {
+    private enum Constants {
+        static let memoryCapacity: Int = 1024 * 1024 * 100
+        static let diskCapacity: Int = 1024 * 1024 * 100
+    }
 }
 
 
