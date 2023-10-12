@@ -217,11 +217,18 @@ func foo4() async {
         return await add(newPhoto, toGalleryNamed: "Spring Adventures")
     }
     
-    print("Start")
-    let result = await handle.value
-    print("Finish\n")
+    if .random() {
+        handle.cancel()
+        print("Canceled")
+    }
     
-    print(result, "\n")
+    if !handle.isCancelled {
+        print("Start")
+        let result = await handle.value
+        print("Finish\n")
+        
+        print(result, "\n")
+    }
 }
 
 Task { await foo4() }
