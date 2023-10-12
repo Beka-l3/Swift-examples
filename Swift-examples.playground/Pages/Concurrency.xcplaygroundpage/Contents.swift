@@ -310,15 +310,15 @@ extension TemperatureLogger {
 }
 
 /// Preventing multiple tasks from interacting with the same instance simultaneously prevents problems like the following sequence of events
-/// 1) Your code calls the update(with:) method. It updates the measurements array first.
-/// 2) Before your code can update max, code elsewhere reads the maximum value and the array of temperatures
-/// 3) Your code finishes its update by changing max
+/// 1) Your code calls the `update(with:)` method. It updates the measurements array first.
+/// 2) Before your code can update `max`, code elsewhere reads the maximum value and the array of temperatures
+/// 3) Your code finishes its update by changing `max`
 
 /// In this case, the code running elsewhere would `read incorrect information` because its access to the actor was interleaved in
 /// the middle of the call to `update(with:)` while the data was `temporarily invalid`.
 /// You can `prevent` this problem when using Swift `actors` because they ``only allow one operation on their state at a time,``
-/// and because that code can be interrupted only in places where await marks a suspension point.
-/// Because `update(with:)` doesn’t contain any suspension points, no other code can access the data in the middle of an update
+/// and because that code can be interrupted only in places where `await` marks a suspension point.
+/// Because `update(with:)` doesn’t contain any suspension points, no other code can access the data in the middle of an `update`
 
 /// If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error
 /// `print(logger.max)`  // Error
@@ -334,7 +334,7 @@ extension TemperatureLogger {
 /// Inside of a task or an instance of an actor, the part of a program that contains `mutable state`,
 /// like variables and properties, is called a ``concurrency domain``.
 
-/// Some kinds of data` can’t be shared` between `concurrency domains`, because that data contains mutable state,
+/// Some kinds of data `can’t be shared` between `concurrency domains`, because that data contains mutable state,
 /// but it doesn’t protect against `overlapping access`
 
 /// A type that can be shared from one concurrency domain to another is known as a ``sendable type``
@@ -373,12 +373,13 @@ extension TemperatureLogger {
 func foo6() async {
     let logger = TemperatureLogger(label: "Tea kettle", measurement: 85)
     let reading = TemperatureReading(measurement: 45)
+    
     await logger.addReading(from: reading)
 }
 
 //Task { await foo6() }
 
-/// Because TemperatureReading is a structure that has only sendable properties,
+/// Because `TemperatureReading` is a structure that has only sendable properties,
 /// and the structure isn’t marked `public` or `@usableFromInline`, it’s ``implicitly sendable``.
 
 /// Here’s a version of the structure where conformance to the Sendable protocol is implied

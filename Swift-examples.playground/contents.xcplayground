@@ -15,5 +15,6 @@
         <page name='UIView | VC Lifecycle'/>
         <page name='Application Lifecycle'/>
         <page name='Closure | Capture List'/>
+        <page name='Concurrency | playground'/>
     </pages>
 </playground>
