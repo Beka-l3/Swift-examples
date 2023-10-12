@@ -140,7 +140,7 @@ func foo2() async {
     show(photos)
 }
 
-Task { await foo2() }
+//Task { await foo2() }
 
 /// In this example, all three calls to `downloadPhoto(named:)` start without waiting for the previous one to complete.
 /// If there are enough system resources available, they can run at the same time.
@@ -156,28 +156,30 @@ Task { await foo2() }
 /// A `task` is a unit of work that can be run `asynchronously` as part of your program
 /// `All` asynchronous code runs as part of some `task`.
 /// The `async-let` syntax described in the previous section creates a `child task` for you.
-/// You can also create a` task group` and add child tasks to that group, which gives you more control over `priority` and `cancellation`,
+/// You can also create a `task group` and add `child` tasks to that `group`, which gives you more control over `priority` and `cancellation`,
 /// and lets you create a `dynamic` number of tasks
 
-/// Tasks are arranged in a hierarchy. Each task in a task group has the same parent task, and each task can have child tasks
-/// Because of the explicit relationship between tasks and task groups, this approach is called ``structured concurrency``
+/// Tasks are arranged in a `hierarchy`. Each task in a task group has the same parent task, and each task can have child tasks
+/// Because of the `explicit` relationship between tasks and task groups, this approach is called ``structured concurrency``
 
 /// Although you take on some of the responsibility for `correctness`,
-/// the explicit parent-child relationships between tasks let Swift handle some behaviors like propagating cancellation for you,
-/// and lets Swift detect some errors at compile time
+/// the `explicit` parent-child relationships between tasks let Swift handle some behaviors like propagating cancellation for you,
+/// and lets Swift detect some errors at `compile` time
 
 func foo3() async {
     await withTaskGroup(of: String.self) { taskGroup in
         print("Start of task group\n")
         let photoNames = await listPhotos(inGallery: "Summer Vacation")
+        
         for name in photoNames {
             taskGroup.addTask { await downloadPhoto(named: name) }
         }
+        
         print("End of task group\n")
     }
 }
 
-//Task { await foo3() }
+Task { await foo3() }
 
 
 
