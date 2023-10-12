@@ -5,7 +5,7 @@ import PlaygroundSupport
 //let url = URL(staticString: "https://source.unsplash.com/random")
 
 struct Movie {
-//    let title: String
+    let title: String
 //    let year: Int
 //    let rating: Float
 //
@@ -25,6 +25,8 @@ extension Design {
     enum HIG {
         static let paddingSmall: CGFloat = 6
         static let padding: CGFloat = 16
+        static let paddingMedium: CGFloat = 24
+        static let paddingLarge: CGFloat = 36
         
         static let preferredContentSize = CGSize(width: 390, height: 844)
         static let tableCellHeight = preferredContentSize.width / 2 + paddingSmall
@@ -39,16 +41,16 @@ final class NetworkService {
     
     func getRatedMovies() -> [Movie] {
         return [
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/54409_240x360_crop_center.progressive.jpg?v=1642690615"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/54362_2_240x360_crop_center.progressive.png.jpg?v=1634831916"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.12.11_240x360_crop_center.progressive.jpg?v=1607720303"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.53995_240x360_crop_center.progressive.jpg?v=1588361012"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/products/965a99756171f61611b6d6667b9f4004_240x360_crop_center.progressive.jpg?v=1573572622"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/migration_240x360_crop_center.progressive.jpg?v=1690896894"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/scan_af722215-7d13-4828-b20a-eea0ad296ea9_240x360_crop_center.progressive.jpg?v=1695238505"),
-            .init(posterUrl: "https://www.movieposters.com/cdn/shop/files/napoleon_49dn2vko_240x360_crop_center.progressive.jpg?v=1691162741"),
-            .init(posterUrl: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar3_a0a26c30-d23a-47e6-ba9f-3e5e95e89eef_500x749.jpg?v=1673036749"),
+            .init(title: "Arcane", posterUrl: "https://www.movieposters.com/cdn/shop/products/54409_240x360_crop_center.progressive.jpg?v=1642690615"),
+            .init(title: "Loki", posterUrl: "https://www.movieposters.com/cdn/shop/products/54362_2_240x360_crop_center.progressive.png.jpg?v=1634831916"),
+            .init(title: "Mandalorian", posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.12.11_240x360_crop_center.progressive.jpg?v=1607720303"),
+            .init(title: "Wanda Vision", posterUrl: "https://www.movieposters.com/cdn/shop/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"),
+            .init(title: "Mandalorian", posterUrl: "https://www.movieposters.com/cdn/shop/products/mandalorian.53995_240x360_crop_center.progressive.jpg?v=1588361012"),
+            .init(title: "Flash", posterUrl: "https://www.movieposters.com/cdn/shop/products/965a99756171f61611b6d6667b9f4004_240x360_crop_center.progressive.jpg?v=1573572622"),
+            .init(title: "Migration", posterUrl: "https://www.movieposters.com/cdn/shop/files/migration_240x360_crop_center.progressive.jpg?v=1690896894"),
+            .init(title: "Five nights at Freddy's", posterUrl: "https://www.movieposters.com/cdn/shop/files/scan_af722215-7d13-4828-b20a-eea0ad296ea9_240x360_crop_center.progressive.jpg?v=1695238505"),
+            .init(title: "Nopaleon", posterUrl: "https://www.movieposters.com/cdn/shop/files/napoleon_49dn2vko_240x360_crop_center.progressive.jpg?v=1691162741"),
+            .init(title: "Interstellar", posterUrl: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar3_a0a26c30-d23a-47e6-ba9f-3e5e95e89eef_500x749.jpg?v=1673036749"),
 //            .init(posterUrl: ""),
         ]
     }
@@ -164,7 +166,10 @@ final class MyCell: UITableViewCell {
 //    MARK: exposed func
     func setData(movie: Movie, indexRow: Int) {
         viewComponents.checkConstraints(for: indexRow)
+        
         viewComponents.bgPoster.setImage(with: movie.posterUrl, resolution: .x480)
+        viewComponents.frontPoster.setImage(with: movie.posterUrl, resolution: .x480)
+        viewComponents.titleLabel.text = movie.title
     }
     
     
@@ -182,6 +187,8 @@ final class MyCellViewComponents {
         
         static let blurredDeskWidth = height
         static let frontPosterWidth = width - blurredDeskWidth
+        
+        static let topShadowHeight = height * 0.15
     }
     
     private var leftAlignedConstraints: [NSLayoutConstraint] = []
@@ -190,50 +197,83 @@ final class MyCellViewComponents {
     lazy var bgPoster: CachedImageView = {
         let view = CachedImageView()
         view.contentMode = .scaleAspectFill
+        view.setGradientColors([UIColor.black.cgColor, UIColor.systemYellow.cgColor, UIColor.black.cgColor])
         view.clipsToBounds = true
-        
-//        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var blurredDesk: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .dark)
+        
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        blurEffectView.layer.opacity = 0.90
+        blurEffectView.layer.opacity = 0.95
         blurEffectView.clipsToBounds = true
         
         blurEffectView.translatesAutoresizingMaskIntoConstraints = false
         return blurEffectView
     }()
     
+    lazy var frontPoster: CachedImageView = {
+        let view = CachedImageView()
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.setGradientColors([UIColor.black.cgColor, UIColor.systemYellow.cgColor, UIColor.black.cgColor])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 24)
+        label.font = .boldSystemFont(ofSize: 18)
         label.textColor = .white
+        label.textAlignment = .center
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    lazy var topShadow: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor(white: .zero, alpha: 1).cgColor, UIColor(white: .zero, alpha: .zero).cgColor]
+        layer.frame = .init(origin: .zero, size: .init(width: Constants.width, height: Constants.topShadowHeight))
+        layer.zPosition = 10
+        layer.opacity = 0.75
+        return layer
+    }()
     
 //    MARK: exposed func
     func setupViews(parent: UIView) {
-//        parent.backgroundColor = [UIColor.systemBlue, .systemPurple, .systemPink, .systemCyan, .systemMint].randomElement()!
         parent.addSubview(bgPoster)
         parent.addSubview(blurredDesk)
+        parent.addSubview(frontPoster)
+        parent.addSubview(titleLabel)
+        
+        parent.layer.addSublayer(topShadow)
         
         NSLayoutConstraint.activate([
             blurredDesk.topAnchor.constraint(equalTo: parent.topAnchor),
             blurredDesk.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
-            blurredDesk.widthAnchor.constraint(equalToConstant: Design.HIG.tableCellHeight)
+            blurredDesk.widthAnchor.constraint(equalToConstant: Constants.height),
+            
+            frontPoster.topAnchor.constraint(equalTo: parent.topAnchor),
+            frontPoster.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: blurredDesk.leadingAnchor, constant: Design.HIG.paddingSmall),
+            titleLabel.trailingAnchor.constraint(equalTo: blurredDesk.trailingAnchor, constant: -Design.HIG.paddingSmall),
+            titleLabel.topAnchor.constraint(equalTo: blurredDesk.topAnchor, constant: Design.HIG.paddingLarge),
         ])
         
         bgPoster.frame = .init(origin: .zero, size: .init(width: Constants.width, height: Constants.height))
         
         leftAlignedConstraints.append(blurredDesk.leadingAnchor.constraint(equalTo: parent.leadingAnchor))
+        leftAlignedConstraints.append(frontPoster.leadingAnchor.constraint(equalTo: blurredDesk.trailingAnchor))
+        leftAlignedConstraints.append(frontPoster.trailingAnchor.constraint(equalTo: parent.trailingAnchor))
+        
         rightAlignedConstraints.append(blurredDesk.trailingAnchor.constraint(equalTo: parent.trailingAnchor))
+        rightAlignedConstraints.append(frontPoster.trailingAnchor.constraint(equalTo: blurredDesk.leadingAnchor))
+        rightAlignedConstraints.append(frontPoster.leadingAnchor.constraint(equalTo: parent.leadingAnchor))
     }
     
     func checkConstraints(for indexRow: Int) {
@@ -533,6 +573,7 @@ extension ImageServiceImp {
 
 
 // MARK: - Playground
+
 let vc = MyVC()
 vc.preferredContentSize = Design.HIG.preferredContentSize
 
