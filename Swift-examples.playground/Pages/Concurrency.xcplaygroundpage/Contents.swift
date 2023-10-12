@@ -193,6 +193,7 @@ Task { await foo3() }
 /// To create an unstructured task that’s `not` part of the current actor, known more specifically as a `detached task`,
 /// call the ``Task.detached(priority:operation:)`` class method.
 /// Both of these operations return a task that you can interact with — for example, to wait for its result or to cancel it
+
 func add(_ photo: String, toGalleryNamed: String) async -> Bool {
     print("Let's add some photo\n")
     
