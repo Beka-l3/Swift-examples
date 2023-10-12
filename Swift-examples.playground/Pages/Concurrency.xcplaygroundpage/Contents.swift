@@ -68,13 +68,13 @@ func readFile() async throws {
 /// In the same way that you can use your own types in a `for-in loop` by adding conformance to the `Sequence` protocol,
 /// you can use your own types in a `for-await-in loop` by adding conformance to the ``AsyncSequence`` protocol
 
-func forLoopCasting() {
+func forLoopCaseLet() {
     let array: [Any] = [1, 1.2, "Hello", true, [1, 2, 3], "World!"]
     for case let str as String in array {
         print(str)
     }
 }
-//forLoopCasting()
+//forLoopCaseLet()
 
 
 
