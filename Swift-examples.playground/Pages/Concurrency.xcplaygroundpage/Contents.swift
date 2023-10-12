@@ -44,7 +44,7 @@ func foo() async {
     print( await listPhotos(inGallery: "") )
 }
 
-Task { await foo() }
+//Task { await foo() }
 
 
 
@@ -52,7 +52,7 @@ Task { await foo() }
 // MARK: - Asyn Sequence
 /// The` listPhotos(inGallery:)` function in the previous section asynchronously returns the whole array at once,
 /// after all of the array’s elements are ready. Another approach is to wait for one element of the collection at a time using an asynchronous sequence.
-///  Here’s what iterating over an asynchronous sequence looks like:
+/// Here’s what iterating over an asynchronous sequence looks like:
 
 func readFile() async throws {
     let handle = FileHandle.standardInput
@@ -68,6 +68,13 @@ func readFile() async throws {
 /// In the same way that you can use your own types in a `for-in loop` by adding conformance to the `Sequence` protocol,
 /// you can use your own types in a `for-await-in loop` by adding conformance to the ``AsyncSequence`` protocol
 
+func forLoopCasting() {
+    let array: [Any] = [1, 1.2, "Hello", true, [1, 2, 3], "World!"]
+    for case let str as String in array {
+        print(str)
+    }
+}
+//forLoopCasting()
 
 
 
