@@ -164,6 +164,7 @@ final class MyCell: UITableViewCell {
 //    MARK: exposed func
     func setData(movie: Movie, indexRow: Int) {
         viewComponents.checkConstraints(for: indexRow)
+        viewComponents.bgPoster.setImage(with: movie.posterUrl, resolution: .x480)
     }
     
     
@@ -186,8 +187,8 @@ final class MyCellViewComponents {
     private var leftAlignedConstraints: [NSLayoutConstraint] = []
     private var rightAlignedConstraints: [NSLayoutConstraint] = []
     
-    lazy var bgPoster: UIImageView = {
-        let view = UIImageView()
+    lazy var bgPoster: CachedImageView = {
+        let view = CachedImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         
@@ -200,6 +201,7 @@ final class MyCellViewComponents {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        blurEffectView.layer.opacity = 0.90
         blurEffectView.clipsToBounds = true
         
         blurEffectView.translatesAutoresizingMaskIntoConstraints = false
@@ -218,7 +220,8 @@ final class MyCellViewComponents {
     
 //    MARK: exposed func
     func setupViews(parent: UIView) {
-        parent.backgroundColor = [UIColor.systemBlue, .systemPurple, .systemPink, .systemCyan, .systemMint].randomElement()!
+//        parent.backgroundColor = [UIColor.systemBlue, .systemPurple, .systemPink, .systemCyan, .systemMint].randomElement()!
+        parent.addSubview(bgPoster)
         parent.addSubview(blurredDesk)
         
         NSLayoutConstraint.activate([
@@ -226,6 +229,8 @@ final class MyCellViewComponents {
             blurredDesk.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
             blurredDesk.widthAnchor.constraint(equalToConstant: Design.HIG.tableCellHeight)
         ])
+        
+        bgPoster.frame = .init(origin: .zero, size: .init(width: Constants.width, height: Constants.height))
         
         leftAlignedConstraints.append(blurredDesk.leadingAnchor.constraint(equalTo: parent.leadingAnchor))
         rightAlignedConstraints.append(blurredDesk.trailingAnchor.constraint(equalTo: parent.trailingAnchor))
@@ -247,8 +252,6 @@ final class MyCellViewComponents {
 extension String {
     @inline(__always) static let empty: String = ""
 }
-
-
 
 
 // MARK: - Image Service
@@ -347,6 +350,173 @@ final class ImageServiceImp: ImageService {
 
 
 // MARK: - Cached Image
+enum UserGalleryResolutions: CGFloat {
+    case original, x480 = 480, x144 = 144
+}
+
+struct Service {
+    static func checkAndCompressImage(_ image: UIImage, maxResolution: CGFloat, compressionQuality: CGFloat) -> UIImage? {
+        let size = image.size
+        let maxDimension = max(size.width, size.height)
+
+        if maxDimension <= maxResolution {
+            // Image doesn't exceed the maximum resolution, no need to compress
+            return image
+        }
+
+        // Image exceeds the maximum resolution, compress it
+        if let imageData = compressImage(image, maxResolution: maxResolution, compressionQuality: compressionQuality) {
+            return UIImage(data: imageData)
+        } else {
+            return nil
+        }
+    }
+
+    static func compressImage(_ image: UIImage, maxResolution: CGFloat, compressionQuality: CGFloat) -> Data? {
+        let newSize = calculateNewSize(for: image.size, maxResolution: maxResolution)
+        let scaledImage = scaleImage(image, toSize: newSize)
+
+        return scaledImage.jpegData(compressionQuality: compressionQuality)
+    }
+
+    static func calculateNewSize(for size: CGSize, maxResolution: CGFloat) -> CGSize {
+        let aspectRatio = size.width / size.height
+        var newSize = CGSize(width: maxResolution, height: maxResolution)
+
+        if aspectRatio > 1 {
+            // Landscape image
+            newSize.height = newSize.width / aspectRatio
+        } else {
+            // Portrait image or square image
+            newSize.width = newSize.height * aspectRatio
+        }
+
+        return newSize
+    }
+
+    private static func scaleImage(_ image: UIImage, toSize newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(newSize, true, 1.0)
+        image.draw(in: CGRect(origin: .zero, size: newSize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return scaledImage ?? image
+    }
+}
+
+final class CachedImageView: UIImageView {
+    // MARK:  Properties
+
+    private let imageLoader = ImageServiceImp.shared
+    private var isAnimationRunning = false
+    private var lastRequest: Cancellable?
+
+    var compressedImage: UIImage?
+    var originalImage: UIImage?
+    public var compressionQuality: CGFloat = 0.8
+
+    private let gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.colors = [UIColor.lightGray.cgColor,
+                                UIColor.white.cgColor,
+                                UIColor.lightGray.cgColor]
+        
+        
+
+        return gradientLayer
+    }()
+
+    var errorPlaceholder: UIImage?
+
+    // MARK:  Lifecycle
+
+    init() {
+        super.init(frame: .zero)
+        layer.addSublayer(gradientLayer)
+        gradientLayer.isHidden = true
+        setupImageView()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+    }
+
+    func setImage(with url: String, resolution: UserGalleryResolutions = .original) {
+        startAnimation()
+
+        if let lastRequest = lastRequest {
+            lastRequest.cancel()
+        }
+
+        lastRequest = imageLoader.fetchImage(with: url) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let newImage):
+                self.originalImage = newImage
+                self.image = resolution == .original ?  self.originalImage : Service.checkAndCompressImage(newImage, maxResolution: resolution.rawValue, compressionQuality: compressionQuality)
+                
+//                self.stopAnimation()
+            case .failure:
+                if let errorPlaceholder = self.errorPlaceholder {
+                    self.image = errorPlaceholder
+                } else if let errorImage = UIImage(named: "error_load_image") {
+                    self.image = errorImage
+                }
+            }
+            self.stopAnimation()
+        }
+    }
+    
+    func setGradientColors(_ colors: [Any]) {
+        gradientLayer.colors = colors
+    }
+
+//    MARK: - private func
+
+    private func setupImageView() {
+        clipsToBounds = true
+        contentMode = .scaleAspectFill
+    }
+
+    private func startAnimation() {
+        guard !isAnimationRunning else {
+            return
+        }
+        isAnimationRunning = true
+        gradientLayer.isHidden = false
+
+        let startLocations: [NSNumber] = [-1, -0.5, 0]
+        let endLocations: [NSNumber] = [1, 1.5, 2]
+        gradientLayer.locations = startLocations
+
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = startLocations
+        animation.toValue = endLocations
+        animation.duration = 1
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 2
+        animationGroup.animations = [animation]
+        animationGroup.repeatCount = .infinity
+        gradientLayer.add(animationGroup, forKey: animation.keyPath)
+    }
+
+    private func stopAnimation() {
+        isAnimationRunning = false
+        gradientLayer.isHidden = true
+        gradientLayer.removeAllAnimations()
+    }
+}
 
 
 
