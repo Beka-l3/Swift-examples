@@ -38,15 +38,13 @@ func listPhotos(inGallery name: String) async -> [String] {
     return ["IMG001", "IMG99", "IMG0404"]
 }
 
-func foo() {
+func foo() async {
     print("Hopa")
     
-    Task {
-        print( await listPhotos(inGallery: "") )
-    }
+    print( await listPhotos(inGallery: "") )
 }
 
-//Task { await foo() }
+Task { await foo() }
 
 
 
