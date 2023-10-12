@@ -179,14 +179,12 @@ func foo3() async {
     }
 }
 
-Task { await foo3() }
-
-
+//Task { await foo3() }
 
 
 // MARK: - Unstructured Concurrency
 /// In addition to the structured approaches to concurrency described in the previous sections,
-/// Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an unstructured task doesn’t have a parent task.
+/// Swift also supports `unstructured concurrency`. Unlike tasks that are part of a task group, an unstructured task` doesn’t have a parent task`.
 /// You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness.
 
 /// To create an unstructured task that runs on the current `actor`, call the ``Task.init(priority:operation:)`` initializer.
@@ -213,15 +211,20 @@ func foo4() async {
     print("Add new photo\n")
     
     let newPhoto = "Hola"
+    
+    print("Hola")
     let handle = Task {
         return await add(newPhoto, toGalleryNamed: "Spring Adventures")
     }
+    
+    print("Start")
     let result = await handle.value
+    print("Finish\n")
     
     print(result, "\n")
 }
 
-//Task { await foo4() }
+Task { await foo4() }
 
 
 // MARK: Cancellation
