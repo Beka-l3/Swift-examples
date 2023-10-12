@@ -208,6 +208,7 @@ func add(_ photo: String, toGalleryNamed: String) async -> Bool {
     return true
 }
 
+
 func foo4() async {
     print("Add new photo\n")
     
