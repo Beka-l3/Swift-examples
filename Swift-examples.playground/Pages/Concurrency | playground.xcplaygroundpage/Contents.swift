@@ -33,6 +33,13 @@ extension Design {
     }
 }
 
+extension Design {
+    enum Colors {
+        static let black: UIColor = UIColor.black
+        static let blackTransparrent: UIColor = UIColor(white: 0, alpha: 0)
+    }
+}
+
 
 final class NetworkService {
     
@@ -188,7 +195,11 @@ final class MyCellViewComponents {
         static let blurredDeskWidth = height
         static let frontPosterWidth = width - blurredDeskWidth
         
+        static let blurredDeskOpacity: Float = 0.95
+        
         static let topShadowHeight = height * 0.15
+        static let topShadowOpacity: Float = 0.75
+        static let topShadowColors: [CGColor] = [Design.Colors.black.cgColor, Design.Colors.blackTransparrent.cgColor]
     }
     
     private var leftAlignedConstraints: [NSLayoutConstraint] = []
@@ -208,7 +219,7 @@ final class MyCellViewComponents {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        blurEffectView.layer.opacity = 0.95
+        blurEffectView.layer.opacity = Constants.blurredDeskOpacity
         blurEffectView.clipsToBounds = true
         
         blurEffectView.translatesAutoresizingMaskIntoConstraints = false
@@ -236,15 +247,17 @@ final class MyCellViewComponents {
     
     lazy var topShadow: CAGradientLayer = {
         let layer = CAGradientLayer()
-        layer.colors = [UIColor(white: .zero, alpha: 1).cgColor, UIColor(white: .zero, alpha: .zero).cgColor]
+        layer.colors = Constants.topShadowColors
         layer.frame = .init(origin: .zero, size: .init(width: Constants.width, height: Constants.topShadowHeight))
         layer.zPosition = 10
-        layer.opacity = 0.75
+        layer.opacity = Constants.topShadowOpacity
         return layer
     }()
     
 //    MARK: exposed func
     func setupViews(parent: UIView) {
+        parent.clipsToBounds = true
+        
         parent.addSubview(bgPoster)
         parent.addSubview(blurredDesk)
         parent.addSubview(frontPoster)
