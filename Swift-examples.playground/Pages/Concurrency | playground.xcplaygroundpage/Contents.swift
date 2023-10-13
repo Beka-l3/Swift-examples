@@ -40,6 +40,12 @@ extension Design {
     }
 }
 
+extension Design {
+    enum Fonts {
+        static let boldSystem18: UIFont = .boldSystemFont(ofSize: 18)
+    }
+}
+
 
 final class NetworkService {
     
@@ -199,6 +205,7 @@ final class MyCellViewComponents {
         
         static let topShadowHeight = height * 0.15
         static let topShadowOpacity: Float = 0.75
+        static let topShadowZPos: CGFloat = 10
         static let topShadowColors: [CGColor] = [Design.Colors.black.cgColor, Design.Colors.blackTransparrent.cgColor]
     }
     
@@ -237,7 +244,7 @@ final class MyCellViewComponents {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = Design.Fonts.boldSystem18
         label.textColor = .white
         label.textAlignment = .center
         
@@ -249,7 +256,7 @@ final class MyCellViewComponents {
         let layer = CAGradientLayer()
         layer.colors = Constants.topShadowColors
         layer.frame = .init(origin: .zero, size: .init(width: Constants.width, height: Constants.topShadowHeight))
-        layer.zPosition = 10
+        layer.zPosition = Constants.topShadowZPos
         layer.opacity = Constants.topShadowOpacity
         return layer
     }()
