@@ -8,10 +8,10 @@ struct Movie {
     let title: String
 //    let year: Int
 //    let rating: Float
-//
+
 //    let description: String
 //    let actor: [String]
-//
+
 //    let director: String
 //    let country: String
     
@@ -182,6 +182,7 @@ final class MyCell: UITableViewCell {
         
         viewComponents.bgPoster.setImage(with: movie.posterUrl, resolution: .x480)
         viewComponents.frontPoster.setImage(with: movie.posterUrl, resolution: .x480)
+        
         viewComponents.titleLabel.text = movie.title
     }
     
