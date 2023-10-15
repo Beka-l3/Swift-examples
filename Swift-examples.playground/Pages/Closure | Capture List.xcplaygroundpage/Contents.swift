@@ -47,3 +47,36 @@ incrementByTen()
 let incrementBySeven = makeIncrementer(forIncrement: 7)
 incrementBySeven()
 
+
+// MARK: Example 2
+
+func foo1() {
+    var num = 1
+    
+    let buzz1 = {
+        print(num)
+    }
+    
+    buzz1()
+    
+    num += 1
+    
+    buzz1()
+}
+
+
+func foo2() {
+    var num = 1
+    
+    let buzz2 = { [num] in
+        print(num)
+    }
+    
+    buzz2()
+    
+    num += 1
+    
+    buzz2()
+}
+
+
