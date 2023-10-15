@@ -12,3 +12,19 @@ import Foundation
 /// A closure can capture constants and variables from the surrounding context in which it’s defined.
 /// The closure can then refer to and modify the values of those constants and variables from within its body,
 /// even if the original scope that defined the constants and variables no longer exists
+
+/// In Swift, the simplest form of a closure that can capture values is a nested function, written within the body of another function.
+/// A nested function can capture any of its outer function’s arguments and can also capture any constants and variables defined within the outer function
+
+/// Here’s an example of a function called makeIncrementer, which contains a nested function called incrementer.
+/// The nested incrementer() function captures two values, runningTotal and amount, from its surrounding context.
+/// After capturing these values, incrementer is returned by makeIncrementer as a closure that increments `runningTotal` by amount each time it’s called.
+
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+    var runningTotal = 0
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incrementer
+}
