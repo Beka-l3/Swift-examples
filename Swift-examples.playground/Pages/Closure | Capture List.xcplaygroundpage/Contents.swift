@@ -28,3 +28,22 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     }
     return incrementer
 }
+
+/// The incrementer() function doesn’t have any parameters, and yet it refers to runningTotal and amount from within its function body.
+/// It does this by capturing a ``reference`` to `runningTotal` and `amount` from the surrounding function and using them within its own function body
+
+/// Capturing by reference ensures that runningTotal and amount don’t disappear when the call to makeIncrementer ends,
+/// and also ensures that runningTotal is available the next time the incrementer function is called
+
+/// As an optimization, Swift may instead capture and store a copy of a value if that value isn’t mutated by a closure, and if the value isn’t mutated after the closure is created.
+/// Swift also handles all memory management involved in disposing of variables when they’re no longer needed.
+
+let incrementByTen = makeIncrementer(forIncrement: 10)
+incrementByTen()
+incrementByTen()
+incrementByTen()
+
+/// If you create a second incrementer, it will have its own stored reference to a new, separate runningTotal variable
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+incrementBySeven()
+
