@@ -16,5 +16,7 @@
         <page name='Application Lifecycle'/>
         <page name='Closure | Capture List'/>
         <page name='Concurrency | playground'/>
+        <page name='CALayer'/>
+        <page name='CALayer | playground'/>
     </pages>
 </playground>
