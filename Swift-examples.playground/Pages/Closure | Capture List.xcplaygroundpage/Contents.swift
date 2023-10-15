@@ -48,7 +48,7 @@ let incrementBySeven = makeIncrementer(forIncrement: 7)
 incrementBySeven()
 
 
-// MARK: Example 2
+// MARK: - Example 2
 
 func foo1() {
     var num = 1
@@ -80,3 +80,91 @@ func foo2() {
 }
 
 
+// MARK: Example - 3
+func foo3() {
+    final class A {
+        var num = 1
+    }
+    
+    var a: A? = A()
+    
+    /// Here new reference to `a` is `not` created.  Now only 1 pointer is referencing `a`
+    let buzz4 = {
+        print(a?.num ?? "nil")
+    }
+    
+    buzz4()
+    
+    a?.num += 1
+    
+    buzz4()
+    
+    a = nil
+    
+    buzz4()
+    
+    print()
+}
+//foo3()
+
+func foo4() {
+    final class A {
+        var num = 1
+    }
+    
+    var a: A? = A()
+    
+    /// Here new reference to `a` is created. And now 2 pointers are referencing `a`
+    let buzz4 = { [a] in
+        print(a?.num ?? "nil")
+    }
+    
+    buzz4()
+    
+    a?.num += 1
+    
+    buzz4()
+    
+    a = nil
+    
+    buzz4()
+    
+    print()
+}
+//foo4()
+
+
+
+
+
+// MARK: - example 4
+func foo5() {
+    final class A {
+        var num = 1
+    }
+    
+    final class B {
+        var a: A?
+        
+        lazy var buzz = { [unowned self] in
+            print(self.a?.num ?? "nil")
+        }
+        
+        init(a: A? = nil) {
+            self.a = a
+        }
+        
+        deinit {
+            print("Deinited")
+        }
+    }
+    
+    
+    let a = A()
+    var b: B? = B(a: a)
+    
+    b?.buzz()
+    
+    b = nil
+}
+//foo5()
