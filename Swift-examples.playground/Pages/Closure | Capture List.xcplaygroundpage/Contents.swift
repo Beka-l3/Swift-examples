@@ -53,6 +53,7 @@ incrementBySeven()
 func foo1() {
     var num = 1
     
+    /// here reference to num is created
     let buzz1 = {
         print(num)
     }
@@ -68,6 +69,7 @@ func foo1() {
 func foo2() {
     var num = 1
     
+    /// here new instance is created (copy of num)
     let buzz2 = { [num] in
         print(num)
     }
