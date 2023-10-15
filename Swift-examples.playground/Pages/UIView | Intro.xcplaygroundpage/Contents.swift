@@ -58,6 +58,10 @@ let myView = UIView(frame: rect)
 /// These methods let the system know that it should update the view during the next `drawing cycle`.
 /// Because it waits until the next drawing cycle to update the view, you can call these methods on multiple views to update them at the same time.
 
+/// You should only be calling setNeedsDisplay if you override drawRect in a subclass of UIView which is basically a custom view drawing something on the screen,
+/// like lines, images, or shapes like a rectangle.
+/// When you add an imageView or a UIButton as a subview or make changes to any subview, you need not call this method
+/// For labels and other standard controls, changing the text will automatically cause the label to redraw so you don't need to do this yourself.
 
 // MARK: - Animate View
 /// Changes to several view properties can be animated — that is, changing the property creates an animation starting at the current value and ending at the new value that you specify.

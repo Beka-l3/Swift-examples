@@ -15,8 +15,9 @@ import UIKit
 /// Lastly, the view controller’s root view (aka. UIView) has its own content and lifecycle.
 /// The root view has subviews like buttons, labels, switches, or other UIView subclasses.
 /// The lifecycle of the subviews is, in most cases, not considered by every developer.
+
 /// But there is one common case which is embedding a view controller into another.
-/// In this case, we need to imitate the lifecycle actions for both view controllers’ views and call proper methods when necessary
+/// In this case, we need to initate the lifecycle actions for both view controllers’ views and call proper methods when necessary
 
 
 // MARK: Load View
@@ -39,11 +40,6 @@ import UIKit
 /// Similarly, we shouldn’t forget to call `super`.
 
 
-// MARK: view Did Appear
-/// This method is called right after the view is visible to the user. It’s a good place to start `animations`.
-/// Same as before, we shouldn’t forget to call `super`
-
-
 // MARK: view Will Layout Subviews
 /// This is the first place to learn the `bounds` of the view in the lifecycle.
 /// This is also called right `before` ``layoutSubviews`` method is triggered in `UIView`.
@@ -58,6 +54,10 @@ import UIKit
 ///  So the key point is whenever the `bounds` of the view are `updated`, or the view layout is `recalculated`,
 ///  both methods will be called.
 ///  Similarly, we shouldn’t forget to call super at some point in these methods
+
+// MARK: view Did Appear
+/// This method is called right after the view is visible to the user. It’s a good place to start `animations`.
+/// Same as before, we shouldn’t forget to call `super`
 
 
 // MARK: view Will Disappear
@@ -126,7 +126,7 @@ childViewController.didMove(toParent: parentViewController)
 /// Then, we need to add the child view controller’s view to the parent’s view to have a `child-parent` relationship for views.
 /// The system will `load both views` and will add one to another with our call `addSubview`.
 
-/// Then we inform the system by calling d`idMove(toParent:).`
+/// Then we inform the system by calling d`DidMove(toParent:).`
 /// The system will handle the rest of displaying the view controller and calling the view controller’s necessary methods in its lifecycle like `viewDidLoad`, `viewDidAppear`, etc
 
 
@@ -137,7 +137,7 @@ childViewController.removeFromParent()
 
 
 /// While removing the child view controller from the parent,
-/// we have to call `willMove(toParent:)` method with nil to inform the system that the child view controller will be removed from the parent.
+/// we have to call `willMove(toParent:)` method with `nil` to inform the system that the child view controller will be removed from the parent.
 /// Then, we remove its view and later itself from the parent.
 
 ///  As we see, we don’t need to call `didMove(toParent:)` method while we’re removing it.
@@ -161,12 +161,12 @@ childViewController.removeFromParent()
 /// moved to the window opens up opportunities for implementing extra actions during those phases
 
 /// Here are the mentioned lifecycle methods for `UIView`:
-/// 1) `didAddSubview(_:)`
-/// 2) `willRemoveSubview(_:)`
+/// 1) `willMove(toWindow:)`
+/// 2) `didMoveToWindow()`
 /// 3) `willMove(toSuperView:)`
 /// 4) `didMoveToSuperview()`
-/// 5) `willMove(toWindow:)`
-/// 6) `didMoveToWindow()`
+/// 5) `didAddSubview(_:)`
+/// 6) `willRemoveSubview(_:)`
 
 /// The only important thing to know here is `removeFromSuperview` method.
 /// We can call this if we want to remove the view from its parent.

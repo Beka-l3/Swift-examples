@@ -30,18 +30,21 @@ final class MyViewController: UIViewController {
         view.addSubview(subView4)
         view.addSubview(subView5)
         
-//        for v in view.subviews { print(v.frame) }
-//        print()
+        for v in view.subviews { print(v.frame) }
+        print()
+        
         
         let subView6 = UIView(frame: .init(x: 45, y: 25, width: 40, height: 40))
         subView6.backgroundColor = .systemPink
+//        subView6.layer.zPosition = -1
 //        view.addSubview(subView6)
 //        view.insertSubview(subView6, at: 2)
 //        view.insertSubview(subView6, aboveSubview: subView2)
 //        view.insertSubview(subView6, belowSubview: subView3)
 //        view.exchangeSubview(at: 0, withSubviewAt: 4)
         
-//        for v in view.subviews { print(v.frame) }
+        for v in view.subviews { print(v.frame) }
+        print()
     }
     
 }
@@ -73,4 +76,4 @@ final class MyViewController1: UIViewController {
     }
 }
 
-PlaygroundPage.current.liveView = MyViewController1()
+PlaygroundPage.current.liveView = MyViewController()
