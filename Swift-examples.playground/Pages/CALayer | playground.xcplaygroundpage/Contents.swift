@@ -116,6 +116,10 @@ final class MyViewController: UIViewController {
 //        })
     }
     
+    // MARK: IMPORTANT
+    /// UIView can be a `delegate` `only` for ``1`` layer.
+    /// Even programmatically it can be delegate for more than 1. Animations will not work and will lead to crash
+    
 }
 
 let mvc = MyViewController()
