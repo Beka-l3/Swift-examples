@@ -163,6 +163,19 @@ final class MyViewController: UIViewController {
     }
     
     
+    /// One common problem folks hit when using timers is that they won’t fire when the user is `interacting` with your app.
+    /// For example, if the user has their finger touching the screen so they can scroll through a table view, your regular timers won’t get fired.
+    
+    /// This happens because we’re implicitly creating our timer on the `defaultRunLoopMode`, which is effectively the `main thread` of our application.
+    /// This will then get `paused` while the user is actively `interacting` with our `UI`, then reactivated when they stop
+    
+    /// The easiest solution is to create the timer without scheduling it `directly`, then add it by hand to a `runloop` of your choosing.
+    /// In this case, ``.common`` is the one we want: it allows our timers to fire even when the UI is being used
+    func foo9() {
+        let context = ["user": "@twostraws"]
+        let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: context, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
+    }
 }
 
 let mvc = MyViewController()
