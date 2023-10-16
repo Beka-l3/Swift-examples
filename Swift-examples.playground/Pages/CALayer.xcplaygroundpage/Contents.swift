@@ -123,3 +123,51 @@ import UIKit
 /// `For example`, if you wanted to use the same image in multiple places,
 /// you could load the image once and associate it with multiple standalone layer objects and add those objects to the layer tree.
 /// Each layer then refers to the source image rather than trying to create its own copy of that image in memory
+
+
+// MARK: - Animation
+/// CALayer has UIView as a delegate
+/// when property changed, it calls ``action(for: forKey:)`` to get info about animation
+/// if that code black is not in the `UIView.animate` then it returns `nil`
+/// otherwise it returns pararmeters from `UIView.animate`
+/// if CALayer has no delegate, that it uses default paramaeters from it's action dictionary
+/// Changing `view.layer.frame` affects `view.frame`, and otherway
+
+// MARK: IMPORTANT
+/// UIView can be a `delegate` `only` for ``1`` layer.
+/// Even programmatically it can be delegate for more than 1. Animations will not work and will lead to crash
+
+
+
+// MARK: Hierachy
+/// When `myView` is add as an subiew to the `view`
+/// layer of `myView` is added as an sublayer to the `view.layer` <<under the hood>>
+
+
+// CAAnimation: it is an protocol fro animations
+/// You can create your own class that conforms to this protocol
+/// Or use existing classes:
+/// - `CABasicAnimation`: basic animation, with interpolation value between `fromPoint` and `toPoint`
+/// - `CAKeyFrameAnimation`: animation, with interpolation value between two key frames, defined with the help of arrays `values` and `keyTime`
+/// - `CASpringAnimation`: spring(bouncing) animation
+
+/// `layer.presentationLayer` is a copy of an layer but with the current values at a time
+/// 3 useful cases:
+/// 1) **Stop animation**: save current values, then continue if needed. (if animation is deleted, then it uses values from `model tree`)
+/// 2) **Seamles animation transition**: to start a new animation, `fromValue` is needed from presentationLayer
+/// 3) **Correct interation proccessing of animating element**: during animation `hitTest(_: with: )` <<point(inside: with: )>> will use values from `model tree`. To
+///     proccess it correctly we need to `override` `point(_: with: )` to work with `presentationLayer`
+
+/// That is layer returns to it's inital values, if we do not change `layer.isRemovedOnCompletion`.
+/// if we set it to `false`, then finishing values from animation is preserved in to the `model tree`
+
+
+
+
+
+
+
+
+
+
+

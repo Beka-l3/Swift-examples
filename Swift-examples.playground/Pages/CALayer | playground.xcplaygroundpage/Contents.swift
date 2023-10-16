@@ -67,7 +67,7 @@ final class MyViewController: UIViewController {
     }
     
     /// When `myView` is add as an subiew to the `view`
-    /// layer of `myView` is added as an sublayer to the `view.layer` <<under teh hood>>
+    /// layer of `myView` is added as an sublayer to the `view.layer` <<under the hood>>
     func foo2() {
         print(view.subviews)
         print()
