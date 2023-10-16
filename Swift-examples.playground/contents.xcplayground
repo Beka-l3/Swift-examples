@@ -18,5 +18,6 @@
         <page name='Concurrency | playground'/>
         <page name='CALayer'/>
         <page name='CALayer | playground'/>
+        <page name='CALayer vs UIView'/>
     </pages>
 </playground>
