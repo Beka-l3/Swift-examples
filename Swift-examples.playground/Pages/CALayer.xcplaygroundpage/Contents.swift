@@ -116,3 +116,10 @@ import UIKit
 /// But there are cases in both iOS and OS X where manipulating the layer instead of the view might not yield the desired results.
 /// Wherever possible, this document points out those pitfalls and tries to provide ways to help you work around them.
 
+/// n addition to the layers associated with your views, you can also create layer objects that do not have a corresponding view.
+/// You can embed these standalone layer objects inside of any other layer object in your app, including those that are associated with a view.
+/// You typically use standalone layer objects as part of a specific `optimization` path.
+
+/// `For example`, if you wanted to use the same image in multiple places,
+/// you could load the image once and associate it with multiple standalone layer objects and add those objects to the layer tree.
+/// Each layer then refers to the source image rather than trying to create its own copy of that image in memory
