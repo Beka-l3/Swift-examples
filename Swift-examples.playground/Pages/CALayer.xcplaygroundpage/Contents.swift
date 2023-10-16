@@ -79,8 +79,14 @@ import UIKit
 
 /// for an app that enables layers for all of its views, the initial structure of each tree matches the structure of the view hierarchy exactly
 
+/// For every object in the layer tree, there is a matching object in the presentation and render trees.
+/// As was previously mentioned, apps primarily work with objects in the layer tree but may at times access objects in the presentation tree.
+/// Specifically, accessing the `presentationLayer` property of an object in the layer tree returns the corresponding object in the presentation tree.
+/// You might want to access that object to read the current value of a property that is in the middle of an animation.
 
-
+/// `Important`: You should access objects in the presentation tree only while an animation is in flight.
+/// While an animation is in progress, the presentation tree contains the layer values as they appear onscreen at that instant.
+/// This behavior differs from the layer tree, which always reflects the last value set by your code and is equivalent to the final state of the animation.
 
 
 
