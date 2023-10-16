@@ -176,6 +176,21 @@ final class MyViewController: UIViewController {
         let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: context, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
     }
+    
+    
+    /// Some people, particularly those making games,
+    /// try to use timers to have some work done before every frame is drawn – i.e., 60 or 120 frames per second, depending on your device.
+    
+    /// This is a mistake: timers are not designed for that level of accuracy,
+    /// and you have no way of knowing how much time has elapsed since the last frame was drawn.
+    /// So, you might think you have 1/60th or 1/120th of a second to run your code,
+    /// but in practice half of that might already have passed before your timer was triggered
+    
+    /// So, if you want to have some code run immediately after the previous display update, you should use `CADisplayLink` instead
+    func foo10() {
+        let displayLink = CADisplayLink(target: self, selector: #selector(fireTimer))
+        displayLink.add(to: .current, forMode: .default)
+    }
 }
 
 let mvc = MyViewController()
