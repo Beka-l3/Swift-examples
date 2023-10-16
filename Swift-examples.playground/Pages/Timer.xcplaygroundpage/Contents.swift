@@ -44,6 +44,45 @@ final class MyViewController: UIViewController {
         
         view.addSubview(myView)
     }
+    
+    func foo2() { // repeating timer that calls a @objc func
+        let timer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(fireTimer),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+    
+    @objc func fireTimer() {
+        print("Timer fired!")
+    }
+    
+    func foo3() { // reapeating timer that runs a closure
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("Timer fired! Closure")
+        }
+    }
+    
+    func foo4() { // non-repeating timers
+        let timer1 = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(fireTimer),
+            userInfo: nil,
+            repeats: false
+        )
+
+        let timer2 = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+            print("Timer fired!")
+        }
+        
+        // Another way to do that
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print("Timer fired!")
+        }
+    }
 }
 
 let mvc = MyViewController()
