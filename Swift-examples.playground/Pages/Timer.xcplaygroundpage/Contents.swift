@@ -18,6 +18,7 @@ final class MyViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         foo1()
+        foo5()
     }
     
     
@@ -81,6 +82,51 @@ final class MyViewController: UIViewController {
         // Another way to do that
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             print("Timer fired!")
+        }
+    }
+    
+    func foo5() { // End timer
+        var runCount = 0
+
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("Timer fired!")
+            runCount += 1
+
+            if runCount == 3 {
+                timer.invalidate()
+            }
+        }
+    }
+    
+    var timer6: Timer?
+    var runCount6 = 0
+    func foo6() { // same as foo5() but with a @objc func
+        timer6 = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(fireTimer6),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+    
+    @objc func fireTimer6() {
+        print("Timer fired!")
+        runCount6 += 1
+
+        if runCount6 == 3 {
+            timer6?.invalidate()
+        }
+    }
+    
+    /// Alternatively, you can do without the timer property by making fireTimer() accept the timer as its parameter.
+    /// This will automatically be passed if you ask for it
+    @objc func fireTimer62(timer: Timer) {
+        print("Timer fired!")
+        runCount6 += 1
+
+        if runCount6 == 3 {
+            timer.invalidate()
         }
     }
 }
