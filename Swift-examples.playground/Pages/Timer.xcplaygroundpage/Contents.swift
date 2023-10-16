@@ -46,6 +46,7 @@ final class MyViewController: UIViewController {
         view.addSubview(myView)
     }
     
+    
     func foo2() { // repeating timer that calls a @objc func
         let timer = Timer.scheduledTimer(
             timeInterval: 1.0,
@@ -60,11 +61,13 @@ final class MyViewController: UIViewController {
         print("Timer fired!")
     }
     
+    
     func foo3() { // reapeating timer that runs a closure
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             print("Timer fired! Closure")
         }
     }
+    
     
     func foo4() { // non-repeating timers
         let timer1 = Timer.scheduledTimer(
@@ -84,6 +87,7 @@ final class MyViewController: UIViewController {
             print("Timer fired!")
         }
     }
+    
     
     func foo5() { // End timer
         var runCount = 0
@@ -130,6 +134,7 @@ final class MyViewController: UIViewController {
         }
     }
     
+    
     /// can attach some context that stores extra information about what triggered the timer
     /// This is a dictionary, so you can store pretty much any data you like – the event that triggered the timer,
     /// what the user was doing, what table view cell was selected, and so on
@@ -151,6 +156,11 @@ final class MyViewController: UIViewController {
         }
     }
     
+    
+    func foo8() { // tolerance
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        timer.tolerance = 0.2
+    }
     
     
 }
