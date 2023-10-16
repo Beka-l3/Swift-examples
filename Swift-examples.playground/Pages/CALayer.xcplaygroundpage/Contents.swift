@@ -161,7 +161,10 @@ import UIKit
 /// That is layer returns to it's inital values, if we do not change `layer.isRemovedOnCompletion`.
 /// if we set it to `false`, then finishing values from animation is preserved in to the `model tree`
 
-
+//MARK: note
+/// Animtion depends on app lifecycle and layer itself.
+/// If an app goes to `background` and layer is deleted from `superview`, then `CAAnimation` is deleted
+/// So, if app is switched midway of an animation, then object will be in it;s initial state
 
 
 
