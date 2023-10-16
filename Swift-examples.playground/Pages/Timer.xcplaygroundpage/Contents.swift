@@ -129,6 +129,30 @@ final class MyViewController: UIViewController {
             timer.invalidate()
         }
     }
+    
+    /// can attach some context that stores extra information about what triggered the timer
+    /// This is a dictionary, so you can store pretty much any data you like – the event that triggered the timer,
+    /// what the user was doing, what table view cell was selected, and so on
+    var runCount7 = 0
+    func foo7() {
+        let context = ["user": "@twostraws"]
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: context, repeats: true)
+    }
+    
+    @objc func fireTimer7(timer: Timer) {
+        guard let context = timer.userInfo as? [String: String] else { return }
+        let user = context["user", default: "Anonymous"]
+
+        print("Timer fired by \(user)!")
+        runCount7 += 1
+
+        if runCount7 == 3 {
+            timer.invalidate()
+        }
+    }
+    
+    
+    
 }
 
 let mvc = MyViewController()
