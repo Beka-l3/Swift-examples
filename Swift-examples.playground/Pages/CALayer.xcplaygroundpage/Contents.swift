@@ -15,6 +15,9 @@ import UIKit
 
 /// they have: `Bounds`, `Frame`, `Anchor Point`, `Position`
 
+
+
+
 // MARK: - Layers Can Be Manipulated in Three Dimensions
 /// Every layer has two transform matrices that you can use to manipulate the layer and its contents.
 /// The transform property of CALayer specifies the transforms that you want to apply both to the layer and its embedded sublayers.
@@ -58,6 +61,8 @@ import UIKit
 ///   0     0    0     1
 
 
+
+
 // MARK: - Layer Trees Reflect Different Aspects of the Animation State
 /// An app using `Core Animation` has `three` `sets` of layer objects.
 /// Each set of layer objects has a different role in making the content of your app appear onscreen
@@ -77,6 +82,7 @@ import UIKit
 // MARK: Render tree
 /// Objects in the render tree `perform` the actual `animations` and are `private` to Core Animation
 
+
 /// for an app that enables layers for all of its views, the initial structure of each tree matches the structure of the view hierarchy exactly
 
 /// For every object in the layer tree, there is a matching object in the presentation and render trees.
@@ -91,4 +97,22 @@ import UIKit
 
 
 
+// MARK: - The Relationship Between Layers and Views
+/// Layers are not a replacement for your app’s views—that is, you cannot create a visual interface based solely on layer objects.
+
+/// Layers provide infrastructure for your views.
+/// Specifically, layers make it easier and more efficient to draw and animate the contents of views and maintain high frame rates while doing so.
+
+/// However, there are many things that layers do not do.
+/// ``Layers do not handle events, draw content, participate in the responder chain, or do many other things``
+
+/// For this reason, every app must still have one or more views to handle those kinds of interactions.
+
+/// In a ``layer-backed view``, the system is responsible for creating the underlying layer object and for keeping that layer in sync with the view.
+/// All iOS views are layer-backed
+
+/// `Note`: For layer-backed views, it is recommended that you manipulate the view, rather than its layer, whenever possible.
+/// In iOS, views are just a thin wrapper around layer objects, so any manipulations you make to the layer usually work just fine.
+/// But there are cases in both iOS and OS X where manipulating the layer instead of the view might not yield the desired results.
+/// Wherever possible, this document points out those pitfalls and tries to provide ways to help you work around them.
 
