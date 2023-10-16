@@ -11,8 +11,13 @@ final class MyViewController: UIViewController {
     }
     
     
+    
+    func foo1() {
+        
+    }
+    
+    
 }
 
 PlaygroundPage.current.liveView = MyViewController()
-
 
