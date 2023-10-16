@@ -13,6 +13,7 @@ import UIKit
 /// For layers you create yourself, you can assign a delegate object and use that object to provide the contents of the layer dynamically and perform other tasks.
 /// A layer may also have a layout manager object (assigned to the layoutManager property) to manage the layout of subviews separately.
 
+/// they have: `Bounds`, `Frame`, `Anchor Point`, `Position`
 
 // MARK: - Layers Can Be Manipulated in Three Dimensions
 /// Every layer has two transform matrices that you can use to manipulate the layer and its contents.
@@ -67,3 +68,21 @@ import UIKit
 /// Whenever you change the property of a layer, you use one of these objects.
 
 // MARK: Presentation tree
+/// Objects in the presentation tree contain the in-flight values for any `running animations`.
+/// Whereas the layer tree objects contain the target values for an animation,
+/// the objects in the presentation tree reflect the ``current values`` as they appear onscreen.
+/// You should `never modify` the objects in this tree.
+/// Instead, you use these objects to `read` current animation values, perhaps to create a new animation starting at those values.
+
+// MARK: Render tree
+/// Objects in the render tree `perform` the actual `animations` and are `private` to Core Animation
+
+/// for an app that enables layers for all of its views, the initial structure of each tree matches the structure of the view hierarchy exactly
+
+
+
+
+
+
+
+
