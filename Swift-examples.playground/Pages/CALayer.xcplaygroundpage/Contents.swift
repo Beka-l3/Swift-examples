@@ -168,9 +168,22 @@ import UIKit
 
 
 
+func printFrequencies(s: String) {
+    var freq: [Character: Int] = [:]
 
+    for char in s {
+        freq[char, default: 0] += 1
+    }
+    
+//    for i in 0..<s.count {
+//        let idx = s.index(s.startIndex, offsetBy: i)
+//        freq[s[idx]] = (freq[s[idx]] ?? 0) + 1
+//    }
 
+    for (key, value) in freq {
+        print("\(key): \(value)")
+    }
+}
 
-
-
+printFrequencies(s: "Beka. Hello World!")
 

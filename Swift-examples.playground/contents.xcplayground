@@ -20,5 +20,7 @@
         <page name='CALayer | playground'/>
         <page name='CALayer vs UIView'/>
         <page name='Timer'/>
+        <page name='Optional'/>
+        <page name='Concurrency | playground 2'/>
     </pages>
 </playground>
