@@ -22,5 +22,6 @@
         <page name='Timer'/>
         <page name='Optional'/>
         <page name='Concurrency | playground 2'/>
+        <page name='Playground 2'/>
     </pages>
 </playground>

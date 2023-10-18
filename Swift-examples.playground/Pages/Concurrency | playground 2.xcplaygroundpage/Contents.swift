@@ -1,7 +1,17 @@
-//: [Previous](@previous)
-
 import Foundation
 
-var greeting = "Hello, playground"
 
-//: [Next](@next)
+func printCucumbers() {
+  DispatchQueue.global().async {
+    for _ in 0..<100 {
+      print("🥒")
+    }
+  }
+}
+
+printCucumbers()
+
+for _ in 0..<100 {
+  print("🍅")
+}
+

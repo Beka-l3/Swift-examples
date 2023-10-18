@@ -9,3 +9,4 @@ class Foo {
 let foo1: Foo? = nil
 foo1?.bar()
 
+
