@@ -26,5 +26,6 @@
         <page name='Design Patterns'/>
         <page name='DP in iOS 1'/>
         <page name='DP in iOS 2'/>
+        <page name='Coding Principles'/>
     </pages>
 </playground>
