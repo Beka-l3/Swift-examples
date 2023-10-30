@@ -52,5 +52,52 @@ import Foundation
 
 
 
+// MARK: - Observer
+/// The Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+/// The Observer pattern is essentially a publish-and-subscribe model in which the subject and its observers are loosely coupled.
+/// Communication can take place between the observing and observed objects without either needing to know much about the other.
+/// Cocoa implements the observer pattern in two ways: `Notifications` and `Key-Value Observing` (KVO).
+
+
+
+
+// MARK: - Strategy
+/// Strategy pattern allows you to change the behaviour of an algorithm at run time.
+/// Using interfaces, we are able to define a family of algorithms, encapsulate each one, and make them interchangeable, allowing us to select which algorithm to execute at run time.
+/// For more information check these two out by Thomas Hanning and Sam Stone.
+
+
+
+
+// MARK: - Factory
+/// Factory method pattern makes the codebase more flexible to add or remove new types.
+/// To add a new type, we just need a new class for the type and a new factory to produce it like the following code. For more information check this out.
+
+
+
+
+// MARK: - Command
+/// The Command design pattern encapsulates a request as an object,
+/// thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+/// The request object binds together one or more actions on a specific receiver.
+/// The Command pattern separates an object making a request from the objects that receive and execute that request. E.g. Target action mechanism.
+
+
+
+
+// MARK: - Composite
+/// The Composite design pattern composes related objects into tree structures to represent part-whole hierarchies.
+/// It lets clients treat individual objects and compositions of objects uniformly. It is part of the Model-View-Controller aggregate pattern. E.g. View Hierarchy
+
+
+
+
+// MARK: - Iterator
+/// The Iterator design pattern provides a way to access the elements of an aggregate object (that is, a collection) sequentially without exposing its underlying representation.
+/// The Iterator pattern transfers the responsibility for accessing and traversing the elements of a collection from the collection itself to an iterator object.
+/// The Iterator defines an interface for accessing collection elements and keeps track of the current element. Different iterators can carry out different traversal policies. E.g. Enumerators
+
+
+
 
 
