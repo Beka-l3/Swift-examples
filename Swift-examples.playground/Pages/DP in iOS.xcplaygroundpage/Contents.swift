@@ -100,4 +100,18 @@ import Foundation
 
 
 
+// MARK: - Mediator
+/// The Mediator design pattern defines an object that encapsulates how a set of objects interact.
+/// Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+/// These objects can thus remain more reusable. A “mediator object” in this pattern centralizes complex communication and control logic between objects in a system.
+/// These objects tell the mediator object when their state changes and, in turn, respond to requests from the mediator object. E.g. Controller Classes in the AppKit Framework & View Controllers in UIKit
+
+
+
+
+// MARK: - Singleton
+/// The Singleton design pattern ensures a class only has one instance, and provides a global point of access to it.
+/// The class keeps track of its sole instance and ensures that no other instance can be created.
+/// Singleton classes are appropriate for situations where it makes sense for a single object to provide access to a global resource.
+/// It usually uses lazy loading to create the single instance when it’s needed the first time.
 
