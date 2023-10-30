@@ -22,6 +22,8 @@
         <page name='Timer'/>
         <page name='Optional'/>
         <page name='Concurrency | playground 2'/>
-        <page name='Playground 2'/>
+        <page name='Yandex Platform Questions'/>
+        <page name='Design Patterns'/>
+        <page name='DP in iOS'/>
     </pages>
 </playground>
