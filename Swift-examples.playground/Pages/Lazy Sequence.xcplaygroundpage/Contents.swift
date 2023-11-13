@@ -190,5 +190,32 @@ func foo5() {
       4
       4
       */
+}
+
+
+func foo6() {
+    /// **Take the delay into account**
+    /// A lazy collection only performs its modifiers upon request.
+    /// In case one of the modifiers performs tasks that can take time, you might want to step away from using lazy.
     
+    /// In other words, it might be beneficial to calculate output values upfront and have them ready when they’re actually needed.
+    /// You don’t want to perform the heavy lifting while the user is scrolling, for example
+    
+    /// **Consider using standard Swift APIs over lazy arrays**
+    /// A topic on its own and another reason to reconsider using lazy collections.
+    /// Swift provides us a whole API of optimized modifiers to work with collections that might be a better solution to your problem.
+    
+    /// For example, you might think it’s a smart decision to use lazy in this scenario as it prevents us from filter all numbers before we start using only the first element:
+    let collectionOfNumbers = (1…1000000)
+    let lazyFirst = collectionOfNumbers.lazy
+        .filter {
+            print("filter")
+            return $0 % 2 == 0
+        }.first
+    print(lazyFirst) // Prints: 2
+    
+    /// However, in this case, we benefit from using `first(where:)` instead.
+    /// It’s a standard Swift API and it allows us to benefit from all underlying (future) optimizations:
+    let firstWhere = collectionOfNumbers.first(where: { $0 % 2 == 0 })
+    print(firstWhere) // Prints: 2    
 }
