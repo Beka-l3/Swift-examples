@@ -217,5 +217,8 @@ func foo6() {
     /// However, in this case, we benefit from using `first(where:)` instead.
     /// It’s a standard Swift API and it allows us to benefit from all underlying (future) optimizations:
     let firstWhere = collectionOfNumbers.first(where: { $0 % 2 == 0 })
-    print(firstWhere) // Prints: 2    
+    print(firstWhere) // Prints: 2
 }
+
+/// Lazy collections are a powerful element of Swift and can result in better performance for specific cases.
+/// It’s important to know its implications to decide whether or not lazy arrays are the right solution for your scenario
