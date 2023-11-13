@@ -81,7 +81,7 @@ import Foundation
 
 
 // MARK: Razor Occam
-/// What does this mean in the programming world? Don't create unnecessary entities unnecessarily. Be pragmatic - consider whether they are necessary as they may end up adding complexity to your codebase
+/// Don't create unnecessary entities unnecessarily. Be pragmatic - consider whether they are necessary as they may end up adding complexity to your codebase
 
 
 
