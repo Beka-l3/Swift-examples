@@ -127,3 +127,68 @@ func foo4() {
     /// It’s important to understand the differences between a lazy array and a regular array.
     /// Once you know when modifiers are executed, you can decide whether or not a lazy collection makes sense for your specific case
 }
+
+
+func foo5() {
+    /// Now that you’ve seen that lazy collections can be more performant,
+    /// you might be thinking: “I’ll just use lazy everywhere!”.
+    /// However, it’s important to understand the implications of using a lazy array.
+    
+    /// **Do not over optimize**
+    /// A collection having only 5 items won’t give you a lot of performance wins when using lazy.
+    /// It’s a case-per-case decision, and it also depends on the amount of work done by your modifiers.
+    /// In most cases, lazy will only be useful when you’re only going to use a few items of a large collection.
+    
+    /// On top of that, it’s important to know that lazy arrays aren’t cached.
+    
+    /// **Lazy Collections do not cache**
+    /// A lazy collection postpones executing modifiers until they’re requested.
+    /// This also means that the outcome values aren’t stored in an output array.
+    /// In fact, all modifiers are executed again on each item request
+    let modifiedLazyNumbers = numbers.lazy
+        .filter { number in
+            print("Lazy Even number filter")
+            return number % 2 == 0
+        }.map { number -> Int in
+            print("Lazy Doubling the number")
+            return number * 2
+        }
+    print(modifiedLazyNumbers.first!)
+    print(modifiedLazyNumbers.first!)
+    /*
+     Prints:
+     Lazy Even number filter
+     Lazy Even number filter
+     Lazy Doubling the number
+     4
+     Lazy Even number filter
+     Lazy Even number filter
+     Lazy Doubling the number
+     4
+     */
+    
+    /// While the same scenario with a non-lazy collection would compute output values only once:
+    let modifiedNumbers = numbers
+         .filter { number in
+             print("Lazy Even number filter")
+             return number % 2 == 0
+         }.map { number -> Int in
+             print("Lazy Doubling the number")
+             return number * 2
+         }
+     print(modifiedNumbers.first!)
+     print(modifiedNumbers.first!)
+     /*
+      Prints:
+      Lazy Even number filter
+      Lazy Even number filter
+      Lazy Even number filter
+      Lazy Even number filter
+      Lazy Even number filter
+      Lazy Doubling the number
+      Lazy Doubling the number
+      4
+      4
+      */
+    
+}
