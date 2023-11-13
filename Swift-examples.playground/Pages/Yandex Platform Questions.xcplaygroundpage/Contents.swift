@@ -6,6 +6,7 @@ print("Hello World!")
 
 
 /*
+ 
 // Для строки вида "AAABBCCAA" вывести частоту символов, например: A: 5, B: 2, C: 2
 func frequencies(_ s: String) -> String {
     let s = Array(s)
@@ -70,7 +71,6 @@ circle2.radius = 10
 
 let circle3 = Circle()
 cirlce2 = cirlce3
-
 
 
 
@@ -212,12 +212,5 @@ func isPalindorme(_ s: String) -> Bool {
 
     return true
 }
-
-
-
-
-
-
-
 
 */
