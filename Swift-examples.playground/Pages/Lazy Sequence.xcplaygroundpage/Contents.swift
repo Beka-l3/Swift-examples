@@ -71,3 +71,59 @@ func foo3() {
     /// You can imagine this can save you from a lot of work if only a few items are used from a big collection.
 }
 
+
+func foo4() {
+    /// Another benefit of lazy collections is the option to handle output values on the go.
+    /// For example, imagine having an avatar image fetcher that you want to use to fetch avatars for usernames starting with the letter A.
+    
+    let usernames = ["Antoine", "Maaike", "Jaap", "Amber", "Lady", "Angie"]
+    usernames
+        .filter { username in
+            print("filtered name")
+            return username.lowercased().first == "a"
+        }.forEach { username in
+            print("Fetch avatar for (username)")
+        }
+    /*
+      Prints:
+      filtered name
+      filtered name
+      filtered name
+      filtered name
+      filtered name
+      filtered name
+      Fetch avatar for Antoine
+      Fetch avatar for Amber
+      Fetch avatar for Angie
+      */
+    
+    /// All names are filtered first, after which we fetch an avatar for all names starting with an A.
+    
+    /// Although this works, we would only start fetching after the whole collection is filtered.
+    /// This can be a downside if we have to iterate over a big collection of names.
+
+    /// Instead, if we would use a lazy collection in this scenario, we would be able to start fetching avatars on the go:
+    let usernames = ["Antoine", "Maaike", "Jaap", "Amber", "Lady", "Angie"]
+    usernames.lazy
+        .filter { username in
+            print("filtered name")
+            return username.lowercased().first == "a"
+        }.forEach { username in
+            print("Fetch avatar for (username)")
+        }
+    /*
+     Prints:
+     filtered name
+     Fetch avatar for Antoine
+     filtered name
+     filtered name
+     filtered name
+     Fetch avatar for Amber
+     filtered name
+     filtered name
+     Fetch avatar for Angie
+     */
+    
+    /// It’s important to understand the differences between a lazy array and a regular array.
+    /// Once you know when modifiers are executed, you can decide whether or not a lazy collection makes sense for your specific case
+}
