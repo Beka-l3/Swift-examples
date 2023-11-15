@@ -103,8 +103,8 @@ func foo4() {
     /// This can be a downside if we have to iterate over a big collection of names.
 
     /// Instead, if we would use a lazy collection in this scenario, we would be able to start fetching avatars on the go:
-    let usernames = ["Antoine", "Maaike", "Jaap", "Amber", "Lady", "Angie"]
-    usernames.lazy
+    let usernames2 = ["Antoine", "Maaike", "Jaap", "Amber", "Lady", "Angie"]
+    usernames2.lazy
         .filter { username in
             print("filtered name")
             return username.lowercased().first == "a"
@@ -145,6 +145,7 @@ func foo5() {
     /// A lazy collection postpones executing modifiers until they’re requested.
     /// This also means that the outcome values aren’t stored in an output array.
     /// In fact, all modifiers are executed again on each item request
+    var numbers: [Int] = [1, 2, 3, 6, 9]
     let modifiedLazyNumbers = numbers.lazy
         .filter { number in
             print("Lazy Even number filter")
@@ -206,7 +207,7 @@ func foo6() {
     /// Swift provides us a whole API of optimized modifiers to work with collections that might be a better solution to your problem.
     
     /// For example, you might think it’s a smart decision to use lazy in this scenario as it prevents us from filter all numbers before we start using only the first element:
-    let collectionOfNumbers = (1…1000000)
+    let collectionOfNumbers = (1...1000000)
     let lazyFirst = collectionOfNumbers.lazy
         .filter {
             print("filter")
