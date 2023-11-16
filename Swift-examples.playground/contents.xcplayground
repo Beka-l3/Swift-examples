@@ -26,6 +26,7 @@
         <page name='DP in iOS 2'/>
         <page name='Coding Principles'/>
         <page name='Memory'/>
+        <page name='Memory 2'/>
         <page name='Lazy Sequence'/>
     </pages>
 </playground>
