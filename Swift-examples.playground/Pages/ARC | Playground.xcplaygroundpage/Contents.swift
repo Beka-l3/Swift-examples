@@ -38,3 +38,21 @@ print("qqq")
 
 
 
+print("\n\n")
+
+final class B {
+    
+    var someC: (() -> Void)? = {
+        print("Hello")
+    }
+    
+}
+
+
+var b: B? = B()
+var someBC = b?.someC ?? {print("Bye")}
+
+b?.someC = nil
+b = nil
+
+someBC()
