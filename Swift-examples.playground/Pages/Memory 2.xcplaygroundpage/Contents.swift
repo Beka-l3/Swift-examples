@@ -80,3 +80,36 @@ func foo3() {
 /// ``Reference == 8 bytes``
 /// foo3: Bool[1] + *[0000000]* + ArrayRef[11111111] + Bool[1] + *[000]* + Int32[1111]
 /// size: 24    alignment: 8    stride: 24
+
+
+func foo4() {
+    class PaidService {
+        let id: String
+        let name: String
+        let isActive: Bool
+        let expiresAt: Date?
+        
+        init() {
+            self.id = "id"
+            self.name = "name"
+            self.isActive = .random()
+            self.expiresAt = .init()
+        }
+    }
+
+    MemoryLayout<PaidService>.size       // 8
+    MemoryLayout<PaidService>.alignment  // 8
+    MemoryLayout<PaidService>.stride     // 8
+}
+
+/// Class is reference type
+/// ``All the references == 8 bytes``
+
+/// To get the real size that is on the heap
+/// Need to use Objective-C method `class_getInstanceSize(_:)`
+
+/// foo4: String[1111111111111111] + String[1111111111111111] + Bool[1] + *[0000000]* + Data[11111111] + Optional[1] + *[0000000]* + Metadata[1111111111111111]
+
+
+
+// MARK: Dumping, Pointers, Visualisation
