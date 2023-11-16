@@ -91,3 +91,38 @@ import Foundation
 /// - Escaping Closure
 /// - Inout argument
 
+/// ``Copy on write``
+/// `Collections` defined by the standard library like arrays, dictionaries, and strings
+/// use an optimization to reduce the performance cost of copying.
+/// Instead of making a copy immediately,
+/// these collections share the memory where the elements are stored between the original instance and any copies.
+/// If one of the copies of the collection is modified, the elements are copied just before the modification.
+/// The behavior you see in your code is always as if a copy took place immediately.
+
+
+// iOS has Manual (alloc, retain, release, dealloc) and Automatic RC
+/// ARC works during `compilation`. And reference counting happens during `runtime`
+/// Release / Retain are not callable. Dealloc works partially
+/// Property Modificators `Weak`(~ retain) and `Unowned`(~ assign)
+//
+/// Issue - `Retain Cycle`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
