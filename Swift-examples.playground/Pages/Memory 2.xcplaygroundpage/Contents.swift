@@ -113,3 +113,25 @@ func foo4() {
 
 
 // MARK: Dumping, Pointers, Visualisation
+
+func foo5() {
+    struct FullResume {
+        let id: String
+        let age: Int
+        let hasVehicle: Bool
+    }
+    
+    class FullResumeC {
+        let id: String
+        let age: Int
+        let hasVehicle: Bool
+        
+        init() {
+            self.id = "id"
+            self.age = 0
+            self.hasVehicle = .random()
+        }
+    }
+}
+/// Visualisation of the `Struct = 1 bubble of memory`
+/// Visualisation of the `Class = 15+ bubble of memories`
