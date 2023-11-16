@@ -5,6 +5,7 @@ import Foundation
 /// and you don’t need to think about memory management yourself.
 /// ARC automatically frees up the memory used by class instances when those instances are no longer needed. <When RC == 0>
 /// ``Reference counting is only applied to instances of classes``
+/// or to `closures`, `functions` too?
 
 /// Well, ARC counts references. If `RC != 0` then memory is not freed up
 /// To remove a reference, need to set it to `nil`.
