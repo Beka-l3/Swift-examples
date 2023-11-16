@@ -7,6 +7,8 @@ import Foundation
 /// - Weak
 
 
+
+
 // MARK: - Before Swift 4
 /// Before Swift 4
 /// Objects contained 2 counters (Strong, Weak)
@@ -47,9 +49,10 @@ func foo1() {
     /// then both try to reduce counter
     /// but memory can be deallocated only once
 }
-
-
 // MARK: - After Swift 4
+
+
+
 
 
 // MARK: Side Table
@@ -77,3 +80,21 @@ func foo1() {
 // This solves 2 issues mentioned above
 /// - Memory deallocation right after `Strong` counter == 0
 /// - Safely deallocate `Weak` counter
+
+
+
+
+
+// MARK: - Lifecycle
+
+///                        no weak ref
+///                   - - - - - - - - -
+///                   |                                    |
+///                   |                                    |
+///                   |                                    ˇ
+/// Live ---> Deiniting ---> Deinited ---> Freed ---> Dead
+///         |                                                         ^
+///         |                                                          |
+///         |                                                          |
+///         - - - - - - - - - - - - - -
+///           No weak ref, nore unowned ref

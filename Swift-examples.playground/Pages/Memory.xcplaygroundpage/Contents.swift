@@ -141,7 +141,7 @@ import Foundation
 ///         |                                                          |
 ///         |                                                          |
 ///         - - - - - - - - - - - - - -
-///           No weak ref, nore unowned ref
+///           No weak ref and no unowned ref
 
 
 
