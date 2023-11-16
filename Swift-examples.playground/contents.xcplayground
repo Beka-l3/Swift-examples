@@ -27,6 +27,7 @@
         <page name='Coding Principles'/>
         <page name='Memory'/>
         <page name='Memory 2'/>
+        <page name='Memory 3'/>
         <page name='Lazy Sequence'/>
     </pages>
 </playground>
