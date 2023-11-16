@@ -69,7 +69,13 @@ import Foundation
 /// - Rerence counting price
 
 
-
+// Memory - list of bytes. Bytes are ordered. Each byte has it's address.
+/// Descrete period of address is called `Adress Space`
+/// `Address Space` in iOS app has 4 segments:
+/// `Text` - Machine code of executable instructions.
+/// `Data` - Static variables of Swift: methadata, global variables etc.
+/// `Stack` - Temporary variables
+/// `Heap` - objects that has lifetime
 
 
 
