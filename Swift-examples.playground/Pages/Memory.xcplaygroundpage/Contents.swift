@@ -106,9 +106,26 @@ import Foundation
 /// Property Modificators `Weak`(~ retain) and `Unowned`(~ assign)
 //
 /// Issue - `Retain Cycle`
+/// Issue - during init self is not available before creation
 
 
+// Side Tables
+/// To implement weak references mecahnism
+/// Usually object does not have weak reference. So to allocated a memory for counter for every object is not effective
+/// This infomation is stored outside of the object. And is used when needed.
+/// When weak reference is first created, memory in side table is allocated.
+/// Now, instead of `strong` reference counter, we have a reference to a side table.
+/// And side table has a reference to the object
+//
+/// Side table = counter of references and pointer to the object
+/// They are declared during runtime
 
+// Example:
+//class HeapObjectSideTableEntry {
+//  std::atomic<HeapObject*> object;
+//  SideTableRefCounts refCounts;
+//  // Operations to increment and decrement reference counts
+//}
 
 
 
