@@ -111,8 +111,8 @@ import Foundation
 
 // Side Tables
 /// To implement weak references mecahnism
-/// <Usually object does not have weak reference> - not neceseraly true
-/// <So to allocated a memory for counter for every object is not effective> - not neceseraly true
+/// Usually object does not have weak reference
+/// So to allocated a memory for counter for every object is not effective
 /// This infomation is stored outside of the object. And is used when needed.
 /// When weak reference is first created, memory in side table is allocated.
 /// Now, instead of `strong` reference counter, we have a reference to a side table.
