@@ -128,11 +128,19 @@ import Foundation
 //}
 
 
+// Object lifecycle
 
-
-
-
-
+///                        no weak ref
+///                   - - - - - - - - -
+///                   |                                    |
+///                   |                                    |
+///                   |                                    ˇ
+/// Live ---> Deiniting ---> Deinited ---> Freed ---> Dead
+///         |                                                         ^
+///         |                                                          |
+///         |                                                          |
+///         - - - - - - - - - - - - - -
+///           No weak ref, nore unowned ref
 
 
 
