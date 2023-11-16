@@ -78,7 +78,16 @@ import Foundation
 /// `Heap` - objects that has lifetime
 
 
-
-
-
+// Exceptions
+/// `Reference type in Stack`
+/// - Swift Compiler can store RT in stack if it's size is static and lifetime can be calculated during compilation
+///  -- this optimization happens while generating SIL (Swift Intermediate Language)
+//
+/// `Value type in Heap`
+/// - Conform to a protocol and it's size is larger than 3 machine words.
+/// - Mixing reference type and value type
+///   -- Usually reference to a class is in the struct. And struct is the property of the class.
+/// - Value type with Generics
+/// - Escaping Closure
+/// - Inout argument
 
