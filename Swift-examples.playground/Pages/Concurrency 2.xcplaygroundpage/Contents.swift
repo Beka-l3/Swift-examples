@@ -118,6 +118,7 @@ func foo2() {
 
 
 // Priority inversion
+/// Example: when high priority taks is waiting for low priority taks to finish
 func foo3() {
     func printCucumbers() {
         for _ in 0..<7 {
@@ -147,3 +148,12 @@ func foo3() {
         }
     }
 }
+
+/// there might be `Limited Priority Inversion`
+/// When One high task is waiting for one low task and it is clear when it finishes
+//
+/// Also might be `UnLimited Priority Inversion`
+/// When One high task is waiting for one low task
+/// but medium tasks keep executing  and low task is waiting them to finish first
+
+
