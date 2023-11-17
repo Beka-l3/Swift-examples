@@ -116,3 +116,34 @@ func foo2() {
     value
 }
 
+
+// Priority inversion
+func foo3() {
+    func printCucumbers() {
+        for _ in 0..<7 {
+            print("🥒")
+        }
+    }
+    
+    func printTomatos() {
+        for _ in 0..<7 {
+            print("🍅")
+        }
+    }
+    
+    func priorityInversionDemo() {
+        let userInteractiveQueue = DispatchQueue(label: "com.demo.userInteractive", qos: .userInteractive)
+        let userInitiatedQueue = DispatchQueue(label: "com.demo.userInitiated", qos: .userInitiated)
+        let backgroundQueue = DispatchQueue(label: "com.demo.background", qos: .background)
+        
+        userInteractiveQueue.async {
+            backgroundQueue.async {
+                printCucumbers()
+            }
+            
+            userInitiatedQueue.async {
+                printTomatos()
+            }
+        }
+    }
+}
