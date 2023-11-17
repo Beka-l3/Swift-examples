@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 // MARK: Grand Central Dispatch (GCD)
 
@@ -53,7 +53,7 @@ func foo() {
     /// - `Background`: Lowest priority
     /// tasksk that is not connected to UI and not time critical
     /// for example, backups
-    let backgroundQueue = DispatchQueue.global(.background)
+    let backgroundQueue = DispatchQueue.global(qos: .background)
     
     /// - `Default`
     /// when there is not information about priority
@@ -63,7 +63,56 @@ func foo() {
 }
 
 
-
+// Race condition
 func foo1() {
+    var value = "A"
     
+    func changeValue(_ variant: Int) {
+        sleep(1)
+        value += "+"
+        print("\(value) - \(variant)")
+    }
+    
+    let mySerialQueue = DispatchQueue(label: "my.queue")
+    
+    mySerialQueue.async {   // Potential place for race condition
+        changeValue(1)
+    }
+    
+    value
+    
+    value = "B"
+    mySerialQueue.sync {
+        changeValue(2)
+    }
+    value
+    
+    /// At the end we wanted B+
+    /// But we got B++
 }
+
+
+func foo2() {
+    var value = "A"
+    
+    func changeValue(_ variant: Int) {
+        sleep(1)
+        value += "+"
+        print("\(value) - \(variant)")
+    }
+    
+    let mySerialQueue = DispatchQueue(label: "my.queue")
+    
+    mySerialQueue.sync {        // with sync we got rid of race condition
+        changeValue(1)
+    }
+    
+    value
+    
+    value = "B"
+    mySerialQueue.sync {
+        changeValue(2)
+    }
+    value
+}
+
