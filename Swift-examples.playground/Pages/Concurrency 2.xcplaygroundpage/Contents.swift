@@ -157,3 +157,26 @@ func foo3() {
 /// but medium tasks keep executing  and low task is waiting them to finish first
 
 
+// Deadlock
+/// when there is a cirlce of waiting queues / tasks
+func foo4() {
+    let a = DispatchQueue(label: "a.a.a")
+    let b = DispatchQueue(label: "b.b.b")
+    let c = DispatchQueue(label: "c.c.c")
+    
+    a.sync {
+        print("a")
+        
+        b.sync {
+            print("b")
+            
+            c.sync {
+                print("c")
+                
+                a.sync {
+                    print(a)
+                }
+            }
+        }
+    }
+}
