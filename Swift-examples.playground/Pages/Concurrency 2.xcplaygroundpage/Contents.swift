@@ -180,3 +180,18 @@ func foo4() {
         }
     }
 }
+
+
+
+// MARK: - Experiments
+func fii1() {
+    let mainQueue = DispatchQueue.main
+    
+    let userIntreractive = DispatchQueue.global(qos: .userInteractive)
+    let userInited = DispatchQueue.global(qos: .userInitiated)
+    let utility = DispatchQueue.global(qos: .utility)
+    let background = DispatchQueue.global(qos: .background)
+    
+    let defaultQueue = DispatchQueue.global()
+}
+
