@@ -184,14 +184,52 @@ func foo4() {
 
 
 // MARK: - Experiments
-func fii1() {
-    let mainQueue = DispatchQueue.main
-    
-    let userIntreractive = DispatchQueue.global(qos: .userInteractive)
-    let userInited = DispatchQueue.global(qos: .userInitiated)
-    let utility = DispatchQueue.global(qos: .utility)
-    let background = DispatchQueue.global(qos: .background)
-    
-    let defaultQueue = DispatchQueue.global()
+
+let mainQueue = DispatchQueue.main
+
+let userIntreractiveQueue = DispatchQueue.global(qos: .userInteractive)
+let userInitedQueue = DispatchQueue.global(qos: .userInitiated)
+let utilityQueue = DispatchQueue.global(qos: .utility)
+let backgroundQueue = DispatchQueue.global(qos: .background)
+
+let defaultQueue = DispatchQueue.global()
+
+
+func task(_ symbol: String) {
+    for i in 0...9 {
+        print("\(symbol) \(i) priority: \(qos_class_self().rawValue)")
+    }
 }
 
+func taskHigh(_ symbol: String) {
+        print("\(symbol) high priority: \(qos_class_self().rawValue)")
+}
+
+
+
+func fii1() {
+    print("---------------------------")
+    print("sync")
+    print("global: .concurrent   queue: .userInitiated")
+    print("---------------------------")
+    
+    userInitedQueue.sync {
+        task("😂")
+    }
+    task("🥶")
+}
+//fii1()
+
+
+func fii2() {
+    print("---------------------------")
+    print("async")
+    print("global: .concurrent   queue: .userInitiated")
+    print("---------------------------")
+    
+    userInitedQueue.async {
+        task("😂")
+    }
+    task("🥶")
+}
+//fii2()
