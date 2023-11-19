@@ -49,6 +49,11 @@ final class ThreadSafeString {
                 /// since `aQueue` is `.concurrent`
                 /// multiple read operation can happen at the same time
                 result = sentence
+                
+                /// when this tasks is put into queue
+                /// if there are `barrier` task is being executed
+                /// then it first waits it to finish
+                /// only then it get the result
             }
             return result
         }
