@@ -2,6 +2,7 @@ import UIKit
 import Foundation
 
 
+
 func foo1() {
     var usualString = ""
     
@@ -19,6 +20,11 @@ func foo1() {
     
     print(usualString)
 }
+
+
+
+
+// MARK: - Dispatch Barrier
 
 /// when 2 thread try to write the same memory place
 /// it my call damage (dirt) the memory
@@ -115,3 +121,30 @@ func foo2() {
 /// `Thread Sanitizer` in `.xcodeproject` can help to detect `Race Conditions`
 /// It is located in `Scheme`
 /// It Works when an application is running
+
+
+
+
+// MARK: - Semaphores
+/// This tool helps us to controll amount threads that can refer to our queue at a moment
+/// Methods `signal() / wait()` `increment / decrement` the counter
+/// Queue is open when `counter` is equal to the value that is passed in `init()`
+
+func foo3() {
+    let serialQueue = DispatchQueue(label: "ru.denisegaluev.serial-queue")
+
+    // Create semaphore
+    let semaphore = DispatchSemaphore(value: 0)
+
+    // Sleep serialQueue for 5 sec, after call method signal
+    serialQueue.async {
+        sleep(5)
+        
+        // Unlock semaphore
+        semaphore.signal()
+    }
+
+    // block queue
+    semaphore.wait()
+}
+
