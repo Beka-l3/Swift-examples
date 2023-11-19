@@ -335,7 +335,11 @@ func fii7() {
 
 
 func fii8() {
-    let myWorker1 = DispatchQueue(label: "com.example.concurrent", qos: .userInitiated, attributes: [.concurrent, .initiallyInactive])
+    let myWorker1 = DispatchQueue(
+        label: "com.example.concurrent",
+        qos: .userInitiated,
+        attributes: [.concurrent, .initiallyInactive]
+    )
     
     myWorker1.async {
         task("😂")
@@ -349,5 +353,39 @@ func fii8() {
     /// we can add tasks
     /// then give command to start
 }
-fii8()
+//fii8()
+
+
+
+func fii9() {
+    let workItem = DispatchWorkItem(qos: .userInteractive, flags: [.enforceQoS]) {
+        taskHigh("🫥")
+    }
+    
+    let myConcurrentQueue1 = DispatchQueue(label: "com.example.serial1", qos: .userInitiated, attributes: .concurrent)
+    let myConcurrentQueue2 = DispatchQueue(label: "com.example.serial2", qos: .background, attributes: .concurrent)
+    
+    myConcurrentQueue1.async { task("😂") }
+    myConcurrentQueue2.async { task("🤢") }
+    
+    myConcurrentQueue2.async(execute: workItem)
+    myConcurrentQueue1.async(execute: workItem)
+ 
+    /// we can interrupt queues with `workItems` and have moew control over tasks
+    /// flog `.enforceQoS` forces to high priority execution
+    /// might help from `priority inversion`
+}
+//fii9()
+
+
+
+func fii10() {
+    
+}
+
+
+
+
+
+
 
