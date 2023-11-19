@@ -416,10 +416,60 @@ func fii10() {
         }
     }
 }
-fii10()
+//fii10()
 
 
 
-
+func fii11() {
+    // image load methods
+    let view = UIView(frame: .init(origin: .zero, size: .init(width: 600, height: 600)))
+    
+    let imageView = UIImageView(frame: .init(origin: .zero, size: .init(width: 600, height: 600)))
+    imageView.backgroundColor = .systemPurple
+    imageView.contentMode = .scaleAspectFit
+    view.addSubview(imageView)
+    
+    PlaygroundPage.current.liveView = view
+    
+    let imageUrl = URL(string: "https://images.unsplash.com/photo-1623491527126-8ccdf066feef?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!
+    
+    
+    func fetch1() { // classic
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            if let imageData = try? Data(contentsOf: imageUrl) {
+                DispatchQueue.main.async {
+                    imageView.image = UIImage(data: imageData)
+                }
+            }
+        }
+    }
+    
+    func fetch2() { // async tasks from URLSession
+        let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+            if let imageData = data {
+                DispatchQueue.main.async {
+                    imageView.image = UIImage(data: imageData)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func fetch3() { /// with work Item
+        var data: Data?
+        let queue = DispatchQueue.global(qos: .utility)
+        let workItem = DispatchWorkItem {
+            data = try? Data(contentsOf: imageUrl)
+        }
+        
+        queue.async(execute: workItem)
+        workItem.notify(queue: .main) {
+            if let imageData = data {
+                imageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+}
 
 
