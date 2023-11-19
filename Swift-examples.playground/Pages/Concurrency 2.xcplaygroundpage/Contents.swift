@@ -304,8 +304,8 @@ func fii5() {
 
 
 func fii6() {
-    let mySerialQueue1 = DispatchQueue(label: "com.example.serial", qos: .utility)
-    let mySerialQueue2 = DispatchQueue(label: "com.example.serial", qos: .background)
+    let mySerialQueue1 = DispatchQueue(label: "com.example.serial1", qos: .utility)
+    let mySerialQueue2 = DispatchQueue(label: "com.example.serial2", qos: .background)
     
     mySerialQueue2.async {
         task("😂")
@@ -331,3 +331,23 @@ func fii7() {
     /// now all of them are running in parallel
 }
 //fii7()
+
+
+
+func fii8() {
+    let myWorker1 = DispatchQueue(label: "com.example.concurrent", qos: .userInitiated, attributes: [.concurrent, .initiallyInactive])
+    
+    myWorker1.async {
+        task("😂")
+    }
+    myWorker1.async {
+        task("🤢")
+    }
+    task("🥶")
+    myWorker1.activate()
+    /// initially custom queue is inactive
+    /// we can add tasks
+    /// then give command to start
+}
+fii8()
+
