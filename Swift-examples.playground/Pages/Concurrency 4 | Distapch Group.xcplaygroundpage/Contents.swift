@@ -77,6 +77,20 @@ func foo1() {
 /// however we can call `enter()` and `leave()`
 /// to `increase` and `decrease` the counter
 
+func asyncLoad(imageUrl: URL, runQueue: DispatchQueue, completionQueue: DispatchQueue, completion: @escaping (UIImage?, Error?) -> ()) {
+    runQueue.async {
+        do {
+            let data = try Data(contentsOf: imageUrl)
+            completionQueue.async {
+                completion(UIImage(data: data), nil)
+            }
+        } catch {
+            completionQueue.async {
+                completion(nil, error)
+            }
+        }
+    }
+}
 
 
 func foo2() { // async group
@@ -95,22 +109,6 @@ func foo2() { // async group
             print("something is not working")
         }
     }
-    
-    func asyncLoad(imageUrl: URL, runQueue: DispatchQueue, completionQueue: DispatchQueue, completion: @escaping (UIImage?, Error?) -> ()) {
-        runQueue.async {
-            do {
-                let data = try Data(contentsOf: imageUrl)
-                completionQueue.async {
-                    completion(UIImage(data: data), nil)
-                }
-            } catch {
-                completionQueue.async {
-                    completion(nil, error)
-                }
-            }
-        }
-    }
-    
     
     for i in 0...3 {
         aGroup.enter()
@@ -138,3 +136,49 @@ func foo2() { // async group
 }
 
 //foo2()
+
+
+func foo3() { // mixed
+    images = []
+    
+    let aGroup = DispatchGroup()
+    
+    for i in 0...2 {
+        aGroup.enter()
+        
+        asyncLoad(
+            imageUrl: URL(string: imageUrls[i])!,
+            runQueue: .global(),
+            completionQueue: .main
+        ) { image, error in
+            if let image = image {
+                images.append(image)
+                aGroup.leave()
+            }
+        }
+    }
+    
+    
+    for i in 3...5 {
+        DispatchQueue.global().async(group: aGroup) {
+            if
+                let url = URL(string: imageUrls[i]),
+                let data = try? Data(contentsOf: url)
+            {
+                images.append( UIImage(data: data) )
+                print("---- finished \(i)       priority: \(qos_class_self().rawValue)")
+            }
+        }
+    }
+    
+    aGroup.notify(queue: .main) {
+        print("\nfinished image group work")
+        if images.count == 6 {
+            print("got 6 images")
+        } else {
+            print("something is not working")
+        }
+    }
+}
+
+//foo3()
