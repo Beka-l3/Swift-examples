@@ -31,5 +31,6 @@
         <page name='Memory 3 | Side Table + Lifecycle'/>
         <page name='Concurrency 2'/>
         <page name='Concurrency 3'/>
+        <page name='Concurrency 4 | Distapch Group'/>
     </pages>
 </playground>
