@@ -496,3 +496,38 @@ func fii11() {
 }
 
 
+
+func fii12() {
+    /// there is apossibility to run task after some time interval
+    /// example `.now() + 3 seconds`
+    DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+        print("Hello from past")
+    }
+    print("Hello")
+}
+//fii12()
+
+
+func fii13() {
+    let serialQueue = DispatchQueue(label: "ru.denisegaluev.serial-queue")
+
+    let workItem = DispatchWorkItem {
+        print("DispatchWorkItem task")
+    }
+
+    // sleep serialQueue for 1 second and return
+    serialQueue.async {
+        print("zzzZZZZ")
+        sleep(1)
+        print("Awaked")
+    }
+
+    // put workItem into the serialQueue and return controll
+    serialQueue.async(execute: workItem)
+
+    // cancel workItem
+    workItem.cancel()
+    
+    /// while serialQueue is sleeping we cancel workItem before it is started
+    /// so it will not be executed
+}

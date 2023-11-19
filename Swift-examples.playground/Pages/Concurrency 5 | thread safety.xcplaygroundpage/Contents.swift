@@ -110,3 +110,8 @@ func foo2() {
 }
 
 //foo2()
+
+
+/// `Thread Sanitizer` in `.xcodeproject` can help to detect `Race Conditions`
+/// It is located in `Scheme`
+/// It Works when an application is running
