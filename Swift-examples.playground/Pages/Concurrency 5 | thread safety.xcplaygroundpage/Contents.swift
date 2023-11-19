@@ -68,9 +68,9 @@ final class ThreadSafeString {
     
     func addWord(_ word: String) {
         aQueue.async(flags: .barrier) {
-            if !self.sentence.isEmpty {
-                self.sentence += " "
-            }
+//            if !self.sentence.isEmpty {
+//                self.sentence += " "
+//            }
             
             self.sentence += word
         }
@@ -86,4 +86,27 @@ final class ThreadSafeString {
 
 
 
+func foo2() {
+    var usualString = ""
+    var safeString = ThreadSafeString("")
+    
+    func task(symbol: String) {
+        for i in 0...9 {
+            usualString += symbol
+            safeString.addWord(symbol)
+            print("\(i)  \(symbol)  priority: \(qos_class_self().rawValue)")
+        }
+    }
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+        task(symbol: "😇")
+    }
+    task(symbol: "🥶")
+    
+    sleep(1)
+    
+    print("not safe: \(usualString)")
+    print("    safe: \(safeString.text)")
+}
 
+//foo2()
