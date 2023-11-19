@@ -217,6 +217,10 @@ func fii1() {
         task("😂")
     }
     task("🥶")
+    
+    /// here the second task starts after the first finishes
+    /// and here priority is not important
+    /// as an optimizztion, both tasks might be executed on the same thread
 }
 //fii1()
 
@@ -230,6 +234,67 @@ func fii2() {
     userInitedQueue.async {
         task("😂")
     }
+    userIntreractiveQueue.async {
+        task("🤬")
+    }
     task("🥶")
+    
+    /// here tasks do not wait each other to start
+    /// seams like playground queue has the same priority as `.userInteractive`
+    /// even if it is the last in the queue, it goes before `.userInitiated`
 }
 //fii2()
+
+
+let mySerialQueue = DispatchQueue(label: "com.example.serial")
+func fii3() {
+    print("---------------------------")
+    print("sync")
+    print("private: .serial   queue: -")
+    print("---------------------------")
+    
+    mySerialQueue.sync {
+        task("😂")
+    }
+    task("🥶")
+    
+    /// the same as before
+    /// playground queue waits `mySerialQueue` queue to finish
+}
+
+func fii4() {
+    print("---------------------------")
+    print("async")
+    print("private: .serial   queue: -")
+    print("---------------------------")
+    
+    mySerialQueue.async {
+        task("😂")
+    }
+    task("🥶")
+    
+    /// even if mySerialQueue is serial, we see the same as before
+    /// because these tasks are on a different queue and thread
+}
+//fii4()
+
+func fii5() {
+    print("---------------------------")
+    print("async")
+    print("private: .serial   queue: -")
+    print("---------------------------")
+    
+    mySerialQueue.async {
+        task("😂")
+    }
+    mySerialQueue.async {
+        task("🤢")
+    }
+    task("🥶")
+    
+    /// but if we add 2 tasks to the `mySerialQueue`
+    /// the second task will wait the first tasks to finish on that queue
+    /// and task from `playground` queue executes asynchoniosly from them
+}
+
+
