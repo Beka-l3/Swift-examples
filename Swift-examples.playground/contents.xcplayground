@@ -30,5 +30,6 @@
         <page name='Lazy Sequence'/>
         <page name='Memory 3 | Side Table + Lifecycle'/>
         <page name='Concurrency 2'/>
+        <page name='Concurrency 3'/>
     </pages>
 </playground>
