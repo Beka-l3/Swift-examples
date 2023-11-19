@@ -470,6 +470,29 @@ func fii11() {
             }
         }
     }
+    
+    func fetch4() { // wrap sync work into async work
+        func asyncLoad(imageUrl: URL, runQueue: DispatchQueue, completionQueue: DispatchQueue, completion: @escaping (UIImage?, Error?) -> ()) {
+            runQueue.async {
+                do {
+                    let data = try Data(contentsOf: imageUrl)
+                    completionQueue.async {
+                        completion(UIImage(data: data), nil)
+                    }
+                } catch {
+                    completionQueue.async {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+        
+        asyncLoad(imageUrl: imageUrl, runQueue: .global(qos: .utility), completionQueue: .main) { image, error in
+            if let image = image {
+                imageView.image = image
+            }
+        }
+    }
 }
 
 
