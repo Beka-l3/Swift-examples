@@ -246,12 +246,13 @@ func fii2() {
 //fii2()
 
 
-let mySerialQueue = DispatchQueue(label: "com.example.serial")
 func fii3() {
     print("---------------------------")
     print("sync")
     print("private: .serial   queue: -")
     print("---------------------------")
+    
+    let mySerialQueue = DispatchQueue(label: "com.example.serial")
     
     mySerialQueue.sync {
         task("😂")
@@ -267,6 +268,8 @@ func fii4() {
     print("async")
     print("private: .serial   queue: -")
     print("---------------------------")
+    
+    let mySerialQueue = DispatchQueue(label: "com.example.serial")
     
     mySerialQueue.async {
         task("😂")
@@ -284,6 +287,8 @@ func fii5() {
     print("private: .serial   queue: -")
     print("---------------------------")
     
+    let mySerialQueue = DispatchQueue(label: "com.example.serial")
+    
     mySerialQueue.async {
         task("😂")
     }
@@ -298,3 +303,31 @@ func fii5() {
 }
 
 
+func fii6() {
+    let mySerialQueue1 = DispatchQueue(label: "com.example.serial", qos: .utility)
+    let mySerialQueue2 = DispatchQueue(label: "com.example.serial", qos: .background)
+    
+    mySerialQueue2.async {
+        task("😂")
+    }
+    mySerialQueue1.async {
+        task("🤢")
+    }
+}
+
+
+
+func fii7() {
+    let myConcurrentQueue = DispatchQueue(label: "com.example.serial", qos: .userInteractive, attributes: .concurrent)
+    
+    myConcurrentQueue.async {
+        task("😂")
+    }
+    myConcurrentQueue.async {
+        task("🤢")
+    }
+    task("🥶")
+    
+    /// now all of them are running in parallel
+}
+//fii7()
