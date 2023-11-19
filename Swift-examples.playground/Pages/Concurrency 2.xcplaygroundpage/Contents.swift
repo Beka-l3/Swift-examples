@@ -1,4 +1,5 @@
 import UIKit
+import PlaygroundSupport
 
 // MARK: Grand Central Dispatch (GCD)
 
@@ -380,9 +381,42 @@ func fii9() {
 
 
 func fii10() {
+    /// GCD cannot stop tasks after it started
+    /// but can remove tasks from the queue before it started
+    /// But we can user `workItem.notify(queue: execute: )`
     
+    let view = UIView(frame: .init(origin: .zero, size: .init(width: 600, height: 600)))
+    
+    let imageView = UIImageView(frame: .init(origin: .zero, size: .init(width: 600, height: 600)))
+    imageView.backgroundColor = .systemPurple
+    imageView.contentMode = .scaleAspectFit
+    view.addSubview(imageView)
+    
+    PlaygroundPage.current.liveView = view
+    
+    
+    let imageUrl = URL(string: "https://images.unsplash.com/photo-1623491527126-8ccdf066feef?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    
+    var data: Data?
+    let queue = DispatchQueue.global(qos: .utility)
+    
+    let workItem = DispatchWorkItem {
+        data = try? Data(contentsOf: imageUrl!)
+    }
+    
+//    workItem.cancel()
+    queue.async(execute: workItem)
+    
+    /// Wait workItem to finish
+    /// then execute another tasks on .main queue
+    /// to update image
+    workItem.notify(queue: .main) {
+        if let imageData = data {
+            imageView.image = UIImage(data: imageData)
+        }
+    }
 }
-
+fii10()
 
 
 
