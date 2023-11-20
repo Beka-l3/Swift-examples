@@ -335,3 +335,38 @@ func foo8() { // Dependencies
 }
 
 
+func foo9() { // limit of operations at a time
+    let operationQueue = OperationQueue()
+
+    operationQueue.maxConcurrentOperationCount = 2
+}
+
+
+func foo10() { // state control
+    let operationQueue = OperationQueue()
+
+    let operation1 = BlockOperation {
+        print("Operation 1 is complete")
+    }
+
+    let operation2 = BlockOperation {
+        print("Operation 2 is complete")
+    }
+
+    // stop executing operations
+    operationQueue.isSuspended = true
+    operationQueue.addOperation(operation1)
+    operationQueue.addOperation(operation2)
+
+    // OperationQueue starts executing only after this line
+    operationQueue.isSuspended = false
+}
+
+// MARK: Priorities
+// queuePriority: .veryLow, .low, .normal, .high, .veryHigh
+/// Helps to set priority inside of the specific Queue. Effects Execution order
+
+// qualityOfService: .background, .utility, .default, .userInitiated, .userInteractive
+/// Sets general priority in the system. On OS level. Can effect resource management
+
+
