@@ -476,3 +476,39 @@ func foo13() {
 }
 
 
+// MARK: thread safety
+func foo14() { // Dispatch Semaphore
+    class SharedResource {
+        private var value = 0
+        private let accessSemaphore = DispatchSemaphore(value: 1)
+      
+        func increment() {
+            accessSemaphore.wait()
+            value += 1
+            accessSemaphore.signal()
+        }
+
+        func getValue() -> Int {
+            defer {
+                accessSemaphore.signal()
+            }
+          
+            accessSemaphore.wait()
+            return value
+        }
+    }
+
+    let sharedResource = SharedResource()
+
+    let operation1 = BlockOperation {
+        sharedResource.increment()
+    }
+
+    let operation2 = BlockOperation {
+        let value = sharedResource.getValue()
+        print("Value: \(value)")
+    }
+
+    let queue = OperationQueue()
+    queue.addOperations([operation1, operation2], waitUntilFinished: true)
+}
