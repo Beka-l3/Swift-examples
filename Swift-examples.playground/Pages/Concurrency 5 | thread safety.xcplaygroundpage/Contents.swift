@@ -198,7 +198,7 @@ func foo4() {
         print(movies)
     }
 }
-foo4()
+//foo4()
 
 
 
@@ -225,3 +225,26 @@ func foo5() {
     semaphore.wait()
 }
 
+
+// Yet another example
+func foo6() {
+    let timeoutInterval: TimeInterval = 10
+
+    let operation = BlockOperation {
+        // Долгая операция
+    }
+
+    let semaphore = DispatchSemaphore(value: 0)
+
+    DispatchQueue.global().async {
+        operation.start()
+        semaphore.signal()
+    }
+
+    if semaphore.wait(timeout: .now() + timeoutInterval) == .timedOut {
+        operation.cancel()
+        print("Operation timed out")
+    } else {
+        print("Operation completed successfully")
+    }
+}

@@ -32,5 +32,7 @@
         <page name='Concurrency 2'/>
         <page name='Concurrency 3'/>
         <page name='Concurrency 4 | Distapch Group'/>
+        <page name='Concurrency 5 | thread safety'/>
+        <page name='Concurrency 6 | OperationQueue'/>
     </pages>
 </playground>
