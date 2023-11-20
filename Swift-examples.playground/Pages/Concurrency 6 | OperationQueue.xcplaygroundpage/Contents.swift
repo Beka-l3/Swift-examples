@@ -54,21 +54,21 @@ func fii1() {
     let operation = BlockOperation {
         print("Hello, World!")
     }
-
+    
     operation.addExecutionBlock {
         print("Hello, again!")
     }
-
+    
     operation.start()
 }
 
 func fii2() {
     let operationQueue = OperationQueue()
-
+    
     let operation = BlockOperation {
         print("Hello, World!")
     }
-
+    
     operationQueue.addOperation(operation)
 }
 
@@ -308,9 +308,9 @@ func foo7() {
     }
     
     let operationQueue = OperationQueue()
-
+    
     let operation = MyOperation()
-
+    
     operationQueue.addOperation(operation)
 }
 
@@ -321,10 +321,10 @@ func foo8() { // Dependencies
     let operationQueue = OperationQueue()
     
     let operation1 = MyOperation()
-
+    
     let operation2 = MyOperation()
     operation2.addDependency(operation1)
-
+    
     operationQueue.addOperation(operation1)
     operationQueue.addOperation(operation2)
     
@@ -337,27 +337,27 @@ func foo8() { // Dependencies
 
 func foo9() { // limit of operations at a time
     let operationQueue = OperationQueue()
-
+    
     operationQueue.maxConcurrentOperationCount = 2
 }
 
 
 func foo10() { // state control
     let operationQueue = OperationQueue()
-
+    
     let operation1 = BlockOperation {
         print("Operation 1 is complete")
     }
-
+    
     let operation2 = BlockOperation {
         print("Operation 2 is complete")
     }
-
+    
     // stop executing operations
     operationQueue.isSuspended = true
     operationQueue.addOperation(operation1)
     operationQueue.addOperation(operation2)
-
+    
     // OperationQueue starts executing only after this line
     operationQueue.isSuspended = false
 }
@@ -372,45 +372,107 @@ func foo10() { // state control
 
 func foo11() { // Grouping
     let operationQueue = OperationQueue()
-
+    
     let operation1 = BlockOperation {
         print("Operation 1 is complete")
     }
-
+    
     let operation2 = BlockOperation {
         print("Operation 2 is complete")
     }
-
+    
     let groupOperation = BlockOperation {
         print("All operations are complete")
     }
-
+    
     groupOperation.addDependency(operation1)
     groupOperation.addDependency(operation2)
-
+    
     operationQueue.addOperations([operation1, operation2, groupOperation], waitUntilFinished: false)
 }
 
 
 func foo12() { // Cancellation
     let operationQueue = OperationQueue()
-
+    
     let operation1 = BlockOperation {
         print("Operation 1 is complete")
     }
-
+    
     let operation2 = BlockOperation {
         print("Operation 2 is complete")
     }
     operation2.addDependency(operation1)
-
+    
     operationQueue.addOperations([operation1, operation2], waitUntilFinished: false)
-
+    
     // Cancel operation2
     operation2.cancel()
-
+    
     // Check statuses of cancellation for operation1 and operation2
     print("Operation 1 isCancelled: \(operation1.isCancelled)") // false
     print("Operation 2 isCancelled: \(operation2.isCancelled)") // true
 }
+
+
+
+// MARK: Progress check
+/// Class Operation does not provide mechanism for checking the progress
+/// We can implement our own progress checker with `Progress`
+/// By setting total work amount and handling the counter
+
+func foo13() {
+    class MyOperation: Operation {
+        
+        private let totalWorkUnits: Int64
+        @objc dynamic lazy var progress = Progress(totalUnitCount: totalWorkUnits)
+        
+        init(totalWorkUnits: Int64) {
+            self.totalWorkUnits = totalWorkUnits
+            super.init()
+        }
+        
+        override func main() {
+            
+            var completedWorkUnits: Int64 = 0
+            
+            // Проверка на отмену операции
+            if isCancelled {
+                return
+            }
+            
+            // Асинхронное выполнение работы
+            DispatchQueue.global().async { [weak self] in
+                guard let self else { return }
+                
+                while completedWorkUnits < self.totalWorkUnits {
+                    
+                    // Проверка на отмену операции
+                    if self.isCancelled {
+                        return
+                    }
+                    
+                    // Выполнение работы
+                    // ...
+                    
+                    completedWorkUnits += 1
+                    self.progress.completedUnitCount = completedWorkUnits
+                }
+            }
+        }
+    }
+    
+    // Создание экземпляров очереди и операции
+    let operationQueue = OperationQueue()
+    
+    let operation = MyOperation(totalWorkUnits: 10)
+    
+    // Подписка на изменения прогресса
+    let progressObserver = operation.progress.observe(\.fractionCompleted) { progress, _ in
+        print("Progress: \(progress.fractionCompleted)")
+    }
+    
+    operationQueue.addOperation(operation)
+}
+
 
