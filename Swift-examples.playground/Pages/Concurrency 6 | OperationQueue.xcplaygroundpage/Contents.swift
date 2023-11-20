@@ -47,6 +47,33 @@ import Foundation
 /// - main()
 /// - start()
 
+
+
+// MARK: Block Operation
+func fii1() {
+    let operation = BlockOperation {
+        print("Hello, World!")
+    }
+
+    operation.addExecutionBlock {
+        print("Hello, again!")
+    }
+
+    operation.start()
+}
+
+func fii2() {
+    let operationQueue = OperationQueue()
+
+    let operation = BlockOperation {
+        print("Hello, World!")
+    }
+
+    operationQueue.addOperation(operation)
+}
+
+
+// MARK: Custom classes
 func foo1() {
     final class CalculateOperation: Operation {
         private let a: Int
