@@ -295,4 +295,43 @@ func foo6() {
 
 
 
+// MARK: - Operation Queue
+
+func foo7() {
+    class MyOperation: Operation {
+        var onCompletion: (() -> Void)?
+        
+        override func main() {
+            // Выполнение операции
+            onCompletion?()
+        }
+    }
+    
+    let operationQueue = OperationQueue()
+
+    let operation = MyOperation()
+
+    operationQueue.addOperation(operation)
+}
+
+
+func foo8() { // Dependencies
+    class MyOperation: Operation { }
+    
+    let operationQueue = OperationQueue()
+    
+    let operation1 = MyOperation()
+
+    let operation2 = MyOperation()
+    operation2.addDependency(operation1)
+
+    operationQueue.addOperation(operation1)
+    operationQueue.addOperation(operation2)
+    
+    // Need to remember to add both operations
+    // Adding only operation2 with dependency from operation1
+    // does npt guarantee execution of operation1
+    // it only effects their order
+}
+
 
