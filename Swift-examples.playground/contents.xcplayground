@@ -34,5 +34,6 @@
         <page name='Concurrency 4 | Distapch Group'/>
         <page name='Concurrency 5 | thread safety'/>
         <page name='Concurrency 6 | OperationQueue'/>
+        <page name='Concurrency 7 | Issues'/>
     </pages>
 </playground>
