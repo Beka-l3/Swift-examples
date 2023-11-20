@@ -370,3 +370,47 @@ func foo10() { // state control
 /// Sets general priority in the system. On OS level. Can effect resource management
 
 
+func foo11() { // Grouping
+    let operationQueue = OperationQueue()
+
+    let operation1 = BlockOperation {
+        print("Operation 1 is complete")
+    }
+
+    let operation2 = BlockOperation {
+        print("Operation 2 is complete")
+    }
+
+    let groupOperation = BlockOperation {
+        print("All operations are complete")
+    }
+
+    groupOperation.addDependency(operation1)
+    groupOperation.addDependency(operation2)
+
+    operationQueue.addOperations([operation1, operation2, groupOperation], waitUntilFinished: false)
+}
+
+
+func foo12() { // Cancellation
+    let operationQueue = OperationQueue()
+
+    let operation1 = BlockOperation {
+        print("Operation 1 is complete")
+    }
+
+    let operation2 = BlockOperation {
+        print("Operation 2 is complete")
+    }
+    operation2.addDependency(operation1)
+
+    operationQueue.addOperations([operation1, operation2], waitUntilFinished: false)
+
+    // Cancel operation2
+    operation2.cancel()
+
+    // Check statuses of cancellation for operation1 and operation2
+    print("Operation 1 isCancelled: \(operation1.isCancelled)") // false
+    print("Operation 2 isCancelled: \(operation2.isCancelled)") // true
+}
+
