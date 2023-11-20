@@ -30,7 +30,7 @@ import Foundation
 /// Another great difference if
 /// ability to `cancle` operation even if it is running
 
-// Lifecycle
+// MARK: Lifecycle
 /// - `Pending`: not in the queue. Wating for dependencies or planned to be put in a queue. Can be cancelled
 /// - `Ready`:  Put in a queue. Can be cancelled
 /// - `Executing`: Running. Can be cancelled
@@ -43,7 +43,7 @@ import Foundation
 /// - isFinished
 /// - isCancelled
 
-// Main methods
+// MARK: Main methods
 /// - main()
 /// - start()
 
@@ -183,4 +183,89 @@ func foo2() {
         }
         
     }
+    
+    let calculate = CalculateOperation(a: 2, b: 2)
+    calculate.onCalc = { sum in print(sum) }
+    
+    let observer = OperationObserver(operation: calculate)
+    calculate.start()
 }
+
+
+// MARK: Dependencies
+/// func addDependency(_ op: Operation)
+/// func removeDependency(_ op: Operation)
+
+func foo3() {
+    let operation1 = BlockOperation {
+        print("Operation 1 is complete")
+    }
+    
+    let operation2 = BlockOperation {
+        print("Operation 2 is complete")
+    }
+    operation2.addDependency(operation1)
+    
+    let queue = OperationQueue()
+    queue.addOperations([operation1, operation2], waitUntilFinished: true)
+}
+
+
+
+// MARK: completion
+func foo4() {
+    let operation = BlockOperation {
+        // Выполнение операции
+    }
+    
+    operation.completionBlock = {
+        // Код, который выполнится после завершения операции
+    }
+}
+
+func foo5() {
+    class CustomOperation: Operation {
+        var onCompletion: (() -> Void)?
+        
+        override func main() {
+            // Выполнение операции
+            onCompletion?()
+        }
+    }
+    
+    let operation = CustomOperation()
+    operation.onCompletion = {
+        // Действия после завершения операции
+    }
+    
+    let queue = OperationQueue()
+    queue.addOperation(operation)
+}
+
+
+// MARK: Timeout
+func foo6() {
+    let timeoutInterval: TimeInterval = 10
+    
+    let operation = BlockOperation {
+        // Долгая операция
+    }
+    
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    DispatchQueue.global().async {
+        operation.start()
+        semaphore.signal()
+    }
+    
+    if semaphore.wait(timeout: .now() + timeoutInterval) == .timedOut {
+        operation.cancel()
+        print("Operation timed out")
+    } else {
+        print("Operation completed successfully")
+    }
+}
+
+
+
+
