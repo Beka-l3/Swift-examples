@@ -74,9 +74,9 @@ final class ThreadSafeString {
     
     func addWord(_ word: String) {
         aQueue.async(flags: .barrier) {
-//            if !self.sentence.isEmpty {
-//                self.sentence += " "
-//            }
+            //            if !self.sentence.isEmpty {
+            //                self.sentence += " "
+            //            }
             
             self.sentence += word
         }
@@ -126,16 +126,93 @@ func foo2() {
 
 
 // MARK: - Semaphores
+
+/// DispatchSemaphore gives us the ability to control access to a shared resource by multiple threads
+/// DispatchSemaphore allows only one thread to access shared resources at a time.
+/// And the order of uses of resources is (FIFO), who asks first get the resource first.
+/// Semaphores contain threads queues and a counter value integer type
+
+/// `Thread queue`: it is used to keep track of waiting threads in the queue in FIFO order
+
+/// `Counter Value:` it is used to decide if a thread should get access to a shared resource or not.
+/// The counter value changes when we call `signal()` or `wait()` function
+
+/// wait() : This function calls each time before using the shared resource. the thread asks the semaphore if the shared resource is available or not. If not, the thread will wait.
+/// - wait() function decrease semaphore counter by 1.
+/// - If the result value is less than 0, the thread is frozen.
+/// - If the result value is equal to or bigger than zero, the code will get executed without waiting
+
+/// signal() : every time after using the shared resource. the function will signal the semaphore that threads are done interacting with the shared resource.
+/// - signal() function increase semaphore counter by 1.
+/// - If the previous result value was less than zero, this function wakes the oldest thread currently waiting in the thread queue.
+/// - If the previous result value is equal to or bigger than zero, it means the thread queue is empty, no one is waiting.
+
+func foo3() {
+    /// Firstly, we create a concurrent queue. this queue will be used for executing our movie downloading blocks of code.
+    let queue = DispatchQueue(label: "com.gcd.Queue", attributes: .concurrent)
+    
+    /// Secondly, we create a semaphore, we decided to download 3 movies at a time so we set the semaphore with an initial counter value of 3
+    let semaphore = DispatchSemaphore(value: 3)
+    
+    /// Third, we iterate 12 times using a for loop. On each iteration we do the following: wait() → download movie → signal()
+    for i in 0..<12 {
+        queue.async {
+            let movieNumber = i + 1
+            
+            semaphore.wait()
+            print("Downloading movie", movieNumber)
+            
+            sleep(2)
+            
+            print("Downloaded movie", movieNumber)
+            semaphore.signal()
+        }
+    }
+}
+//foo3()
+
+
+func foo4() {
+    let queue = DispatchQueue(label: "com.gcd.Queue", attributes: .concurrent)
+    let semaphore = DispatchSemaphore(value: 3)
+    var movies: [Int] = []
+    
+    for i in 0..<12 {
+        queue.async {
+            let movieNumber = i + 1
+            
+            semaphore.wait()
+            print("Downloading movie", movieNumber)
+            
+//            sleep(.random(in: 1...3))
+            sleep(1)
+            
+            print("Downloaded movie", movieNumber)
+            movies.append(movieNumber)
+            
+            semaphore.signal()
+        }
+    }
+    
+    queue.asyncAfter(deadline: .now() + 5) {
+        print(movies)
+    }
+}
+foo4()
+
+
+
+
 /// This tool helps us to controll amount threads that can refer to our queue at a moment
 /// Methods `signal() / wait()` `increment / decrement` the counter
 /// Queue is open when `counter` is equal to the value that is passed in `init()`
 
-func foo3() {
+func foo5() {
     let serialQueue = DispatchQueue(label: "ru.denisegaluev.serial-queue")
-
+    
     // Create semaphore
     let semaphore = DispatchSemaphore(value: 0)
-
+    
     // Sleep serialQueue for 5 sec, after call method signal
     serialQueue.async {
         sleep(5)
@@ -143,7 +220,7 @@ func foo3() {
         // Unlock semaphore
         semaphore.signal()
     }
-
+    
     // block queue
     semaphore.wait()
 }
