@@ -67,6 +67,15 @@ struct IntStack: Container {
     }
 }
 
+/// The IntStack type implements all three of the Container protocol’s requirements, and in each case wraps part of the IntStack type’s existing functionality to satisfy these requirements.
+
+/// Moreover, IntStack specifies that for this implementation of Container, the appropriate Item to use is a type of Int.
+/// The definition of typealias Item = Int turns the abstract type of Item into a concrete type of Int for this implementation of the Container protocol.
+
+/// Thanks to Swift’s type inference, you don’t actually need to declare a concrete Item of Int as part of the definition of IntStack.
+/// Because IntStack conforms to all of the requirements of the Container protocol,
+/// Swift can infer the appropriate Item to use, simply by looking at the type of the `append(_:)` method’s item parameter and the return type of the subscript.
+/// Indeed, if you delete the typealias Item = Int line from the code above, everything still works, because it’s clear what type should be used for Item.
 
 struct Stack<Element>: Container {
     
@@ -96,7 +105,8 @@ struct Stack<Element>: Container {
     }
 }
 
-
+/// This time, the type parameter Element is used as the type of the `append(_:)` method’s item parameter and the return type of the subscript.
+/// Swift can therefore infer that Element is the appropriate type to use as the Item for this particular container.
 
 
 
