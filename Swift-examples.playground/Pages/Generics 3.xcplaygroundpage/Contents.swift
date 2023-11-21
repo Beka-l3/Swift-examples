@@ -158,7 +158,7 @@ func foo5() {
 
 
 
-// MARK: Contextual Where Clausesin page link
+// MARK: Contextual Where Clausesin
 /// You can write a generic where clause as part of a declaration that doesn’t have its own generic type constraints, when you’re already working in the context of generic types.
 /// For example, you can write a generic where clause on a `subscript` of a generic type or on a `method` in an extension to a generic type.
 /// The Container structure is generic, and the where clauses in the example below specify what type constraints have to be satisfied to make these new methods available on a container.
@@ -189,3 +189,47 @@ func foo6() {
     print(numbers.endsWith(37))
     // Prints "true"
 }
+
+/// If you want to write this code without using contextual where clauses, you write two extensions, one for each generic where clause. The example above and the example below have the same behavior.
+/*
+     extension Container where Item == Int {
+         func average() -> Double {
+             var sum = 0.0
+             for index in 0..<count {
+                 sum += Double(self[index])
+             }
+             return sum / Double(count)
+         }
+     }
+     extension Container where Item: Equatable {
+         func endsWith(_ item: Item) -> Bool {
+             return count >= 1 && self[count-1] == item
+         }
+     }
+*/
+
+
+
+
+// MARK: Associated Types with a Generic Where Clausein
+/// You can include a generic where clause on an associated type.
+/// For example, suppose you want to make a version of Container that includes an iterator, like what the Sequence protocol uses in the Swift standard library
+
+protocol Container2 {
+    associatedtype Item
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
+
+
+    associatedtype Iterator: IteratorProtocol where Iterator.Element == Item
+    func makeIterator() -> Iterator
+}
+
+/// For a protocol that inherits from another protocol, you add a constraint to an inherited associated type by including the generic where clause in the protocol declaration.
+/// For example, the following code declares a ComparableContainer protocol that requires Item to conform to Comparable:
+protocol ComparableContainer: Container where Item: Comparable { }
+
+
+
+// MARK: Generic Subscriptsin page link
