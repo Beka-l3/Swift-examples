@@ -37,5 +37,6 @@
         <page name='Concurrency 7 | Issues'/>
         <page name='Generics'/>
         <page name='Generics 2'/>
+        <page name='Generics 3'/>
     </pages>
 </playground>
