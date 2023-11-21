@@ -122,3 +122,35 @@ func foo3() {
     notEquatableStack.push(notEquatableValue)
 //    notEquatableStack.isTop(notEquatableValue)  // Error
 }
+
+
+extension Container where Item: Equatable {
+    func startsWith(_ item: Item) -> Bool {
+        return count >= 1 && self[0] == item
+    }
+}
+
+func foo4() {
+    if [9, 9, 9].startsWith(42) {
+        print("Starts with 42.")
+    } else {
+        print("Starts with something else.")
+    }
+    // Prints "Starts with something else."
+}
+
+
+extension Container where Item == Double {
+    func average() -> Double {
+        var sum = 0.0
+        for index in 0..<count {
+            sum += self[index]
+        }
+        return sum / Double(count)
+    }
+}
+
+func foo5() {
+    print([1260.0, 1200.0, 98.6, 37.0].average())
+    // Prints "648.9"
+}
