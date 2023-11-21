@@ -232,7 +232,7 @@ protocol ComparableContainer: Container where Item: Comparable { }
 
 
 
-// MARK: Generic Subscriptsin page link
+// MARK: Generic Subscriptsin
 extension Container2 {
     
     subscript<Indices: Sequence>(indices: Indices) -> [Item] where Indices.Iterator.Element == Int {
