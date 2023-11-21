@@ -122,7 +122,7 @@ extension Array: Container {}
 
 
 // MARK: Associated Type With Constraint
-protocol Container {
+protocol Container2 {
     associatedtype Item: Equatable
     mutating func append(_ item: Item)
     var count: Int { get }
