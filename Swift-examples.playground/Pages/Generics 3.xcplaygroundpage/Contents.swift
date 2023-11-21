@@ -85,3 +85,40 @@ func foo1() {
 }
 
 
+
+
+
+// MARK: Extensions with a Generic Where Clause
+extension Stack where Element: Equatable {
+    
+    func isTop(_ item: Element) -> Bool {
+        guard let topItem = items.last else {
+            return false
+        }
+        
+        return topItem == item
+    }
+    
+}
+
+func foo2() {
+    var stackOfStrings = Stack<String>()
+    stackOfStrings.push("uno")
+    stackOfStrings.push("dos")
+    stackOfStrings.push("tres")
+    
+    if stackOfStrings.isTop("tres") {
+        print("Top element is tres.")
+    } else {
+        print("Top element is something else.")
+    }
+}
+
+/// If you try to call the `isTop(_:) `method on a stack whose elements aren’t equatable, you’ll get a compile-time error.
+struct NotEquatable { }
+func foo3() {
+    var notEquatableStack = Stack<NotEquatable>()
+    let notEquatableValue = NotEquatable()
+    notEquatableStack.push(notEquatableValue)
+//    notEquatableStack.isTop(notEquatableValue)  // Error
+}
