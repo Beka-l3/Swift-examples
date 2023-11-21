@@ -69,6 +69,19 @@ func foo2() {
     
     let fromTheTop = stackOfStrings.pop()
     // fromTheTop is equal to "cuatro", and the stack now contains 3 strings
+    
+    
+    // Extension of Generics
+    extension Stack {
+        var topItem: Element? {
+            return items.isEmpty ? nil : items[items.count - 1]
+        }
+    }
+    
+    if let topItem = stackOfStrings.topItem {
+        print("The top item on the stack is \(topItem).")
+    }
+    // Prints "The top item on the stack is tres."
 }
 
 
