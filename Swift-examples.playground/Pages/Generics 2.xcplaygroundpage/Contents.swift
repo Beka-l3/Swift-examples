@@ -121,6 +121,9 @@ extension Array: Container {}
 
 
 
+
+
+
 // MARK: Associated Type With Constraint
 protocol Container2 {
     associatedtype Item: Equatable
@@ -128,3 +131,67 @@ protocol Container2 {
     var count: Int { get }
     subscript(i: Int) -> Item { get }
 }
+
+
+
+
+
+
+// MARK: Using a Protocol in Its Associated Type’s Constraints
+/// A protocol can appear as part of its own requirements.
+/// For example, here’s a protocol that refines the Container protocol,
+/// adding the requirement of a `suffix(_:)` method. The `suffix(_:)`
+/// method returns a given number of elements from the end of the container, storing them in an instance of the Suffix type
+protocol SuffixableContainer: Container {
+    associatedtype Suffix: SuffixableContainer where Suffix.Item == Item
+    func suffix(_ size: Int) -> Suffix
+}
+
+/// In this protocol, Suffix is an associated type, like the Item type in the Container example above.
+/// Suffix has two constraints: It must conform to the SuffixableContainer protocol (the protocol currently being defined), and its Item type must be the `same` as the container’s Item type
+
+
+extension Stack: SuffixableContainer {
+    func suffix(_ size: Int) -> Stack {
+        var result = Stack()
+        for index in (count-size)..<count {
+            result.append(self[index])
+        }
+        return result
+    }
+    // Inferred that Suffix is Stack.
+}
+
+func foo1() {
+    var stackOfInts = Stack<Int>()
+    stackOfInts.append(10)
+    stackOfInts.append(20)
+    stackOfInts.append(30)
+    let suffix = stackOfInts.suffix(2)
+    
+    // suffix contains 20 and 30
+}
+
+/// In the example above, the Suffix associated type for Stack is also Stack, so the suffix operation on Stack returns another Stack.
+/// Alternatively, a type that conforms to SuffixableContainer can have a Suffix type that’s different from itself — meaning the suffix operation can return a different type.
+/// For example, here’s an extension to the nongeneric IntStack type that adds SuffixableContainer conformance, using Stack<Int> as its suffix type instead of IntStack
+
+extension IntStack: SuffixableContainer {
+    func suffix(_ size: Int) -> Stack<Int> {
+        var result = Stack<Int>()
+        for index in (count-size)..<count {
+            result.append(self[index])
+        }
+        return result
+    }
+    // Inferred that Suffix is Stack<Int>.
+}
+
+
+
+
+
+
+
+
+
