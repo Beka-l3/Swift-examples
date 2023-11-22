@@ -59,12 +59,36 @@ protocol SomeProtocol {
 /// UIKit will directly attempt to call the desired selector at the desired target (crashing the app if it doesn't implement it) - but what if the target is `nil`?
 
 final class MyViewController: UIViewController {
+    
     @objc func myCustomMethod() {
         print("SwiftRocks!")
     }
 
-    func viewDidLoad() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         UIApplication.shared.sendAction(#selector(myCustomMethod), to: nil, from: view, for: nil)
     }
+    
 }
+
+/// If you run this, you'll see that even though the action was sent from a plain UIView with no target, MyViewController's myCustomMethod will be triggered!
+
+/// When no target is specified, UIKit will search for an UIResponder capable of handling this action just like in the plain UIEvent example.
+/// In this case, being able to handle an action relates to the following UIResponder method:
+// open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool
+
+/// By default, this method simply checks if the responder implements the actual method. "Implementing" the method can be done in three ways,
+/// depending on how much info you want (this applies to any native action/target component in iOS!):
+protocol SomeProtocol2 {
+    func myCustomMethod()
+    func myCustomMethod(sender: Any?)
+    func myCustomMethod(sender: Any?, event: UIEvent?)
+}
+
+/// Now, what if the responder doesn't implement the method? In this case, UIKit uses the following UIResponder method to determine how to proceed:
+// open func target(forAction action: Selector, withSender sender: Any?) -> Any?
+
+/// By default, this will return another UIResponder that may or may not be able to handle the desired action.
+/// This repeats until the action is handled or the app runs out of choices.
+/// But how does the responders know who to route actions to?
 
