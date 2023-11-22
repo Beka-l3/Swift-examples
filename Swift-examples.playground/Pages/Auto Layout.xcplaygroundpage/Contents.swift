@@ -115,3 +115,62 @@ NSLayoutConstraint.activate([
     label.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 ])
 
+
+
+
+// MARK: setNeedsLayout
+/// The least expensive way to trigger a `layoutSubviews` call is calling `setNeedsLayout` on your view.
+/// This will indicate to the system that the view’s layout needs to be recalculated.
+/// `setNeedsLayout` executes and returns immediately and does not actually update views before returning.
+/// Instead, the views will update on the `next update cycle`,
+/// when the system calls `layoutSubviews` on those views and triggers subsequent layoutSubviews calls on all their subviews.
+
+/// There should be no user impact from the delay because,
+/// even though there is an arbitrary time interval between when `setNeedsLayout` returns and when views are redrawn and laid out,
+/// it should never be long enough to cause any lag in the application
+
+
+// MARK: layoutIfNeeded
+/// `layoutIfNeeded` is another method on UIView that will trigger a `layoutSubviews` call in the `future`.
+/// Instead of queueing `layoutSubviews` to run on the `next update cycle`, however,
+/// the system will call `layoutSubviews` immediately if the view needs a layout update.
+/// If you call `layoutIfNeeded` `after calling setNeedsLayout `or after one of the automatic refresh triggers described above,
+/// `layoutSubviews` will be called on the view.
+
+/// However, if you call `layoutIfNeeded` `and no action` has indicated to the system that the view needs to be refreshed,
+/// `layoutSubviews` will `not` be called.
+/// If you call `layoutIfNeeded` on a view twice during the same run loop without updating its layout in between,
+/// the second call will not trigger a layoutSubviews call.
+
+
+// MARK: setNeedsUpdateConstraints
+/// Calling `setNeedsUpdateConstraints()` will guarantee a constraint update on the `next` update cycle.
+/// It triggers `updateConstraints()` by marking that one of the view’s constraints has been updated.
+/// This method works similarly to `setNeedsDisplay()` and `setNeedsLayout()`.
+
+
+// MARK: updateConstraintsIfNeeded
+/// This method is the equivalent of `layoutIfNeeded`, but for views that use Auto Layout.
+/// It will check the “constraint update” flag (which can be set automatically,
+/// by `setNeedsUpdateConstraints`, or by `invalidateInstrinsicContentSize`).
+/// If it determines that the constraints need updating,
+/// it will trigger `updateConstraints()` immediately and not wait until the end of the run loop
+
+
+// MARK: invalidateIntrinsicContentSize
+/// Some views that use Auto Layout have an intrinsicContentSize property, which is the natural size of the view given its contents.
+/// The intrinsicContentSize of a view is typically determined by the constraints on the elements it contains but can also be overriden to provide custom behavior.
+/// Calling invalidateIntrinsicContentSize() will set a flag indicating the view’s intrinsicContentSize is stale and needs to be recalculated at the next layout pass.
+
+
+
+
+/// The `layout`, `display`, and `constraints` of views follow very similar patterns in the way they are updated
+/// and how to force updates at different points during the run loop.
+/// Each component has a method (`layoutSubviews`, `draw`, and `updateConstraints`) that `actually propagates the updates,`
+/// which you can override to manually manipulate views but that you should `not call explicitly` under any circumstance.
+
+/// At the end of the loop is the update cycle,
+/// which updates constraints, layout, and display if specific “update constraints,” “update layout,” or “needs display” flags are set.
+/// Once these updates are complete, the run loop restarts.
+
