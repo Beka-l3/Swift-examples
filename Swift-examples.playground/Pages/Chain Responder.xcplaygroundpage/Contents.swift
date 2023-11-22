@@ -92,3 +92,36 @@ protocol SomeProtocol2 {
 /// This repeats until the action is handled or the app runs out of choices.
 /// But how does the responders know who to route actions to?
 
+// MARK: Chain Responder
+/// As mentioned in the beginning, UIKit handles this by dynamically managing a linked list of UIResponders.
+/// The so called first responder is simply the root element of the list, and if a responder can't handle a specific action/event,
+/// the action is recursively sent to the next responder of the list until someone can handle the action or the list ends
+
+/// Although inspecting the actual first responder is protected by a private firstResponder property in UIWindow,
+/// you can check the Responder Chain for any given responder by checking the next property:
+extension UIResponder {
+    func responderChain() -> String {
+        guard let next = next else {
+            return String(describing: self)
+        }
+        return String(describing: self) + " -> " + next.responderChain()
+    }
+}
+
+// myViewController.view.responderChain()
+/// MyView -> MyViewController -> UIWindow -> UIApplication -> AppDelegate
+
+
+/// In the previous example where the action was handled by the UIViewController, UIKit first sent the action to the UIView first responder -
+/// but since it doesn't implement myCustomMethod the view forwarded the action to the next responder -
+/// the UIViewController which happened to have that method in its implementation.
+
+/// While in most cases the Responder Chain is simply be the order of the subviews,
+/// you can customize it to change the general flow order.
+/// Besides being able to override the next property to return something else,
+/// you can force an UIResponder to become the first responder by calling `becomeFirstResponder()`
+/// and have it go back to its position by calling `resignFirstResponder()`.
+
+/// This is commonly used in conjunction with UITextField to display a keyboard -
+/// UIResponders can define an optional inputView property that only shows up when the responder is the first responder,
+/// which is the keyboard in this case
