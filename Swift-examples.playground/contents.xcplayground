@@ -38,5 +38,6 @@
         <page name='Generics'/>
         <page name='Generics 2'/>
         <page name='Generics 3'/>
+        <page name='Chain Responder'/>
     </pages>
 </playground>

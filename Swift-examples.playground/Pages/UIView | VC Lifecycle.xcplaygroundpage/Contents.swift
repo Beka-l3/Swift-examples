@@ -25,12 +25,16 @@ import UIKit
 /// The `view` property of `UIViewController` is ``nil`` at the moment
 /// We call this method if we want to create a `custom view` and set it to the view property.
 /// We we call this method and want  to use custom view, then we do not call `super.loadView()`
-/// Because, bydefault the method creates root view instead of us
+/// Because, by-default the method creates root view instead of us
 
 
 // MARK: view Did Load
 /// This is called only once after creating the view and loading it into memory. But the ``bounds`` of the view is not defined yet.
 /// We generally override this method to initialize the objects which the view controller will use. We shouldn’t forget to call `super` when we override
+/// - It is common to use this method to populate the user interface of the view controller with data before the user sees it.
+/// - It is also a good place where to start some background activity where you need to have the user interface in place at the end.
+/// - A common case are network calls that you need to do only once when the screen is loaded.
+/// - Good place to init and setup objects used in the viewController
 
 
 // MARK: view Will Appear
@@ -45,6 +49,7 @@ import UIKit
 /// This is also called right `before` ``layoutSubviews`` method is triggered in `UIView`.
 /// This is also called when the `subviews` of the `root view` are loaded.
 /// For example, this is called when the cells of the collection view are loaded.
+/// - If you are not using autoresizing masks or constraints and the view size changes you probably want to update the subviews here.
 
 
 // MARK: view Did Layout Subviews
@@ -54,6 +59,7 @@ import UIKit
 ///  So the key point is whenever the `bounds` of the view are `updated`, or the view layout is `recalculated`,
 ///  both methods will be called.
 ///  Similarly, we shouldn’t forget to call super at some point in these methods
+
 
 // MARK: view Did Appear
 /// This method is called right after the view is visible to the user. It’s a good place to start `animations`.
@@ -69,6 +75,15 @@ import UIKit
 
 // MARK: view Did Disappear
 /// This is called when the view is disappeared from the screen. The view is removed from the view hierarchy at the moment
+
+
+
+
+// MARK: didReceiveMemoryWarning()
+/// Since view controllers perform resource management, these notifications are delivered to them through this method.
+/// In this way you can take actions to free some memory.
+/// Keep in mind that if you ignore memory warnings and the memory used by your app goes over a certain threshold, iOS will end your app.
+/// This will look like a crash to the user and should be avoided.
 
 
 /*
