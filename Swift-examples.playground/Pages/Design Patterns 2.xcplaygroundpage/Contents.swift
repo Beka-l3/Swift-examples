@@ -656,3 +656,11 @@ class AudioFacade: PlayerServiceDelegate {
     
 }
 
+
+func foo4() { // Usage
+    let audioFacade = AudioFacade()
+    audioFacade.numberOfRecords()
+    
+    // Result:
+    // 0
+}
