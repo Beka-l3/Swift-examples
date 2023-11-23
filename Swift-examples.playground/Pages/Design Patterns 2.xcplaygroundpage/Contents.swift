@@ -490,7 +490,7 @@ class AudioSessionService {
     
     
     func setupSession() {
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: [.defaultToSpeaker])
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker])
         try! AVAudioSession.sharedInstance().setActive(true)
         
         AVAudioSession.sharedInstance().requestRecordPermission { [weak self] allowed in
@@ -544,7 +544,7 @@ struct RecorderService {
 }
 
 
-protocol PlayerServiceDelegate: class {
+protocol PlayerServiceDelegate: AnyObject {
     
     func playerService(_ playerService: PlayerService, playingDidFinish success: Bool)
     
