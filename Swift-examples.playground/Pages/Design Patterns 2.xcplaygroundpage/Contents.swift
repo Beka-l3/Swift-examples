@@ -5,7 +5,7 @@ import Foundation
 
 
 // MARK: - Builder
-/// The Builder pattern is a `creational` design pattern that allows you to create complex objects from simple objects step by step.
+/// The Builder pattern is a ``creational`` design pattern that allows you to create complex objects from simple objects step by step.
 /// This design pattern helps you use the same code for creating different object views.
 
 /// Imagine a complex object that requires incremental initialization of multiple fields and nested objects.
@@ -153,7 +153,7 @@ func foo1() { // Usage
 
 
 // MARK: - Adapter
-/// Adapter is a structural design pattern that allows objects with incompatible interfaces to work together.
+/// Adapter is a ``structural`` design pattern that allows objects with incompatible interfaces to work together.
 /// In other words, it transforms the interface of an object to adapt it to a different object.
 
 /// An adapter wraps an object, therefore concealing it completely from another object.
@@ -260,3 +260,165 @@ func foo2() { // Usage
 
 
 
+
+// MARK: - Decorator
+/// The Decorator pattern is a ``structural`` design pattern
+/// that allows you to dynamically attach new functionalities to an object by wrapping them in useful wrappers
+
+/// No wonder this design pattern is also called the `Wrapper` design pattern.
+/// This name describes more precisely the core idea behind this pattern:
+///  you place a target object inside another wrapper object
+///  that triggers the basic behavior of the target object and adds its own behavior to the result.
+
+/// Both objects share the same interface,
+/// so it doesn’t matter for a user which of the objects they interact with − clean or wrapped.
+/// You can use several wrappers simultaneously and get the combined behavior of all these wrappers
+
+/// ``When to use?``
+/// - when you want to add responsibilities to objects dynamically and conceal those objects from the code that uses them;
+/// - when it’s impossible to extend responsibilities of an object through inheritance.
+
+/// ``Example``
+/// Imagine you need to implement data management in your iOS application.
+/// You could create two decorators: `EncryptionDecorator` for encrypting
+/// and decrypting data and `EncodingDecorator` for encoding and decoding.
+
+
+// Helpers (may be not include in blog post)
+func encryptString(_ string: String, with encryptionKey: String) -> String {
+    let stringBytes = [UInt8](string.utf8)
+    let keyBytes = [UInt8](encryptionKey.utf8)
+    var encryptedBytes: [UInt8] = []
+    
+    for stringByte in stringBytes.enumerated() {
+        encryptedBytes.append(stringByte.element ^ keyBytes[stringByte.offset % encryptionKey.count])
+    }
+    
+    return String(bytes: encryptedBytes, encoding: .utf8)!
+}
+
+func decryptString(_ string: String, with encryptionKey: String) -> String {
+    let stringBytes = [UInt8](string.utf8)
+    let keyBytes = [UInt8](encryptionKey.utf8)
+    var decryptedBytes: [UInt8] = []
+    
+    for stringByte in stringBytes.enumerated() {
+        decryptedBytes.append(stringByte.element ^ keyBytes[stringByte.offset % encryptionKey.count])
+    }
+    
+    return String(bytes: decryptedBytes, encoding: .utf8)!
+}
+
+
+// Services
+protocol DataSource: AnyObject {
+    
+    func writeData(_ data: Any)
+    func readData() -> Any
+    
+}
+
+
+class UserDefaultsDataSource: DataSource {
+    
+    private let userDefaultsKey: String
+    
+    init(userDefaultsKey: String) {
+        self.userDefaultsKey = userDefaultsKey
+    }
+    
+    func writeData(_ data: Any) {
+        UserDefaults.standard.set(data, forKey: userDefaultsKey)
+    }
+    
+    func readData() -> Any {
+        UserDefaults.standard.value(forKey: userDefaultsKey)!
+    }
+    
+}
+
+
+// Decorators
+class DataSourceDecorator: DataSource {
+    
+    let wrappee: DataSource
+    
+    init(wrappee: DataSource) {
+        self.wrappee = wrappee
+    }
+    
+    func writeData(_ data: Any) {
+        wrappee.writeData(data)
+    }
+    
+    func readData() -> Any {
+        wrappee.readData()
+    }
+    
+}
+
+class EncodingDecorator: DataSourceDecorator {
+    
+    private let encoding: String.Encoding
+    
+    
+    init(wrappee: DataSource, encoding: String.Encoding) {
+        self.encoding = encoding
+        super.init(wrappee: wrappee)
+    }
+    
+    
+    override func writeData(_ data: Any) {
+        let stringData = (data as! String).data(using: encoding)!
+        wrappee.writeData(stringData)
+    }
+    
+    override func readData() -> Any {
+        let data = wrappee.readData() as! Data
+        return String(data: data, encoding: encoding)!
+    }
+    
+}
+
+
+class EncryptionDecorator: DataSourceDecorator {
+    
+    private let encryptionKey: String
+    
+    
+    init(wrappee: DataSource, encryptionKey: String) {
+        self.encryptionKey = encryptionKey
+        super.init(wrappee: wrappee)
+    }
+    
+    
+    override func writeData(_ data: Any) {
+        let encryptedString = encryptString(data as! String, with: encryptionKey)
+        wrappee.writeData(encryptedString)
+    }
+    
+    override func readData() -> Any {
+        let encryptedString = wrappee.readData() as! String
+        return decryptString(encryptedString, with: encryptionKey)
+    }
+}
+
+
+func foo3() { // Usage
+    
+    var source: DataSource = UserDefaultsDataSource(userDefaultsKey: "decorator")
+    source = EncodingDecorator(wrappee: source, encoding: .utf8)
+    source = EncryptionDecorator(wrappee: source, encryptionKey: "secret")
+    source.writeData("Design Patterns")
+    source.readData() as! String
+    
+    // Result:
+    // Design Patterns
+}
+
+
+
+
+
+
+// MARK: - Facade
