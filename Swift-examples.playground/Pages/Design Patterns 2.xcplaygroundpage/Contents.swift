@@ -777,3 +777,19 @@ class PhotoPermissionService: PermissionService {
     }
     
 }
+
+
+func foo5() { // Usage
+    let permissionServices = [CameraPermissionService(), PhotoPermissionService()]
+    
+    for permissionService in permissionServices {
+        permissionService.authorize { (_, message) in
+            print(message)
+        }
+    }
+    
+    // Result:
+    // You have access to Camera
+    // You have access to Photo
+    // view raw
+}
