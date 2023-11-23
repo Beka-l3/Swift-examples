@@ -664,3 +664,27 @@ func foo4() { // Usage
     // Result:
     // 0
 }
+
+
+
+
+
+
+
+// MARK: - Template Method
+/// The Template Method pattern is a `behavioral` design pattern that `defines a skeleton for an algorithm and delegates responsibility`
+/// for some steps to subclasses.
+
+/// This pattern allows subclasses to redefine certain steps of an algorithm without changing its overall structure.
+
+/// This design pattern splits an algorithm into a sequence of steps, describes these steps in separate methods,
+/// and calls them consecutively with the help of a single template method.
+
+
+/// ``When to use?``
+/// - when subclasses need to extend a basic algorithm without modifying its structure;
+/// - when you have several classes responsible for quite similar actions (meaning that whenever you modify one class, you need to change the other classes).
+
+
+
+
