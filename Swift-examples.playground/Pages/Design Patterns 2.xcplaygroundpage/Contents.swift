@@ -32,20 +32,27 @@ import Foundation
 
 // Models
 enum DishCategory: Int {
+    
     case firstCourses, mainCourses, garnishes, drinks
+    
 }
 
 struct Dish {
+    
     var name: String
     var price: Float
+    
 }
 
 struct OrderItem {
+    
     var dish: Dish
     var count: Int
+    
 }
 
 struct Order {
+    
     var firstCourses: [OrderItem] = []
     var mainCourses: [OrderItem] = []
     var garnishes: [OrderItem] = []
@@ -59,7 +66,9 @@ struct Order {
 
 // Builder
 class OrderBuilder {
+    
     private var order: Order?
+    
     
     func reset() {
         order = Order()
@@ -82,13 +91,12 @@ class OrderBuilder {
     }
     
     func getResult() -> Order? {
-        return order ?? nil
+        order ?? nil
     }
     
+    
     private func set(_ dish: Dish, at orderCategory: [OrderItem]?, withCategory dishCategory: DishCategory) {
-        guard let orderCategory = orderCategory else {
-            return
-        }
+        guard let orderCategory = orderCategory else { return }
         
         var item: OrderItem! = orderCategory.filter( { $0.dish.name == dish.name } ).first
         
@@ -100,20 +108,27 @@ class OrderBuilder {
         item = OrderItem(dish: dish, count: 1)
         
         switch dishCategory {
+            
         case .firstCourses:
             order?.firstCourses.append(item)
+            
         case .mainCourses:
             order?.mainCourses.append(item)
+            
         case .garnishes:
             order?.garnishes.append(item)
+            
         case .drinks:
             order?.drinks.append(item)
+            
         }
     }
+    
 }
 
 
 func foo1() { // Usage
+    
     let steak = Dish(name: "Steak", price: 2.30)
     let chips = Dish(name: "Chips", price: 1.20)
     let coffee = Dish(name: "Coffee", price: 0.80)
@@ -160,32 +175,40 @@ import EventKit
 
 // Models
 protocol Event: AnyObject {
+    
     var title: String { get }
     var startDate: String { get }
     var endDate: String { get }
+    
 }
 
 extension Event {
+    
     var description: String {
-        return "Name: \(title)\nEvent start: \(startDate)\nEvent end: \(endDate)"
+        "Name: \(title)\nEvent start: \(startDate)\nEvent end: \(endDate)"
     }
+    
 }
 
 class LocalEvent: Event {
+    
     var title: String
     var startDate: String
     var endDate: String
+    
     
     init(title: String, startDate: String, endDate: String) {
         self.title = title
         self.startDate = startDate
         self.endDate = endDate
     }
+    
 }
 
 
 // Adapter
 class EKEventAdapter: Event {
+    
     private var event: EKEvent
     
     private lazy var dateFormatter: DateFormatter = {
@@ -195,18 +218,22 @@ class EKEventAdapter: Event {
     }()
     
     var title: String {
-        return event.title
+        event.title
     }
+    
     var startDate: String {
-        return dateFormatter.string(from: event.startDate)
+        dateFormatter.string(from: event.startDate)
     }
+    
     var endDate: String {
-        return dateFormatter.string(from: event.endDate)
+        dateFormatter.string(from: event.endDate)
     }
+    
     
     init(event: EKEvent) {
         self.event = event
     }
+    
 }
 
 
