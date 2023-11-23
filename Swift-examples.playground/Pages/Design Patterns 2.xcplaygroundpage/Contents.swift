@@ -5,7 +5,7 @@ import Foundation
 
 
 // MARK: - Builder
-/// The Builder pattern is a ``creational`` design pattern that allows you to create complex objects from simple objects step by step.
+/// The Builder pattern is a ``creational`` design pattern that `allows you to create complex objects from simple objects step by step`.
 /// This design pattern helps you use the same code for creating different object views.
 
 /// Imagine a complex object that requires incremental initialization of multiple fields and nested objects.
@@ -153,7 +153,7 @@ func foo1() { // Usage
 
 
 // MARK: - Adapter
-/// Adapter is a ``structural`` design pattern that allows objects with incompatible interfaces to work together.
+/// Adapter is a ``structural`` design pattern that `allows objects with incompatible interfaces to work together`.
 /// In other words, it transforms the interface of an object to adapt it to a different object.
 
 /// An adapter wraps an object, therefore concealing it completely from another object.
@@ -263,7 +263,7 @@ func foo2() { // Usage
 
 // MARK: - Decorator
 /// The Decorator pattern is a ``structural`` design pattern
-/// that allows you to dynamically attach new functionalities to an object by wrapping them in useful wrappers
+/// that allows you to `dynamically attach new functionalities` to an object by wrapping them in useful wrappers
 
 /// No wonder this design pattern is also called the `Wrapper` design pattern.
 /// This name describes more precisely the core idea behind this pattern:
@@ -424,7 +424,7 @@ func foo3() { // Usage
 
 
 // MARK: - Facade
-/// The Facade pattern is a ``structural`` design pattern that provides a simple interface to a library, framework, or complex system of classes.
+/// The Facade pattern is a ``structural`` design pattern that provides a `simple interface` to a library, framework, or complex system of classes.
 
 /// Imagine that your code has to deal with multiple objects of a complex library or framework.
 /// You need to initialize all these objects, keep track of the right order of dependencies, and so on.
