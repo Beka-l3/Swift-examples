@@ -138,15 +138,97 @@ func foo1() { // Usage
 
 
 // MARK: - Adapter
+/// Adapter is a structural design pattern that allows objects with incompatible interfaces to work together.
+/// In other words, it transforms the interface of an object to adapt it to a different object.
+
+/// An adapter wraps an object, therefore concealing it completely from another object.
+/// For example, you could wrap an object that handles meters with an adapter that converts data into feet.
 
 
+/// ``When to Apply``
+/// - when you want to use a third-party class but its interface doesn’t match the rest of your application’s code;
+/// - when you need to use several existing subclasses but they lack particular functionality and, on top of that, you can’t extend the superclass.
 
 
+/// ``Example``
+/// Suppose you want to implement a calendar and event management functionality in your iOS application.
+/// To do this, you should integrate the `EventKit` framework and adapt the `Event` model from the framework to the model in your application.
+///  An Adapter can wrap the model of the framework and make it compatible with the model in your application.
 
 
+import EventKit
+
+// Models
+protocol Event: AnyObject {
+    var title: String { get }
+    var startDate: String { get }
+    var endDate: String { get }
+}
+
+extension Event {
+    var description: String {
+        return "Name: \(title)\nEvent start: \(startDate)\nEvent end: \(endDate)"
+    }
+}
+
+class LocalEvent: Event {
+    var title: String
+    var startDate: String
+    var endDate: String
+    
+    init(title: String, startDate: String, endDate: String) {
+        self.title = title
+        self.startDate = startDate
+        self.endDate = endDate
+    }
+}
 
 
+// Adapter
+class EKEventAdapter: Event {
+    private var event: EKEvent
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        return dateFormatter
+    }()
+    
+    var title: String {
+        return event.title
+    }
+    var startDate: String {
+        return dateFormatter.string(from: event.startDate)
+    }
+    var endDate: String {
+        return dateFormatter.string(from: event.endDate)
+    }
+    
+    init(event: EKEvent) {
+        self.event = event
+    }
+}
 
+
+func foo2() { // Usage
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+    
+    let eventStore = EKEventStore()
+    let event = EKEvent(eventStore: eventStore)
+    event.title = "Design Pattern Meetup"
+    event.startDate = dateFormatter.date(from: "06/29/2018 18:00")
+    event.endDate = dateFormatter.date(from: "06/29/2018 19:30")
+    
+    let adapter = EKEventAdapter(event: event)
+    adapter.description
+    
+    // Result:
+    // Name: Design Pattern Meetup
+    // Event start: 06-29-2018 18:00
+    // Event end: 06-29-2018 19:30
+}
 
 
 
