@@ -343,9 +343,11 @@ class DataSourceDecorator: DataSource {
     
     let wrappee: DataSource
     
+    
     init(wrappee: DataSource) {
         self.wrappee = wrappee
     }
+    
     
     func writeData(_ data: Any) {
         wrappee.writeData(data)
@@ -356,6 +358,7 @@ class DataSourceDecorator: DataSource {
     }
     
 }
+
 
 class EncodingDecorator: DataSourceDecorator {
     
@@ -420,5 +423,30 @@ func foo3() { // Usage
 
 
 
-
 // MARK: - Facade
+/// The Facade pattern is a ``structural`` design pattern that provides a simple interface to a library, framework, or complex system of classes.
+
+/// Imagine that your code has to deal with multiple objects of a complex library or framework.
+/// You need to initialize all these objects, keep track of the right order of dependencies, and so on.
+/// As a result, the business logic of your classes gets intertwined with implementation details of other classes.
+/// Such code is difficult to read and maintain.
+
+/// The Facade pattern provides a simple interface for working with complex subsystems containing lots of classes.
+/// The Facade pattern offers a simplified interface with limited functionality that you can extend by using a complex subsystem directly.
+/// This simplified interface provides only the features a client needs while concealing all others.
+
+
+/// ``When to use?``
+/// - when you want to provide a simple or unified interface to a complex subsystem;
+/// - when you need to decompose a subsystem into separate layers.
+
+
+/// ``Example``
+/// Lots of modern mobile applications support audio recording and playback,
+/// so let’s suppose you need to implement this functionality.
+
+/// You could use the Facade pattern to hide the implementation of services responsible for the file system (FileService),
+/// audio sessions (AudioSessionService),
+/// audio recording (RecorderService), and audio playback (PlayerService).
+
+/// The Facade provides a simplified interface for this rather complex system of classes.
