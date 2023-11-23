@@ -686,5 +686,11 @@ func foo4() { // Usage
 /// - when you have several classes responsible for quite similar actions (meaning that whenever you modify one class, you need to change the other classes).
 
 
+/// ``Example``
+/// Suppose you’re working on an iOS app that must be able to take and save pictures.
+/// Therefore, your application needs to get permissions to use the iPhone (or iPad) camera and image gallery.
 
-
+/// To do this, you can use the PermissionService base class that has a specific algorithm.
+/// To get permission to use the camera and gallery, you can create two subclasses,
+/// CameraPermissionService and PhotoPermissionService,
+///  that redefine certain steps of the algorithm while keeping other steps the same.
