@@ -40,5 +40,6 @@
         <page name='Generics 3'/>
         <page name='Chain Responder'/>
         <page name='Auto Layout'/>
+        <page name='Design Patterns 2'/>
     </pages>
 </playground>
