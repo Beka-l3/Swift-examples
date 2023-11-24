@@ -20,3 +20,17 @@ import Foundation
 
 /// `Functional Tes`t: A unit test written at a larger scope, with appropriate mocks for slow components.
 
+
+
+
+// MARK: - XCTest
+/// Create and run unit tests, performance tests, and UI tests for your Xcode project
+
+/// Use the XCTest framework to write unit tests for your Xcode projects that integrate seamlessly with Xcode’s testing workflow.
+
+/// Tests assert that certain conditions are satisfied during code execution,
+/// and record test failures (with optional messages) if those conditions aren’t satisfied.
+/// Tests can also measure the performance of blocks of code to check for performance regressions,
+/// and can interact with an application’s UI to validate user interaction flows.
+
+
