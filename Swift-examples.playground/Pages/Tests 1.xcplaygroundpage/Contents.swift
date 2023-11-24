@@ -34,3 +34,51 @@ import Foundation
 /// and can interact with an application’s UI to validate user interaction flows.
 
 
+
+
+// MARK: - Given-When-Then Testing
+/// Given-When-Then (GWT) is a structured way to write unit tests.
+/// I find it is particularly useful when I need to write complex unit tests.
+/// The structure helps me to write and understand unit test faster than the traditional approach.
+/// Using this concept, we break down and write a unit test into three sections.
+
+/// `Given`:  section is the pre-conditions of the tests. Preconditions can be arguments to the function call, value assertion or any test doubles.
+///
+/// `When`:  describes the actual behaviour of the test. In this section, an operation to be tested is performed.
+///
+/// `Then`:  section depicts the expected outcome due to the specified behaviour. In this section, we have used assertions statements.
+/// We can check an assertion by validating some values, nil or non-nil, true or false, two objects match or not etc.
+
+/// Let’s think about a real world test case scenario.
+
+/// Test case: Add food to a food cart. As a user, I want to add a food item to my food cart and the total food items are increased.
+
+/// Given: The food cart is initially empty. Total food item = 0
+/// When: Add three food items in the cart
+/// Then: User should have three food items in cart.
+
+/// The Given-When-Then was proposed by Dan North as part of behaviour-driven development.
+
+import XCTest
+
+
+struct Sut {
+    func fullName(_ first: String, _ last: String) -> String {
+        first + " " + last
+    }
+}
+
+func testUppercasedName() {
+    let sut = Sut()
+    
+    // Given
+    let firstName = "Jacob"
+    let lastName = "Adam"
+    
+    // When
+    let fullName = sut.fullName(firstName, lastName).uppercased()
+    
+    // Then
+    XCTAssertEqual(fullName, "JACOB ADAM")
+    
+}
