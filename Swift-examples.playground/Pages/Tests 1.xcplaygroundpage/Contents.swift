@@ -103,3 +103,32 @@ func testUppercasedName() {
 ///
 /// - `Easier maintenance`: GWT testing makes it easier to maintain the test suite over time,
 ///   because it is easier to understand and update the tests when the underlying code changes.
+
+
+// MARK: Adopting
+/// Adopting Given-When-Then (GWT) testing in a complex Swift project can be challenging, but it is possible with some planning and effort.
+/// Here are some steps you can follow to adopt GWT in your complex Swift project:
+
+/// - `Define the scope`: Start by defining the scope of the GWT testing effort.
+///   Identify the key components and features of the application that will be covered by GWT testing.
+///
+/// - `Identify the scenarios`: Once you have defined the scope, identify the scenarios that you want to test.
+///   Break each scenario down into individual steps using the GWT format (Given-When-Then).
+///
+/// - `Write the tests`: Write the tests for each scenario.
+///   Use the XCTest framework provided by Swift to write the tests.
+///   Make sure that each step in the GWT format is clearly defined and that the tests are easy to read and understand.
+
+
+
+/// In conclusion, Given-When-Then (GWT) testing in Swift is a testing approach that structures test cases into three distinct parts:
+/// - the given (the preconditions or initial state),
+/// - the when (the action being tested),
+/// - and the then (the expected outcome).
+///
+/// This approach helps developers to write tests that are easy to understand, maintain and update.
+/// GWT testing ensures that all the possible scenarios are tested, and helps to improve test coverage,
+/// debugging, and collaboration between developers.
+///
+/// Adopting GWT testing in a complex Swift project requires planning, effort, and collaboration,
+/// but the benefits make it a worthwhile investment for any development team.
