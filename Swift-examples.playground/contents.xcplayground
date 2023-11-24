@@ -41,5 +41,6 @@
         <page name='Chain Responder'/>
         <page name='Auto Layout'/>
         <page name='Design Patterns 2'/>
+        <page name='Tests 1'/>
     </pages>
 </playground>
