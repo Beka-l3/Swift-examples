@@ -82,3 +82,24 @@ func testUppercasedName() {
     XCTAssertEqual(fullName, "JACOB ADAM")
     
 }
+
+
+
+// MARK: Benefits
+/// `Given-When-Then (GWT) testing in Swift` (and in general) is a beneficial approach to testing
+/// because it provides a structured and organized way to write tests that are easy to understand and maintain.
+/// Here are some specific benefits of using GWT testing in Swift:
+
+/// - `Clarity`: GWT testing forces the developer to write test cases in a clear, concise and structured manner,
+///   which makes it easier for other developers to understand what the test is trying to achieve.
+///
+/// - `Improved collaboration`: Because GWT testing is structured, it makes it easier for developers to collaborate and work together on testing efforts.
+///   Each test case can be broken down into individual steps, and each developer can take on a specific step to complete.
+///
+/// - `Better test coverage`: GWT testing ensures that all the possible scenarios are tested, which helps improve the overall test coverage of the application.
+///
+/// - `Faster debugging`: GWT testing makes it easier to identify the root cause of the problem if a test case fails,
+///   because each step in the test is clearly defined and can be easily traced back to the problematic code.
+///
+/// - `Easier maintenance`: GWT testing makes it easier to maintain the test suite over time,
+///   because it is easier to understand and update the tests when the underlying code changes.
