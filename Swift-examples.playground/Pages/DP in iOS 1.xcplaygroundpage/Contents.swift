@@ -20,7 +20,8 @@ import Foundation
 
 
 // MARK: - Decorator
-/// The Decorator pattern dynamically adds behaviors and responsibilities to an object without modifying its code. It’s an alternative to subclassing where you modify a class’s behavior by wrapping it with another object
+/// The Decorator pattern dynamically adds behaviors and responsibilities to an object without modifying its code.
+/// It’s an alternative to subclassing where you modify a class’s behavior by wrapping it with another object
 
 /// In Objective-C there are two very common implementations of this pattern: `Category` and `Delegation`.
 /// In Swift there are also two very common implementations of this pattern: `Extensions` and `Delegation`
