@@ -186,7 +186,8 @@ let centerRect = Rect(
 /// - A designated initializer for that class confirms that all stored properties introduced by that class have a value. The memory for these stored properties is now initialized.
 /// - The designated initializer hands off to a superclass initializer to perform the same task for its own stored properties.
 /// - This continues up the class inheritance chain until the top of the chain is reached.
-/// - Once the top of the chain is reached, and the final class in the chain has ensured that all of its stored properties have a value, the instance’s memory is considered to be fully initialized, and phase 1 is complete.
+/// - Once the top of the chain is reached, and the final class in the chain has ensured that all of its stored properties have a value, the instance’s memory is considered to be fully initialized,
+///   and phase 1 is complete.
 
 // MARK: Phase 2
 /// - Working back down from the top of the chain, each designated initializer in the chain has the option to customize the instance further.
