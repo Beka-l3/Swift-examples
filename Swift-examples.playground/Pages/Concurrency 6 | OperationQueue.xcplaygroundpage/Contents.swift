@@ -17,7 +17,7 @@ import Foundation
 
 
 // MARK: - Operation
-/// ``Operation`` - is high level toll to work with concurrency
+/// ``Operation`` - is high level tool to work with concurrency
 /// Main idea is an `abstruction` of a task
 /// It also provides access to it's lifecycle
 /// The main difference is that an `Operation` is used only once

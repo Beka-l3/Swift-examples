@@ -127,8 +127,8 @@ func foo2() {
 
 // MARK: - Semaphores
 
-/// DispatchSemaphore gives us the ability to control access to a shared resource by multiple threads
-/// DispatchSemaphore allows only one thread to access shared resources at a time.
+/// `DispatchSemaphore` gives us the ability to control access to a shared resource by multiple threads
+/// `DispatchSemaphore` allows only one thread to access shared resources at a time.
 /// And the order of uses of resources is (FIFO), who asks first get the resource first.
 /// Semaphores contain threads queues and a counter value integer type
 
@@ -137,12 +137,12 @@ func foo2() {
 /// `Counter Value:` it is used to decide if a thread should get access to a shared resource or not.
 /// The counter value changes when we call `signal()` or `wait()` function
 
-/// wait() : This function calls each time before using the shared resource. the thread asks the semaphore if the shared resource is available or not. If not, the thread will wait.
+/// `wait() `: This function calls each time before using the shared resource. the thread asks the semaphore if the shared resource is available or not. If not, the thread will wait.
 /// - wait() function decrease semaphore counter by 1.
 /// - If the result value is less than 0, the thread is frozen.
 /// - If the result value is equal to or bigger than zero, the code will get executed without waiting
 
-/// signal() : every time after using the shared resource. the function will signal the semaphore that threads are done interacting with the shared resource.
+/// `signal()` : every time after using the shared resource. the function will signal the semaphore that threads are done interacting with the shared resource.
 /// - signal() function increase semaphore counter by 1.
 /// - If the previous result value was less than zero, this function wakes the oldest thread currently waiting in the thread queue.
 /// - If the previous result value is equal to or bigger than zero, it means the thread queue is empty, no one is waiting.

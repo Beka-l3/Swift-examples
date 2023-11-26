@@ -372,7 +372,7 @@ func fii9() {
     myConcurrentQueue2.async(execute: workItem)
     myConcurrentQueue1.async(execute: workItem)
  
-    /// we can interrupt queues with `workItems` and have moew control over tasks
+    /// we can interrupt queues with `workItems` and have more control over tasks
     /// flog `.enforceQoS` forces to high priority execution
     /// might help from `priority inversion`
 }
@@ -383,7 +383,7 @@ func fii9() {
 func fii10() {
     /// GCD cannot stop tasks after it started
     /// but can remove tasks from the queue before it started
-    /// But we can user `workItem.notify(queue: execute: )`
+    /// But we can notify user `workItem.notify(queue: execute: )`
     
     let view = UIView(frame: .init(origin: .zero, size: .init(width: 600, height: 600)))
     
@@ -498,7 +498,7 @@ func fii11() {
 
 
 func fii12() {
-    /// there is apossibility to run task after some time interval
+    /// there is a possibility to run task after some time interval
     /// example `.now() + 3 seconds`
     DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
         print("Hello from past")
