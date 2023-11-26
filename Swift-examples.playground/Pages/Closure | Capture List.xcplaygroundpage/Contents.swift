@@ -91,6 +91,7 @@ func foo3() {
     var a: A? = A()
     
     /// Here new reference to `a` is `not` created.  Now only 1 pointer is referencing `a`
+    /// seems like exect copy of the address value is captured, so reference counting is not incremented
     let buzz4 = {
         print(a?.num ?? "nil")
     }
@@ -116,7 +117,7 @@ func foo4() {
     
     var a: A? = A()
     
-    /// Here new reference to `a` is created. And now 2 pointers are referencing `a`
+    /// Here new reference(strong) to `a` is created. And now 2 pointers are referencing `a`
     let buzz4 = { [a] in
         print(a?.num ?? "nil")
     }
