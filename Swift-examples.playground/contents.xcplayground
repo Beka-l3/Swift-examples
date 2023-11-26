@@ -15,7 +15,7 @@
         <page name='UIView | VC Lifecycle'/>
         <page name='Application Lifecycle'/>
         <page name='Closure | Capture List'/>
-        <page name='Concurrency | playground'/>
+        <page name='New design | playground'/>
         <page name='CALayer'/>
         <page name='CALayer | playground'/>
         <page name='CALayer vs UIView'/>

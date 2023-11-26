@@ -144,7 +144,7 @@ import UIKit
 /// layer of `myView` is added as an sublayer to the `view.layer` <<under the hood>>
 
 
-// CAAnimation: it is an protocol fro animations
+// CAAnimation: it is an protocol for animations
 /// You can create your own class that conforms to this protocol
 /// Or use existing classes:
 /// - `CABasicAnimation`: basic animation, with interpolation value between `fromPoint` and `toPoint`
@@ -155,7 +155,7 @@ import UIKit
 /// 3 useful cases:
 /// 1) **Stop animation**: save current values, then continue if needed. (if animation is deleted, then it uses values from `model tree`)
 /// 2) **Seamles animation transition**: to start a new animation, `fromValue` is needed from presentationLayer
-/// 3) **Correct interation proccessing of animating element**: during animation `hitTest(_: with: )` <<point(inside: with: )>> will use values from `model tree`. To
+/// 3) **Correct interaction proccessing of animating element**: during animation `hitTest(_: with: )` <<point(inside: with: )>> will use values from `model tree`. To
 ///     proccess it correctly we need to `override` `point(_: with: )` to work with `presentationLayer`
 
 /// That is layer returns to it's inital values, if we do not change `layer.isRemovedOnCompletion`.
@@ -164,26 +164,6 @@ import UIKit
 //MARK: note
 /// Animtion depends on app lifecycle and layer itself.
 /// If an app goes to `background` and layer is deleted from `superview`, then `CAAnimation` is deleted
-/// So, if app is switched midway of an animation, then object will be in it;s initial state
+/// So, if app is switched midway of an animation, then object will be in it's initial state
 
-
-
-func printFrequencies(s: String) {
-    var freq: [Character: Int] = [:]
-
-    for char in s {
-        freq[char, default: 0] += 1
-    }
-    
-//    for i in 0..<s.count {
-//        let idx = s.index(s.startIndex, offsetBy: i)
-//        freq[s[idx]] = (freq[s[idx]] ?? 0) + 1
-//    }
-
-    for (key, value) in freq {
-        print("\(key): \(value)")
-    }
-}
-
-printFrequencies(s: "Beka. Hello World!")
 
