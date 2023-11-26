@@ -212,3 +212,43 @@ func foo4() {
 
 
 
+// MARK: - experiment
+
+final class SomeClass10 {
+    let someVariable: Int
+    
+    init(_ val: Int) {
+        self.someVariable = val
+    }
+    
+    deinit {
+        print("Some instance is deinited: \(someVariable)")
+    }
+}
+
+var someVar1: SomeClass10? = .init(1)
+var someVar2: SomeClass10? = .init(2)
+var someVar3: SomeClass10? = .init(3)
+
+let closure1 = { /// copied exact address value of the `someVar1`
+    print(someVar1?.someVariable ?? "No var 1")
+}
+
+let closure2 = { [someVar2] in  /// made a copie address value of the `someVar2`
+    print(someVar2?.someVariable ?? "No var 2")
+}
+
+let closure3 = { [weak someVar3] in  /// made a copie address value of the `someVar2`, but as a weak reference
+    print(someVar3?.someVariable ?? "No var 2")
+}
+
+func foo5() {
+    someVar1 = nil
+    someVar2 = nil
+    someVar3 = nil
+    
+    closure1()
+    closure2()
+    closure3()
+}
+
