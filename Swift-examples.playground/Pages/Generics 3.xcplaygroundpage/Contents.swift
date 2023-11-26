@@ -211,7 +211,7 @@ func foo6() {
 
 
 
-// MARK: Associated Types with a Generic Where Clausein
+// MARK: Associated Types with a Generic Where Clause in
 /// You can include a generic where clause on an associated type.
 /// For example, suppose you want to make a version of Container that includes an iterator, like what the Sequence protocol uses in the Swift standard library
 

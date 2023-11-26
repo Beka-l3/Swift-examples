@@ -16,7 +16,7 @@ import Foundation
 /// When `Strong` == 0
 /// - then all the data of the object is cleared
 /// - but the class is not reallocated, because needed to store `Weak` counter
-/// - It becomse `NSZombie`
+/// - It becomes `NSZombie`
 
 /// When object is accessed by `Weak` ref and if it is a zombie
 /// - counter is decreased
