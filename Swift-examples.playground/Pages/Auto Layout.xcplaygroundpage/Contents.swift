@@ -123,7 +123,7 @@ NSLayoutConstraint.activate([
 /// This will indicate to the system that the view’s layout needs to be recalculated.
 /// `setNeedsLayout` executes and returns immediately and does not actually update views before returning.
 /// Instead, the views will update on the `next update cycle`,
-/// when the system calls `layoutSubviews` on those views and triggers subsequent layoutSubviews calls on all their subviews.
+/// when the system calls `layoutSubviews` on those views and triggers subsequent `layoutSubviews` calls on all their subviews.
 
 /// There should be no user impact from the delay because,
 /// even though there is an arbitrary time interval between when `setNeedsLayout` returns and when views are redrawn and laid out,
