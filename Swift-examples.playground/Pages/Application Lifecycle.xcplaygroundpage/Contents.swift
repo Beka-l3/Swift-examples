@@ -6,7 +6,7 @@ import UIKit
 // MARK: - States
 /// ``Not Running``: The app is not launched or terminated by the system
 
-/// ``Background``: The app is in the baclground and still able to run code.
+/// ``Background``: The app is in the background and still able to run code.
 /// But the duration is determined by the OS. and code execution can be interupted at any time.
 /// Time can be longer, if developer requests extra time
 /// There are some situations in which the app can be launched directly into the background mode.
