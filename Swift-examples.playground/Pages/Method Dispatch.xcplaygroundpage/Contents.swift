@@ -16,7 +16,7 @@ import Foundation
 // MARK: - Direct Dispatch      aka Static Dispatch
 /// `The fastest way to send the method` - ``advantade``
 /// `OOP is limited` - **disadvantage**
-///     `No polymophism` - **disadvantage**
+///     `No polymorphism` - **disadvantage**
 
 /// `Value types` use ``Direct Dispatch``
 
@@ -40,7 +40,7 @@ final class ClassExample1 {
 
 // MARK: Example 2 - Protocol Extension
 /// Default implementation of a method
-/// Changes Dispatch from `Witnes` to `Direct`
+/// Changes Dispatch from `Witness` to `Direct`
 ///
 protocol SomeProtocol {
     func doSomething()
@@ -226,18 +226,23 @@ class ClassExample7: NSObject {
 }
 
 class SubclassExample7: ClassExample7, ProtocolExample7 {
+    
     private func doSomethingWithDirectDispatch() {
         print("Direct Dispatch")
     }
+    
     func doSomethingWithVirtualTable() {
         print("Virtual Table")
     }
+    
     func doSomethingWithWitnessTable() {
         print("Witness Table")
     }
+    
     @objc override dynamic func doSomething() {
         print("Override with Message Dispatch")
     }
+    
 }
 
 
@@ -299,3 +304,5 @@ let first2 = ClassExample9()
 let second2: ProtocolExample9 = ClassExample9()
 first2.doSomething()
 second2.doSomething()
+
+// mayber it is not a bug, but intended by apple developers
