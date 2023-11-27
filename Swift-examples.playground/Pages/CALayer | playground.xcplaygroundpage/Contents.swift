@@ -40,7 +40,7 @@ final class MyViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         foo1()
-        foo3()
+//        foo3()
     }
     
     
@@ -62,6 +62,13 @@ final class MyViewController: UIViewController {
         myView.center = .init(x: center.x, y: center.y - 100)
         myView.backgroundColor = .systemBlue
         myView.layer.addSublayer(layer1)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.borderColor = UIColor.systemYellow.cgColor
+        shapeLayer.borderWidth = 3
+        
+        shapeLayer.frame.size = .init(width: 100, height: 100)
+        myView.layer.addSublayer(shapeLayer)
         
         view.addSubview(myView)
     }
@@ -99,7 +106,7 @@ final class MyViewController: UIViewController {
     /// Changing `view.layer.frame` affects `view.frame`, and otherway
     @objc func handleButton() {
         UIView.animate(withDuration: 1) { [unowned self] in
-            var y: CGFloat = self.someView.center.y > 50 ? 40 : 100
+            let y: CGFloat = self.someView.center.y > 50 ? 40 : 100
             self.someView.center = .init(x: center.x, y: y)
 //            var y: CGFloat = self.someView.layer.frame.origin.y > 30 ? 20 : 40
 //            self.someView.layer.frame.origin = .init(x: self.someView.layer.frame.origin.x, y: y)

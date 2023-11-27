@@ -3,7 +3,7 @@ import Foundation
 /// Structures and Enumerations are `value types`
 /// A value type is a type whose value is copied when it’s assigned to a variable or constant, or when it’s passed to a function.
 
-/// ``Copy on change``
+/// ``Copy on write``
 /// `Collections` defined by the standard library like arrays, dictionaries, and strings
 /// use an optimization to reduce the performance cost of copying.
 /// Instead of making a copy immediately,
