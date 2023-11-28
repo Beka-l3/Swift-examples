@@ -156,8 +156,34 @@ struct NetworkWorker: NetworkClient {
                     return
                 }
                 
+                let handledResult = HTTPNetworkResponse.handleNetworkResponse(for: response)
                 
-                
+                switch handledResult {
+                    
+                case .success:
+                    let jsonDecoder = JSONDecoder()
+                    
+                    jsonDecoder.keyDecodingStrategy = request.keyDecodingStrategy
+                    jsonDecoder.dateDecodingStrategy = request.dateDecodingStrategy
+                    
+                    guard let result = try? jsonDecoder.decode(T.self, from: unwrappedData) else {
+                        NetworkWorker.executeCompletionOnMainThread {
+                            completion(.failure(HTTPError.decodingFailed))
+                        }
+                        
+                        return
+                    }
+                    
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.success(result))
+                    }
+                    
+                case .failure:
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.failure(HTTPError.decodingFailed))
+                    }
+                    
+                }
             }
             
             task.resume()
