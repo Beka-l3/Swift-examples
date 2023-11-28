@@ -42,5 +42,6 @@
         <page name='Auto Layout'/>
         <page name='Design Patterns 2'/>
         <page name='Tests 1'/>
+        <page name='URLSession'/>
     </pages>
 </playground>
