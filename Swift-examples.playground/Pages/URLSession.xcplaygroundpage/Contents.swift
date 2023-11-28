@@ -37,6 +37,7 @@ enum HTTPError: String, Error {
     case badRequest = "Error: Bad request"
     case serverSideError = "Error: Server error"
     
+    case missingURL = "Error: The URL is nil"
     case missingURLComponents = "Error: The URL with components is nil"
 }
 
@@ -143,6 +144,10 @@ struct NetworkWorker: NetworkClient {
     
     
     private func configureRequest(request: HTTPRequest) throws -> URLRequest {
+        guard let components = URLComponents(string: request.route) else {
+            throw HTTPError.missingURL
+        }
+        
         return .init(url: URL(string: "")!)
     }
     
