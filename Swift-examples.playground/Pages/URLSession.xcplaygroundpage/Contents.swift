@@ -144,9 +144,19 @@ struct NetworkWorker: NetworkClient {
     
     
     private func configureRequest(request: HTTPRequest) throws -> URLRequest {
-        guard let components = URLComponents(string: request.route) else {
+        guard var components = URLComponents(string: request.route) else {
             throw HTTPError.missingURL
         }
+        
+        let queriesArray = request.queryItems.map { querry in
+            URLQueryItem(name: querry.key, value: querry.value)
+        }
+        
+        components.queryItems = queriesArray
+        
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        
+        
         
         return .init(url: URL(string: "")!)
     }
