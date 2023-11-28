@@ -39,6 +39,9 @@ enum HTTPError: String, Error {
     
     case missingURL = "Error: The URL is nil"
     case missingURLComponents = "Error: The URL with components is nil"
+    
+    case encodingFailed = "Error: Parameter encoding failed"
+    case decodingFailed = "Error: Unable to decode the data"
 }
 
 
@@ -139,7 +142,36 @@ struct NetworkWorker: NetworkClient {
         completion: @escaping (Result<T, HTTPError>) -> Void
     ) -> Cancellable? {
         
-        return nil
+        do {
+            
+            let configuredURLRequest = try configureRequest(request: request)
+            
+            let task = urlSession.dataTask(with: configuredURLRequest) { data, response, _ in
+                
+                guard let response = response as? HTTPURLResponse, let unwrappedData = data else {
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.failure(HTTPError.decodingFailed))
+                    }
+                    
+                    return
+                }
+                
+                
+                
+            }
+            
+            task.resume()
+            return task
+            
+        } catch {
+            
+            NetworkWorker.executeCompletionOnMainThread {
+                completion(.failure(HTTPError.failed))
+            }
+
+            return nil
+        }
+    
     }
     
     
