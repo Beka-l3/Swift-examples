@@ -156,9 +156,20 @@ struct NetworkWorker: NetworkClient {
         
         components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         
+        guard let componentsURL = components.url else {
+            throw HTTPError.missingURLComponents
+        }
         
+        var generatedRequest = URLRequest(url: componentsURL)
         
-        return .init(url: URL(string: "")!)
+        generatedRequest.httpMethod = request.httpMethod.rawValue
+        generatedRequest.httpBody = request.body
+        
+        request.headers.forEach { headerItem in
+            generatedRequest.addValue(headerItem.value, forHTTPHeaderField: headerItem.key)
+        }
+        
+        return generatedRequest
     }
     
     
