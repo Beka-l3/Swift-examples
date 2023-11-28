@@ -27,6 +27,9 @@ import Foundation
 ///
 
 
+
+/// Example of ``Network Client``
+
 enum HTTPError: String, Error {
     case unwrappingError = "Error: Unable to unwrap the data"
     case failed = "Error: Network request failed"
@@ -117,3 +120,40 @@ protocol NetworkClient {
 protocol Cancellable {
     func cancel()
 }
+
+
+struct NetworkWorker: NetworkClient {
+    
+    private let urlSession: URLSession
+
+    
+    init(urlSession: URLSession) {
+        self.urlSession = urlSession
+    }
+    
+    
+    @discardableResult
+    func processRequest<T: Decodable>(
+        request: HTTPRequest,
+        completion: @escaping (Result<T, HTTPError>) -> Void
+    ) -> Cancellable? {
+        
+        return nil
+    }
+    
+    
+    private func configureRequest(request: HTTPRequest) throws -> URLRequest {
+        return .init(url: "")
+    }
+    
+    
+    private static func executeCompletionOnMainThread(_ closure: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            closure()
+        }
+    }
+    
+}
+
+// MARK:  Cancellable
+extension URLSessionDataTask: Cancellable {}
