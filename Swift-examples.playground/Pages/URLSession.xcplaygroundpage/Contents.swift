@@ -143,7 +143,7 @@ struct NetworkWorker: NetworkClient {
     
     
     private func configureRequest(request: HTTPRequest) throws -> URLRequest {
-        return .init(url: "")
+        return .init(url: URL(string: "")!)
     }
     
     
