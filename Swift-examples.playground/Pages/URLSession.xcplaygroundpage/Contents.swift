@@ -37,7 +37,11 @@ enum HTTPError: String, Error {
     case badRequest = "Error: Bad request"
     case serverSideError = "Error: Server error"
     
+    case missingURL = "Error: The URL is nil"
     case missingURLComponents = "Error: The URL with components is nil"
+    
+    case encodingFailed = "Error: Parameter encoding failed"
+    case decodingFailed = "Error: Unable to decode the data"
 }
 
 
@@ -138,12 +142,92 @@ struct NetworkWorker: NetworkClient {
         completion: @escaping (Result<T, HTTPError>) -> Void
     ) -> Cancellable? {
         
-        return nil
+        do {
+            
+            let configuredURLRequest = try configureRequest(request: request)
+            
+            let task = urlSession.dataTask(with: configuredURLRequest) { data, response, _ in
+                
+                guard let response = response as? HTTPURLResponse, let unwrappedData = data else {
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.failure(HTTPError.decodingFailed))
+                    }
+                    
+                    return
+                }
+                
+                let handledResult = HTTPNetworkResponse.handleNetworkResponse(for: response)
+                
+                switch handledResult {
+                    
+                case .success:
+                    let jsonDecoder = JSONDecoder()
+                    
+                    jsonDecoder.keyDecodingStrategy = request.keyDecodingStrategy
+                    jsonDecoder.dateDecodingStrategy = request.dateDecodingStrategy
+                    
+                    guard let result = try? jsonDecoder.decode(T.self, from: unwrappedData) else {
+                        NetworkWorker.executeCompletionOnMainThread {
+                            completion(.failure(HTTPError.decodingFailed))
+                        }
+                        
+                        return
+                    }
+                    
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.success(result))
+                    }
+                    
+                case .failure:
+                    NetworkWorker.executeCompletionOnMainThread {
+                        completion(.failure(HTTPError.decodingFailed))
+                    }
+                    
+                }
+            }
+            
+            task.resume()
+            return task
+            
+        } catch {
+            
+            NetworkWorker.executeCompletionOnMainThread {
+                completion(.failure(HTTPError.failed))
+            }
+
+            return nil
+        }
+    
     }
     
     
     private func configureRequest(request: HTTPRequest) throws -> URLRequest {
-        return .init(url: URL(string: "")!)
+        guard var components = URLComponents(string: request.route) else {
+            throw HTTPError.missingURL
+        }
+        
+        let queriesArray = request.queryItems.map { querry in
+            URLQueryItem(name: querry.key, value: querry.value)
+        }
+        
+        components.queryItems = queriesArray
+        
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        
+        guard let componentsURL = components.url else {
+            throw HTTPError.missingURLComponents
+        }
+        
+        var generatedRequest = URLRequest(url: componentsURL)
+        
+        generatedRequest.httpMethod = request.httpMethod.rawValue
+        generatedRequest.httpBody = request.body
+        
+        request.headers.forEach { headerItem in
+            generatedRequest.addValue(headerItem.value, forHTTPHeaderField: headerItem.key)
+        }
+        
+        return generatedRequest
     }
     
     
