@@ -43,5 +43,6 @@
         <page name='Design Patterns 2'/>
         <page name='Tests 1'/>
         <page name='URLSession'/>
+        <page name='Network Client Service async'/>
     </pages>
 </playground>
