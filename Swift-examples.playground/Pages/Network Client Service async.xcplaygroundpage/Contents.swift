@@ -84,3 +84,14 @@ struct HTTPRequest {
     }
     
 }
+
+
+
+protocol NetworkClient {
+    
+    func processRequest<T: Decodable>( request: HTTPRequest ) async throws -> T
+    
+}
+
+
+
