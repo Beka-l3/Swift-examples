@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
-		07E58B6F2B3DA9D10041BEF3 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* MyViewController.swift */; };
+		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
 		07E58B742B3DA9D50041BEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E58B732B3DA9D50041BEF3 /* Assets.xcassets */; };
 		07E58B772B3DA9D50041BEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E58B752B3DA9D50041BEF3 /* LaunchScreen.storyboard */; };
+		07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B832B3DB3C80041BEF3 /* RootViewController+UITableView.swift */; };
+		07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */; };
+		07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		07E58B6E2B3DA9D10041BEF3 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		07E58B732B3DA9D50041BEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07E58B762B3DA9D50041BEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07E58B782B3DA9D50041BEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07E58B832B3DB3C80041BEF3 /* RootViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+UITableView.swift"; sourceTree = "<group>"; };
+		07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCTableViewCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B7E2B3DAC980041BEF3 /* App */,
+				07E58B872B3DB6580041BEF3 /* ViewComponents */,
 				07E58B7F2B3DACA50041BEF3 /* ViewControllers */,
 				07E58B732B3DA9D50041BEF3 /* Assets.xcassets */,
 				07E58B782B3DA9D50041BEF3 /* Info.plist */,
@@ -68,6 +75,7 @@
 			children = (
 				07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */,
 				07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */,
+				07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -75,7 +83,7 @@
 		07E58B7F2B3DACA50041BEF3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				07E58B6E2B3DA9D10041BEF3 /* MyViewController.swift */,
+				07E58B812B3DB3A30041BEF3 /* Root */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -86,6 +94,39 @@
 				07E58B752B3DA9D50041BEF3 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		07E58B812B3DB3A30041BEF3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */,
+				07E58B822B3DB3AD0041BEF3 /* Extension */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		07E58B822B3DB3AD0041BEF3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B832B3DB3C80041BEF3 /* RootViewController+UITableView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		07E58B872B3DB6580041BEF3 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
+			);
+			path = RootVCTableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E58B6F2B3DA9D10041BEF3 /* MyViewController.swift in Sources */,
+				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
+				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
+				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
+				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
