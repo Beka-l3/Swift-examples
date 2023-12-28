@@ -15,6 +15,8 @@
 		07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B832B3DB3C80041BEF3 /* RootViewController+UITableView.swift */; };
 		07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */; };
 		07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */; };
+		07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */; };
+		07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		07E58B832B3DB3C80041BEF3 /* RootViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+UITableView.swift"; sourceTree = "<group>"; };
 		07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCTableViewCells.swift; sourceTree = "<group>"; };
+		07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCViewComponents.swift; sourceTree = "<group>"; };
+		07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */,
+				07E58B8B2B3DB9910041BEF3 /* ViewComponents */,
 				07E58B822B3DB3AD0041BEF3 /* Extension */,
 			);
 			path = Root;
@@ -116,6 +121,7 @@
 		07E58B872B3DB6580041BEF3 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				07E58B8E2B3DBA440041BEF3 /* BaseViewComponents */,
 				07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */,
 			);
 			path = ViewComponents;
@@ -127,6 +133,22 @@
 				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
 			);
 			path = RootVCTableViewCells;
+			sourceTree = "<group>";
+		};
+		07E58B8B2B3DB9910041BEF3 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		07E58B8E2B3DBA440041BEF3 /* BaseViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
+			);
+			path = BaseViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +227,8 @@
 				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

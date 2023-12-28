@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol AppCoordinatorForSceneDelegate {
     func setupScene(with window: UIWindow)
 }
@@ -17,7 +18,8 @@ final class AppCoordinator {
     let rootViewController: RootViewController
     let navigationController: UINavigationController
     
-        
+
+//    MARK: lifecycle
     init() {
         self.rootViewController = .init()
         self.navigationController = .init(rootViewController: self.rootViewController)

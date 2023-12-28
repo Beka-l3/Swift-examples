@@ -10,14 +10,27 @@ import UIKit
 
 final class RootViewController: UIViewController {
     
-    let animationViewControllers: [UIViewController] = []
+    let animationViewControllers: [UIViewController]
+    let viewComponents: RootVCViewComponents
     
     
 //    MARK: lifecycle
+    init() {
+        self.animationViewControllers = []
+        self.viewComponents = .init()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.animationViewControllers = []
+        self.viewComponents = .init()
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemPurple
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,5 +39,10 @@ final class RootViewController: UIViewController {
         
     }
 
+    
+//    MARK: private func
+    private func setupView() {
+        viewComponents.setupViews(parent: view)
+    }
 }
 
