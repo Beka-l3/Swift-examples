@@ -38,7 +38,29 @@ final class RootViewController: UIViewController {
         
         
     }
-
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        
+        switch traitCollection.userInterfaceStyle {
+        
+        case .light:
+            print("wow", "light style")
+        
+        case .dark:
+            print("hey", "dark style")
+            
+        case .unspecified:
+            print("hmm", "unspecified")
+        
+        @unknown default:
+            print("what", "unkown default")
+            
+        }
+        
+    }
+    
     
 //    MARK: private func
     private func setupView() {

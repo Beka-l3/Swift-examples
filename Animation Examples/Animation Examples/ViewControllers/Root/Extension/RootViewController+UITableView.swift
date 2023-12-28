@@ -28,7 +28,4 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
-    
-    
 }
