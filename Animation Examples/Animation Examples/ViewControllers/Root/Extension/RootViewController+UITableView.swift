@@ -17,7 +17,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RootVCTableViewCell.identifier) as? RootVCTableViewCell {
             
-            
+            cell.backgroundColor = [UIColor.systemRed, UIColor.systemGreen, UIColor.systemBlue][indexPath.row % 3]
             
             return cell
             

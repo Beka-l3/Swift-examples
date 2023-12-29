@@ -13,6 +13,8 @@ protocol BaseViewComponents {
     func setupViews(parent: UIView)
     func setupLayers(parent: UIView)
     
+    func setupConstraints(parent: UIView)
+    
 }
 
 

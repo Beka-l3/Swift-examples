@@ -10,13 +10,15 @@ import UIKit
 
 final class RootViewController: UIViewController {
     
+    weak var appCoordinator: AppCoordinator?
+    
     let animationViewControllers: [UIViewController]
     let viewComponents: RootVCViewComponents
     
     
 //    MARK: lifecycle
     init() {
-        self.animationViewControllers = []
+        self.animationViewControllers = [.init(), .init(), .init()]
         self.viewComponents = .init()
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,14 +31,13 @@ final class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        appCoordinator?.setNavigationStyle(title: "Animations", isPreferredLargeTitle: true)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -65,6 +66,8 @@ final class RootViewController: UIViewController {
 //    MARK: private func
     private func setupView() {
         viewComponents.setupViews(parent: view)
+        viewComponents.navigationTableView.delegate = self
+        viewComponents.navigationTableView.dataSource = self
     }
 }
 

@@ -23,6 +23,8 @@ final class AppCoordinator {
     init() {
         self.rootViewController = .init()
         self.navigationController = .init(rootViewController: self.rootViewController)
+        
+        rootViewController.appCoordinator = self
     }
     
     
@@ -34,6 +36,16 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
     
     func setupScene(with window: UIWindow) {        
         window.rootViewController = navigationController
+    }
+    
+}
+
+
+extension AppCoordinator {
+    
+    func setNavigationStyle(title: String, isPreferredLargeTitle: Bool) {
+        navigationController.title = title
+        navigationController.navigationBar.prefersLargeTitles = isPreferredLargeTitle
     }
     
 }
