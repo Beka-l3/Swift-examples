@@ -43,7 +43,7 @@ extension RootVCViewComponents {
     func setupConstraints(parent: UIView) {
         
         NSLayoutConstraint.activate([
-            navigationTableView.topAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.topAnchor),
+            navigationTableView.topAnchor.constraint(equalTo: parent.topAnchor),
             navigationTableView.leadingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.leadingAnchor),
             navigationTableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor),
             navigationTableView.bottomAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.bottomAnchor),

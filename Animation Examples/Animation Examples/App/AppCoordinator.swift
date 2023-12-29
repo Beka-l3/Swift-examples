@@ -44,8 +44,39 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
 extension AppCoordinator {
     
     func setNavigationStyle(title: String, isPreferredLargeTitle: Bool) {
-        navigationController.title = title
+        navigationController.navigationItem.title = title
         navigationController.navigationBar.prefersLargeTitles = isPreferredLargeTitle
+        
+        navigationController.navigationItem.hidesBackButton = true
+        navigationController.isNavigationBarHidden = false
+        navigationController.navigationBar.tintColor = .systemPurple
+        navigationController.navigationItem.largeTitleDisplayMode = .always
+        
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
+        let largeTitleAttr = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
+        ]
+        let titleAttr = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
+        ]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundEffect = blurEffect
+        appearance.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        appearance.largeTitleTextAttributes = largeTitleAttr
+        appearance.titleTextAttributes = titleAttr
+        
+        let largeAppearance = UINavigationBarAppearance()
+        largeAppearance.backgroundEffect = nil
+        largeAppearance.backgroundColor = .clear
+        largeAppearance.shadowColor = .clear
+        largeAppearance.largeTitleTextAttributes = largeTitleAttr
+        largeAppearance.titleTextAttributes = titleAttr
+        
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = largeAppearance
     }
     
 }
