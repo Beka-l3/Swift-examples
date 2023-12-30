@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* FristVC.swift */; };
+		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
+		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
 		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07B440522B40A5EE00F37D85 /* FristVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristVC.swift; sourceTree = "<group>"; };
+		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
+		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07B440512B40A5DB00F37D85 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				07B440522B40A5EE00F37D85 /* FristVC.swift */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		07B440542B40AA4800F37D85 /* App Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */,
+				07B440552B40AA5700F37D85 /* Extension */,
+			);
+			path = "App Coordinator";
+			sourceTree = "<group>";
+		};
+		07B440552B40AA5700F37D85 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */,
+				07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		07E58B5E2B3DA9D10041BEF3 = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +111,7 @@
 			children = (
 				07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */,
 				07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */,
-				07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */,
+				07B440542B40AA4800F37D85 /* App Coordinator */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -88,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B812B3DB3A30041BEF3 /* Root */,
+				07B440512B40A5DB00F37D85 /* First */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,8 +259,11 @@
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
+				07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

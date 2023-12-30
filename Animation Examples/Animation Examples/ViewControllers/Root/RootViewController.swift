@@ -37,7 +37,8 @@ final class RootViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        appCoordinator?.setNavigationStyle(title: "Animations", isPreferredLargeTitle: true)
+        navigationItem.title = "Animations"
+        appCoordinator?.isLargeNavTitle = true
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

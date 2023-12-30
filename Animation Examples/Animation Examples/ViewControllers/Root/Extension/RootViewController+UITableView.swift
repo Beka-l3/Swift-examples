@@ -30,5 +30,24 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+            
+        case 0:
+            let fvc = FirstVC()
+            fvc.appCoordinator = appCoordinator
+            appCoordinator?.pushVC(fvc)
+            
+        case 1:
+            appCoordinator?.setDefaultNavbarStyle()
+            
+        case 2:
+            appCoordinator?.navBarStyle1()
+            
+        default:
+            break
+            
+        }
+        
     }
 }
