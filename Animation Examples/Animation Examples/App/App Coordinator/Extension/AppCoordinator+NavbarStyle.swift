@@ -84,5 +84,37 @@ extension AppCoordinator {
         
     }
     
+    func appearNavbar(animated: Bool = true) {
+        
+        if animated {
+            
+            UIView.animate(withDuration: 0.6) { [unowned self] in
+                self.navigationController.navigationBar.alpha = 1
+            }
+            
+        } else {
+            
+            navigationController.navigationBar.alpha = 1
+            
+        }
+        
+    }
+    
+    func disappearNavbar(animated: Bool = false) {
+        
+        if animated {
+            
+            UIView.animate(withDuration: GConstants.Animation.Duration.Splash.part2) { [unowned self] in
+                self.navigationController.navigationBar.alpha = 0
+            }
+            
+        } else {
+            
+            navigationController.navigationBar.alpha = 0
+            
+        }
+        
+    }
+    
 }
 

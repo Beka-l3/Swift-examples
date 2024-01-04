@@ -89,7 +89,7 @@ extension SplashAnimationView {
     func startAnimation() {
         isAnimating =  true
         
-        UIView.animate(withDuration: Constants.animationDurationPart1) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.Splash.part1) { [unowned self] in
             
             self.titleLabel.alpha = 1
             
@@ -97,7 +97,7 @@ extension SplashAnimationView {
             
             Task {
                 do {
-                    try await Task.sleep(nanoseconds: UInt64(Constants.animationDurationPart2 * 1_000_000_000))
+                    try await Task.sleep(nanoseconds: UInt64(GConstants.Animation.Duration.Splash.part2 * 1_000_000_000))
                 }
                 
                 self.finishedAnimating()

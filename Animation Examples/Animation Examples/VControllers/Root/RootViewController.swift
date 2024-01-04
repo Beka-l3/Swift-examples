@@ -15,17 +15,20 @@ final class RootViewController: UIViewController {
     let animationViewControllers: [UIViewController]
     let viewComponents: RootVCViewComponents
     
+    var shouldUseSplashScreen: Bool
     
 //    MARK: lifecycle
     init() {
         self.animationViewControllers = [.init(), .init(), .init()]
         self.viewComponents = .init()
+        self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.animationViewControllers = []
         self.viewComponents = .init()
+        self.shouldUseSplashScreen = true
         super.init(coder: coder)
     }
     
@@ -39,12 +42,21 @@ final class RootViewController: UIViewController {
         
         navigationItem.title = "Animations"
         appCoordinator?.isLargeNavTitle = true
+        
+        if shouldUseSplashScreen {
+            appCoordinator?.disappearNavbar()
+        } else {
+            appCoordinator?.appearNavbar(animated: false)
+            viewComponents.splashView.disappear()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewComponents.splashView.startAnimation()
+        if shouldUseSplashScreen {
+            viewComponents.splashView.startAnimation()
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -75,6 +87,13 @@ final class RootViewController: UIViewController {
         viewComponents.setupViews(parent: view)
         viewComponents.navigationTableView.delegate = self
         viewComponents.navigationTableView.dataSource = self
+        viewComponents.splashView.delegate = self
     }
 }
 
+
+extension RootViewController: SplashAnimationViewDelegate {
+    func finishedAnimation() {
+        appCoordinator?.appearNavbar()
+    }
+}
