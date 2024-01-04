@@ -159,10 +159,6 @@ extension SplashAnimationView {
         
         static let zPosition: CGFloat = 100
         
-        static let animationDuration: TimeInterval = 1.4
-        static let animationDurationPart1: TimeInterval = 1
-        static let animationDurationPart2: TimeInterval = 0.4
-        
         static let appearanceDuration: TimeInterval = 0.6
     }
     

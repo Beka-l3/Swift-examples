@@ -38,14 +38,14 @@ extension AppCoordinator {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundEffect = blurEffect
-        appearance.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        appearance.backgroundColor = .clear
         appearance.largeTitleTextAttributes = largeTitleAttr
         appearance.titleTextAttributes = titleAttr
         
         let largeAppearance = UINavigationBarAppearance()
 //        largeAppearance.backgroundEffect = nil
         largeAppearance.backgroundEffect = blurEffect
-        largeAppearance.backgroundColor = .clear
+        largeAppearance.backgroundColor = UIColor(white: 1, alpha: 0.2)
         largeAppearance.shadowColor = .clear
         largeAppearance.largeTitleTextAttributes = largeTitleAttr
         largeAppearance.titleTextAttributes = titleAttr

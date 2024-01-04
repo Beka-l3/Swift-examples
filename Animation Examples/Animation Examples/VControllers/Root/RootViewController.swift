@@ -43,11 +43,11 @@ final class RootViewController: UIViewController {
         navigationItem.title = "Animations"
         appCoordinator?.isLargeNavTitle = true
         
-        if shouldUseSplashScreen {
-            appCoordinator?.disappearNavbar()
-        } else {
+        if !shouldUseSplashScreen {
+            
             appCoordinator?.appearNavbar(animated: false)
             viewComponents.splashView.disappear()
+            
         }
     }
     
@@ -55,7 +55,10 @@ final class RootViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if shouldUseSplashScreen {
+            
+            appCoordinator?.disappearNavbar()
             viewComponents.splashView.startAnimation()
+            
         }
     }
     
@@ -93,7 +96,11 @@ final class RootViewController: UIViewController {
 
 
 extension RootViewController: SplashAnimationViewDelegate {
+    
     func finishedAnimation() {
+        
         appCoordinator?.appearNavbar()
+        
     }
+    
 }
