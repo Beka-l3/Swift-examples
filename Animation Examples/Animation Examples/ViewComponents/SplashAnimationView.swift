@@ -95,12 +95,18 @@ extension SplashAnimationView {
             
         } completion: { [unowned self] _ in
             
-            Timer.scheduledTimer(timeInterval: Constants.animationDurationPart2, target: self, selector: #selector(finishedAnimating), userInfo: nil, repeats: false)
+            Task {
+                do {
+                    try await Task.sleep(nanoseconds: UInt64(Constants.animationDurationPart2 * 1_000_000_000))
+                }
+                
+                self.finishedAnimating()
+            }
             
         }
     }
     
-    @objc func finishedAnimating() {
+    private func finishedAnimating() {
         delegate?.finishedAnimation()
         
         if shouldDisappearAfterAnimating {
