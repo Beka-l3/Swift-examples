@@ -29,6 +29,7 @@ extension RootVCViewComponents: BaseViewComponents {
         parent.backgroundColor = .black
         
         parent.addSubview(navigationTableView)
+        parent.addSubview(splashView)
         
         setupConstraints(parent: parent)
     }

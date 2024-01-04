@@ -10,6 +10,7 @@
 		07366A532B46FA2700A749E9 /* NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A522B46FA2700A749E9 /* NavbarStyle.swift */; };
 		07366A592B47004300A749E9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A582B47004300A749E9 /* Fonts.swift */; };
 		07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */; };
+		07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 07366A572B46FFC100A749E9 /* Odachi.otf */; };
 		07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* FristVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -277,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */,
 				07E58B772B3DA9D50041BEF3 /* LaunchScreen.storyboard in Resources */,
 				07E58B742B3DA9D50041BEF3 /* Assets.xcassets in Resources */,
 			);

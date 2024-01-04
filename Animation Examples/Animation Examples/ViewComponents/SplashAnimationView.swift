@@ -31,6 +31,7 @@ final class SplashAnimationView: UIView {
         label.font = Fonts.Odachi.titleLarge
         label.textColor = .white
         
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -65,12 +66,19 @@ final class SplashAnimationView: UIView {
     }
     
     
-    
 //    MARK: private func
     private func setupView() {
+        backgroundColor = .black
+        layer.zPosition = Constants.zPosition
+        
         addSubview(titleLabel)
         
-        titleLabel.center = center
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+        
+        titleLabel.alpha = 0
     }
     
 }
@@ -81,27 +89,25 @@ extension SplashAnimationView {
     func startAnimation() {
         isAnimating =  true
         
-        UIView.animate(withDuration: Constants.animationDuration) { // [unowned self] in
+        UIView.animate(withDuration: Constants.animationDurationPart1) { [unowned self] in
             
-            
+            self.titleLabel.alpha = 1
             
         } completion: { [unowned self] _ in
             
-            self.delegate?.finishedAnimation()
-            
-            if self.shouldDisappearAfterAnimating {
-                disappear()
-            }
-            
-            self.isAnimating = false
+            Timer.scheduledTimer(timeInterval: Constants.animationDurationPart2, target: self, selector: #selector(finishedAnimating), userInfo: nil, repeats: false)
             
         }
     }
     
-    func stopAnimation() {
+    @objc func finishedAnimating() {
+        delegate?.finishedAnimation()
         
+        if shouldDisappearAfterAnimating {
+            disappear()
+        }
         
-        
+        isAnimating = false
     }
     
 }
@@ -145,7 +151,12 @@ extension SplashAnimationView {
     enum Constants {
         static let defaultTitle = "Animations"
         
-        static let animationDuration: TimeInterval = 1
+        static let zPosition: CGFloat = 100
+        
+        static let animationDuration: TimeInterval = 1.4
+        static let animationDurationPart1: TimeInterval = 1
+        static let animationDurationPart2: TimeInterval = 0.4
+        
         static let appearanceDuration: TimeInterval = 0.6
     }
     
