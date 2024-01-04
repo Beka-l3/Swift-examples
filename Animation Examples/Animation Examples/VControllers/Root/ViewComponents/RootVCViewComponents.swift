@@ -10,6 +10,8 @@ import UIKit
 
 final class RootVCViewComponents {
     
+    lazy var splashView = SplashAnimationView()
+    
     lazy var navigationTableView: UITableView = {
         let view = UITableView()
         view.register(RootVCTableViewCell.self, forCellReuseIdentifier: RootVCTableViewCell.identifier)

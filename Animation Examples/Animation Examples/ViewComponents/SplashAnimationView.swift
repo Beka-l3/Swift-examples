@@ -17,6 +17,8 @@ final class SplashAnimationView: UIView {
     
     weak var delegate: SplashAnimationViewDelegate?
     
+    var shouldDisappearAfterAnimating: Bool
+    
     var title: String {
         didSet {
             titleLabel.text = title
@@ -29,7 +31,6 @@ final class SplashAnimationView: UIView {
         label.font = Fonts.Odachi.titleLarge
         label.textColor = .white
         
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -37,17 +38,27 @@ final class SplashAnimationView: UIView {
     
     
 //    MARK: lifecycle
-    init(title: String = "Animations") {
+    init(title: String = Constants.defaultTitle) {
+        self.shouldDisappearAfterAnimating = true
         self.title = title
         self.isAnimating = false
         
-        super.init(frame: .zero)
+        super.init(
+            frame: .init(
+                origin: .zero,
+                size: .init(
+                    width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height
+                )
+            )
+        )
         
         setupView()
     }
     
     required init?(coder: NSCoder) {
-        self.title = ""
+        self.shouldDisappearAfterAnimating = true
+        self.title = Constants.defaultTitle
         self.isAnimating = false
         
         super.init(coder: coder)
@@ -59,10 +70,7 @@ final class SplashAnimationView: UIView {
     private func setupView() {
         addSubview(titleLabel)
         
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
+        titleLabel.center = center
     }
     
 }
@@ -71,11 +79,74 @@ final class SplashAnimationView: UIView {
 extension SplashAnimationView {
     
     func startAnimation() {
+        isAnimating =  true
         
+        UIView.animate(withDuration: Constants.animationDuration) { // [unowned self] in
+            
+            
+            
+        } completion: { [unowned self] _ in
+            
+            self.delegate?.finishedAnimation()
+            
+            if self.shouldDisappearAfterAnimating {
+                disappear()
+            }
+            
+            self.isAnimating = false
+            
+        }
     }
     
     func stopAnimation() {
         
+        
+        
+    }
+    
+}
+
+
+extension SplashAnimationView {
+    
+    func appear(animated: Bool = false) {
+        if animated {
+            
+            UIView.animate(withDuration: Constants.appearanceDuration) { [unowned self] in
+                self.alpha = 1
+            }
+            
+        } else {
+            
+            alpha = 1
+            
+        }
+    }
+    
+    func disappear(animated: Bool = true) {
+        if animated {
+
+            UIView.animate(withDuration: Constants.appearanceDuration) { [unowned self] in
+                self.alpha = 0
+            }
+            
+        } else {
+            
+            alpha = 0
+            
+        }
+    }
+    
+}
+
+
+extension SplashAnimationView {
+    
+    enum Constants {
+        static let defaultTitle = "Animations"
+        
+        static let animationDuration: TimeInterval = 1
+        static let appearanceDuration: TimeInterval = 0.6
     }
     
 }

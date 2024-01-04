@@ -41,6 +41,12 @@ final class RootViewController: UIViewController {
         appCoordinator?.isLargeNavTitle = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewComponents.splashView.startAnimation()
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
