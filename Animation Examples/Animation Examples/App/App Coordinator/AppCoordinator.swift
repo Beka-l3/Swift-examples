@@ -8,11 +8,6 @@
 import UIKit
 
 
-protocol AppCoordinatorForSceneDelegate {
-    func setupScene(with window: UIWindow)
-}
-
-
 final class AppCoordinator {
     
     let rootViewController: RootViewController
@@ -23,12 +18,21 @@ final class AppCoordinator {
     init() {
         self.rootViewController = .init()
         self.navigationController = .init(rootViewController: self.rootViewController)
+        
+        rootViewController.appCoordinator = self
+        
+        setDefaultNavbarStyle()
     }
     
     
     
 }
 
+
+/// AppCoordinator For SceneDelegate
+protocol AppCoordinatorForSceneDelegate {
+    func setupScene(with window: UIWindow)
+}
 
 extension AppCoordinator: AppCoordinatorForSceneDelegate {
     
@@ -37,3 +41,4 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
     }
     
 }
+

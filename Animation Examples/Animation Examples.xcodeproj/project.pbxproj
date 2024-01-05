@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071312542B4870EA009246F6 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationVC.swift */; };
+		07366A532B46FA2700A749E9 /* NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A522B46FA2700A749E9 /* NavbarStyle.swift */; };
+		07366A592B47004300A749E9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A582B47004300A749E9 /* Fonts.swift */; };
+		07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */; };
+		07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 07366A572B46FFC100A749E9 /* Odachi.otf */; };
+		07366A5F2B47175200A749E9 /* GConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5E2B47175200A749E9 /* GConstants.swift */; };
+		07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* FristVC.swift */; };
+		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
+		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
 		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
@@ -20,6 +29,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071312532B4870EA009246F6 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
+		07366A522B46FA2700A749E9 /* NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarStyle.swift; sourceTree = "<group>"; };
+		07366A572B46FFC100A749E9 /* Odachi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Odachi.otf; path = ../../../../../../../Desktop/Design/Fonts/Odachi/Odachi.otf; sourceTree = "<group>"; };
+		07366A582B47004300A749E9 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
+		07366A5E2B47175200A749E9 /* GConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstants.swift; sourceTree = "<group>"; };
+		07B440522B40A5EE00F37D85 /* FristVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristVC.swift; sourceTree = "<group>"; };
+		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
+		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +63,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071312522B4870CD009246F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				071312532B4870EA009246F6 /* AnimationVC.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		07366A542B46FFA700A749E9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				07366A552B46FFB100A749E9 /* Fonts */,
+				07366A5E2B47175200A749E9 /* GConstants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		07366A552B46FFB100A749E9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				07366A582B47004300A749E9 /* Fonts.swift */,
+				07366A562B46FFB600A749E9 /* Odachi */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		07366A562B46FFB600A749E9 /* Odachi */ = {
+			isa = PBXGroup;
+			children = (
+				07366A572B46FFC100A749E9 /* Odachi.otf */,
+			);
+			path = Odachi;
+			sourceTree = "<group>";
+		};
+		07B440512B40A5DB00F37D85 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				07B440522B40A5EE00F37D85 /* FristVC.swift */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		07B440542B40AA4800F37D85 /* App Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */,
+				07B440552B40AA5700F37D85 /* Extension */,
+			);
+			path = "App Coordinator";
+			sourceTree = "<group>";
+		};
+		07B440552B40AA5700F37D85 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */,
+				07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		07E58B5E2B3DA9D10041BEF3 = {
 			isa = PBXGroup;
 			children = (
@@ -65,8 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				07E58B7E2B3DAC980041BEF3 /* App */,
+				07366A542B46FFA700A749E9 /* Utils */,
+				071312522B4870CD009246F6 /* Model */,
 				07E58B872B3DB6580041BEF3 /* ViewComponents */,
-				07E58B7F2B3DACA50041BEF3 /* ViewControllers */,
+				07E58B7F2B3DACA50041BEF3 /* VControllers */,
 				07E58B732B3DA9D50041BEF3 /* Assets.xcassets */,
 				07E58B782B3DA9D50041BEF3 /* Info.plist */,
 				07E58B802B3DACBB0041BEF3 /* Storyboards */,
@@ -79,17 +159,18 @@
 			children = (
 				07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */,
 				07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */,
-				07E58B852B3DB4710041BEF3 /* AppCoordinator.swift */,
+				07B440542B40AA4800F37D85 /* App Coordinator */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		07E58B7F2B3DACA50041BEF3 /* ViewControllers */ = {
+		07E58B7F2B3DACA50041BEF3 /* VControllers */ = {
 			isa = PBXGroup;
 			children = (
 				07E58B812B3DB3A30041BEF3 /* Root */,
+				07B440512B40A5DB00F37D85 /* First */,
 			);
-			path = ViewControllers;
+			path = VControllers;
 			sourceTree = "<group>";
 		};
 		07E58B802B3DACBB0041BEF3 /* Storyboards */ = {
@@ -123,6 +204,8 @@
 			children = (
 				07E58B8E2B3DBA440041BEF3 /* BaseViewComponents */,
 				07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */,
+				07366A522B46FA2700A749E9 /* NavbarStyle.swift */,
+				07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -209,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */,
 				07E58B772B3DA9D50041BEF3 /* LaunchScreen.storyboard in Resources */,
 				07E58B742B3DA9D50041BEF3 /* Assets.xcassets in Resources */,
 			);
@@ -222,13 +306,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
+				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
+				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
+				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
+				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
+				07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
+				07366A532B46FA2700A749E9 /* NavbarStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
