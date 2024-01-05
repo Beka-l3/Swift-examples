@@ -14,7 +14,7 @@ final class RootVCTableViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 17)
+        label.font = Fonts.headline
         label.textColor = .black
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,9 +23,9 @@ final class RootVCTableViewCell: UITableViewCell {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15)
+        label.font = Fonts.subheadline
         label.textColor = .gray
-        label.numberOfLines = 1
+        label.numberOfLines = .zero
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -73,7 +73,7 @@ final class RootVCTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Four.x5),
-            titleLabel.heightAnchor.constraint(equalToConstant: 22),
+            titleLabel.heightAnchor.constraint(equalToConstant: Fonts.Height.headline),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

@@ -18,15 +18,19 @@ extension GConstants {
 extension GConstants.HIG {
     enum Size {
         
+        static let minInteractable: CGSize = .init(width: 44, height: 44)
+        
         static let screen = UIScreen.main.bounds
         
-        static let navbarLarge: CGSize = .init(width: screen.width, height: 97)
-        
         static let statusbar: CGSize = .init(width: screen.width, height: 44)
+        
+        static let navbar: CGSize = .init(width: screen.width, height: 44)
+        static let navbarLarge: CGSize = .init(width: screen.width, height: 96)
         
         static let tabbar: CGSize = .init(width: screen.width, height: 49)
         
         static let homeIndicator: CGSize = .init(width: screen.width, height: 34)
+        
     }
 }
 

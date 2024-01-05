@@ -17,11 +17,26 @@ enum Fonts {
     static let headline: UIFont = .systemFont(ofSize: 17, weight: .medium)
     static let body: UIFont = .systemFont(ofSize: 17, weight: .regular)
     static let callout: UIFont = .systemFont(ofSize: 16, weight: .regular)
-    static let subheadline: UIFont = .systemFont(ofSize: 13, weight: .regular)
+    static let subheadline: UIFont = .systemFont(ofSize: 15, weight: .regular)
     
     static let footnote: UIFont = .systemFont(ofSize: 13, weight: .medium)
     static let caption1: UIFont = .systemFont(ofSize: 12, weight: .regular)
     static let caption2: UIFont = .systemFont(ofSize: 11, weight: .regular)
+    
+    enum Height {
+        static let titleLarge: CGFloat = 41
+        static let title1: CGFloat = 34
+        static let title2: CGFloat = 28
+        
+        static let headline: CGFloat = 22
+        static let body: CGFloat = 22
+        static let callout: CGFloat = 21
+        static let subheadline: CGFloat = 20
+        
+        static let footnote: CGFloat = 18
+        static let caption1: CGFloat = 16
+        static let caption2: CGFloat = 13
+    }
     
 }
 
