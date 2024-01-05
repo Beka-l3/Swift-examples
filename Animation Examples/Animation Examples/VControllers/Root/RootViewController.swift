@@ -8,15 +8,11 @@
 import UIKit
 
 
-
-
-
-
 final class RootViewController: UIViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationViewControllers: [AnimationVC] = [
+    let animationVCs: [AnimationVC] = [
         .init(vc: FirstVC(), details: .init(title: "First", description: "The first view controller")),
         .init(vc: FirstVC(), details: .init(title: "Second", description: "View controller that is the second")),
         .init(vc: FirstVC(), details: .init(title: "Third", description: "Between them is located the third one")),

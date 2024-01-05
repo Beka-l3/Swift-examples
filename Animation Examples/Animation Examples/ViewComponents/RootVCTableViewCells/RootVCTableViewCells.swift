@@ -77,7 +77,6 @@ final class RootVCTableViewCell: UITableViewCell {
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 20),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -8),
             
         ])

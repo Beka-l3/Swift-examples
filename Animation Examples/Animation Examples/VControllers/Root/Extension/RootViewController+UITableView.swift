@@ -11,17 +11,17 @@ import UIKit
 extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        58
+        Service.calculator.calculateHeight(for: animationVCs[indexPath.row].details)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        animationViewControllers.count
+        animationVCs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RootVCTableViewCell.identifier) as? RootVCTableViewCell {
             
-            cell.setData(details: animationViewControllers[indexPath.row].details)
+            cell.setData(details: animationVCs[indexPath.row].details)
             
             return cell
             
@@ -38,7 +38,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
             
         case 0:
-            appCoordinator?.pushVC( animationViewControllers[0].vc )
+            appCoordinator?.pushVC( animationVCs[0].vc )
             
         case 1:
             appCoordinator?.setDefaultNavbarStyle()
