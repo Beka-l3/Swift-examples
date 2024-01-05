@@ -71,14 +71,13 @@ final class RootVCTableViewCell: UITableViewCell {
         addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Four.x5),
             titleLabel.heightAnchor.constraint(equalToConstant: 22),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -8),
-            
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -GConstants.HIG.Padding.Four.x2),
         ])
         
         if let accessoryView = accessoryView {
@@ -88,8 +87,8 @@ final class RootVCTableViewCell: UITableViewCell {
             ])
         } else {
             NSLayoutConstraint.activate([
-                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x2),
+                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x2),
             ])
         }
     }
