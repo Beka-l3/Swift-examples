@@ -64,7 +64,6 @@ final class RootVCTableViewCell: UITableViewCell {
 //    MARK: private func
     private func setupView() {
         backgroundColor = .clear
-        
         accessoryType = .disclosureIndicator
         
         addSubview(titleLabel)
@@ -87,8 +86,8 @@ final class RootVCTableViewCell: UITableViewCell {
             ])
         } else {
             NSLayoutConstraint.activate([
-                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x2),
-                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x2),
+                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
+                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
             ])
         }
     }
