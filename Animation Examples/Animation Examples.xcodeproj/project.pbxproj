@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071312542B4870EA009246F6 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationVC.swift */; };
 		07366A532B46FA2700A749E9 /* NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A522B46FA2700A749E9 /* NavbarStyle.swift */; };
 		07366A592B47004300A749E9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A582B47004300A749E9 /* Fonts.swift */; };
 		07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071312532B4870EA009246F6 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
 		07366A522B46FA2700A749E9 /* NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarStyle.swift; sourceTree = "<group>"; };
 		07366A572B46FFC100A749E9 /* Odachi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Odachi.otf; path = ../../../../../../../Desktop/Design/Fonts/Odachi/Odachi.otf; sourceTree = "<group>"; };
 		07366A582B47004300A749E9 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071312522B4870CD009246F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				071312532B4870EA009246F6 /* AnimationVC.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		07366A542B46FFA700A749E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 			children = (
 				07E58B7E2B3DAC980041BEF3 /* App */,
 				07366A542B46FFA700A749E9 /* Utils */,
+				071312522B4870CD009246F6 /* Model */,
 				07E58B872B3DB6580041BEF3 /* ViewComponents */,
 				07E58B7F2B3DACA50041BEF3 /* VControllers */,
 				07E58B732B3DA9D50041BEF3 /* Assets.xcassets */,
@@ -299,6 +310,7 @@
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
+				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,

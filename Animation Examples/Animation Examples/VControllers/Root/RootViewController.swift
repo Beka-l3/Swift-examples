@@ -8,25 +8,33 @@
 import UIKit
 
 
+
+
+
+
 final class RootViewController: UIViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationViewControllers: [UIViewController]
+    let animationViewControllers: [AnimationVC] = [
+        .init(title: "First", vc: FirstVC()),
+        .init(title: "Second", vc: FirstVC()),
+        .init(title: "Third", vc: FirstVC()),
+    ]
+    
     let viewComponents: RootVCViewComponents
     
     var shouldUseSplashScreen: Bool
     
+    
 //    MARK: lifecycle
     init() {
-        self.animationViewControllers = [.init(), .init(), .init()]
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.animationViewControllers = []
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(coder: coder)
