@@ -26,7 +26,7 @@ final class RootVCViewComponents {
 extension RootVCViewComponents: BaseViewComponents {
     
     func setupViews(parent: UIView) {
-        parent.backgroundColor = .black
+        parent.backgroundColor = .white
         
         parent.addSubview(navigationTableView)
         parent.addSubview(splashView)

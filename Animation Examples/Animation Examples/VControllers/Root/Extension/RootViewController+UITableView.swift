@@ -10,6 +10,10 @@ import UIKit
 
 extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        58
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         animationViewControllers.count
     }
@@ -17,7 +21,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RootVCTableViewCell.identifier) as? RootVCTableViewCell {
             
-            cell.backgroundColor = [UIColor.systemRed, UIColor.systemGreen, UIColor.systemBlue][indexPath.row % 3]
+            cell.setData(details: animationViewControllers[indexPath.row].details)
             
             return cell
             
@@ -34,9 +38,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
             
         case 0:
-            let fvc = FirstVC()
-            fvc.appCoordinator = appCoordinator
-            appCoordinator?.pushVC(fvc)
+            appCoordinator?.pushVC( animationViewControllers[0].vc )
             
         case 1:
             appCoordinator?.setDefaultNavbarStyle()

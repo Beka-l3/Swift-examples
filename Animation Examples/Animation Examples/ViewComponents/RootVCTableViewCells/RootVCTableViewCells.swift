@@ -12,6 +12,36 @@ final class RootVCTableViewCell: UITableViewCell {
     
     static let identifier = "RootVCTableViewCellId"
     
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .gray
+        label.numberOfLines = 1
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var animationVCDetails: AnimationVC.Details? {
+        didSet {
+            if let animationVCDetails = animationVCDetails {
+                titleLabel.text = animationVCDetails.title
+                descriptionLabel.text = animationVCDetails.description
+            } else {
+                titleLabel.text = Constants.titleTextDefault
+                descriptionLabel.text = Constants.descriptionTextDefault
+            }
+        }
+    }
     
     
 //    MARK: lifecycle
@@ -25,10 +55,55 @@ final class RootVCTableViewCell: UITableViewCell {
     }
     
     
+//    MARK: exposed func
+    func setData(details: AnimationVC.Details) {
+        self.animationVCDetails = details
+    }
+    
     
 //    MARK: private func
     private func setupView() {
+        backgroundColor = .clear
         
+        accessoryType = .disclosureIndicator
+        
+        addSubview(titleLabel)
+        addSubview(descriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleLabel.heightAnchor.constraint(equalToConstant: 22),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 20),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -8),
+            
+        ])
+        
+        if let accessoryView = accessoryView {
+            NSLayoutConstraint.activate([
+                titleLabel.trailingAnchor.constraint(equalTo: accessoryView.leadingAnchor),
+                descriptionLabel.trailingAnchor.constraint(equalTo: accessoryView.leadingAnchor),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            ])
+        }
     }
     
+}
+
+
+extension RootVCTableViewCell {
+    
+    enum Constants {
+        static let titleTextDefault = "Title"
+        static let descriptionTextDefault = "Text that describes the View Controller"
+        
+    }
+
 }

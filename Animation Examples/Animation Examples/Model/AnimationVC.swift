@@ -10,8 +10,18 @@ import UIKit
 
 struct AnimationVC {
     
-    let title: String
-    
     let vc: UIViewController
     
+    let details: Details
+    
+}
+
+extension AnimationVC {
+    struct Details {
+        
+        let title: String
+        
+        let description: String
+        
+    }
 }
