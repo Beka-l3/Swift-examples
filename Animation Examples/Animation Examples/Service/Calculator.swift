@@ -15,7 +15,7 @@ struct Calculator {
 
 extension Calculator {
     
-    func calculateHeight(for rootVCTableViewCell: AnimationVC.Details) -> CGFloat {
+    func calculateHeight(for rootVCTableViewCell: AnimatoinViewControllerDetails) -> CGFloat {
         
         
         return 58

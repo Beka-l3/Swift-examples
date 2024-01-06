@@ -38,7 +38,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
             
         case 0:
-            appCoordinator?.pushVC( animationVCs[0].vc )
+            appCoordinator?.pushVC( animationVCs[0] )
             
         case 1:
             appCoordinator?.setDefaultNavbarStyle()

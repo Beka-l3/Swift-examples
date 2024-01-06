@@ -8,20 +8,19 @@
 import UIKit
 
 
-struct AnimationVC {
-    
-    let vc: UIViewController
-    
-    let details: Details
-    
-}
-
-extension AnimationVC {
-    struct Details {
+struct AnimatoinViewControllerDetails {
         
         let title: String
         
         let description: String
         
-    }
 }
+
+protocol AnimatoinViewController: UIViewController {
+    
+    var details: AnimatoinViewControllerDetails { get }
+    
+    var appCoordinator: AppCoordinator? { get set }
+    
+}
+

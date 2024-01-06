@@ -12,10 +12,10 @@ final class RootViewController: UIViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationVCs: [AnimationVC] = [
-        .init(vc: FirstVC(), details: .init(title: "First", description: "Push The first view controller")),
-        .init(vc: FirstVC(), details: .init(title: "Second", description: "Set default style for navigation bar")),
-        .init(vc: FirstVC(), details: .init(title: "Third", description: "Another style of the navigation bar, with light green color")),
+    let animationVCs: [AnimatoinViewController] = [
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
     ]
     
     let viewComponents: RootVCViewComponents
@@ -28,6 +28,8 @@ final class RootViewController: UIViewController {
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
+        
+        self.overrideUserInterfaceStyle = .light
     }
     
     required init?(coder: NSCoder) {
@@ -60,7 +62,6 @@ final class RootViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        
         switch traitCollection.userInterfaceStyle {
         
         case .light:
@@ -78,6 +79,11 @@ final class RootViewController: UIViewController {
         }
         
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
+    
     
     
 //    MARK: private func

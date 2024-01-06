@@ -31,7 +31,7 @@ final class RootVCTableViewCell: UITableViewCell {
         return label
     }()
     
-    var animationVCDetails: AnimationVC.Details? {
+    var animationVCDetails: AnimatoinViewControllerDetails? {
         didSet {
             if let animationVCDetails = animationVCDetails {
                 titleLabel.text = animationVCDetails.title
@@ -56,7 +56,7 @@ final class RootVCTableViewCell: UITableViewCell {
     
     
 //    MARK: exposed func
-    func setData(details: AnimationVC.Details) {
+    func setData(details: AnimatoinViewControllerDetails) {
         self.animationVCDetails = details
     }
     
