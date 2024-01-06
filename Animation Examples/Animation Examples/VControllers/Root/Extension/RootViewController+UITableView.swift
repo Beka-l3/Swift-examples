@@ -42,9 +42,11 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             appCoordinator?.setDefaultNavbarStyle()
+            statusBarStyle = .darkContent
             
         case 2:
             appCoordinator?.navBarStyle1()
+            statusBarStyle = .lightContent
             
         default:
             break

@@ -80,8 +80,14 @@ final class RootViewController: UIViewController {
         
     }
     
+    var statusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .darkContent
+        statusBarStyle
     }
     
     
