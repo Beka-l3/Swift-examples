@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		071312542B4870EA009246F6 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationVC.swift */; };
+		071312572B488F17009246F6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312562B488F17009246F6 /* Service.swift */; };
+		071312592B488F33009246F6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312582B488F33009246F6 /* Calculator.swift */; };
+		0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713125E2B4891E0009246F6 /* GConstants+Animations.swift */; };
+		071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312602B4891F7009246F6 /* GConstnats+HIG.swift */; };
 		07366A532B46FA2700A749E9 /* NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A522B46FA2700A749E9 /* NavbarStyle.swift */; };
 		07366A592B47004300A749E9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A582B47004300A749E9 /* Fonts.swift */; };
 		07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */; };
 		07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 07366A572B46FFC100A749E9 /* Odachi.otf */; };
 		07366A5F2B47175200A749E9 /* GConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5E2B47175200A749E9 /* GConstants.swift */; };
-		07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* FristVC.swift */; };
+		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
@@ -30,12 +34,16 @@
 
 /* Begin PBXFileReference section */
 		071312532B4870EA009246F6 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
+		071312562B488F17009246F6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		071312582B488F33009246F6 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		0713125E2B4891E0009246F6 /* GConstants+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Animations.swift"; sourceTree = "<group>"; };
+		071312602B4891F7009246F6 /* GConstnats+HIG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstnats+HIG.swift"; sourceTree = "<group>"; };
 		07366A522B46FA2700A749E9 /* NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarStyle.swift; sourceTree = "<group>"; };
 		07366A572B46FFC100A749E9 /* Odachi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Odachi.otf; path = ../../../../../../../Desktop/Design/Fonts/Odachi/Odachi.otf; sourceTree = "<group>"; };
 		07366A582B47004300A749E9 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		07366A5E2B47175200A749E9 /* GConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstants.swift; sourceTree = "<group>"; };
-		07B440522B40A5EE00F37D85 /* FristVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristVC.swift; sourceTree = "<group>"; };
+		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,11 +79,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		071312552B488F06009246F6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				071312562B488F17009246F6 /* Service.swift */,
+				071312582B488F33009246F6 /* Calculator.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0713125A2B4891A1009246F6 /* Global Constants */ = {
+			isa = PBXGroup;
+			children = (
+				07366A5E2B47175200A749E9 /* GConstants.swift */,
+				0713125C2B4891BD009246F6 /* Extensions */,
+			);
+			path = "Global Constants";
+			sourceTree = "<group>";
+		};
+		0713125C2B4891BD009246F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				071312602B4891F7009246F6 /* GConstnats+HIG.swift */,
+				0713125E2B4891E0009246F6 /* GConstants+Animations.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		07366A542B46FFA700A749E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
-				07366A5E2B47175200A749E9 /* GConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -100,7 +135,7 @@
 		07B440512B40A5DB00F37D85 /* First */ = {
 			isa = PBXGroup;
 			children = (
-				07B440522B40A5EE00F37D85 /* FristVC.swift */,
+				07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */,
 			);
 			path = First;
 			sourceTree = "<group>";
@@ -143,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B7E2B3DAC980041BEF3 /* App */,
+				071312552B488F06009246F6 /* Service */,
 				07366A542B46FFA700A749E9 /* Utils */,
 				071312522B4870CD009246F6 /* Model */,
 				07E58B872B3DB6580041BEF3 /* ViewComponents */,
@@ -310,12 +346,16 @@
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
+				071312592B488F33009246F6 /* Calculator.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+UITableView.swift in Sources */,
+				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
-				07B440532B40A5EE00F37D85 /* FristVC.swift in Sources */,
+				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				071312572B488F17009246F6 /* Service.swift in Sources */,
+				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
@@ -464,7 +504,7 @@
 				INFOPLIST_FILE = "Animation Examples/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,7 +535,7 @@
 				INFOPLIST_FILE = "Animation Examples/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,16 +1,12 @@
 //
-//  GConstants.swift
+//  GConstants+Animations.swift
 //  Animation Examples
 //
-//  Created by Bekzhan Talgat on 04.01.2024.
+//  Created by Bekzhan Talgat on 05.01.2024.
 //
 
-import UIKit
+import Foundation
 
-
-enum GConstants {
-    
-}
 
 extension GConstants {
     enum Animation {

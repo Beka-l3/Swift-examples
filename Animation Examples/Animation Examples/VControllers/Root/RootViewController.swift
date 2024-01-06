@@ -8,18 +8,14 @@
 import UIKit
 
 
-
-
-
-
 final class RootViewController: UIViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationViewControllers: [AnimationVC] = [
-        .init(title: "First", vc: FirstVC()),
-        .init(title: "Second", vc: FirstVC()),
-        .init(title: "Third", vc: FirstVC()),
+    let animationVCs: [AnimatoinViewController] = [
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
     ]
     
     let viewComponents: RootVCViewComponents
@@ -32,6 +28,8 @@ final class RootViewController: UIViewController {
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
+        
+        self.overrideUserInterfaceStyle = .light
     }
     
     required init?(coder: NSCoder) {
@@ -47,16 +45,7 @@ final class RootViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationItem.title = "Animations"
-        appCoordinator?.isLargeNavTitle = true
-        
-        if !shouldUseSplashScreen {
-            
-            appCoordinator?.appearNavbar(animated: false)
-            viewComponents.splashView.disappear()
-            
-        }
+        setupNavbar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +61,6 @@ final class RootViewController: UIViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
         
         switch traitCollection.userInterfaceStyle {
         
@@ -92,6 +80,17 @@ final class RootViewController: UIViewController {
         
     }
     
+    var statusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        statusBarStyle
+    }
+    
+    
     
 //    MARK: private func
     private func setupView() {
@@ -100,6 +99,19 @@ final class RootViewController: UIViewController {
         viewComponents.navigationTableView.dataSource = self
         viewComponents.splashView.delegate = self
     }
+    
+    private func setupNavbar() {
+        navigationItem.title = "Animations"
+        appCoordinator?.isLargeNavTitle = true
+        
+        if !shouldUseSplashScreen {
+            
+            appCoordinator?.appearNavbar(animated: false)
+            viewComponents.splashView.disappear()
+            
+        }
+    }
+    
 }
 
 
@@ -108,6 +120,7 @@ extension RootViewController: SplashAnimationViewDelegate {
     func finishedAnimation() {
         
         appCoordinator?.appearNavbar()
+        shouldUseSplashScreen = false
         
     }
     

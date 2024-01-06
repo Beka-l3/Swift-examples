@@ -8,10 +8,19 @@
 import UIKit
 
 
-struct AnimationVC {
+struct AnimatoinViewControllerDetails {
+        
+        let title: String
+        
+        let description: String
+        
+}
+
+protocol AnimatoinViewController: UIViewController {
     
-    let title: String
+    var details: AnimatoinViewControllerDetails { get }
     
-    let vc: UIViewController
+    var appCoordinator: AppCoordinator? { get set }
     
 }
+

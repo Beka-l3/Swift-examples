@@ -8,10 +8,18 @@
 import UIKit
 
 
+final class MyNavigationController: UINavigationController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        topViewController?.preferredStatusBarStyle ?? .default
+    }
+    
+}
+
 final class AppCoordinator {
     
     let rootViewController: RootViewController
-    let navigationController: UINavigationController
+    let navigationController: MyNavigationController
     
 
 //    MARK: lifecycle
