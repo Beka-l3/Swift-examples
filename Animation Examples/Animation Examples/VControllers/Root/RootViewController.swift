@@ -71,7 +71,7 @@ final class RootViewController: UIViewController {
     private func setupNavbar() {
         navigationItem.title = "Animations"
         navigationItem.hidesBackButton = true
-//        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .always
         appCoordinator?.isLargeNavTitle = true
         
         if !shouldUseSplashScreen {
