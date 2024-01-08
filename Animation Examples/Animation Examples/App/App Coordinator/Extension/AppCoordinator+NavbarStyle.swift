@@ -32,10 +32,10 @@ extension AppCoordinator {
         switch style {
             
         case .dark:
-            setDarkNavbarStyle()
+            navigationController.setDarkNavbarStyle()
             
         case .light:
-            setLightNavbarStyle()
+            navigationController.setLightNavbarStyle()
             
         case .unspecified:
             break
@@ -46,99 +46,11 @@ extension AppCoordinator {
     }
     
     func appearNavbar(animated: Bool = true) {
-        if animated {
-            
-            UIView.animate(withDuration: 0.6) { [unowned self] in
-                self.navigationController.navigationBar.alpha = 1
-            }
-            
-        } else {
-            
-            navigationController.navigationBar.alpha = 1
-            
-        }
+        navigationController.appearNavbar(animated: animated)
     }
     
     func disappearNavbar(animated: Bool = false) {
-        if animated {
-            
-            UIView.animate(withDuration: GConstants.Animation.Duration.Splash.part2) { [unowned self] in
-                self.navigationController.navigationBar.alpha = 0
-            }
-            
-        } else {
-            
-            navigationController.navigationBar.alpha = 0
-            
-        }
-    }
-    
-    
-//    MARK: private func
-    private func setLightNavbarStyle() {
-        navigationController.navigationBar.standardAppearance = navbarStyleLight.standard
-        navigationController.navigationBar.scrollEdgeAppearance = navbarStyleLight.scrollEdge
-        navigationController.navigationBar.tintColor = navbarStyleLight.tintColor
-    }
-    
-    private func setDarkNavbarStyle() {
-        navigationController.navigationBar.standardAppearance = navbarStyleDark.standard
-        navigationController.navigationBar.scrollEdgeAppearance = navbarStyleDark.scrollEdge
-        navigationController.navigationBar.tintColor = navbarStyleDark.tintColor
-    }
-    
-    private var navbarStyleLight: (standard: UINavigationBarAppearance, scrollEdge: UINavigationBarAppearance, tintColor: UIColor) {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
-        let largeTitleAttr = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
-        ]
-        let titleAttr = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
-        ]
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundEffect = blurEffect
-        appearance.backgroundColor = UIColor(white: 1, alpha: 0.2)
-        appearance.largeTitleTextAttributes = largeTitleAttr
-        appearance.titleTextAttributes = titleAttr
-        
-        let largeAppearance = UINavigationBarAppearance()
-        largeAppearance.backgroundEffect = blurEffect
-        largeAppearance.backgroundColor = .clear
-        largeAppearance.shadowColor = .clear
-        largeAppearance.largeTitleTextAttributes = largeTitleAttr
-        largeAppearance.titleTextAttributes = titleAttr
-        
-        return (appearance, largeAppearance, .black)
-    }
-    
-    private var navbarStyleDark: (standard: UINavigationBarAppearance, scrollEdge: UINavigationBarAppearance, tintColor: UIColor) {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
-        let largeTitleAttr = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
-        ]
-        let titleAttr = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
-        ]
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundEffect = blurEffect
-        appearance.backgroundColor = UIColor(white: 0, alpha: 0.2)
-        appearance.largeTitleTextAttributes = largeTitleAttr
-        appearance.titleTextAttributes = titleAttr
-        
-        let largeAppearance = UINavigationBarAppearance()
-        largeAppearance.backgroundEffect = blurEffect
-        largeAppearance.backgroundColor = .clear
-        largeAppearance.shadowColor = .clear
-        largeAppearance.largeTitleTextAttributes = largeTitleAttr
-        largeAppearance.titleTextAttributes = titleAttr
-        
-        return (appearance, largeAppearance, .white)
+        navigationController.disappearNavbar(animated: animated)
     }
     
 }

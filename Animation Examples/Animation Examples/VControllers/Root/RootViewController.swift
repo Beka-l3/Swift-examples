@@ -59,45 +59,6 @@ final class RootViewController: UIViewController {
         }
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        switch traitCollection.userInterfaceStyle {
-        
-        case .light:
-            print("light")
-            statusBarStyle = .darkContent
-            appCoordinator?.updateNavbarStyle(to: .light)
-        
-        case .dark:
-            print("dark")
-            statusBarStyle = .lightContent
-            appCoordinator?.updateNavbarStyle(to: .dark)
-            
-        case .unspecified:
-            break
-        
-        @unknown default:
-            break
-            
-        }
-        
-    }
-    
-    var statusBarStyle: UIStatusBarStyle = .default {
-        didSet {
-            UIView.animate(withDuration: 0.6) { [unowned self] in
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            
-        }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        statusBarStyle
-    }
-    
-    
     
 //    MARK: private func
     private func setupView() {

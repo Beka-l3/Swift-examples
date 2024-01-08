@@ -41,11 +41,9 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
             appCoordinator?.pushVC( animationVCs[0] )
             
         case 1:
-            statusBarStyle = .lightContent
             appCoordinator?.updateNavbarStyle(to: .dark)
             
         case 2:
-            statusBarStyle = .darkContent
             appCoordinator?.updateNavbarStyle(to: .light)
             
         default:
