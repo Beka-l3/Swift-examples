@@ -42,9 +42,11 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             appCoordinator?.updateNavbarStyle(to: .dark)
+            viewComponents.updateStyle(to: .dark, parent: view)
             
         case 2:
             appCoordinator?.updateNavbarStyle(to: .light)
+            viewComponents.updateStyle(to: .light, parent: view)
             
         default:
             break

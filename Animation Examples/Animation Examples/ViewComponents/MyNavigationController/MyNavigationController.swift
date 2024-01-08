@@ -19,6 +19,12 @@ final class MyNavigationController: UINavigationController {
     
     
 //    MARK: lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
@@ -37,6 +43,8 @@ final class MyNavigationController: UINavigationController {
             break
             
         }
+        
+        topViewController?.traitCollectionDidChange(nil)
     }
     
 }

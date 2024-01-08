@@ -24,7 +24,7 @@ extension AppCoordinator {
     
 //    MARK: exposed func
     func setupNavbar() {
-        navigationController.isNavigationBarHidden = false
+        navigationController.isNavigationBarHidden = true
         updateNavbarStyle(to: navigationController.traitCollection.userInterfaceStyle)
     }
     

@@ -17,6 +17,8 @@ extension GConstants {
 extension GConstants.Animation {
     enum Duration {
         
+        static let standard: TimeInterval = 0.6
+        
     }
 }
 
@@ -25,5 +27,11 @@ extension GConstants.Animation.Duration {
         static let total: TimeInterval = 1.4
         static let part1: TimeInterval = 1
         static let part2: TimeInterval = 0.4
+    }
+    
+    enum MyNavigationController {
+        
+        static let updateStyle: TimeInterval = 0.6
+        
     }
 }

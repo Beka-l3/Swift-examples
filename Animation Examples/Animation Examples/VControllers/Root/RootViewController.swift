@@ -16,6 +16,27 @@ final class RootViewController: UIViewController {
         BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
         BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
         BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
     ]
     
     let viewComponents: RootVCViewComponents
@@ -28,8 +49,6 @@ final class RootViewController: UIViewController {
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
-        
-        self.overrideUserInterfaceStyle = .light
     }
     
     required init?(coder: NSCoder) {
@@ -40,6 +59,8 @@ final class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shouldUseSplashScreen = true
         setupView()
     }
     
@@ -56,16 +77,30 @@ final class RootViewController: UIViewController {
             appCoordinator?.disappearNavbar()
             viewComponents.splashView.startAnimation()
             
+        } else {
+            
+            scrollToTop()
+            
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if let appCoordinator = appCoordinator {
+            viewComponents.updateStyle(to: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
         }
     }
     
     
 //    MARK: private func
     private func setupView() {
-        viewComponents.setupViews(parent: view)
-        viewComponents.navigationTableView.delegate = self
-        viewComponents.navigationTableView.dataSource = self
-        viewComponents.splashView.delegate = self
+        if let appCoordinator = appCoordinator {
+            viewComponents.setupViews(style: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
+            viewComponents.navigationTableView.delegate = self
+            viewComponents.navigationTableView.dataSource = self
+            viewComponents.splashView.delegate = self
+        }
     }
     
     private func setupNavbar() {
@@ -74,7 +109,7 @@ final class RootViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         appCoordinator?.isLargeNavTitle = true
         
-        if !shouldUseSplashScreen {
+        if !shouldUseSplashScreen && viewComponents.splashView.alpha != 0{
             
             appCoordinator?.appearNavbar(animated: false)
             viewComponents.splashView.disappear()
@@ -92,6 +127,13 @@ extension RootViewController: SplashAnimationViewDelegate {
         appCoordinator?.appearNavbar()
         shouldUseSplashScreen = false
         
+        scrollToTop()
+        
+    }
+    
+    func scrollToTop() {
+//        viewComponents.navigationTableView.scrollToRow(at: .init(row: 0, section: 0), at: .middle, animated: true)
+        viewComponents.navigationTableView.setContentOffset(CGPoint(x: 0, y: -140), animated: true)
     }
     
 }

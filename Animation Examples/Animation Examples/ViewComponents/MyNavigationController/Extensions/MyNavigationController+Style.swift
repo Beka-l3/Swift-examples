@@ -29,11 +29,11 @@ extension MyNavigationController {
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
         let largeTitleAttr = [
             NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
+            NSAttributedString.Key.font: Fonts.titleLarge
         ]
         let titleAttr = [
             NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
+            NSAttributedString.Key.font: Fonts.title2
         ]
         
         let appearance = UINavigationBarAppearance()
@@ -56,11 +56,11 @@ extension MyNavigationController {
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let largeTitleAttr = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
+            NSAttributedString.Key.font: Fonts.titleLarge
         ]
         let titleAttr = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
+            NSAttributedString.Key.font: Fonts.title2
         ]
         
         let appearance = UINavigationBarAppearance()
@@ -91,11 +91,11 @@ extension MyNavigationController {
         
         if animated {
             
-            UIView.animate(withDuration: 0.6) { [unowned self] in
+            UIView.animate(withDuration: GConstants.Animation.Duration.MyNavigationController.updateStyle) { [unowned self] in
                 self.setNeedsStatusBarAppearanceUpdate()
             }
             
-            UIView.transition(with: self.navigationBar, duration: 0.6, animations: action)
+            UIView.transition(with: view, duration: GConstants.Animation.Duration.MyNavigationController.updateStyle, animations: action)
             
         } else {
             
