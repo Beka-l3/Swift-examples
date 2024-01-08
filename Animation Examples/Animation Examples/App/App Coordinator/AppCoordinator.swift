@@ -8,14 +8,6 @@
 import UIKit
 
 
-final class MyNavigationController: UINavigationController {
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        topViewController?.preferredStatusBarStyle ?? .default
-    }
-    
-}
-
 final class AppCoordinator {
     
     let rootViewController: RootViewController
@@ -29,11 +21,9 @@ final class AppCoordinator {
         
         rootViewController.appCoordinator = self
         
-        setDefaultNavbarStyle()
+        setupNavbar()
     }
-    
-    
-    
+       
 }
 
 

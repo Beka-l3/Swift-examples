@@ -73,23 +73,13 @@ final class RootVCTableViewCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Four.x5),
             titleLabel.heightAnchor.constraint(equalToConstant: Fonts.Height.headline),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -GConstants.HIG.Padding.Four.x2),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
         ])
-        
-        if let accessoryView = accessoryView {
-            NSLayoutConstraint.activate([
-                titleLabel.trailingAnchor.constraint(equalTo: accessoryView.leadingAnchor),
-                descriptionLabel.trailingAnchor.constraint(equalTo: accessoryView.leadingAnchor),
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
-                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -GConstants.HIG.Padding.Four.x9),
-            ])
-        }
     }
     
 }
@@ -100,7 +90,29 @@ extension RootVCTableViewCell {
     enum Constants {
         static let titleTextDefault = "Title"
         static let descriptionTextDefault = "Text that describes the View Controller"
-        
     }
 
+}
+
+
+extension RootVCTableViewCell {
+    
+    func updateStyle(to style: UIUserInterfaceStyle, animated: Bool = true) {
+        
+        if animated {
+            
+            UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned self] in
+                self.titleLabel.textColor = style == .light ? .black : .white
+                descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.6) : UIColor(white: 1, alpha: 0.6)
+            }
+            
+        } else {
+            
+            titleLabel.textColor = style == .light ? .black : .white
+            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.38) : UIColor(white: 1, alpha: 0.38)
+            
+        }
+        
+    }
+    
 }

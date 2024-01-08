@@ -22,6 +22,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RootVCTableViewCell.identifier) as? RootVCTableViewCell {
             
             cell.setData(details: animationVCs[indexPath.row].details)
+            cell.updateStyle(to: traitCollection.userInterfaceStyle)
             
             return cell
             
@@ -35,23 +36,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch indexPath.row {
-            
-        case 0:
-            appCoordinator?.pushVC( animationVCs[0] )
-            
-        case 1:
-            appCoordinator?.setDefaultNavbarStyle()
-            statusBarStyle = .darkContent
-            
-        case 2:
-            appCoordinator?.navBarStyle1()
-            statusBarStyle = .lightContent
-            
-        default:
-            break
-            
-        }
+        appCoordinator?.pushVC( animationVCs[indexPath.row] )
         
     }
 }

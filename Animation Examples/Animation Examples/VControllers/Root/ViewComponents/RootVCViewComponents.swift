@@ -25,8 +25,8 @@ final class RootVCViewComponents {
 
 extension RootVCViewComponents: BaseViewComponents {
     
-    func setupViews(parent: UIView) {
-        parent.backgroundColor = .white
+    func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
+        updateStyle(to: style, parent: parent, animated: false)
         
         parent.addSubview(navigationTableView)
         parent.addSubview(splashView)
@@ -34,6 +34,17 @@ extension RootVCViewComponents: BaseViewComponents {
         setupConstraints(parent: parent)
     }
     
+    func updateStyle(to style: UIUserInterfaceStyle, parent: UIView, animated: Bool = true) {
+        
+        if animated {
+            UIView.animate(withDuration: 0.6) { [unowned parent] in
+                parent.backgroundColor = style == .light ? .white : .black
+            }
+        } else  {
+            parent.backgroundColor = style == .light ? .white : .black
+        }
+        
+    }
 }
 
 extension RootVCViewComponents {
@@ -44,7 +55,7 @@ extension RootVCViewComponents {
             navigationTableView.topAnchor.constraint(equalTo: parent.topAnchor),
             navigationTableView.leadingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.leadingAnchor),
             navigationTableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor),
-            navigationTableView.bottomAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.bottomAnchor),
+            navigationTableView.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
         ])
         
     }
