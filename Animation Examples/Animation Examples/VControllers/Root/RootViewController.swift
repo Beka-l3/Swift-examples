@@ -65,16 +65,20 @@ final class RootViewController: UIViewController {
         switch traitCollection.userInterfaceStyle {
         
         case .light:
-            print("wow", "light style")
+            print("light")
+            statusBarStyle = .darkContent
+            appCoordinator?.updateNavbarStyle(to: .light)
         
         case .dark:
-            print("hey", "dark style")
+            print("dark")
+            statusBarStyle = .lightContent
+            appCoordinator?.updateNavbarStyle(to: .dark)
             
         case .unspecified:
-            print("hmm", "unspecified")
+            break
         
         @unknown default:
-            print("what", "unkown default")
+            break
             
         }
         
@@ -82,7 +86,10 @@ final class RootViewController: UIViewController {
     
     var statusBarStyle: UIStatusBarStyle = .default {
         didSet {
-            setNeedsStatusBarAppearanceUpdate()
+            UIView.animate(withDuration: 0.6) { [unowned self] in
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
         }
     }
     
@@ -102,6 +109,8 @@ final class RootViewController: UIViewController {
     
     private func setupNavbar() {
         navigationItem.title = "Animations"
+        navigationItem.hidesBackButton = true
+//        navigationItem.largeTitleDisplayMode = .always
         appCoordinator?.isLargeNavTitle = true
         
         if !shouldUseSplashScreen {

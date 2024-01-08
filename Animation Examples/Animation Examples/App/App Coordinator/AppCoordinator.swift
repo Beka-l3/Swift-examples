@@ -29,7 +29,7 @@ final class AppCoordinator {
         
         rootViewController.appCoordinator = self
         
-        setDefaultNavbarStyle()
+        setupNavbar()
     }
     
     
