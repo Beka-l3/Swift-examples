@@ -55,7 +55,7 @@ extension RootVCViewComponents {
             navigationTableView.topAnchor.constraint(equalTo: parent.topAnchor),
             navigationTableView.leadingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.leadingAnchor),
             navigationTableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor),
-            navigationTableView.bottomAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.bottomAnchor),
+            navigationTableView.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
         ])
         
     }

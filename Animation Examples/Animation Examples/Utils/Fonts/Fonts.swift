@@ -10,9 +10,9 @@ import UIKit
 
 enum Fonts {
     
-    static let titleLarge: UIFont = .systemFont(ofSize: 34, weight: .black)
-    static let title1: UIFont = .systemFont(ofSize: 28, weight: .black)
-    static let title2: UIFont = .systemFont(ofSize: 22, weight: .black)
+    static let titleLarge: UIFont = .systemFont(ofSize: 34, weight: .bold)
+    static let title1: UIFont = .systemFont(ofSize: 28, weight: .bold)
+    static let title2: UIFont = .systemFont(ofSize: 22, weight: .bold)
     
     static let headline: UIFont = .systemFont(ofSize: 17, weight: .medium)
     static let body: UIFont = .systemFont(ofSize: 17, weight: .regular)
