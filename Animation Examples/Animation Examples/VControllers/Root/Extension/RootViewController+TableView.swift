@@ -22,7 +22,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RootVCTableViewCell.identifier) as? RootVCTableViewCell {
             
             cell.setData(details: animationVCs[indexPath.row].details)
-            cell.updateStyle(to: traitCollection.userInterfaceStyle)
+            cell.setStyle(traitCollection.userInterfaceStyle)
             
             return cell
             
@@ -37,6 +37,5 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         appCoordinator?.pushVC( animationVCs[indexPath.row] )
-        
     }
 }

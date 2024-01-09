@@ -16,7 +16,7 @@ final class AppCoordinator {
 
 //    MARK: lifecycle
     init() {
-        self.rootViewController = .init()
+        self.rootViewController = .init(animationVCs: Mocks.animationVCs)
         self.navigationController = .init(rootViewController: self.rootViewController)
         
         rootViewController.appCoordinator = self
@@ -40,3 +40,15 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
     
 }
 
+
+
+extension AppCoordinator {
+    enum Mocks {
+        static let animationVCs = [
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions"), animationViews: [BAVPosition(), BAVAlpha(), BAVSize(), BAVRotation(), BVAColor()]),
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
+        ]
+    }
+}

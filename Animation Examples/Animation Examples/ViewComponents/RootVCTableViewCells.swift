@@ -15,8 +15,6 @@ final class RootVCTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.headline
-        label.textColor = .black
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,9 +22,7 @@ final class RootVCTableViewCell: UITableViewCell {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.subheadline
-        label.textColor = .gray
         label.numberOfLines = .zero
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,6 +59,8 @@ final class RootVCTableViewCell: UITableViewCell {
     
 //    MARK: private func
     private func setupView() {
+        setStyle(animated: false)
+        
         backgroundColor = .clear
         accessoryType = .disclosureIndicator
         
@@ -95,9 +93,9 @@ extension RootVCTableViewCell {
 }
 
 
-extension RootVCTableViewCell {
+extension RootVCTableViewCell: UIStyler {
     
-    func updateStyle(to style: UIUserInterfaceStyle, animated: Bool = true) {
+    func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = true) {
         
         if animated {
             
@@ -109,7 +107,7 @@ extension RootVCTableViewCell {
         } else {
             
             titleLabel.textColor = style == .light ? .black : .white
-            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.38) : UIColor(white: 1, alpha: 0.38)
+            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.6) : UIColor(white: 1, alpha: 0.6)
             
         }
         

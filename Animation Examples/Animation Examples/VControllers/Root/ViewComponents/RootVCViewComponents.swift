@@ -26,18 +26,22 @@ final class RootVCViewComponents {
 extension RootVCViewComponents: BaseViewComponents {
     
     func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
-        updateStyle(to: style, parent: parent, animated: false)
+        setStyle(style, parent: parent, animated: false)
         
         parent.addSubview(navigationTableView)
         parent.addSubview(splashView)
         
         setupConstraints(parent: parent)
     }
-    
-    func updateStyle(to style: UIUserInterfaceStyle, parent: UIView, animated: Bool = true) {
+}
+
+
+extension RootVCViewComponents: UIStyler {
+        
+    func setStyle(_ style: UIUserInterfaceStyle = .dark, parent: UIView, animated: Bool = true) {
         
         if animated {
-            UIView.animate(withDuration: 0.6) { [unowned parent] in
+            UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned parent] in
                 parent.backgroundColor = style == .light ? .white : .black
             }
         } else  {
