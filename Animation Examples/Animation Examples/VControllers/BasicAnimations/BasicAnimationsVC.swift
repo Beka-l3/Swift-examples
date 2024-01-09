@@ -15,21 +15,21 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationVMs: [AnimationVM]
+    let animationViews: [AnimationView]
     
     private let viewComponents: BasicAnimationsViewComponents = .init()
     
     
 //    MARK: lifecycle
-    init(details: AnimatoinViewControllerDetails, animationVMs: [AnimationVM] = []) {
+    init(details: AnimatoinViewControllerDetails, animationViews: [AnimationView] = []) {
         self.details = details
-        self.animationVMs = animationVMs
+        self.animationViews = animationViews
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.details = .init(title: "", description: "")
-        self.animationVMs = []
+        self.animationViews = []
         super.init(coder: coder)
     }
     

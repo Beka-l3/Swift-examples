@@ -9,6 +9,21 @@ import UIKit
 
 
 protocol AnimationView: UIView {
+    
     func startAnimation()
+    
+    func setupFrame()
+}
+
+
+extension AnimationView {
+    
+    func setupFrame() {
+        frame = .init(
+            origin: .zero,
+            size: .init(width: GConstants.HIG.Size.screen.width, height: AnimationTableViewCell.animationViewHeight)
+        )
+    }
+    
 }
 

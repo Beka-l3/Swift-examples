@@ -15,13 +15,13 @@ extension BasicAnimationsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        animationVMs.count
+        animationViews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: AnimationTableViewCell.identifier) as? AnimationTableViewCell {
             
-            cell.setAnimationView(animationVMs[indexPath.row])
+            cell.setAnimationView(animationViews[indexPath.row])
             cell.setStyle(traitCollection.userInterfaceStyle)
             
             return cell
