@@ -20,6 +20,7 @@
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
+		07583DCC2B4D5C0800A9F968 /* AnimationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCB2B4D5C0800A9F968 /* AnimationVM.swift */; };
 		0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A42B4C312400AD0120 /* MyNavigationController.swift */; };
 		0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */; };
 		0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */; };
@@ -52,6 +53,7 @@
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
+		07583DCB2B4D5C0800A9F968 /* AnimationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVM.swift; sourceTree = "<group>"; };
 		0768C7A42B4C312400AD0120 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Style.swift"; sourceTree = "<group>"; };
 		0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Presence.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				071312532B4870EA009246F6 /* AnimationVC.swift */,
+				07583DCB2B4D5C0800A9F968 /* AnimationVM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,14 +153,6 @@
 				07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */,
 			);
 			path = ViewComponents;
-			sourceTree = "<group>";
-		};
-		07583DC52B4D562D00A9F968 /* AnimationTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
-			);
-			path = AnimationTableViewCell;
 			sourceTree = "<group>";
 		};
 		07583DC82B4D588600A9F968 /* Extensions */ = {
@@ -296,20 +291,12 @@
 			children = (
 				07366A522B46FA2700A749E9 /* NavbarStyle.swift */,
 				07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */,
+				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
+				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
+				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
-				07E58B8E2B3DBA440041BEF3 /* BaseViewComponents */,
-				07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */,
-				07583DC52B4D562D00A9F968 /* AnimationTableViewCell */,
 			);
 			path = ViewComponents;
-			sourceTree = "<group>";
-		};
-		07E58B882B3DB66A0041BEF3 /* RootVCTableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
-			);
-			path = RootVCTableViewCells;
 			sourceTree = "<group>";
 		};
 		07E58B8B2B3DB9910041BEF3 /* ViewComponents */ = {
@@ -318,14 +305,6 @@
 				07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */,
 			);
 			path = ViewComponents;
-			sourceTree = "<group>";
-		};
-		07E58B8E2B3DBA440041BEF3 /* BaseViewComponents */ = {
-			isa = PBXGroup;
-			children = (
-				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
-			);
-			path = BaseViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +384,7 @@
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
+				07583DCC2B4D5C0800A9F968 /* AnimationVM.swift in Sources */,
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,

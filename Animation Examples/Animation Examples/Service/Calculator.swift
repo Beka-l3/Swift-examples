@@ -19,7 +19,7 @@ extension Calculator {
         
         let label = UILabel()
         label.text = rootVCTableViewCell.description
-        label.font = Fonts.callout
+        label.font = Fonts.subheadline
         label.numberOfLines = .zero
         
         let size = label.sizeThatFits(.init(width: GConstants.HIG.Size.screen.width - GConstants.HIG.Padding.Four.x11, height: .infinity))
