@@ -86,6 +86,7 @@ extension SquareHero {
     
 }
 
+
 extension SquareHero {
  
     enum TransformSize {
@@ -93,7 +94,17 @@ extension SquareHero {
         case small
         case large
         
+    }
+    
+}
+
+
+extension SquareHero {
+ 
+    enum TransformRotation {
         
+        case right
+        case left
         
     }
     
