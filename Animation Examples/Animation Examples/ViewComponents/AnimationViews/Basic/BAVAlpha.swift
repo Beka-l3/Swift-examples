@@ -86,7 +86,7 @@ extension BAVAlpha: AnimationView {
         isAnimating = true
         squreAlphaValue = squreAlphaValue == .one ? .zero : .one
         
-        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.less) { [unowned self] in
             
             self.square.alpha = squreAlphaValue.rawValue
             

@@ -87,7 +87,7 @@ extension BAVSize: AnimationView {
         isAnimating = true
         squreTransformSize = squreTransformSize == .small ? .large : .small
         
-        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.fast) { [unowned self] in
             
             switch squreTransformSize {
                 

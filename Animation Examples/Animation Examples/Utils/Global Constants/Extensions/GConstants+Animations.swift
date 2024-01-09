@@ -41,6 +41,8 @@ extension GConstants.Animation.Duration {
     
     enum AnimationView {
         
+        static let fast: TimeInterval = 0.4
+        static let less: TimeInterval = 1.2
         static let standard: TimeInterval = 2
         
     }
