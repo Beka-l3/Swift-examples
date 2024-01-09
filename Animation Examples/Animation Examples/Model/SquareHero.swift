@@ -109,3 +109,28 @@ extension SquareHero {
     }
     
 }
+
+
+extension SquareHero {
+ 
+    enum Color {
+        
+        case purple
+        case yellow
+        
+        var asUIColor: UIColor {
+            
+            switch self {
+                
+            case .purple:
+                return .systemPurple
+            
+            case .yellow:
+                return .systemYellow
+            
+            }
+            
+        }
+    }
+    
+}
