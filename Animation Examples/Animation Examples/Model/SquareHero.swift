@@ -10,9 +10,27 @@ import UIKit
 
 enum SquareHero {
     
-    static let squareDimension: CGFloat = 96
+    static let squareDimension: CGFloat = 60
+    
+    static let cornerRadius: CGFloat = 8
     
     static let initialSize: CGSize = .init(width: squareDimension, height: squareDimension)
-    static let initialOrigin: CGPoint = .init(x: GConstants.HIG.Padding.Eight.x2 + squareDimension / 2, y: AnimationTableViewCell.animationViewHeight / 2)
+    static let initialOrigin: CGPoint = .init(x: GConstants.HIG.Padding.Eight.x2 + squareDimension / 2, y: AnimationTableViewCell.animationViewHeight / 2 - squareDimension / 2)
+    
+}
+
+
+extension SquareHero {
+    
+    static func getSquare(color: UIColor = .systemPurple) -> UIView {
+        let view = UIView()
+        view.frame = .init(
+            origin: SquareHero.initialOrigin,
+            size: SquareHero.initialSize
+        )
+        view.backgroundColor = .systemPurple
+        view.layer.cornerRadius = SquareHero.cornerRadius
+        return view
+    }
     
 }

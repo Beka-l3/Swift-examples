@@ -10,9 +10,12 @@ import UIKit
 
 protocol AnimationView: UIView {
     
+    var isDescriptionHidden: Bool { get set }
+    
     func startAnimation()
     
     func setupFrame()
+    
 }
 
 

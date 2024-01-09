@@ -23,6 +23,7 @@ extension BasicAnimationsVC: UITableViewDelegate, UITableViewDataSource {
             
             cell.setAnimationView(animationViews[indexPath.row])
             cell.setStyle(traitCollection.userInterfaceStyle)
+            cell.animationView?.isDescriptionHidden = isDescriptionHidden
             
             return cell
             

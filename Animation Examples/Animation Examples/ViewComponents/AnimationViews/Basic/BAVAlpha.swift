@@ -12,7 +12,7 @@ final class BAVAlpha: UIView {
     
     let descriptionText = ""
     
-    var isDescriptionHidden: Bool = false {
+    var isDescriptionHidden: Bool {
         didSet {
             UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned self] in
                 self.descriptionLabel.alpha = isDescriptionHidden ? 0 : 1
@@ -22,14 +22,7 @@ final class BAVAlpha: UIView {
     
     
 //    MARK: viewComponents
-    lazy var square: UIView = {
-        let view = UIView()
-        view.frame = .init(
-            origin: SquareHero.initialOrigin,
-            size: SquareHero.initialSize
-        )
-        return view
-    }()
+    lazy var square: UIView = SquareHero.getSquare()
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -41,12 +34,14 @@ final class BAVAlpha: UIView {
     
     
 //    MARK: lifecycle
-    init() {
+    init(isDescriptionHidden: Bool = true) {
+        self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
     }
     
     required init?(coder: NSCoder) {
+        self.isDescriptionHidden = true
         super.init(coder: coder)
     }
     

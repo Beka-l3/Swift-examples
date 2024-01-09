@@ -10,6 +10,13 @@ import UIKit
 
 final class BasicAnimationsViewComponents {
     
+    lazy var descriptionVisibilityButton: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        return item
+    }()
+    
+    
+    
     lazy var animationTableView: UITableView = {
         let view = UITableView()
         view.register(AnimationTableViewCell.self, forCellReuseIdentifier: AnimationTableViewCell.identifier)
@@ -56,6 +63,15 @@ extension BasicAnimationsViewComponents {
             animationTableView.trailingAnchor.constraint(equalTo: parent.safeAreaLayoutGuide.trailingAnchor),
             animationTableView.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
         ])
+    }
+    
+}
+
+
+extension BasicAnimationsViewComponents {
+    
+    func setDescriptionVisibilityButtonState(isDescriptionVisible: Bool) {
+        descriptionVisibilityButton.title = isDescriptionVisible ? "Hide" : "Show"
     }
     
 }

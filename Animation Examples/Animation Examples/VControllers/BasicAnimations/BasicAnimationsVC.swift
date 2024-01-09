@@ -19,6 +19,12 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     private let viewComponents: BasicAnimationsViewComponents = .init()
     
+    private(set) var isDescriptionHidden: Bool = true {
+        didSet {
+            viewComponents.animationTableView.reloadSections([.zero], with: .automatic)
+        }
+    }
+    
     
 //    MARK: lifecycle
     init(details: AnimatoinViewControllerDetails, animationViews: [AnimationView] = []) {
@@ -36,13 +42,13 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationItem.title = details.title
         appCoordinator?.isLargeNavTitle = false
+        checkState()
     }
     
     
@@ -52,8 +58,27 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
             viewComponents.setupViews(style: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
             viewComponents.animationTableView.delegate = self
             viewComponents.animationTableView.dataSource = self
+            viewComponents.descriptionVisibilityButton.target = self
+            viewComponents.descriptionVisibilityButton.action = #selector(handleDescriptionVisibilityButton)
         }
     }
     
+    private func checkState() {
+        viewComponents.setDescriptionVisibilityButtonState(isDescriptionVisible: isDescriptionHidden)
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.title = details.title
+        navigationItem.rightBarButtonItem = viewComponents.descriptionVisibilityButton
+    }
 }
 
+
+extension BasicAnimationsVC {
+    
+    @objc func handleDescriptionVisibilityButton() {
+        isDescriptionHidden.toggle()
+        viewComponents.setDescriptionVisibilityButtonState(isDescriptionVisible: isDescriptionHidden)
+    }
+    
+}
