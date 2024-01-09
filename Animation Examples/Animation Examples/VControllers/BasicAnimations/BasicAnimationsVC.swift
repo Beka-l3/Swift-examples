@@ -21,7 +21,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     private(set) var isDescriptionHidden: Bool = false {
         didSet {
-            viewComponents.animationTableView.reloadSections([.zero], with: .none)
+            viewComponents.animationTableView.reloadData()
         }
     }
     
@@ -56,7 +56,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
         
         if let appCoordinator = appCoordinator {
             viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view, animated: true)
-            viewComponents.animationTableView.reloadSections([.zero], with: .none)
+            viewComponents.animationTableView.reloadData()
         }
     }
     

@@ -63,7 +63,7 @@ final class RootViewController: UIViewController {
         
         if let appCoordinator = appCoordinator {
             viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
-            viewComponents.navigationTableView.reloadSections([.zero], with: .automatic)
+            viewComponents.navigationTableView.reloadData()
         }
     }
     
