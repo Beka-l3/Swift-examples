@@ -8,8 +8,10 @@
 import UIKit
 
 
-final class BAVAlpha: UIView {
+final class BAVPosition: UIView {
     
+
+//    MARK: exposed properties
     let descriptionText = ""
     
     var isDescriptionHidden: Bool {
@@ -19,6 +21,12 @@ final class BAVAlpha: UIView {
             }
         }
     }
+    
+    var squreCenterPosition: SquareHero.CenterPositions = .leftCenter
+    
+    
+//    MARK: private properties
+    private var isAnimating: Bool = false
     
     
 //    MARK: viewComponents
@@ -56,16 +64,29 @@ final class BAVAlpha: UIView {
 }
 
 
-extension BAVAlpha: AnimationView {
+extension BAVPosition: AnimationView {
     
     func startAnimation() {
+        guard !isAnimating else { return }
         
+        isAnimating = true
+        squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
+        
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
+            
+            self.square.center = squreCenterPosition.asPoint
+            
+        } completion: { [unowned self] _ in
+            
+            self.isAnimating = false
+            
+        }
     }
     
 }
 
 
-extension BAVAlpha {
+extension BAVPosition {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = true) {
         

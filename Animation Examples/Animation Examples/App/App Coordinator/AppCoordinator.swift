@@ -45,27 +45,9 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
 extension AppCoordinator {
     enum Mocks {
         static let animationVCs = [
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions"), animationViews: [BAVAlpha()]),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and")),
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions"), animationViews: [BAVPosition()]),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and")),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and")),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
         ]
     }

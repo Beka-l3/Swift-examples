@@ -35,3 +35,14 @@ extension GConstants.Animation.Duration {
         
     }
 }
+
+
+extension GConstants.Animation.Duration {
+    
+    enum AnimationView {
+        
+        static let standard: TimeInterval = 2
+        
+    }
+    
+}
