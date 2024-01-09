@@ -37,7 +37,7 @@ extension RootVCViewComponents: BaseViewComponents {
     func updateStyle(to style: UIUserInterfaceStyle, parent: UIView, animated: Bool = true) {
         
         if animated {
-            UIView.animate(withDuration: 0.6) { [unowned parent] in
+            UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned parent] in
                 parent.backgroundColor = style == .light ? .white : .black
             }
         } else  {

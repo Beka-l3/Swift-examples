@@ -37,6 +37,5 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         appCoordinator?.pushVC( animationVCs[indexPath.row] )
-        
     }
 }

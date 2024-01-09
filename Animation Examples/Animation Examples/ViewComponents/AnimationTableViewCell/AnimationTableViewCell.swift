@@ -11,6 +11,7 @@ import UIKit
 final class AnimationTableViewCell: UITableViewCell {
     
     static let identifier = "AnimationTableViewCellId"
-    
+    static let animationViewHeight: CGFloat = 144
     
 }
+

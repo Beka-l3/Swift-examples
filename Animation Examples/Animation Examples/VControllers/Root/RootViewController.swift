@@ -12,30 +12,7 @@ final class RootViewController: UIViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationVCs: [AnimatoinViewController] = [
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and")),
-        BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
-    ]
+    let animationVCs: [AnimatoinViewController]
     
     let viewComponents: RootVCViewComponents
     
@@ -43,13 +20,15 @@ final class RootViewController: UIViewController {
     
     
 //    MARK: lifecycle
-    init() {
+    init(animationVCs: [AnimatoinViewController] = []) {
+        self.animationVCs = animationVCs
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
+        self.animationVCs = []
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(coder: coder)
@@ -60,6 +39,7 @@ final class RootViewController: UIViewController {
         
         shouldUseSplashScreen = true
         setupView()
+        setupVCs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,10 +54,6 @@ final class RootViewController: UIViewController {
             
             appCoordinator?.disappearNavbar()
             viewComponents.splashView.startAnimation()
-            
-        } else {
-            
-//            scrollToTop()
             
         }
     }
@@ -116,6 +92,11 @@ final class RootViewController: UIViewController {
         }
     }
     
+    private func setupVCs() {
+        for vc in animationVCs {
+            vc.appCoordinator = appCoordinator
+        }
+    }
 }
 
 

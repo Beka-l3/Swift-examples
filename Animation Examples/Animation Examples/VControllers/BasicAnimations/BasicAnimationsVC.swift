@@ -10,26 +10,32 @@ import UIKit
 
 final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
+    /// AnimatoinViewController
     let details: AnimatoinViewControllerDetails
     
     weak var appCoordinator: AppCoordinator?
     
+    let animationViews: [UIView]
+    
+    private let viewComponents: BasicAnimationsViewComponents = .init()
+    
     
 //    MARK: lifecycle
-    init(details: AnimatoinViewControllerDetails) {
+    init(details: AnimatoinViewControllerDetails, animationViews: [UIView] = []) {
         self.details = details
+        self.animationViews = animationViews
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.details = .init(title: "", description: "")
+        self.animationViews = []
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +45,15 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
         appCoordinator?.isLargeNavTitle = false
     }
     
+    
+//    MARK: private func
+    private func setupViews() {
+        if let appCoordinator = appCoordinator {
+            viewComponents.setupViews(style: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
+            viewComponents.animationTableView.delegate = self
+            viewComponents.animationTableView.dataSource = self
+        }
+    }
     
 }
 
