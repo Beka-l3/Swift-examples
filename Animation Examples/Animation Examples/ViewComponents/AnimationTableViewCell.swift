@@ -10,9 +10,13 @@ import UIKit
 
 final class AnimationTableViewCell: UITableViewCell {
     
+    
+//    MARK: static properties
     static let identifier = "AnimationTableViewCellId"
     static let animationViewHeight: CGFloat = 144
     
+    
+//    MARK: exposed properties
     var isDescriptionHidden: Bool = false {
         didSet {
             UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned self] in
@@ -20,14 +24,6 @@ final class AnimationTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = Fonts.subheadline
-        label.numberOfLines = .zero
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     var animationVM: AnimationVM? {
         didSet {
@@ -38,7 +34,17 @@ final class AnimationTableViewCell: UITableViewCell {
         }
     }
     
-    var animationView: UIView? {
+    
+//    MARK: viewComponents
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = Fonts.subheadline
+        label.numberOfLines = .zero
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var animationView: AnimationView? {
         didSet {
             if let oldValue = oldValue {
                 oldValue.removeFromSuperview()

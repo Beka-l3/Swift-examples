@@ -8,12 +8,7 @@
 import UIKit
 
 
-struct AnimationVM {
-    
-    let description: String
-    
-    let view: AnimationView
-    
+protocol AnimationView: UIView {
+    func startAnimation()
 }
-
 
