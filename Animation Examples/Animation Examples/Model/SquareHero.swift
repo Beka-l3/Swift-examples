@@ -72,11 +72,28 @@ extension SquareHero {
         }
         
     }
+}
+
+
+extension SquareHero {
     
     enum AlphaValue: CGFloat {
         
         case zero = 0
         case one = 1
+        
+    }
+    
+}
+
+extension SquareHero {
+ 
+    enum TransformSize {
+        
+        case small
+        case large
+        
+        
         
     }
     

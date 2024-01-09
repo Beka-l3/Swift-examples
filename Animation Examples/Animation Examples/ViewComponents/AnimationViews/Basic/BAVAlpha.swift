@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 final class BAVAlpha: UIView {
     
 
@@ -26,7 +25,7 @@ final class BAVAlpha: UIView {
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixZero {
+    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
         didSet {
             descriptionLabel.text = descriptionText
         }
@@ -74,7 +73,7 @@ final class BAVAlpha: UIView {
     }
     
     private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squreAlphaValue == .one ? Constants.descriptionTextSuffixZero : Constants.descriptionTextSuffixOne)
+        descriptionText = Constants.descriptionTextPrefix + (squreAlphaValue == .one ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
     }
 }
 
@@ -128,8 +127,8 @@ extension BAVAlpha {
     enum Constants {
         
         static let descriptionTextPrefix = "Tap on this row to set alpha of the square to"
-        static let descriptionTextSuffixZero = " 0"
-        static let descriptionTextSuffixOne = " 1"
+        static let descriptionTextSuffixState2 = " 0"
+        static let descriptionTextSuffixState1 = " 1"
         
     }
     

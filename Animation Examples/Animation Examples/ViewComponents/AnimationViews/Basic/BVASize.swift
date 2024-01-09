@@ -1,5 +1,5 @@
 //
-//  BAVAlpha.swift
+//  BVASize.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 09.01.2024.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class BAVPosition: UIView {
+final class BAVSize: UIView {
     
 
 //    MARK: exposed properties
@@ -20,7 +20,7 @@ final class BAVPosition: UIView {
         }
     }
     
-    var squreCenterPosition: SquareHero.CenterPositions = .leftCenter
+    var squreTransformSize: SquareHero.TransformSize = .small
     
     
 //    MARK: private properties
@@ -33,7 +33,7 @@ final class BAVPosition: UIView {
     }
     
 //    MARK: viewComponents
-    lazy var square: UIView = SquareHero.getSquare()
+    lazy var square: UIView = SquareHero.getSquare(centerPosition: .rightCenter)
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -67,29 +67,37 @@ final class BAVPosition: UIView {
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
     }
     
     private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squreCenterPosition == .leftCenter ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
+        descriptionText = Constants.descriptionTextPrefix + (squreTransformSize == .small ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
     }
 }
 
 
-extension BAVPosition: AnimationView {
+extension BAVSize: AnimationView {
     
     func startAnimation() {
         guard !isAnimating else { return }
         
         isAnimating = true
-        squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
+        squreTransformSize = squreTransformSize == .small ? .large : .small
         
         UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
             
-            self.square.center = squreCenterPosition.asPoint
+            switch squreTransformSize {
+                
+            case .small:
+                self.square.transform = .identity
+                
+            case .large:
+                self.square.transform = self.square.transform.scaledBy(x: 1.25, y: 1.25)
+                
+            }
             
         } completion: { [unowned self] _ in
             
@@ -102,7 +110,7 @@ extension BAVPosition: AnimationView {
 }
 
 
-extension BAVPosition: UIStyler {
+extension BAVSize: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = false) {
         
@@ -123,14 +131,15 @@ extension BAVPosition: UIStyler {
 }
 
 
-extension BAVPosition {
+extension BAVSize {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Tap on this row to move squre to the"
-        static let descriptionTextSuffixState2 = " right"
-        static let descriptionTextSuffixState1 = " left"
+        static let descriptionTextPrefix = "Tap on this row to make it"
+        static let descriptionTextSuffixState2 = " larger"
+        static let descriptionTextSuffixState1 = " smaller"
         
     }
     
 }
+
