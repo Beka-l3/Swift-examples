@@ -62,7 +62,7 @@ final class RootViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         if let appCoordinator = appCoordinator {
-            viewComponents.updateStyle(to: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
+            viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
             viewComponents.navigationTableView.reloadSections([.zero], with: .automatic)
         }
     }
@@ -112,8 +112,8 @@ extension RootViewController: SplashAnimationViewDelegate {
     }
     
     func scrollToTop() {
-//        viewComponents.navigationTableView.scrollToRow(at: .init(row: 0, section: 0), at: .middle, animated: true)
-        viewComponents.navigationTableView.setContentOffset(CGPoint(x: 0, y: -140), animated: true)
+        viewComponents.navigationTableView.scrollToRow(at: .init(row: 0, section: 0), at: .middle, animated: true)
+//        viewComponents.navigationTableView.setContentOffset(CGPoint(x: 0, y: -140), animated: true)
     }
     
 }

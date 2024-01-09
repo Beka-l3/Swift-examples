@@ -93,7 +93,7 @@ extension RootVCTableViewCell {
 }
 
 
-extension RootVCTableViewCell {
+extension RootVCTableViewCell: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = true) {
         
@@ -107,7 +107,7 @@ extension RootVCTableViewCell {
         } else {
             
             titleLabel.textColor = style == .light ? .black : .white
-            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.38) : UIColor(white: 1, alpha: 0.38)
+            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.6) : UIColor(white: 1, alpha: 0.6)
             
         }
         

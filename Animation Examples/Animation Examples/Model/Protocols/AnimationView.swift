@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol AnimationView: UIView {
+protocol AnimationView: UIView, UIStyler {
     
     var isDescriptionHidden: Bool { get set }
     

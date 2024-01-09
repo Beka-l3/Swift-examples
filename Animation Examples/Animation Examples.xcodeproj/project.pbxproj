@@ -22,6 +22,7 @@
 		07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCD2B4D614800A9F968 /* AnimationView.swift */; };
 		07583DD32B4D653600A9F968 /* BAVPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD22B4D653600A9F968 /* BAVPosition.swift */; };
 		07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD42B4D688000A9F968 /* SquareHero.swift */; };
+		07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD62B4D821200A9F968 /* UIStyle.swift */; };
 		0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A42B4C312400AD0120 /* MyNavigationController.swift */; };
 		0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */; };
 		0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */; };
@@ -56,6 +57,7 @@
 		07583DCD2B4D614800A9F968 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		07583DD22B4D653600A9F968 /* BAVPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVPosition.swift; sourceTree = "<group>"; };
 		07583DD42B4D688000A9F968 /* SquareHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareHero.swift; sourceTree = "<group>"; };
+		07583DD62B4D821200A9F968 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		0768C7A42B4C312400AD0120 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Style.swift"; sourceTree = "<group>"; };
 		0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Presence.swift"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
 				07583DCD2B4D614800A9F968 /* AnimationView.swift */,
+				07583DD62B4D821200A9F968 /* UIStyle.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,

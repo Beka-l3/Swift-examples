@@ -19,9 +19,9 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     private let viewComponents: BasicAnimationsViewComponents = .init()
     
-    private(set) var isDescriptionHidden: Bool = true {
+    private(set) var isDescriptionHidden: Bool = false {
         didSet {
-            viewComponents.animationTableView.reloadSections([.zero], with: .automatic)
+            viewComponents.animationTableView.reloadSections([.zero], with: .none)
         }
     }
     
@@ -51,6 +51,14 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
         checkState()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if let appCoordinator = appCoordinator {
+            viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view, animated: true)
+            viewComponents.animationTableView.reloadSections([.zero], with: .none)
+        }
+    }
     
 //    MARK: private func
     private func setupViews() {
@@ -64,7 +72,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     }
     
     private func checkState() {
-        viewComponents.setDescriptionVisibilityButtonState(isDescriptionVisible: isDescriptionHidden)
+        viewComponents.setDescriptionVisibilityButtonState(isDescriptionHidden: isDescriptionHidden)
     }
     
     private func setupNavigationItem() {
@@ -78,7 +86,7 @@ extension BasicAnimationsVC {
     
     @objc func handleDescriptionVisibilityButton() {
         isDescriptionHidden.toggle()
-        viewComponents.setDescriptionVisibilityButtonState(isDescriptionVisible: isDescriptionHidden)
+        viewComponents.setDescriptionVisibilityButtonState(isDescriptionHidden: isDescriptionHidden)
     }
     
 }

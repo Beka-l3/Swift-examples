@@ -31,25 +31,32 @@ final class BasicAnimationsViewComponents {
 extension BasicAnimationsViewComponents: BaseViewComponents {
     
     func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
-        updateStyle(to: style, parent: parent, animated: false)
+        setStyle(style, parent: parent, animated: false)
         
         parent.addSubview(animationTableView)
         
         setupConstraints(parent: parent)
     }
+}
+
+
+extension BasicAnimationsViewComponents: UIStyler {
     
-    func updateStyle(to style: UIUserInterfaceStyle, parent: UIView, animated: Bool) {
+    func setStyle(_ style: UIUserInterfaceStyle = .dark, parent: UIView, animated: Bool = true) {
         
         if animated {
+            
             UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned parent] in
                 parent.backgroundColor = style == .light ? .white : .black
             }
+            
         } else  {
+            
             parent.backgroundColor = style == .light ? .white : .black
+            
         }
         
     }
-    
     
 }
 
@@ -70,8 +77,8 @@ extension BasicAnimationsViewComponents {
 
 extension BasicAnimationsViewComponents {
     
-    func setDescriptionVisibilityButtonState(isDescriptionVisible: Bool) {
-        descriptionVisibilityButton.title = isDescriptionVisible ? "Hide" : "Show"
+    func setDescriptionVisibilityButtonState(isDescriptionHidden: Bool) {
+        descriptionVisibilityButton.title = isDescriptionHidden ? "Show" : "Hide"
     }
     
 }

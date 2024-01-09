@@ -57,10 +57,10 @@ final class AnimationTableViewCell: UITableViewCell {
 }
 
 
-extension AnimationTableViewCell {
+extension AnimationTableViewCell: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = true) {
-        
+        animationView?.setStyle(style, animated: animated)
     }
     
 }

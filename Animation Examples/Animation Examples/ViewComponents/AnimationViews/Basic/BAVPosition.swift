@@ -12,8 +12,6 @@ final class BAVPosition: UIView {
     
 
 //    MARK: exposed properties
-    let descriptionText = ""
-    
     var isDescriptionHidden: Bool {
         didSet {
             UIView.animate(withDuration: GConstants.Animation.Duration.standard) { [unowned self] in
@@ -28,6 +26,11 @@ final class BAVPosition: UIView {
 //    MARK: private properties
     private var isAnimating: Bool = false
     
+    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixRight {
+        didSet {
+            descriptionLabel.text = descriptionText
+        }
+    }
     
 //    MARK: viewComponents
     lazy var square: UIView = SquareHero.getSquare()
@@ -42,10 +45,11 @@ final class BAVPosition: UIView {
     
     
 //    MARK: lifecycle
-    init(isDescriptionHidden: Bool = true) {
+    init(isDescriptionHidden: Bool = false) {
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
+        setDescriptionText()
     }
     
     required init?(coder: NSCoder) {
@@ -58,9 +62,20 @@ final class BAVPosition: UIView {
     private func setupView() {
         setupFrame()
         
+        addSubview(descriptionLabel)
         addSubview(square)
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
+        ])
     }
     
+    private func setDescriptionText() {
+        descriptionText = Constants.descriptionTextPrefix + (squreCenterPosition == .leftCenter ? Constants.descriptionTextSuffixRight : Constants.descriptionTextSuffixLeft)
+    }
 }
 
 
@@ -79,6 +94,7 @@ extension BAVPosition: AnimationView {
         } completion: { [unowned self] _ in
             
             self.isAnimating = false
+            self.setDescriptionText()
             
         }
     }
@@ -86,9 +102,9 @@ extension BAVPosition: AnimationView {
 }
 
 
-extension BAVPosition {
+extension BAVPosition: UIStyler {
     
-    func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = true) {
+    func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = false) {
         
         if animated {
             
@@ -98,7 +114,7 @@ extension BAVPosition {
             
         } else {
             
-            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.38) : UIColor(white: 1, alpha: 0.38)
+            descriptionLabel.textColor = style == .light ? UIColor(white: 0, alpha: 0.6) : UIColor(white: 1, alpha: 0.6)
             
         }
         
@@ -106,3 +122,15 @@ extension BAVPosition {
     
 }
 
+
+extension BAVPosition {
+    
+    enum Constants {
+        
+        static let descriptionTextPrefix = "Tap on this row to move squre to the"
+        static let descriptionTextSuffixRight = " right"
+        static let descriptionTextSuffixLeft = " left"
+        
+    }
+    
+}
