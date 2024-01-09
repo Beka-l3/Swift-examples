@@ -45,7 +45,7 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
 extension AppCoordinator {
     enum Mocks {
         static let animationVCs = [
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions"), animationViews: [BAVPosition()]),
+            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions"), animationViews: [BAVPosition(), BAVAlpha()]),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
             BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),

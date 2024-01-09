@@ -25,7 +25,7 @@ enum SquareHero {
 
 extension SquareHero {
     
-    static func getSquare(color: UIColor = .systemPurple) -> UIView {
+    static func getSquare(color: UIColor = .systemPurple, centerPosition: CenterPositions? = nil) -> UIView {
         let view = UIView()
         view.frame = .init(
             origin: SquareHero.initialOrigin,
@@ -33,6 +33,11 @@ extension SquareHero {
         )
         view.backgroundColor = .systemPurple
         view.layer.cornerRadius = SquareHero.cornerRadius
+        
+        if let centerPosition = centerPosition {
+            view.center = centerPosition.asPoint
+        }
+        
         return view
     }
     
@@ -65,6 +70,13 @@ extension SquareHero {
             }
             
         }
+        
+    }
+    
+    enum AlphaValue: CGFloat {
+        
+        case zero = 0
+        case one = 1
         
     }
     
