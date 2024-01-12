@@ -26,7 +26,6 @@ final class BAVSize: UIView {
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-//    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
     private var descriptionText = Constants.descriptionTextPrefix {
         didSet {
             descriptionLabel.text = descriptionText
@@ -40,6 +39,7 @@ final class BAVSize: UIView {
         let label = UILabel()
         label.font = Fonts.subheadline
         label.numberOfLines = .zero
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

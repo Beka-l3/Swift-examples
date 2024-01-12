@@ -1,5 +1,5 @@
 //
-//  BAVCombined.swift
+//  BAVCombined1.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 12.01.2024.
@@ -41,6 +41,7 @@ final class BAVCombined1: UIView {
         let label = UILabel()
         label.font = Fonts.subheadline
         label.numberOfLines = .zero
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

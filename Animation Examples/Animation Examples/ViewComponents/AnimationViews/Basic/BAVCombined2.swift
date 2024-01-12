@@ -1,14 +1,14 @@
 //
-//  BAVAlpha.swift
+//  BAVCombined2.swift
 //  Animation Examples
 //
-//  Created by Bekzhan Talgat on 09.01.2024.
+//  Created by Bekzhan Talgat on 12.01.2024.
 //
 
 import UIKit
 
 
-final class BAVAlpha: UIView {
+final class BAVCombined2: UIView {
     
 
 //    MARK: exposed properties
@@ -20,7 +20,9 @@ final class BAVAlpha: UIView {
         }
     }
     
-    var squreAlphaValue: SquareHero.AlphaValue = .one
+    var squreCenterPosition: SquareHero.CenterPositions = .leftCenter
+    var squareColor: SquareHero.Color = .purple
+    var squreTransformSize: SquareHero.TransformSize = .small
     
     
 //    MARK: private properties
@@ -33,7 +35,7 @@ final class BAVAlpha: UIView {
     }
     
 //    MARK: viewComponents
-    lazy var square: UIView = SquareHero.getSquare(centerPosition: .rightCenter)
+    lazy var square: UIView = SquareHero.getSquare(centerPosition: .leftCenter)
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -67,7 +69,7 @@ final class BAVAlpha: UIView {
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
@@ -78,17 +80,21 @@ final class BAVAlpha: UIView {
 }
 
 
-extension BAVAlpha: AnimationView {
+extension BAVCombined2: AnimationView {
     
     func startAnimation() {
         guard !isAnimating else { return }
         
         isAnimating = true
-        squreAlphaValue = squreAlphaValue == .one ? .zero : .one
+        squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
+        squareColor = squareColor == .purple ? .yellow : .purple
+        squreTransformSize = squreTransformSize == .small ? .large : .small
         
-        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.fast) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
             
-            self.square.alpha = squreAlphaValue.rawValue
+            self.square.center = squreCenterPosition.asPoint
+            self.square.backgroundColor = squareColor.asUIColor
+            self.square.transform = squreTransformSize == .small ? .identity : self.square.transform.scaledBy(x: 1.25, y: 1.25)
             
         } completion: { [unowned self] _ in
             
@@ -100,7 +106,7 @@ extension BAVAlpha: AnimationView {
 }
 
 
-extension BAVAlpha: UIStyler {
+extension BAVCombined2: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = false) {
         
@@ -121,13 +127,17 @@ extension BAVAlpha: UIStyler {
 }
 
 
-extension BAVAlpha {
+extension BAVCombined2 {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Alpha"
+        static let descriptionTextPrefix = "Position + Color + Size"
         
     }
     
 }
+
+
+
+
 

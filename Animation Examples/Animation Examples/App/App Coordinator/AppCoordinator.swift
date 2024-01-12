@@ -53,7 +53,8 @@ extension AppCoordinator {
                     BAVSize(),
                     BAVRotation(),
                     BAVColor(),
-                    BAVCombined1()
+                    BAVCombined1(),
+                    BAVCombined2(),
                 ]
             ),
             

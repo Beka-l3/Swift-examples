@@ -40,6 +40,7 @@ final class BAVPosition: UIView {
         let label = UILabel()
         label.font = Fonts.subheadline
         label.numberOfLines = .zero
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
