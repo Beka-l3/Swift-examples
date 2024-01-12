@@ -26,6 +26,7 @@
 		0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */; };
 		0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */; };
 		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
+		07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -61,6 +62,7 @@
 		0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Style.swift"; sourceTree = "<group>"; };
 		0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Presence.swift"; sourceTree = "<group>"; };
 		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
+		07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSingleSequence.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */,
+				07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
+				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,

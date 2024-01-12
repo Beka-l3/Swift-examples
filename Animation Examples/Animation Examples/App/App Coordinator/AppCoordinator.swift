@@ -48,13 +48,13 @@ extension AppCoordinator {
             BasicAnimationsVC(
                 details: .init(title: "Basic Animations", description: "Animtions"),
                 animationViews: [
-                    BasicAnimationView(type: .position),
-                    BasicAnimationView(type: .alpha),
-                    BasicAnimationView(type: .size),
-                    BasicAnimationView(type: .rotation),
-                    BasicAnimationView(type: .color),
-                    BasicAnimationView(type: .combined1),
-                    BasicAnimationView(type: .combined2),
+                    BAVSingleSequence(type: .position),
+                    BAVSingleSequence(type: .alpha),
+                    BAVSingleSequence(type: .size),
+                    BAVSingleSequence(type: .rotation),
+                    BAVSingleSequence(type: .color),
+                    BAVSingleSequence(type: .combined1),
+                    BAVSingleSequence(type: .combined2),
                 ]
             ),
             

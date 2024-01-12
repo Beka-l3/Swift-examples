@@ -13,7 +13,7 @@ final class AnimationTableViewCell: UITableViewCell {
     
 //    MARK: static properties
     static let identifier = "AnimationTableViewCellId"
-    static let animationViewHeight: CGFloat = 144
+    static let animationViewHeight: CGFloat = GConstants.HIG.Size.animationTableViewCell.height // 144
         
     
 //    MARK: viewComponents
