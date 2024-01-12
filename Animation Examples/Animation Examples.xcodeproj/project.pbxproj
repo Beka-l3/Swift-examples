@@ -26,6 +26,7 @@
 		0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A42B4C312400AD0120 /* MyNavigationController.swift */; };
 		0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */; };
 		0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */; };
+		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
 		07AF6EC92B4D8CCD006A6338 /* BAVAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF6EC82B4D8CCD006A6338 /* BAVAlpha.swift */; };
 		07AF6ECB2B4D909D006A6338 /* BAVSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF6ECA2B4D909D006A6338 /* BAVSize.swift */; };
 		07AF6ECD2B4D93E3006A6338 /* BAVRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF6ECC2B4D93E3006A6338 /* BAVRotation.swift */; };
@@ -67,6 +68,7 @@
 		0768C7A42B4C312400AD0120 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Style.swift"; sourceTree = "<group>"; };
 		0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Presence.swift"; sourceTree = "<group>"; };
+		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
 		07AF6EC82B4D8CCD006A6338 /* BAVAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVAlpha.swift; sourceTree = "<group>"; };
 		07AF6ECA2B4D909D006A6338 /* BAVSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSize.swift; sourceTree = "<group>"; };
 		07AF6ECC2B4D93E3006A6338 /* BAVRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVRotation.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		07583DD02B4D64FE00A9F968 /* AnimationViews */ = {
 			isa = PBXGroup;
 			children = (
+				07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */,
 				07583DD12B4D651100A9F968 /* Basic */,
 			);
 			path = AnimationViews;
@@ -442,6 +445,7 @@
 				07E228F52B51966000578A39 /* BAVCombined2.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+TableView.swift in Sources */,
+				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
