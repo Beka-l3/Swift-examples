@@ -53,7 +53,7 @@ incrementBySeven()
 func foo1() {
     var num = 1
     
-    /// here reference to num is created
+    /// No new reference is created. We are directly using the `var num` from `line 54`
     let buzz1 = {
         print(num)
     }
@@ -91,7 +91,8 @@ func foo3() {
     var a: A? = A()
     
     /// Here new reference to `a` is `not` created.  Now only 1 pointer is referencing `a`
-    /// seems like exect copy of the address value is captured, so reference counting is not incremented
+    /// seems like exact copy of the address value is captured, so reference counting is not incremented
+    ///     maybe even copy was not made, it is the same `var a` that we created on `line 91`
     let buzz4 = {
         print(a?.num ?? "nil")
     }

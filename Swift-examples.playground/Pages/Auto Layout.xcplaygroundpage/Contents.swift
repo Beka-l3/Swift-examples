@@ -84,7 +84,7 @@ widthConstraint2.priority = .defaultLow
 
 
 
-// MARK: Contraint Resistance
+// MARK: Constraint Resistance
 /// After one constraint when content changes, view can cut some of the content
 /// To resist such behaviour
 /// we can set special constraints
@@ -159,8 +159,8 @@ NSLayoutConstraint.activate([
 
 // MARK: invalidateIntrinsicContentSize
 /// Some views that use Auto Layout have an intrinsicContentSize property, which is the natural size of the view given its contents.
-/// The intrinsicContentSize of a view is typically determined by the constraints on the elements it contains but can also be overriden to provide custom behavior.
-/// Calling invalidateIntrinsicContentSize() will set a flag indicating the view’s intrinsicContentSize is stale and needs to be recalculated at the next layout pass.
+/// The `intrinsicContentSize` of a view is typically determined by the constraints on the elements it contains but can also be overriden to provide custom behavior.
+/// Calling `invalidateIntrinsicContentSize()` will set a flag indicating the view’s `intrinsicContentSize` is stale and needs to be recalculated at the next layout pass.
 
 
 

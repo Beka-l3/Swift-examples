@@ -21,6 +21,7 @@ final class BasicAnimationsViewComponents {
         let view = UITableView()
         view.register(AnimationTableViewCell.self, forCellReuseIdentifier: AnimationTableViewCell.identifier)
         view.backgroundColor = .clear
+        view.showsVerticalScrollIndicator = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,9 +31,7 @@ final class BasicAnimationsViewComponents {
 
 extension BasicAnimationsViewComponents: BaseViewComponents {
     
-    func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
-        setStyle(style, parent: parent, animated: false)
-        
+    func setupViews(parent: UIView) {
         parent.addSubview(animationTableView)
         
         setupConstraints(parent: parent)

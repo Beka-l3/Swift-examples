@@ -18,6 +18,7 @@ enum Fonts {
     static let body: UIFont = .systemFont(ofSize: 17, weight: .regular)
     static let callout: UIFont = .systemFont(ofSize: 16, weight: .regular)
     static let subheadline: UIFont = .systemFont(ofSize: 15, weight: .regular)
+    static let subheadlineBlack: UIFont = .systemFont(ofSize: 15, weight: .black)
     
     static let footnote: UIFont = .systemFont(ofSize: 13, weight: .medium)
     static let caption1: UIFont = .systemFont(ofSize: 12, weight: .regular)

@@ -15,28 +15,24 @@ enum SquareHero {
     static let cornerRadius: CGFloat = 8
     
     static let initialSize: CGSize = .init(width: squareDimension, height: squareDimension)
-    static let initialOrigin: CGPoint = .init(
-        x: GConstants.HIG.Padding.Eight.x2,
-        y: AnimationTableViewCell.animationViewHeight / 2 - squareDimension / 2
-    )
     
 }
 
 
 extension SquareHero {
     
-    static func getSquare(color: UIColor = .systemPurple, centerPosition: CenterPositions? = nil) -> UIView {
+    static func getSquare(color: UIColor = .systemPurple, centerPosition: CenterPositions = .leftCenter) -> UIView {
         let view = UIView()
+        
         view.frame = .init(
-            origin: SquareHero.initialOrigin,
+            origin: .zero,
             size: SquareHero.initialSize
         )
+        
         view.backgroundColor = .systemPurple
         view.layer.cornerRadius = SquareHero.cornerRadius
         
-        if let centerPosition = centerPosition {
-            view.center = centerPosition.asPoint
-        }
+        view.center = centerPosition.asPoint
         
         return view
     }
@@ -57,13 +53,13 @@ extension SquareHero {
                 
             case .leftCenter:
                 return .init(
-                    x: GConstants.HIG.Padding.Eight.x2 + squareDimension / 2,
+                    x: GConstants.HIG.Padding.Eight.x3 + squareDimension / 2,
                     y: AnimationTableViewCell.animationViewHeight / 2
                 )
                 
             case .rightCenter:
                 return .init(
-                    x: GConstants.HIG.Size.screen.width - GConstants.HIG.Padding.Eight.x2 - squareDimension / 2,
+                    x: GConstants.HIG.Size.screen.width - GConstants.HIG.Padding.Eight.x3 - squareDimension / 2,
                     y: AnimationTableViewCell.animationViewHeight / 2
                 )
                 

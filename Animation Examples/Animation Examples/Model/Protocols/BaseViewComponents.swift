@@ -10,7 +10,7 @@ import UIKit
 
 protocol BaseViewComponents {
     
-    func setupViews(style: UIUserInterfaceStyle, parent: UIView)
+    func setupViews(parent: UIView)
     
     func setupLayers(parent: UIView)
     

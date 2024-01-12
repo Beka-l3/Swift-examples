@@ -2,6 +2,11 @@ import Foundation
 
 
 // MARK: Most frequently used DP in Swift
+/// Builder
+/// Adapter
+/// Decorator
+/// Facade
+/// Template Method
 
 
 // MARK: - Builder

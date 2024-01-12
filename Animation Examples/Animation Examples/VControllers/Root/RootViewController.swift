@@ -44,7 +44,13 @@ final class RootViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        appCoordinator?.isLargeNavTitle = false
         setupNavbar()
+        
+        if let appCoordinator = appCoordinator {
+            setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: false)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,7 +68,7 @@ final class RootViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         if let appCoordinator = appCoordinator {
-            viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
+            setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true)
             viewComponents.navigationTableView.reloadData()
         }
     }
@@ -70,19 +76,16 @@ final class RootViewController: UIViewController {
     
 //    MARK: private func
     private func setupView() {
-        if let appCoordinator = appCoordinator {
-            viewComponents.setupViews(style: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
-            viewComponents.navigationTableView.delegate = self
-            viewComponents.navigationTableView.dataSource = self
-            viewComponents.splashView.delegate = self
-        }
+        viewComponents.setupViews(parent: view)
+        viewComponents.navigationTableView.delegate = self
+        viewComponents.navigationTableView.dataSource = self
+        viewComponents.splashView.delegate = self
     }
     
     private func setupNavbar() {
         navigationItem.title = "Animations"
         navigationItem.hidesBackButton = true
         navigationItem.largeTitleDisplayMode = .always
-        appCoordinator?.isLargeNavTitle = true
         
         if !shouldUseSplashScreen && viewComponents.splashView.alpha != 0{
             
@@ -114,6 +117,15 @@ extension RootViewController: SplashAnimationViewDelegate {
     func scrollToTop() {
         viewComponents.navigationTableView.scrollToRow(at: .init(row: 0, section: 0), at: .middle, animated: true)
 //        viewComponents.navigationTableView.setContentOffset(CGPoint(x: 0, y: -140), animated: true)
+    }
+    
+}
+
+
+extension RootViewController: UIStyler {
+    
+    func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
+        viewComponents.setStyle(style, parent: view, animated: animated)
     }
     
 }

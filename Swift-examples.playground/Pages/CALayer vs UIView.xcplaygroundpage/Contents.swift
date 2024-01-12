@@ -16,7 +16,7 @@
 /// You will often need to access the underlying layers for a UIView when performing more complex animations than the base UIView class allows.
 /// UIView's animation capabilities have grown as the iOS SDK has matured, but there are still a few things that are best done by interacting with the underlying CALayer
 
-/// Simply speaking,`UIView` inherit from ``UIResponder``, handle events from users, contains `CALayer`, which inherit from ``NSObject``, mainly focus on rendering, animation etc
+/// Simply speaking,`UIView` inherit from ``UIResponder``, handles events from users, contains `CALayer`, which inherit from ``NSObject``, mainly focus on rendering, animation etc
 
 
 /// `UIView`: Views have more `complex` hierarchy layouts.

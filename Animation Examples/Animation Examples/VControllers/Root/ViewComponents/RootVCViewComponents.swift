@@ -25,9 +25,7 @@ final class RootVCViewComponents {
 
 extension RootVCViewComponents: BaseViewComponents {
     
-    func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
-        setStyle(style, parent: parent, animated: false)
-        
+    func setupViews(parent: UIView) {
         parent.addSubview(navigationTableView)
         parent.addSubview(splashView)
         
