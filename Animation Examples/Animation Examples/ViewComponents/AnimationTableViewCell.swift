@@ -17,13 +17,7 @@ final class AnimationTableViewCell: UITableViewCell {
         
     
 //    MARK: viewComponents
-    var animationView: AnimationView? {
-        didSet {
-            if let animationView = animationView {
-                addSubview(animationView)
-            }
-        }
-    }
+    var animationView: AnimationView?
     
     
 //    MARK: lifecycle
@@ -35,9 +29,15 @@ final class AnimationTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        animationView?.removeFromSuperview()
+    }
+    
     
 //    MARK: exposed func
     func setAnimationView(_ view: AnimationView) {
+        addSubview(view)
         animationView = view
     }
     
