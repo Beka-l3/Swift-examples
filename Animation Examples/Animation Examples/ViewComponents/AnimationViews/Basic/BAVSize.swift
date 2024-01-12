@@ -32,12 +32,14 @@ final class BAVSize: UIView {
         }
     }
     
+    
 //    MARK: viewComponents
     lazy var square: UIView = SquareHero.getSquare(centerPosition: .rightCenter)
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.subheadline
+        label.text = descriptionText
+        label.font = Fonts.subheadlineBlack
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +69,7 @@ final class BAVSize: UIView {
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])

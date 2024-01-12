@@ -21,7 +21,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     private(set) var isDescriptionHidden: Bool = false {
         didSet {
-            viewComponents.animationTableView.reloadData()
+            animationViews.forEach { $0.isDescriptionHidden = isDescriptionHidden }
         }
     }
     
@@ -56,7 +56,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
         
         if let appCoordinator = appCoordinator {
             viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view, animated: true)
-            viewComponents.animationTableView.reloadData()
+            animationViews.forEach { $0.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true) }
         }
     }
     
@@ -68,6 +68,10 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
             viewComponents.animationTableView.dataSource = self
             viewComponents.descriptionVisibilityButton.target = self
             viewComponents.descriptionVisibilityButton.action = #selector(handleDescriptionVisibilityButton)
+        }
+        
+        if let appCoordinator = appCoordinator {
+            animationViews.forEach { $0.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true) }
         }
     }
     

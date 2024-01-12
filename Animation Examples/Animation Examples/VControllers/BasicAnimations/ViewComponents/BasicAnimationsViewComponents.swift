@@ -21,6 +21,7 @@ final class BasicAnimationsViewComponents {
         let view = UITableView()
         view.register(AnimationTableViewCell.self, forCellReuseIdentifier: AnimationTableViewCell.identifier)
         view.backgroundColor = .clear
+        view.showsVerticalScrollIndicator = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

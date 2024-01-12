@@ -38,7 +38,8 @@ final class BAVPosition: UIView {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.subheadline
+        label.text = descriptionText
+        label.font = Fonts.subheadlineBlack
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

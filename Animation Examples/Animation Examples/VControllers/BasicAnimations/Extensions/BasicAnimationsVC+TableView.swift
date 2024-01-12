@@ -22,8 +22,6 @@ extension BasicAnimationsVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: AnimationTableViewCell.identifier) as? AnimationTableViewCell {
             
             cell.setAnimationView(animationViews[indexPath.row])
-            cell.setStyle(traitCollection.userInterfaceStyle, animated: true)
-            cell.animationView?.isDescriptionHidden = isDescriptionHidden
             
             return cell
             

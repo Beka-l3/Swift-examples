@@ -34,12 +34,14 @@ final class BAVCombined2: UIView {
         }
     }
     
+    
 //    MARK: viewComponents
     lazy var square: UIView = SquareHero.getSquare(centerPosition: .leftCenter)
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.subheadline
+        label.text = descriptionText
+        label.font = Fonts.subheadlineBlack
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

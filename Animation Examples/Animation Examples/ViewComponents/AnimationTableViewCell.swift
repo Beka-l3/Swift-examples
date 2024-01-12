@@ -15,14 +15,9 @@ final class AnimationTableViewCell: UITableViewCell {
     static let identifier = "AnimationTableViewCellId"
     static let animationViewHeight: CGFloat = 144
         
+    
 //    MARK: viewComponents
     var animationView: AnimationView? {
-        willSet {
-            if let animationView = animationView {
-                animationView.removeFromSuperview()
-            }
-        }
-        
         didSet {
             if let animationView = animationView {
                 addSubview(animationView)
