@@ -31,9 +31,7 @@ final class BasicAnimationsViewComponents {
 
 extension BasicAnimationsViewComponents: BaseViewComponents {
     
-    func setupViews(style: UIUserInterfaceStyle, parent: UIView) {
-        setStyle(style, parent: parent, animated: false)
-        
+    func setupViews(parent: UIView) {
         parent.addSubview(animationTableView)
         
         setupConstraints(parent: parent)

@@ -47,32 +47,30 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         appCoordinator?.isLargeNavTitle = false
         checkState()
+        
+        if let appCoordinator = appCoordinator {
+            setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: false)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
         if let appCoordinator = appCoordinator {
-            viewComponents.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view, animated: true)
-            animationViews.forEach { $0.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true) }
+            setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true)
         }
     }
     
 //    MARK: private func
     private func setupViews() {
-        if let appCoordinator = appCoordinator {
-            viewComponents.setupViews(style: appCoordinator.navigationController.traitCollection.userInterfaceStyle, parent: view)
-            viewComponents.animationTableView.delegate = self
-            viewComponents.animationTableView.dataSource = self
-            viewComponents.descriptionVisibilityButton.target = self
-            viewComponents.descriptionVisibilityButton.action = #selector(handleDescriptionVisibilityButton)
-        }
-        
-        if let appCoordinator = appCoordinator {
-            animationViews.forEach { $0.setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true) }
-        }
+        viewComponents.setupViews(parent: view)
+        viewComponents.animationTableView.delegate = self
+        viewComponents.animationTableView.dataSource = self
+        viewComponents.descriptionVisibilityButton.target = self
+        viewComponents.descriptionVisibilityButton.action = #selector(handleDescriptionVisibilityButton)
     }
     
     private func checkState() {
@@ -83,6 +81,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
         navigationItem.title = details.title
         navigationItem.rightBarButtonItem = viewComponents.descriptionVisibilityButton
     }
+    
 }
 
 
@@ -95,3 +94,12 @@ extension BasicAnimationsVC {
     
 }
 
+
+extension BasicAnimationsVC: UIStyler {
+    
+    func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
+        viewComponents.setStyle(style, parent: view, animated: animated)
+        animationViews.forEach { $0.setStyle(style, animated: animated) }
+    }
+    
+}
