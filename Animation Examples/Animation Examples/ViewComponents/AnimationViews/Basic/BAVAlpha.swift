@@ -22,10 +22,11 @@ final class BAVAlpha: UIView {
     
     var squreAlphaValue: SquareHero.AlphaValue = .one
     
+    
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
+    private var descriptionText = Constants.descriptionTextPrefix {
         didSet {
             descriptionLabel.text = descriptionText
         }
@@ -48,7 +49,6 @@ final class BAVAlpha: UIView {
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
-        setDescriptionText()
     }
     
     required init?(coder: NSCoder) {
@@ -70,11 +70,10 @@ final class BAVAlpha: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
+        
+        descriptionLabel.text = descriptionText
     }
     
-    private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squreAlphaValue == .one ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
-    }
 }
 
 
@@ -86,14 +85,13 @@ extension BAVAlpha: AnimationView {
         isAnimating = true
         squreAlphaValue = squreAlphaValue == .one ? .zero : .one
         
-        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.less) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.fast) { [unowned self] in
             
             self.square.alpha = squreAlphaValue.rawValue
             
         } completion: { [unowned self] _ in
             
             self.isAnimating = false
-            self.setDescriptionText()
             
         }
     }
@@ -126,9 +124,7 @@ extension BAVAlpha {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Tap on this row to set alpha of the square to"
-        static let descriptionTextSuffixState2 = " 0"
-        static let descriptionTextSuffixState1 = " 1"
+        static let descriptionTextPrefix = "Alpha"
         
     }
     

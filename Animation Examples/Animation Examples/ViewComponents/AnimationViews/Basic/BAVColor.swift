@@ -1,5 +1,5 @@
 //
-//  BVASize.swift
+//  BVAColor.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 09.01.2024.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class BAVSize: UIView {
+final class BAVColor: UIView {
     
 
 //    MARK: exposed properties
@@ -20,13 +20,13 @@ final class BAVSize: UIView {
         }
     }
     
-    var squreTransformSize: SquareHero.TransformSize = .small
+    var squareColor: SquareHero.Color = .purple
     
     
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
+    private var descriptionText = Constants.descriptionTextPrefix {
         didSet {
             descriptionLabel.text = descriptionText
         }
@@ -49,7 +49,6 @@ final class BAVSize: UIView {
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
-        setDescriptionText()
     }
     
     required init?(coder: NSCoder) {
@@ -71,38 +70,28 @@ final class BAVSize: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
+        
+        descriptionLabel.text = descriptionText
     }
     
-    private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squreTransformSize == .small ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
-    }
 }
 
 
-extension BAVSize: AnimationView {
+extension BAVColor: AnimationView {
     
     func startAnimation() {
         guard !isAnimating else { return }
         
         isAnimating = true
-        squreTransformSize = squreTransformSize == .small ? .large : .small
+        squareColor = squareColor == .purple ? .yellow : .purple
         
         UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.fast) { [unowned self] in
             
-            switch squreTransformSize {
-                
-            case .small:
-                self.square.transform = .identity
-                
-            case .large:
-                self.square.transform = self.square.transform.scaledBy(x: 1.25, y: 1.25)
-                
-            }
+            self.square.backgroundColor = squareColor.asUIColor
             
         } completion: { [unowned self] _ in
             
             self.isAnimating = false
-            self.setDescriptionText()
             
         }
     }
@@ -110,7 +99,7 @@ extension BAVSize: AnimationView {
 }
 
 
-extension BAVSize: UIStyler {
+extension BAVColor: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = false) {
         
@@ -131,15 +120,15 @@ extension BAVSize: UIStyler {
 }
 
 
-extension BAVSize {
+extension BAVColor {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Tap on this row to make it"
-        static let descriptionTextSuffixState2 = " larger"
-        static let descriptionTextSuffixState1 = " smaller"
+        static let descriptionTextPrefix = "Color"
         
     }
     
 }
+
+
 

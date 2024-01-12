@@ -1,14 +1,14 @@
 //
-//  BVAColor.swift
+//  BAVCombined.swift
 //  Animation Examples
 //
-//  Created by Bekzhan Talgat on 09.01.2024.
+//  Created by Bekzhan Talgat on 12.01.2024.
 //
 
 import UIKit
 
 
-final class BVAColor: UIView {
+final class BAVCombined1: UIView {
     
 
 //    MARK: exposed properties
@@ -20,20 +20,22 @@ final class BVAColor: UIView {
         }
     }
     
-    var squareColor: SquareHero.Color = .purple
+    var squreCenterPosition: SquareHero.CenterPositions = .leftCenter
+    var squreAlphaValue: SquareHero.AlphaValue = .one
+    var squreTransformRotation: SquareHero.TransformRotation = .right
     
     
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
+    private var descriptionText = Constants.descriptionTextPrefix {
         didSet {
             descriptionLabel.text = descriptionText
         }
     }
     
 //    MARK: viewComponents
-    lazy var square: UIView = SquareHero.getSquare(centerPosition: .rightCenter)
+    lazy var square: UIView = SquareHero.getSquare(centerPosition: .leftCenter)
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -49,7 +51,6 @@ final class BVAColor: UIView {
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
-        setDescriptionText()
     }
     
     required init?(coder: NSCoder) {
@@ -67,34 +68,36 @@ final class BVAColor: UIView {
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: GConstants.HIG.Padding.Four.x2),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
+        
+        descriptionLabel.text = descriptionText
     }
     
-    private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squareColor == .purple ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
-    }
 }
 
 
-extension BVAColor: AnimationView {
+extension BAVCombined1: AnimationView {
     
     func startAnimation() {
         guard !isAnimating else { return }
         
         isAnimating = true
-        squareColor = squareColor == .purple ? .yellow : .purple
+        squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
+        squreAlphaValue = squreAlphaValue == .one ? .zero : .one
+        squreTransformRotation = squreTransformRotation == .right ? .left : .right
         
-        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.fast) { [unowned self] in
+        UIView.animate(withDuration: GConstants.Animation.Duration.AnimationView.standard) { [unowned self] in
             
-            self.square.backgroundColor = squareColor.asUIColor
+            self.square.center = squreCenterPosition.asPoint
+            self.square.alpha = squreAlphaValue.rawValue
+            self.square.transform = squreTransformRotation == .right ? .identity : self.square.transform.rotated(by: .pi)
             
         } completion: { [unowned self] _ in
             
             self.isAnimating = false
-            self.setDescriptionText()
             
         }
     }
@@ -102,7 +105,7 @@ extension BVAColor: AnimationView {
 }
 
 
-extension BVAColor: UIStyler {
+extension BAVCombined1: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, animated: Bool = false) {
         
@@ -123,17 +126,16 @@ extension BVAColor: UIStyler {
 }
 
 
-extension BVAColor {
+extension BAVCombined1 {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Tap on this row to make it"
-        static let descriptionTextSuffixState2 = " yellow"
-        static let descriptionTextSuffixState1 = " purple"
+        static let descriptionTextPrefix = "Position + Alpha + Rotation"
         
     }
     
 }
+
 
 
 

@@ -24,7 +24,7 @@ import UIKit
 /// This is where the root view of the view controller is loaded.
 /// The `view` property of `UIViewController` is ``nil`` at the moment
 /// We call this method if we want to create a `custom view` and set it to the view property.
-/// We we call this method and want  to use custom view, then we do not call `super.loadView()`
+/// If we call this method and want  to use custom view, then we do not call `super.loadView()`, we can assign `custom view` after `super.loadview()`
 /// Because, by-default the method creates root view instead of us
 
 

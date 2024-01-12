@@ -26,7 +26,7 @@ final class BAVRotation: UIView {
 //    MARK: private properties
     private var isAnimating: Bool = false
     
-    private var descriptionText = Constants.descriptionTextPrefix + Constants.descriptionTextSuffixState2 {
+    private var descriptionText = Constants.descriptionTextPrefix {
         didSet {
             descriptionLabel.text = descriptionText
         }
@@ -49,7 +49,6 @@ final class BAVRotation: UIView {
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
-        setDescriptionText()
     }
     
     required init?(coder: NSCoder) {
@@ -71,11 +70,10 @@ final class BAVRotation: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(GConstants.HIG.Padding.Eight.x2 + SquareHero.squareDimension + GConstants.HIG.Padding.Four.x2)),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -GConstants.HIG.Padding.Four.x2),
         ])
+        
+        descriptionLabel.text = descriptionText
     }
     
-    private func setDescriptionText() {
-        descriptionText = Constants.descriptionTextPrefix + (squreTransformRotation == .right ? Constants.descriptionTextSuffixState2 : Constants.descriptionTextSuffixState1)
-    }
 }
 
 
@@ -102,7 +100,6 @@ extension BAVRotation: AnimationView {
         } completion: { [unowned self] _ in
             
             self.isAnimating = false
-            self.setDescriptionText()
             
         }
     }
@@ -135,9 +132,7 @@ extension BAVRotation {
     
     enum Constants {
         
-        static let descriptionTextPrefix = "Tap on this row to rotate it to"
-        static let descriptionTextSuffixState2 = " right"
-        static let descriptionTextSuffixState1 = " left"
+        static let descriptionTextPrefix = "Rotation"
         
     }
     
