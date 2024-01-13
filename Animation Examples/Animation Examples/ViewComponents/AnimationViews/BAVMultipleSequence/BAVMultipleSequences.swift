@@ -46,12 +46,3 @@ final class BAVMultipleSequences: BasicAnimationView {
     }
     
 }
-
-
-extension BAVMultipleSequences {
-    
-    func animateCombined2() {
-        
-    }
-    
-}
