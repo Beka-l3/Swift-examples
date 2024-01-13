@@ -28,6 +28,9 @@
 		079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */; };
 		079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */; };
 		079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */; };
+		079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */; };
+		079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */; };
+		079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */; };
 		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
 		07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
@@ -67,6 +70,9 @@
 		079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVMultipleSequences.swift; sourceTree = "<group>"; };
 		079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimatePosition.swift"; sourceTree = "<group>"; };
 		079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateAlpha.swift"; sourceTree = "<group>"; };
+		079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateSize.swift"; sourceTree = "<group>"; };
+		079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateRotation.swift"; sourceTree = "<group>"; };
+		079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateColor.swift"; sourceTree = "<group>"; };
 		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
 		07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSingleSequence.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */,
+				079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */,
+				079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */,
+				079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */,
 				079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */,
 				079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */,
 			);
@@ -436,11 +445,13 @@
 				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
+				079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */,
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
+				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
@@ -452,6 +463,7 @@
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
+				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

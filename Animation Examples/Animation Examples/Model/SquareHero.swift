@@ -103,7 +103,27 @@ extension SquareHero {
     enum TransformSize {
         
         case small
+        case middle1
+        case middle2
         case large
+        
+        var asTransform: CGAffineTransform {
+            switch self {
+                
+            case .small:
+                return .identity
+                
+            case .middle1:
+                return .init(scaleX: 1.1, y: 1.1)
+                
+            case .middle2:
+                return .init(scaleX: 1.2, y: 1.2)
+                
+            case .large:
+                return .init(scaleX: 1.25, y: 1.25)
+                
+            }
+        }
         
     }
     
@@ -114,8 +134,27 @@ extension SquareHero {
  
     enum TransformRotation {
         
-        case right
-        case left
+        case zero
+        case threeSixty
+        case oneEighty
+        case twoSeventy
+        
+        var asTransform: CGAffineTransform {
+            switch self {
+                
+            case .zero:
+                return .init(rotationAngle: 0)
+                
+            case .threeSixty:
+                return .init(rotationAngle: 3.14)
+                
+            case .oneEighty:
+                return .init(rotationAngle: 3.14 / 2)
+                
+            case .twoSeventy:
+                return .init(rotationAngle: 3.14 * 3 / 4)
+            }
+        }
         
     }
     
@@ -128,6 +167,8 @@ extension SquareHero {
         
         case purple
         case yellow
+        case blue
+        case pink
         
         var asUIColor: UIColor {
             
@@ -139,6 +180,11 @@ extension SquareHero {
             case .yellow:
                 return .systemYellow
             
+            case .blue:
+                return .systemBlue
+                
+            case .pink:
+                return .systemPink
             }
             
         }

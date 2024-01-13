@@ -49,7 +49,7 @@ class BasicAnimationView: UIView, AnimationView {
     var squreCenterPosition: SquareHero.CenterPositions = .leftCenter
     var squreAlphaValue: SquareHero.AlphaValue = .one
     var squreTransformSize: SquareHero.TransformSize = .small
-    var squreTransformRotation: SquareHero.TransformRotation = .left
+    var squreTransformRotation: SquareHero.TransformRotation = .zero
     var squareColor: SquareHero.Color = .purple
     
     
