@@ -19,7 +19,7 @@ final class BAVSingleSequence: BasicAnimationView {
         isAnimating = true
         
         let animation: () -> Void
-        var duration = GConstants.Animation.Duration.AnimationView.fast
+        var duration = GConstants.Animation.Duration.short
         
         switch type {
             
@@ -57,7 +57,7 @@ final class BAVSingleSequence: BasicAnimationView {
             squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
             squreAlphaValue = squreAlphaValue == .one ? .zero : .one
             squreTransformRotation = squreTransformRotation == .left ? .right : .left
-            duration = GConstants.Animation.Duration.AnimationView.standard
+            duration = GConstants.Animation.Duration.long
             animation = { [unowned self] in
                 self.square.center = self.squreCenterPosition.asPoint
                 self.square.alpha = self.squreAlphaValue.rawValue
@@ -68,7 +68,7 @@ final class BAVSingleSequence: BasicAnimationView {
             squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
             squareColor = squareColor == .purple ? .yellow : .purple
             squreTransformSize = squreTransformSize == .small ? .large : .small
-            duration = GConstants.Animation.Duration.AnimationView.standard
+            duration = GConstants.Animation.Duration.long
             animation = { [unowned self] in
                 self.square.center = self.squreCenterPosition.asPoint
                 self.square.backgroundColor = self.squareColor.asUIColor

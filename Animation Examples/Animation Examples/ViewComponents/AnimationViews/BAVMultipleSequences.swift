@@ -52,33 +52,33 @@ final class BAVMultipleSequences: BasicAnimationView {
 extension BAVMultipleSequences {
     
     func animatePosition() {
-        UIView.animateKeyframes(withDuration: GConstants.Animation.Duration.standard, delay: .zero) { [unowned self] in
+        UIView.animateKeyframes(withDuration: GConstants.Animation.Duration.medium, delay: .zero) { [unowned self] in
             
             switch self.state {
                 
             case .initail:
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.firstPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.middleTop.asPoint
                 }
                 
-                UIView.addKeyframe(withRelativeStartTime: 1 / 3, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.secondPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.middleBottom.asPoint
                 }
                 
-                UIView.addKeyframe(withRelativeStartTime: 2 / 3, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.thirdPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.rightCenter.asPoint
                 }
                 
             case .final:
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.firstPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.middleBottom.asPoint
                 }
                 
-                UIView.addKeyframe(withRelativeStartTime: 1 / 3, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.secondPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.middleTop.asPoint
                 }
                 
-                UIView.addKeyframe(withRelativeStartTime: 2 / 3, relativeDuration: 1 / 3) {
+                UIView.addKeyframe(withRelativeStartTime: GConstants.Animation.Duration.Triplet.thirdPartStart, relativeDuration: GConstants.Animation.Duration.Triplet.unit) {
                     self.square.center = SquareHero.CenterPositions.leftCenter.asPoint
                 }
                 
