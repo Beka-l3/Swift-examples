@@ -57,10 +57,30 @@ extension BAVMultipleSequences {
             switch self.state {
                 
             case .initail:
-                break
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.middleTop.asPoint
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 1 / 3, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.middleBottom.asPoint
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 2 / 3, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.rightCenter.asPoint
+                }
                 
             case .final:
-                break
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.middleBottom.asPoint
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 1 / 3, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.middleTop.asPoint
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 2 / 3, relativeDuration: 1 / 3) {
+                    self.square.center = SquareHero.CenterPositions.leftCenter.asPoint
+                }
                 
             }
             

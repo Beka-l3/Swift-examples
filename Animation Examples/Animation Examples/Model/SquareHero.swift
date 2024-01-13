@@ -44,8 +44,8 @@ extension SquareHero {
     
     enum CenterPositions {
         
-        case leftCenter
-        case rightCenter
+        case leftCenter, rightCenter
+        case middleTop, middleBottom
         
         var asPoint: CGPoint {
             
@@ -61,6 +61,18 @@ extension SquareHero {
                 return .init(
                     x: GConstants.HIG.Size.screen.width - GConstants.HIG.Padding.Eight.x3 - squareDimension / 2,
                     y: AnimationTableViewCell.animationViewHeight / 2
+                )
+                
+            case .middleTop:
+                return .init(
+                    x: GConstants.HIG.Size.screen.width / 2,
+                    y: GConstants.HIG.Padding.Eight.x1 + squareDimension / 2
+                )
+                
+            case .middleBottom:
+                return .init(
+                    x: GConstants.HIG.Size.screen.width / 2,
+                    y: GConstants.HIG.Size.animationTableViewCell.height - (GConstants.HIG.Padding.Eight.x1 + squareDimension / 2)
                 )
                 
             }
