@@ -1,5 +1,5 @@
 //
-//  AnimationVC.swift
+//  AnimationViewController.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 05.01.2024.

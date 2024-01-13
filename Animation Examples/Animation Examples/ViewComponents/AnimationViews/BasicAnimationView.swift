@@ -9,7 +9,7 @@ import UIKit
 
 
 /// Inherite this class and `override` `startAnimation` method
-class BasicAnimationView: UIView, AnimationView {
+class BasicAnimationView: UIView, BasicUIViewAnimate {
     
     enum BAVType: String {
         case position = "Position"

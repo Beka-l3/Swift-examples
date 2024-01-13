@@ -1,5 +1,5 @@
 //
-//  AnimationView.swift
+//  BasicUIViewAnimate.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 09.01.2024.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol AnimationView: UIView, UIStyler {
+protocol BasicUIViewAnimate: UIView, UIStyler {
     
     var isDescriptionHidden: Bool { get set }
     
@@ -19,7 +19,7 @@ protocol AnimationView: UIView, UIStyler {
 }
 
 
-extension AnimationView {
+extension BasicUIViewAnimate {
     
     func setupFrame() {
         frame = .init(

@@ -17,7 +17,7 @@ final class AnimationTableViewCell: UITableViewCell {
         
     
 //    MARK: viewComponents
-    var animationView: AnimationView?
+    var animationView: BasicUIViewAnimate?
     
     
 //    MARK: lifecycle
@@ -36,7 +36,7 @@ final class AnimationTableViewCell: UITableViewCell {
     
     
 //    MARK: exposed func
-    func setAnimationView(_ view: AnimationView) {
+    func setAnimationView(_ view: BasicUIViewAnimate) {
         addSubview(view)
         animationView = view
     }

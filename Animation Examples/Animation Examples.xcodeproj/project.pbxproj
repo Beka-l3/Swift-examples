@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071312542B4870EA009246F6 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationVC.swift */; };
+		071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationViewController.swift */; };
 		071312572B488F17009246F6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312562B488F17009246F6 /* Service.swift */; };
 		071312592B488F33009246F6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312582B488F33009246F6 /* Calculator.swift */; };
 		0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713125E2B4891E0009246F6 /* GConstants+Animations.swift */; };
@@ -19,7 +19,7 @@
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
-		07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCD2B4D614800A9F968 /* AnimationView.swift */; };
+		07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */; };
 		07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD42B4D688000A9F968 /* SquareHero.swift */; };
 		07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD62B4D821200A9F968 /* UIStyle.swift */; };
 		0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A42B4C312400AD0120 /* MyNavigationController.swift */; };
@@ -51,7 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		071312532B4870EA009246F6 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
+		071312532B4870EA009246F6 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		071312562B488F17009246F6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		071312582B488F33009246F6 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		0713125E2B4891E0009246F6 /* GConstants+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Animations.swift"; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
-		07583DCD2B4D614800A9F968 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUIViewAnimate.swift; sourceTree = "<group>"; };
 		07583DD42B4D688000A9F968 /* SquareHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareHero.swift; sourceTree = "<group>"; };
 		07583DD62B4D821200A9F968 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		0768C7A42B4C312400AD0120 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		071312522B4870CD009246F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				071312532B4870EA009246F6 /* AnimationVC.swift */,
+				071312532B4870EA009246F6 /* AnimationViewController.swift */,
 				07583DCF2B4D625300A9F968 /* Protocols */,
 				07583DD42B4D688000A9F968 /* SquareHero.swift */,
 			);
@@ -190,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
-				07583DCD2B4D614800A9F968 /* AnimationView.swift */,
+				07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */,
 				07583DD62B4D821200A9F968 /* UIStyle.swift */,
 			);
 			path = Protocols;
@@ -443,7 +443,7 @@
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
-				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
+				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
@@ -469,7 +469,7 @@
 				07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */,
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
-				07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */,
+				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
 				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
