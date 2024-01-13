@@ -90,6 +90,9 @@ extension SquareHero {
         case zero = 0
         case one = 1
         
+        case oneThird = 0.38
+        case twoThird = 0.6
+        
     }
     
 }
