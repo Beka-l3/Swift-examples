@@ -23,9 +23,17 @@ class BasicAnimationView: UIView, AnimationView {
         case none = ""
     }
     
+    enum State {
+        case initail
+        case final
+    }
+    
+    
 //    MARK: exposed properties
     let type: BAVType
     let descriptionText: String
+    
+    var state: State
     
     var isDescriptionHidden: Bool {
         didSet {
@@ -60,6 +68,7 @@ class BasicAnimationView: UIView, AnimationView {
     init(type: BAVType, isDescriptionHidden: Bool = false) {
         self.type = type
         self.descriptionText = type.rawValue
+        self.state = .initail
         self.isDescriptionHidden = isDescriptionHidden
         super.init(frame: .zero)
         setupView()
@@ -68,6 +77,7 @@ class BasicAnimationView: UIView, AnimationView {
     required init?(coder: NSCoder) {
         self.type = .none
         self.descriptionText = type.rawValue
+        self.state = .initail
         self.isDescriptionHidden = true
         super.init(coder: coder)
     }

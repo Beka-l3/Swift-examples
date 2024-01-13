@@ -46,7 +46,7 @@ extension AppCoordinator {
     enum Mocks {
         static let animationVCs = [
             BasicAnimationsVC(
-                details: .init(title: "Basic Animations", description: "Animtions"),
+                details: .init(title: "Basic Animations", description: "Basic animations with signle sequence"),
                 animationViews: [
                     BAVSingleSequence(type: .position),
                     BAVSingleSequence(type: .alpha),
@@ -55,6 +55,19 @@ extension AppCoordinator {
                     BAVSingleSequence(type: .color),
                     BAVSingleSequence(type: .combined1),
                     BAVSingleSequence(type: .combined2),
+                ]
+            ),
+            
+            BasicAnimationsVC(
+                details: .init(title: "Basic Animations", description: "Basic animations with multiple sequences"),
+                animationViews: [
+                    BAVMultipleSequences(type: .position),
+                    BAVMultipleSequences(type: .alpha),
+                    BAVMultipleSequences(type: .size),
+                    BAVMultipleSequences(type: .rotation),
+                    BAVMultipleSequences(type: .color),
+                    BAVMultipleSequences(type: .combined1),
+                    BAVMultipleSequences(type: .combined2),
                 ]
             ),
             
