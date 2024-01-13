@@ -1,41 +1,30 @@
 //
-//  FristVC.swift
+//  SecondVC.swift
 //  Animation Examples
 //
-//  Created by Bekzhan Talgat on 30.12.2023.
+//  Created by Bekzhan Talgat on 13.01.2024.
 //
 
 import UIKit
 
 
-final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
+final class SecondVC: UIViewController, AnimatoinViewController {
     
-    /// AnimatoinViewController
     let details: AnimatoinViewControllerDetails
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationViews: [BasicUIViewAnimate]
-    
-    private let viewComponents: BasicAnimationsViewComponents = .init()
-    
-    private(set) var isDescriptionHidden: Bool = false {
-        didSet {
-            animationViews.forEach { $0.isDescriptionHidden = isDescriptionHidden }
-        }
-    }
+    private let viewComponents: SecondVCViewComponents = .init()
     
     
 //    MARK: lifecycle
-    init(details: AnimatoinViewControllerDetails, animationViews: [BasicUIViewAnimate] = []) {
+    init(details: AnimatoinViewControllerDetails) {
         self.details = details
-        self.animationViews = animationViews
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.details = .init(title: "", description: "")
-        self.animationViews = []
+        self.details = .init(title: "Second", description: "")
         super.init(coder: coder)
     }
     
@@ -68,39 +57,24 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
 //    MARK: private func
     private func setupViews() {
         viewComponents.setupViews(parent: view)
-        viewComponents.animationTableView.delegate = self
-        viewComponents.animationTableView.dataSource = self
-        viewComponents.descriptionVisibilityButton.target = self
-        viewComponents.descriptionVisibilityButton.action = #selector(handleDescriptionVisibilityButton)
     }
     
     private func checkState() {
-        viewComponents.setDescriptionVisibilityButtonState(isDescriptionHidden: isDescriptionHidden)
+        
     }
     
     private func setupNavigationItem() {
         navigationItem.title = details.title
-        navigationItem.rightBarButtonItem = viewComponents.descriptionVisibilityButton
     }
     
 }
 
 
-extension BasicAnimationsVC {
-    
-    @objc func handleDescriptionVisibilityButton() {
-        isDescriptionHidden.toggle()
-        viewComponents.setDescriptionVisibilityButtonState(isDescriptionHidden: isDescriptionHidden)
-    }
-    
-}
 
-
-extension BasicAnimationsVC: UIStyler {
+extension SecondVC: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
         viewComponents.setStyle(style, parent: view, animated: animated)
-        animationViews.forEach { $0.setStyle(style, animated: animated) }
     }
     
 }

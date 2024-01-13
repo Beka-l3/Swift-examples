@@ -71,6 +71,9 @@ extension AppCoordinator {
                 ]
             ),
             
+            SecondVC(
+                details: .init(title: "Second VC", description: "For a new idea")
+            )
             
             
 //            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
