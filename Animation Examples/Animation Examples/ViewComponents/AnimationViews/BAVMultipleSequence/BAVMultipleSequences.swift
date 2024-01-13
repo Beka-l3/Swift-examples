@@ -10,7 +10,6 @@ import UIKit
 
 final class BAVMultipleSequences: BasicAnimationView {
     
-    
     override func startAnimation() {
         guard !isAnimating else { return }
         
@@ -43,15 +42,6 @@ final class BAVMultipleSequences: BasicAnimationView {
             break
             
         }
-        
-    }
-    
-}
-
-
-extension BAVMultipleSequences {
-    
-    func animateCombined1() {
         
     }
     

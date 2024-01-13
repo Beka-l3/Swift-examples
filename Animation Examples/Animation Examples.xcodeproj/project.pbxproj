@@ -31,6 +31,7 @@
 		079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */; };
 		079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */; };
 		079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */; };
+		079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */; };
 		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
 		07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
@@ -73,6 +74,7 @@
 		079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateSize.swift"; sourceTree = "<group>"; };
 		079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateRotation.swift"; sourceTree = "<group>"; };
 		079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateColor.swift"; sourceTree = "<group>"; };
+		079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateCombined1.swift"; sourceTree = "<group>"; };
 		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
 		07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSingleSequence.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */,
+				079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */,
 				079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */,
 				079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */,
 				079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */,
@@ -448,6 +451,7 @@
 				079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */,
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
