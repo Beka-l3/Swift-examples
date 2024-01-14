@@ -70,7 +70,6 @@ final class SecondVC: UIViewController, AnimatoinViewController {
 }
 
 
-
 extension SecondVC: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
