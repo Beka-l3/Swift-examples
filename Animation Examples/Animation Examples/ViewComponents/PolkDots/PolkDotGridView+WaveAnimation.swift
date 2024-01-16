@@ -116,11 +116,7 @@ extension PolkDotGridView {
         }
         
     }
-    
-//    private var nextDotToAnimate: (i: Int, j: Int) {
-//        (animatedDotsCount / polkDotSize.rawValue, animatedDotsCount % polkDotSize.rawValue)
-//    }
-    
+        
     private var isAnimating: Bool {
         timer != nil
     }
