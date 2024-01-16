@@ -40,6 +40,9 @@
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
+		07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4432B5678C2000A8D78 /* PolkDotView.swift */; };
+		07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */; };
+		07C5E4482B567B26000A8D78 /* PolkDotGridView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
 		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
@@ -86,6 +89,9 @@
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
+		07C5E4432B5678C2000A8D78 /* PolkDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotView.swift; sourceTree = "<group>"; };
+		07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotGridView.swift; sourceTree = "<group>"; };
+		07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PolkDotGridView+Animations.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +286,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		07C5E4422B5678A3000A8D78 /* PolkDots */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E4432B5678C2000A8D78 /* PolkDotView.swift */,
+				07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */,
+				07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */,
+			);
+			path = PolkDots;
+			sourceTree = "<group>";
+		};
 		07E58B5E2B3DA9D10041BEF3 = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +382,7 @@
 				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
+				07C5E4422B5678A3000A8D78 /* PolkDots */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -449,7 +466,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C5E4482B567B26000A8D78 /* PolkDotGridView+Animations.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
+				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
@@ -478,6 +497,7 @@
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* SecondVCViewComponents.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,

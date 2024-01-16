@@ -57,6 +57,7 @@ final class SecondVC: UIViewController, AnimatoinViewController {
 //    MARK: private func
     private func setupViews() {
         viewComponents.setupViews(parent: view)
+        viewComponents.button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
     }
     
     private func checkState() {
@@ -74,6 +75,17 @@ extension SecondVC: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
         viewComponents.setStyle(style, parent: view, animated: animated)
+    }
+    
+}
+
+
+extension SecondVC {
+    
+    @objc func handleButton() {
+        
+        viewComponents.gridOfPolkDots.waveAnimation()
+        
     }
     
 }
