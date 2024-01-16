@@ -18,15 +18,18 @@ final class PolkDotGridView: UIView {
     
     
 //    MARK: properties
-    var polkDotSize: PolkDotSize
-    var polkDots: [[PolkDotView]] = []
+    private(set) var polkDotSize: PolkDotSize
+    private(set) var polkDots: [[PolkDotView]] = []
+    private(set) var dotsCount: Int = 0
     
-    var dotsCount: Int = 0
-    var isAnimating: Bool = false
     var animatedDotsCount: Int = 0
-    var nextDotToAnimate: (i: Int, j: Int) = (0, 0)
-    
-    var timer: Timer?
+    var timer: Timer? {
+        willSet {
+            if newValue == nil {
+                timer?.invalidate()
+            }
+        }
+    }
     
     
 //    MARK: lifecycle
