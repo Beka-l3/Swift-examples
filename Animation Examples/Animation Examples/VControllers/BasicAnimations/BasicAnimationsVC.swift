@@ -15,7 +15,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     weak var appCoordinator: AppCoordinator?
     
-    let animationViews: [AnimationView]
+    let animationViews: [BasicUIViewAnimate]
     
     private let viewComponents: BasicAnimationsViewComponents = .init()
     
@@ -27,7 +27,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
     
     
 //    MARK: lifecycle
-    init(details: AnimatoinViewControllerDetails, animationViews: [AnimationView] = []) {
+    init(details: AnimatoinViewControllerDetails, animationViews: [BasicUIViewAnimate] = []) {
         self.details = details
         self.animationViews = animationViews
         super.init(nibName: nil, bundle: nil)
@@ -63,6 +63,7 @@ final class BasicAnimationsVC: UIViewController, AnimatoinViewController {
             setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: true)
         }
     }
+    
     
 //    MARK: private func
     private func setupViews() {

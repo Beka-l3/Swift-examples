@@ -19,6 +19,10 @@ extension GConstants.Animation {
         
         static let standard: TimeInterval = 0.6
         
+        static let short: TimeInterval = 0.4
+        static let medium: TimeInterval = 1.2
+        static let long: TimeInterval = 2
+        
     }
 }
 
@@ -39,11 +43,13 @@ extension GConstants.Animation.Duration {
 
 extension GConstants.Animation.Duration {
     
-    enum AnimationView {
+    enum Triplet {
         
-        static let fast: TimeInterval = 0.4
-        static let less: TimeInterval = 1.2
-        static let standard: TimeInterval = 2
+        static let unit: TimeInterval = 1 / 3
+        
+        static let firstPartStart: TimeInterval = unit * 0
+        static let secondPartStart: TimeInterval = unit * 1
+        static let thirdPartStart: TimeInterval = unit * 2
         
     }
     

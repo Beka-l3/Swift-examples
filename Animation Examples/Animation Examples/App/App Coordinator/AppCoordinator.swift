@@ -44,9 +44,9 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
 
 extension AppCoordinator {
     enum Mocks {
-        static let animationVCs = [
+        static let animationVCs: [AnimatoinViewController] = [
             BasicAnimationsVC(
-                details: .init(title: "Basic Animations", description: "Animtions"),
+                details: .init(title: "Basic Animations", description: "Basic animations with signle sequence"),
                 animationViews: [
                     BAVSingleSequence(type: .position),
                     BAVSingleSequence(type: .alpha),
@@ -58,9 +58,27 @@ extension AppCoordinator {
                 ]
             ),
             
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
-            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
+            BasicAnimationsVC(
+                details: .init(title: "Basic Animations", description: "Basic animations with multiple sequences"),
+                animationViews: [
+                    BAVMultipleSequences(type: .position),
+                    BAVMultipleSequences(type: .alpha),
+                    BAVMultipleSequences(type: .size),
+                    BAVMultipleSequences(type: .rotation),
+                    BAVMultipleSequences(type: .color),
+                    BAVMultipleSequences(type: .combined1),
+                    BAVMultipleSequences(type: .combined2),
+                ]
+            ),
+            
+            SecondVC(
+                details: .init(title: "Second VC", description: "For a new idea")
+            )
+            
+            
+//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
+//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
+//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
         ]
     }
 }

@@ -19,7 +19,7 @@ final class BAVSingleSequence: BasicAnimationView {
         isAnimating = true
         
         let animation: () -> Void
-        var duration = GConstants.Animation.Duration.AnimationView.fast
+        var duration = GConstants.Animation.Duration.short
         
         switch type {
             
@@ -38,13 +38,13 @@ final class BAVSingleSequence: BasicAnimationView {
         case .size:
             squreTransformSize = squreTransformSize == .small ? .large : .small
             animation = { [unowned self] in
-                self.square.transform = self.squreTransformSize == .small ? .identity : CGAffineTransform(scaleX: 1.25, y: 1.25)
+                self.square.transform = self.squreTransformSize.asTransform
             }
             
         case .rotation:
-            squreTransformRotation = squreTransformRotation == .left ? .right : .left
+            squreTransformRotation = squreTransformRotation == .zero ? .threeSixty : .zero
             animation = { [unowned self] in
-                self.square.transform = self.squreTransformRotation == .left ? CGAffineTransform(rotationAngle: 0) : CGAffineTransform(rotationAngle: 3.14)
+                self.square.transform = self.squreTransformRotation.asTransform
             }
             
         case .color:
@@ -56,23 +56,23 @@ final class BAVSingleSequence: BasicAnimationView {
         case .combined1:
             squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
             squreAlphaValue = squreAlphaValue == .one ? .zero : .one
-            squreTransformRotation = squreTransformRotation == .left ? .right : .left
-            duration = GConstants.Animation.Duration.AnimationView.standard
+            squreTransformRotation = squreTransformRotation == .zero ? .threeSixty : .zero
+            duration = GConstants.Animation.Duration.long
             animation = { [unowned self] in
                 self.square.center = self.squreCenterPosition.asPoint
                 self.square.alpha = self.squreAlphaValue.rawValue
-                self.square.transform = self.squreTransformRotation == .left ? CGAffineTransform(rotationAngle: 0) : CGAffineTransform(rotationAngle: 3.14)
+                self.square.transform = self.squreTransformRotation.asTransform
             }
             
         case .combined2:
             squreCenterPosition = squreCenterPosition == .leftCenter ? .rightCenter : .leftCenter
             squareColor = squareColor == .purple ? .yellow : .purple
             squreTransformSize = squreTransformSize == .small ? .large : .small
-            duration = GConstants.Animation.Duration.AnimationView.standard
+            duration = GConstants.Animation.Duration.long
             animation = { [unowned self] in
                 self.square.center = self.squreCenterPosition.asPoint
                 self.square.backgroundColor = self.squareColor.asUIColor
-                self.square.transform = self.squreTransformSize == .small ? .identity : self.square.transform.scaledBy(x: 1.25, y: 1.25)
+                self.square.transform = self.squreTransformSize.asTransform
             }
             
         case .none:

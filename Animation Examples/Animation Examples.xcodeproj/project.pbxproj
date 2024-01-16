@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071312542B4870EA009246F6 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationVC.swift */; };
+		071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312532B4870EA009246F6 /* AnimationViewController.swift */; };
 		071312572B488F17009246F6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312562B488F17009246F6 /* Service.swift */; };
 		071312592B488F33009246F6 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071312582B488F33009246F6 /* Calculator.swift */; };
 		0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713125E2B4891E0009246F6 /* GConstants+Animations.swift */; };
@@ -19,17 +19,32 @@
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
-		07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCD2B4D614800A9F968 /* AnimationView.swift */; };
+		07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */; };
 		07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD42B4D688000A9F968 /* SquareHero.swift */; };
 		07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DD62B4D821200A9F968 /* UIStyle.swift */; };
 		0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A42B4C312400AD0120 /* MyNavigationController.swift */; };
 		0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */; };
 		0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */; };
+		079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */; };
+		079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */; };
+		079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */; };
+		079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */; };
+		079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */; };
+		079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */; };
+		079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */; };
+		079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B72B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift */; };
+		079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BA2B53230A008BEF20 /* SecondVC.swift */; };
+		079599BD2B5324AA008BEF20 /* SecondVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */; };
 		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
 		07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
+		07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4432B5678C2000A8D78 /* PolkDotView.swift */; };
+		07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */; };
+		07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */; };
+		07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4492B568C0C000A8D78 /* String+Empty.swift */; };
+		07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
 		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
@@ -43,7 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		071312532B4870EA009246F6 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
+		071312532B4870EA009246F6 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		071312562B488F17009246F6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		071312582B488F33009246F6 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		0713125E2B4891E0009246F6 /* GConstants+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Animations.swift"; sourceTree = "<group>"; };
@@ -55,17 +70,32 @@
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
-		07583DCD2B4D614800A9F968 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUIViewAnimate.swift; sourceTree = "<group>"; };
 		07583DD42B4D688000A9F968 /* SquareHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareHero.swift; sourceTree = "<group>"; };
 		07583DD62B4D821200A9F968 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		0768C7A42B4C312400AD0120 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		0768C7A82B4C343D00AD0120 /* MyNavigationController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Style.swift"; sourceTree = "<group>"; };
 		0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyNavigationController+Presence.swift"; sourceTree = "<group>"; };
+		079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVMultipleSequences.swift; sourceTree = "<group>"; };
+		079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimatePosition.swift"; sourceTree = "<group>"; };
+		079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateAlpha.swift"; sourceTree = "<group>"; };
+		079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateSize.swift"; sourceTree = "<group>"; };
+		079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateRotation.swift"; sourceTree = "<group>"; };
+		079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateColor.swift"; sourceTree = "<group>"; };
+		079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateCombined1.swift"; sourceTree = "<group>"; };
+		079599B72B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateCombined2.swift"; sourceTree = "<group>"; };
+		079599BA2B53230A008BEF20 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewComponents.swift; sourceTree = "<group>"; };
 		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
 		07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSingleSequence.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
+		07C5E4432B5678C2000A8D78 /* PolkDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotView.swift; sourceTree = "<group>"; };
+		07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotGridView.swift; sourceTree = "<group>"; };
+		07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PolkDotGridView+WaveAnimation.swift"; sourceTree = "<group>"; };
+		07C5E4492B568C0C000A8D78 /* String+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
+		07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+HalfSecond.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +124,7 @@
 		071312522B4870CD009246F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				071312532B4870EA009246F6 /* AnimationVC.swift */,
+				071312532B4870EA009246F6 /* AnimationViewController.swift */,
 				07583DCF2B4D625300A9F968 /* Protocols */,
 				07583DD42B4D688000A9F968 /* SquareHero.swift */,
 			);
@@ -133,6 +163,7 @@
 			children = (
 				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
+				07C5E44C2B568C27000A8D78 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -174,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */,
-				07583DCD2B4D614800A9F968 /* AnimationView.swift */,
+				07583DCD2B4D614800A9F968 /* BasicUIViewAnimate.swift */,
 				07583DD62B4D821200A9F968 /* UIStyle.swift */,
 			);
 			path = Protocols;
@@ -185,6 +216,7 @@
 			children = (
 				07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */,
 				07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */,
+				079599AA2B52F32A008BEF20 /* BAVMultipleSequence */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -205,6 +237,30 @@
 				0768C7AA2B4C349C00AD0120 /* MyNavigationController+Presence.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		079599AA2B52F32A008BEF20 /* BAVMultipleSequence */ = {
+			isa = PBXGroup;
+			children = (
+				079599A82B52EAD7008BEF20 /* BAVMultipleSequences.swift */,
+				079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */,
+				079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */,
+				079599B12B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift */,
+				079599AF2B53033C008BEF20 /* BAVMultipleSequences+AnimateSize.swift */,
+				079599AD2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift */,
+				079599AB2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift */,
+				079599B72B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift */,
+			);
+			path = BAVMultipleSequence;
+			sourceTree = "<group>";
+		};
+		079599B92B5322F5008BEF20 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				079599BA2B53230A008BEF20 /* SecondVC.swift */,
+				079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */,
+			);
+			path = Second;
 			sourceTree = "<group>";
 		};
 		07B440512B40A5DB00F37D85 /* BasicAnimations */ = {
@@ -233,6 +289,33 @@
 				07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		07C5E4422B5678A3000A8D78 /* PolkDots */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E4432B5678C2000A8D78 /* PolkDotView.swift */,
+				07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */,
+				07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */,
+			);
+			path = PolkDots;
+			sourceTree = "<group>";
+		};
+		07C5E44B2B568C11000A8D78 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E4492B568C0C000A8D78 /* String+Empty.swift */,
+				07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		07C5E44C2B568C27000A8D78 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E44B2B568C11000A8D78 /* UIKit */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		07E58B5E2B3DA9D10041BEF3 = {
@@ -282,6 +365,7 @@
 			children = (
 				07E58B812B3DB3A30041BEF3 /* Root */,
 				07B440512B40A5DB00F37D85 /* BasicAnimations */,
+				079599B92B5322F5008BEF20 /* Second */,
 			);
 			path = VControllers;
 			sourceTree = "<group>";
@@ -320,6 +404,7 @@
 				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
+				07C5E4422B5678A3000A8D78 /* PolkDots */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -403,7 +488,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
+				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
+				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
+				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
+				079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
@@ -411,7 +501,7 @@
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
-				071312542B4870EA009246F6 /* AnimationVC.swift in Sources */,
+				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
@@ -419,19 +509,29 @@
 				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
+				079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */,
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
+				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
+				079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */,
+				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
+				079599BD2B5324AA008BEF20 /* SecondVCViewComponents.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,
+				079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */,
 				07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */,
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
-				07583DCE2B4D614800A9F968 /* AnimationView.swift in Sources */,
+				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
+				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
+				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
