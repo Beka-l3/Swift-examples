@@ -1,5 +1,5 @@
 //
-//  PolkDotGridView+Animations.swift
+//  PolkDotGridView+WaveAnimation.swift
 //  Animation Examples
 //
 //  Created by Bekzhan Talgat on 16.01.2024.
@@ -14,20 +14,76 @@ extension PolkDotGridView {
         guard !isAnimating else { return }
         
         animatedDotsCount = 0
+        radiusForWaveAnimation = 0
         
         timer = Timer.scheduledTimer(timeInterval: waveAnimationSpeed, target: self, selector: #selector(waveAnimationForTimer), userInfo: nil, repeats: true)
     }
     
     @objc func waveAnimationForTimer() {
-        guard 0 <= animatedDotsCount && animatedDotsCount < dotsCount else {
+        guard 0 <= animatedDotsCount && animatedDotsCount < totalPolkDotsCount else {
             timer = nil
             return
         }
         
-        polkDots[nextDotToAnimate.i][nextDotToAnimate.j].blink(duration: blinkDurationForWaveAnimation)
-        animatedDotsCount += 1
+        
+        for dot in dotsToAnimate {
+            dot.blink(duration: blinkDurationForWaveAnimation)
+        }
+        
+        animatedDotsCount += dotsToAnimate.count
+        
+        radiusForWaveAnimation += 1
     }
     
+    
+    private var centerDotCoordinates: (i: Int, j: Int) {
+        return (polkDots.count / 2, polkDotSize.rawValue / 2)
+    }
+    
+    private var dotsToAnimate: Set<PolkDotView> {
+        guard 0 <= radiusForWaveAnimation, !polkDots.isEmpty else {
+            return []
+        }
+        
+        var result: Set<PolkDotView> = []
+        
+        let topLeftIdx: (i: Int, j: Int) = (max(centerDotCoordinates.i - radiusForWaveAnimation, 0), max(centerDotCoordinates.j - radiusForWaveAnimation, 0))
+        let topRightIdx: (i: Int, j: Int) = (max(centerDotCoordinates.i - radiusForWaveAnimation, 0), min(centerDotCoordinates.j + radiusForWaveAnimation, polkDotSize.rawValue - 1))
+        
+        let bottomLeftIdx: (i: Int, j: Int) = (min(centerDotCoordinates.i + radiusForWaveAnimation, polkDots.count - 1), max(centerDotCoordinates.j - radiusForWaveAnimation, 0))
+        let bottomRightIdx: (i: Int, j: Int) = (min(centerDotCoordinates.i + radiusForWaveAnimation, polkDots.count - 1), min(centerDotCoordinates.j + radiusForWaveAnimation, polkDotSize.rawValue - 1))
+        
+        
+        /// top dots
+        if centerDotCoordinates.i - radiusForWaveAnimation >= 0 {
+            for j in topLeftIdx.j...topRightIdx.j {
+                result.insert( polkDots[topLeftIdx.i][j] )
+            }
+        }
+        
+        /// bottom dots
+        if centerDotCoordinates.i + radiusForWaveAnimation < polkDots.count {
+            for j in bottomLeftIdx.j...bottomRightIdx.j {
+                result.insert( polkDots[bottomLeftIdx.i][j] )
+            }
+        }
+        
+        /// left dots
+        if centerDotCoordinates.j - radiusForWaveAnimation >= 0 {
+            for i in topLeftIdx.i...bottomLeftIdx.i {
+                result.insert( polkDots[i][bottomLeftIdx.j] )
+            }
+        }
+        
+        /// right dots
+        if centerDotCoordinates.j + radiusForWaveAnimation < polkDotSize.rawValue {
+            for i in topRightIdx.i...bottomRightIdx.i {
+                result.insert( polkDots[i][bottomRightIdx.j] )
+            }
+        }
+        
+        return result
+    }
     
     private var waveAnimationSpeed: TimeInterval {
         switch animationSpeed {
@@ -61,9 +117,9 @@ extension PolkDotGridView {
         
     }
     
-    private var nextDotToAnimate: (i: Int, j: Int) {
-        (animatedDotsCount / polkDotSize.rawValue, animatedDotsCount % polkDotSize.rawValue)
-    }
+//    private var nextDotToAnimate: (i: Int, j: Int) {
+//        (animatedDotsCount / polkDotSize.rawValue, animatedDotsCount % polkDotSize.rawValue)
+//    }
     
     private var isAnimating: Bool {
         timer != nil

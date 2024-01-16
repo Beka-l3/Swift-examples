@@ -18,14 +18,14 @@ final class SecondVCViewComponents {
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         button.setTitle("Animate", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemOrange
-        button.layer.cornerRadius = 8
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 12
         
         button.frame = .init(
-            x: GConstants.HIG.Size.screen.width  / 2 - 110,
-            y: GConstants.HIG.Size.screen.height - 200,
-            width: 220,
-            height: 60
+            x: GConstants.HIG.Size.screen.width  / 2 - 75,
+            y: GConstants.HIG.Size.screen.height - 100,
+            width: 150,
+            height: 50
         )
         
         return button

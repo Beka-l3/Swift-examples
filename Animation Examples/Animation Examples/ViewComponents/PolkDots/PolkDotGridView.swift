@@ -11,9 +11,9 @@ import UIKit
 final class PolkDotGridView: UIView {
     
     enum PolkDotSize: Int {
-        case small = 16
-        case medium = 12
-        case large = 8
+        case small = 17
+        case medium = 13
+        case large = 9
     }
     
     enum AnimationSpeed {
@@ -24,7 +24,10 @@ final class PolkDotGridView: UIView {
 //    MARK: properties
     private(set) var polkDotSize: PolkDotSize
     private(set) var polkDots: [[PolkDotView]] = []
-    private(set) var dotsCount: Int = 0
+    
+    var totalPolkDotsCount: Int {
+        polkDots.count * polkDotSize.rawValue
+    }
     
     var animatedDotsCount: Int = 0
     var timer: Timer? {
@@ -36,6 +39,8 @@ final class PolkDotGridView: UIView {
     }
     
     var animationSpeed: AnimationSpeed
+    
+    var radiusForWaveAnimation: Int = 0
     
     
 //    MARK: lifecycle
@@ -67,7 +72,10 @@ final class PolkDotGridView: UIView {
     
     private func createPolkDotViews() {
         let dotDimension = bounds.width / CGFloat(polkDotSize.rawValue)
-        let amountOfRows = Int(bounds.height / dotDimension)
+        
+        var amountOfRows = Int(bounds.height / dotDimension)
+        amountOfRows -= 1 - (amountOfRows % 2)
+        
         let offset = (bounds.height - CGFloat(amountOfRows) * dotDimension) / 2
         
         for i in 0..<amountOfRows {
@@ -88,8 +96,6 @@ final class PolkDotGridView: UIView {
             
             polkDots.append(dotRow)
         }
-        
-        dotsCount = amountOfRows * polkDotSize.rawValue
     }
     
 }
