@@ -42,7 +42,9 @@
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
 		07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4432B5678C2000A8D78 /* PolkDotView.swift */; };
 		07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */; };
-		07C5E4482B567B26000A8D78 /* PolkDotGridView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */; };
+		07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */; };
+		07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E4492B568C0C000A8D78 /* String+Empty.swift */; };
+		07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */; };
 		07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */; };
 		07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */; };
 		07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B6E2B3DA9D10041BEF3 /* RootViewController.swift */; };
@@ -91,7 +93,9 @@
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
 		07C5E4432B5678C2000A8D78 /* PolkDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotView.swift; sourceTree = "<group>"; };
 		07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolkDotGridView.swift; sourceTree = "<group>"; };
-		07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PolkDotGridView+Animations.swift"; sourceTree = "<group>"; };
+		07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PolkDotGridView+WaveAnimation.swift"; sourceTree = "<group>"; };
+		07C5E4492B568C0C000A8D78 /* String+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
+		07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+HalfSecond.swift"; sourceTree = "<group>"; };
 		07E58B672B3DA9D10041BEF3 /* Animation Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E58B6A2B3DA9D10041BEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E58B6C2B3DA9D10041BEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
+				07C5E44C2B568C27000A8D78 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,9 +296,26 @@
 			children = (
 				07C5E4432B5678C2000A8D78 /* PolkDotView.swift */,
 				07C5E4452B5678CD000A8D78 /* PolkDotGridView.swift */,
-				07C5E4472B567B26000A8D78 /* PolkDotGridView+Animations.swift */,
+				07C5E4472B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift */,
 			);
 			path = PolkDots;
+			sourceTree = "<group>";
+		};
+		07C5E44B2B568C11000A8D78 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E4492B568C0C000A8D78 /* String+Empty.swift */,
+				07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		07C5E44C2B568C27000A8D78 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07C5E44B2B568C11000A8D78 /* UIKit */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		07E58B5E2B3DA9D10041BEF3 = {
@@ -466,8 +488,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C5E4482B567B26000A8D78 /* PolkDotGridView+Animations.swift in Sources */,
+				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
+				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
+				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,

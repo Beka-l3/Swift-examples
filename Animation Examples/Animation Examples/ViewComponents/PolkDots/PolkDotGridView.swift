@@ -16,6 +16,10 @@ final class PolkDotGridView: UIView {
         case large = 8
     }
     
+    enum AnimationSpeed {
+        case fast, medium, slow
+    }
+    
     
 //    MARK: properties
     private(set) var polkDotSize: PolkDotSize
@@ -31,16 +35,20 @@ final class PolkDotGridView: UIView {
         }
     }
     
+    var animationSpeed: AnimationSpeed
+    
     
 //    MARK: lifecycle
-    init(polkDotSize: PolkDotSize = .medium) {
+    init(polkDotSize: PolkDotSize = .medium, animationSpeed: AnimationSpeed = .fast) {
         self.polkDotSize = polkDotSize
+        self.animationSpeed = animationSpeed
         super.init(frame: GConstants.HIG.Size.screen)
         setupView()
     }
     
     required init?(coder: NSCoder) {
         self.polkDotSize = .medium
+        self.animationSpeed = .fast
         super.init(coder: coder)
     }
     

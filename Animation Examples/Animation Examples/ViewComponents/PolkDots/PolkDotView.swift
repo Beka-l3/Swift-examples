@@ -28,11 +28,11 @@ final class PolkDotView: UIView {
 //    MARK: exposed func
     func blink(duration: TimeInterval = GConstants.Animation.Duration.short) {
         UIView.animateKeyframes(withDuration: duration, delay: .zero) { [unowned self] in
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+            UIView.addKeyframe(withRelativeStartTime: .zero, relativeDuration: .halfSecond) {
                 self.dot.alpha = .zero
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+            UIView.addKeyframe(withRelativeStartTime: .halfSecond, relativeDuration: .halfSecond) {
                 self.dot.alpha = 1
             }
         }
