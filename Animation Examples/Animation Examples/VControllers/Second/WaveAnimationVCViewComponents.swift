@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class SecondVCViewComponents {
+final class WaveAnimationVCViewComponents {
     
     lazy var gridOfPolkDots = PolkDotGridView(polkDotSize: .small)
     
@@ -35,7 +35,7 @@ final class SecondVCViewComponents {
 }
 
 
-extension SecondVCViewComponents: BaseViewComponents {
+extension WaveAnimationVCViewComponents: BaseViewComponents {
     
     func setupViews(parent: UIView) {
         parent.addSubview(gridOfPolkDots)
@@ -43,10 +43,20 @@ extension SecondVCViewComponents: BaseViewComponents {
         
         setupConstraints(parent: parent)
     }
+    
+    func setupConstraints(parent: UIView) {
+        NSLayoutConstraint.activate([
+            gridOfPolkDots.topAnchor.constraint(equalTo: parent.topAnchor),
+            gridOfPolkDots.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            gridOfPolkDots.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            gridOfPolkDots.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+        ])
+    }
+    
 }
 
 
-extension SecondVCViewComponents: UIStyler {
+extension WaveAnimationVCViewComponents: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle = .dark, parent: UIView, animated: Bool = true) {
         
@@ -67,15 +77,3 @@ extension SecondVCViewComponents: UIStyler {
 }
 
 
-extension SecondVCViewComponents {
-    
-    func setupConstraints(parent: UIView) {
-        NSLayoutConstraint.activate([
-            gridOfPolkDots.topAnchor.constraint(equalTo: parent.topAnchor),
-            gridOfPolkDots.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
-            gridOfPolkDots.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
-            gridOfPolkDots.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
-        ])
-    }
-    
-}

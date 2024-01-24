@@ -33,10 +33,21 @@
 		079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */; };
 		079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */; };
 		079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599B72B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift */; };
-		079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BA2B53230A008BEF20 /* SecondVC.swift */; };
-		079599BD2B5324AA008BEF20 /* SecondVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */; };
+		079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BA2B53230A008BEF20 /* WaveAnimationVC.swift */; };
+		079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079599BC2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift */; };
 		07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */; };
 		07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */; };
+		07AF49A32B611EF700034831 /* TFYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49A22B611EF700034831 /* TFYViewController.swift */; };
+		07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49A42B611F8200034831 /* TFYVCViewComponents.swift */; };
+		07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BA2B61485400034831 /* BubbleTopBar.swift */; };
+		07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */; };
+		07AF49C02B61493900034831 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BF2B61493900034831 /* BubbleView.swift */; };
+		07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C12B61497B00034831 /* NotificationBellView.swift */; };
+		07AF49C42B614B3400034831 /* ThanksTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C32B614B3400034831 /* ThanksTicketView.swift */; };
+		07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */; };
+		07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */; };
+		07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */; };
+		07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -84,10 +95,21 @@
 		079599B32B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateColor.swift"; sourceTree = "<group>"; };
 		079599B52B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateCombined1.swift"; sourceTree = "<group>"; };
 		079599B72B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BAVMultipleSequences+AnimateCombined2.swift"; sourceTree = "<group>"; };
-		079599BA2B53230A008BEF20 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
-		079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewComponents.swift; sourceTree = "<group>"; };
+		079599BA2B53230A008BEF20 /* WaveAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationVC.swift; sourceTree = "<group>"; };
+		079599BC2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationVCViewComponents.swift; sourceTree = "<group>"; };
 		07A7F5312B51B54E00F721ED /* BasicAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationView.swift; sourceTree = "<group>"; };
 		07A7F5332B51D47900F721ED /* BAVSingleSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAVSingleSequence.swift; sourceTree = "<group>"; };
+		07AF49A22B611EF700034831 /* TFYViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFYViewController.swift; sourceTree = "<group>"; };
+		07AF49A42B611F8200034831 /* TFYVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFYVCViewComponents.swift; sourceTree = "<group>"; };
+		07AF49BA2B61485400034831 /* BubbleTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTopBar.swift; sourceTree = "<group>"; };
+		07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTopbarViewComponents.swift; sourceTree = "<group>"; };
+		07AF49BF2B61493900034831 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		07AF49C12B61497B00034831 /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
+		07AF49C32B614B3400034831 /* ThanksTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketView.swift; sourceTree = "<group>"; };
+		07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketStatusView.swift; sourceTree = "<group>"; };
+		07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketDetailsViewComponents.swift; sourceTree = "<group>"; };
+		07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketDetailsView.swift; sourceTree = "<group>"; };
+		07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketViewComponents.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -257,10 +279,42 @@
 		079599B92B5322F5008BEF20 /* Second */ = {
 			isa = PBXGroup;
 			children = (
-				079599BA2B53230A008BEF20 /* SecondVC.swift */,
-				079599BC2B5324AA008BEF20 /* SecondVCViewComponents.swift */,
+				079599BA2B53230A008BEF20 /* WaveAnimationVC.swift */,
+				079599BC2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift */,
 			);
 			path = Second;
+			sourceTree = "<group>";
+		};
+		07AF49A12B611ED000034831 /* TFYViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07AF49A22B611EF700034831 /* TFYViewController.swift */,
+				07AF49A42B611F8200034831 /* TFYVCViewComponents.swift */,
+			);
+			path = TFYViewController;
+			sourceTree = "<group>";
+		};
+		07AF49BC2B61485900034831 /* BubbleTopbar */ = {
+			isa = PBXGroup;
+			children = (
+				07AF49BA2B61485400034831 /* BubbleTopBar.swift */,
+				07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */,
+				07AF49BF2B61493900034831 /* BubbleView.swift */,
+				07AF49C12B61497B00034831 /* NotificationBellView.swift */,
+			);
+			path = BubbleTopbar;
+			sourceTree = "<group>";
+		};
+		07AF49C52B614B3900034831 /* ThanksTicketView */ = {
+			isa = PBXGroup;
+			children = (
+				07AF49C32B614B3400034831 /* ThanksTicketView.swift */,
+				07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */,
+				07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */,
+				07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */,
+				07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */,
+			);
+			path = ThanksTicketView;
 			sourceTree = "<group>";
 		};
 		07B440512B40A5DB00F37D85 /* BasicAnimations */ = {
@@ -366,6 +420,7 @@
 				07E58B812B3DB3A30041BEF3 /* Root */,
 				07B440512B40A5DB00F37D85 /* BasicAnimations */,
 				079599B92B5322F5008BEF20 /* Second */,
+				07AF49A12B611ED000034831 /* TFYViewController */,
 			);
 			path = VControllers;
 			sourceTree = "<group>";
@@ -405,6 +460,8 @@
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
 				07C5E4422B5678A3000A8D78 /* PolkDots */,
+				07AF49BC2B61485900034831 /* BubbleTopbar */,
+				07AF49C52B614B3900034831 /* ThanksTicketView */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -490,12 +547,16 @@
 			files = (
 				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
+				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
-				079599BB2B53230A008BEF20 /* SecondVC.swift in Sources */,
+				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
+				07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
+				07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */,
+				07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
@@ -504,8 +565,11 @@
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
+				07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+TableView.swift in Sources */,
+				07AF49C42B614B3400034831 /* ThanksTicketView.swift in Sources */,
+				07AF49C02B61493900034831 /* BubbleView.swift in Sources */,
 				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
@@ -517,19 +581,23 @@
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
 				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
+				07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */,
 				079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */,
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
-				079599BD2B5324AA008BEF20 /* SecondVCViewComponents.swift in Sources */,
+				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
+				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,
 				079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */,
+				07AF49A32B611EF700034831 /* TFYViewController.swift in Sources */,
 				07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */,
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
+				07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
 				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,

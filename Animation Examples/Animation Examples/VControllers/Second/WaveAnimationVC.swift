@@ -8,13 +8,13 @@
 import UIKit
 
 
-final class SecondVC: UIViewController, AnimatoinViewController {
+final class WaveAnimationVC: UIViewController, AnimatoinViewController {
     
     let details: AnimatoinViewControllerDetails
     
     weak var appCoordinator: AppCoordinator?
     
-    private let viewComponents: SecondVCViewComponents = .init()
+    private let viewComponents: WaveAnimationVCViewComponents = .init()
     
     
 //    MARK: lifecycle
@@ -24,7 +24,7 @@ final class SecondVC: UIViewController, AnimatoinViewController {
     }
     
     required init?(coder: NSCoder) {
-        self.details = .init(title: "Second", description: "")
+        self.details = .init(title: "Wave Animation", description: "")
         super.init(coder: coder)
     }
     
@@ -71,7 +71,7 @@ final class SecondVC: UIViewController, AnimatoinViewController {
 }
 
 
-extension SecondVC: UIStyler {
+extension WaveAnimationVC: UIStyler {
     
     func setStyle(_ style: UIUserInterfaceStyle, animated: Bool) {
         viewComponents.setStyle(style, parent: view, animated: animated)
@@ -80,7 +80,7 @@ extension SecondVC: UIStyler {
 }
 
 
-extension SecondVC {
+extension WaveAnimationVC {
     
     @objc func handleButton() {
         
