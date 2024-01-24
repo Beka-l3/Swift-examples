@@ -41,6 +41,7 @@
 		07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49A42B611F8200034831 /* TFYVCViewComponents.swift */; };
 		07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BA2B61485400034831 /* BubbleTopBar.swift */; };
 		07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */; };
+		07AF49C02B61493900034831 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BF2B61493900034831 /* BubbleView.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -96,6 +97,7 @@
 		07AF49A42B611F8200034831 /* TFYVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFYVCViewComponents.swift; sourceTree = "<group>"; };
 		07AF49BA2B61485400034831 /* BubbleTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTopBar.swift; sourceTree = "<group>"; };
 		07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTopbarViewComponents.swift; sourceTree = "<group>"; };
+		07AF49BF2B61493900034831 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			children = (
 				07AF49BA2B61485400034831 /* BubbleTopBar.swift */,
 				07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */,
+				07AF49BF2B61493900034831 /* BubbleView.swift */,
 			);
 			path = BubbleTopbar;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+TableView.swift in Sources */,
+				07AF49C02B61493900034831 /* BubbleView.swift in Sources */,
 				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
 				07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */,
