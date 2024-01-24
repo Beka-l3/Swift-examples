@@ -43,6 +43,8 @@
 		07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */; };
 		07AF49C02B61493900034831 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49BF2B61493900034831 /* BubbleView.swift */; };
 		07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C12B61497B00034831 /* NotificationBellView.swift */; };
+		07AF49C42B614B3400034831 /* ThanksTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C32B614B3400034831 /* ThanksTicketView.swift */; };
+		07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -100,6 +102,8 @@
 		07AF49BD2B6148C500034831 /* BubbleTopbarViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTopbarViewComponents.swift; sourceTree = "<group>"; };
 		07AF49BF2B61493900034831 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		07AF49C12B61497B00034831 /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
+		07AF49C32B614B3400034831 /* ThanksTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketView.swift; sourceTree = "<group>"; };
+		07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketStatusView.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -295,6 +299,15 @@
 			path = BubbleTopbar;
 			sourceTree = "<group>";
 		};
+		07AF49C52B614B3900034831 /* ThanksTicketView */ = {
+			isa = PBXGroup;
+			children = (
+				07AF49C32B614B3400034831 /* ThanksTicketView.swift */,
+				07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */,
+			);
+			path = ThanksTicketView;
+			sourceTree = "<group>";
+		};
 		07B440512B40A5DB00F37D85 /* BasicAnimations */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +452,7 @@
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
 				07C5E4422B5678A3000A8D78 /* PolkDots */,
 				07AF49BC2B61485900034831 /* BubbleTopbar */,
+				07AF49C52B614B3900034831 /* ThanksTicketView */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -543,6 +557,7 @@
 				07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
 				07E58B842B3DB3C80041BEF3 /* RootViewController+TableView.swift in Sources */,
+				07AF49C42B614B3400034831 /* ThanksTicketView.swift in Sources */,
 				07AF49C02B61493900034831 /* BubbleView.swift in Sources */,
 				07A7F5322B51B54E00F721ED /* BasicAnimationView.swift in Sources */,
 				0713125F2B4891E0009246F6 /* GConstants+Animations.swift in Sources */,
@@ -562,6 +577,7 @@
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
+				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,
 				079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */,
