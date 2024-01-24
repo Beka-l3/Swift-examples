@@ -10,6 +10,8 @@ import UIKit
 
 final class TFYVCViewComponents {
     
+    let bubbleTopbar = BubbleTopbarView()
+    
     lazy var btn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("Show ticket", for: .normal)
@@ -34,6 +36,7 @@ extension TFYVCViewComponents: BaseViewComponents {
     func setupViews(parent: UIView) {
         
         parent.addSubview(btn)
+        parent.addSubview(bubbleTopbar)
         
         setupConstraints(parent: parent)
         
@@ -41,6 +44,10 @@ extension TFYVCViewComponents: BaseViewComponents {
     
     func setupConstraints(parent: UIView) {
         NSLayoutConstraint.activate([
+            bubbleTopbar.topAnchor.constraint(equalTo: parent.topAnchor),
+            bubbleTopbar.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            bubbleTopbar.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            
             btn.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
             btn.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -200),
         ])

@@ -63,7 +63,10 @@ final class TFYViewController: UIViewController, AnimatoinViewController {
 //    MARK: private func
     private func setupViews() {
         viewComponents.setupViews(parent: view)
+        viewComponents.bubbleTopbar.delegate = self
+        
         viewComponents.btn.addTarget(self, action: #selector(handleBtn), for: .touchUpInside)
+        
     }
     
     private func checkState() {
@@ -90,7 +93,19 @@ extension TFYViewController: UIStyler {
 extension TFYViewController {
     
     @objc func handleBtn() {
-        appCoordinator?.navigationController.popViewController(animated: true)
+        
     }
     
+}
+
+
+extension TFYViewController: BubbleTopbarViewDelegate {
+    func tapOnAvatar() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func tapOnNotifications() {
+        viewComponents.bubbleTopbar.setNotificationsCount(.random(in: 0...150))
+        viewComponents.bubbleTopbar.setData(leftToShare: .random(in: 0...150), yourBalance: .random(in: 0...150), remainingDays: .random(in: 0...150))
+    }
 }
