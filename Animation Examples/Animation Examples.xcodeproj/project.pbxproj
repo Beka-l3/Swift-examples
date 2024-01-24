@@ -47,6 +47,7 @@
 		07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */; };
 		07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */; };
 		07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */; };
+		07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -108,6 +109,7 @@
 		07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketStatusView.swift; sourceTree = "<group>"; };
 		07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketDetailsViewComponents.swift; sourceTree = "<group>"; };
 		07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketDetailsView.swift; sourceTree = "<group>"; };
+		07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketViewComponents.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */,
 				07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */,
 				07AF49CA2B614BF700034831 /* ThanksTicketDetailsView.swift */,
+				07AF49CC2B614C3900034831 /* ThanksTicketViewComponents.swift */,
 			);
 			path = ThanksTicketView;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			files = (
 				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
+				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
