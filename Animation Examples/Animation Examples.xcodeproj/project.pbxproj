@@ -45,6 +45,7 @@
 		07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C12B61497B00034831 /* NotificationBellView.swift */; };
 		07AF49C42B614B3400034831 /* ThanksTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C32B614B3400034831 /* ThanksTicketView.swift */; };
 		07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */; };
+		07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */; };
 		07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */; };
 		07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */; };
 		07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */; };
@@ -104,6 +105,7 @@
 		07AF49C12B61497B00034831 /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
 		07AF49C32B614B3400034831 /* ThanksTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketView.swift; sourceTree = "<group>"; };
 		07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketStatusView.swift; sourceTree = "<group>"; };
+		07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksTicketDetailsViewComponents.swift; sourceTree = "<group>"; };
 		07B440522B40A5EE00F37D85 /* BasicAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsVC.swift; sourceTree = "<group>"; };
 		07B440562B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+NavbarStyle.swift"; sourceTree = "<group>"; };
 		07B440582B40AA9600F37D85 /* AppCoordinator+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCoordinator+Navigation.swift"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				07AF49C32B614B3400034831 /* ThanksTicketView.swift */,
 				07AF49C62B614B7800034831 /* ThanksTicketStatusView.swift */,
+				07AF49C82B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift */,
 			);
 			path = ThanksTicketView;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
+				07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
 				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
