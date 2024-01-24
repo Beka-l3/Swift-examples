@@ -71,14 +71,10 @@ extension AppCoordinator {
                 ]
             ),
             
-            SecondVC(
-                details: .init(title: "Second VC", description: "For a new idea")
-            )
+            WaveAnimationVC(details: .init(title: "Wave Animation", description: "Grid of dots make a wave animation from center")),
             
+            TFYViewController(details: .init(title: "TFYViewController", description: "Custom top bar with animating bubbles and Custom Ticket View with animated appearence")),
             
-//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer")),
-//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer")),
-//            BasicAnimationsVC(details: .init(title: "Basic Animations", description: "Animtions of animatable properties of UIView and CALayer. Animtions of animatable properties of UIView and CALayer. Animations of animatable properties if UIView and CAlayer")),
         ]
     }
 }
