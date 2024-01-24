@@ -24,6 +24,7 @@ final class TFYViewController: UIViewController, AnimatoinViewController {
     init(details: AnimatoinViewControllerDetails) {
         self.details = details
         super.init(nibName: nil, bundle: nil)
+        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +35,7 @@ final class TFYViewController: UIViewController, AnimatoinViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        appCoordinator?.navigationController.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         appCoordinator?.isLargeNavTitle = false
         checkState()
@@ -42,6 +43,12 @@ final class TFYViewController: UIViewController, AnimatoinViewController {
         if let appCoordinator = appCoordinator {
             setStyle(appCoordinator.navigationController.traitCollection.userInterfaceStyle, animated: false)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
