@@ -56,8 +56,8 @@ final class BubbleTopbarViewComponents {
         return view
     }()
     
-    lazy var leftBubble = CustomBubbleView(state: .large, secondaryText: Constants.leftBubbleText)
-    lazy var rightBubble = CustomBubbleView(state: .small, secondaryText: Constants.rightBubbleText)
+    lazy var leftBubble = BubbleView(state: .large, secondaryText: Constants.leftBubbleText)
+    lazy var rightBubble = BubbleView(state: .small, secondaryText: Constants.rightBubbleText)
     
     lazy var remainingDaysLabel: UILabel = {
         let label = UILabel()
@@ -132,8 +132,8 @@ extension BubbleTopbarViewComponents {
         
         static let avatarSizeDimension: CGFloat = 48
         
-        static let bubbleSizeL: CGFloat = CustomBubbleView.Constants.dimensionL + CustomBubbleView.Constants.borderWidth
-        static let bubbleSizeS: CGFloat = CustomBubbleView.Constants.dimensionS + CustomBubbleView.Constants.borderWidth
+        static let bubbleSizeL: CGFloat = BubbleView.Constants.dimensionL + BubbleView.Constants.borderWidth
+        static let bubbleSizeS: CGFloat = BubbleView.Constants.dimensionS + BubbleView.Constants.borderWidth
         
         static let leftBubbleText = "Осталось раздать"
         static let rightBubbleText = "Ваш баланс"
