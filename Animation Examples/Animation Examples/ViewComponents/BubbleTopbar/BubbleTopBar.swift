@@ -21,7 +21,7 @@ final class BubbleTopbarView: UIView {
 //    MARK: exposed properties
     weak var delegate: BubbleTopbarViewDelegate?
     
-    let viewComponents = CustomTopbarViewComponents()
+    let viewComponents = BubbleTopbarViewComponents()
     
     var isLeftBubbleOnFront: Bool = true
     
@@ -73,7 +73,7 @@ final class BubbleTopbarView: UIView {
 }
 
 
-extension CustomTopbarView {
+extension BubbleTopbarView {
     
     @objc func changeBubblesState() {
         guard !isAnimating else { return }
@@ -107,7 +107,7 @@ extension CustomTopbarView {
     
 }
 
-extension CustomTopbarView {
+extension BubbleTopbarView {
     
     func setAvatar(_ image: UIImage) {
         viewComponents.avatarImageView.image = image
@@ -130,7 +130,7 @@ extension CustomTopbarView {
 }
 
 
-extension CustomTopbarView {
+extension BubbleTopbarView {
     
     enum Constants {
         
