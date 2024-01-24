@@ -93,7 +93,7 @@ extension TFYViewController: UIStyler {
 extension TFYViewController {
     
     @objc func handleBtn() {
-        
+        viewComponents.thanksTicketView.show()
     }
     
 }

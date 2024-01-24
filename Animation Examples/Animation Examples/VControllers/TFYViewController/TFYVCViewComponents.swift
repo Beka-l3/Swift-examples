@@ -11,6 +11,7 @@ import UIKit
 final class TFYVCViewComponents {
     
     let bubbleTopbar = BubbleTopbarView()
+    let thanksTicketView = ThanksTicketView()
     
     lazy var btn: UIButton = {
         let btn = UIButton(type: .system)
@@ -37,6 +38,7 @@ extension TFYVCViewComponents: BaseViewComponents {
         
         parent.addSubview(btn)
         parent.addSubview(bubbleTopbar)
+        parent.addSubview(thanksTicketView)
         
         setupConstraints(parent: parent)
         
@@ -50,6 +52,11 @@ extension TFYVCViewComponents: BaseViewComponents {
             
             btn.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
             btn.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -200),
+            
+            thanksTicketView.topAnchor.constraint(equalTo: parent.topAnchor),
+            thanksTicketView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            thanksTicketView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            thanksTicketView.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
         ])
     }
 }
