@@ -72,6 +72,9 @@
 		07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */; };
 		07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */; };
 		07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */; };
+		07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */; };
+		07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */; };
+		07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +145,9 @@
 		07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Images.swift"; sourceTree = "<group>"; };
 		07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgGradients.swift; sourceTree = "<group>"; };
+		07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BgGradients+asHexes.swift"; sourceTree = "<group>"; };
+		07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoToSave.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 				07583DCF2B4D625300A9F968 /* Protocols */,
 				07583DD42B4D688000A9F968 /* SquareHero.swift */,
 				07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */,
+				07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,7 +204,7 @@
 		07366A542B46FFA700A749E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */,
+				07FBDC412B7A338F00F5E672 /* BgGradients */,
 				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
 				07C5E44C2B568C27000A8D78 /* Extensions */,
@@ -375,6 +382,7 @@
 			children = (
 				07C5E4492B568C0C000A8D78 /* String+Empty.swift */,
 				07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */,
+				07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -508,6 +516,15 @@
 			path = ProfileInfoVC;
 			sourceTree = "<group>";
 		};
+		07FBDC412B7A338F00F5E672 /* BgGradients */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */,
+				07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */,
+			);
+			path = BgGradients;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -593,6 +610,7 @@
 				07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */,
 				07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
+				07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
@@ -600,6 +618,7 @@
 				07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
+				07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
 				07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
@@ -636,6 +655,7 @@
 				07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */,
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
+				07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
 				07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
