@@ -100,7 +100,7 @@ extension ProfileInfoVC {
 extension ProfileInfoVC {
     func setData(userInfo: UserInfo) {
         self.userInfo = userInfo
-//        
+        
 //        uiConfig.setAvatar(with: userInfo.avatarUrl)
 //        uiConfig.setDiscount(userInfo.discount)
 //        

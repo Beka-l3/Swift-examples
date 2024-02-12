@@ -71,6 +71,7 @@
 		07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */; };
 		07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */; };
 		07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */; };
+		07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
 		07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Images.swift"; sourceTree = "<group>"; };
 		07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgGradients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		07366A542B46FFA700A749E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */,
 				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
 				07C5E44C2B568C27000A8D78 /* Extensions */,
@@ -610,6 +613,7 @@
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
 				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
+				07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
 				07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */,
