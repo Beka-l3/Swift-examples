@@ -13,7 +13,6 @@ protocol ProfileInfoVCDelegate: AnyObject {
 }
 
 
-
 final class ProfileInfoVC: UIViewController {
     
     weak var delegate: ProfileInfoVCDelegate?
@@ -52,7 +51,11 @@ final class ProfileInfoVC: UIViewController {
 extension ProfileInfoVC {
     
     private func configure() {
+        uiConfig.rootView = view
+        uiConfig.configureUI()
+        uiConfig.configureAutolayout()
         
+//        uiConfig.containerView.delegate = self
     }
     
     private func configureNavbar() {
@@ -101,14 +104,14 @@ extension ProfileInfoVC {
     func setData(userInfo: UserInfo) {
         self.userInfo = userInfo
         
-//        uiConfig.setAvatar(with: userInfo.avatarUrl)
-//        uiConfig.setDiscount(userInfo.discount)
-//        
-//        uiConfig.setNameAndLocation(
-//            name: userInfo.name + " " + userInfo.surename,
-//            location: userInfo.location.city + ", " + userInfo.location.country
-//        )
-//        
+        uiConfig.setAvatar(with: userInfo.avatarUrl)
+        uiConfig.setDiscount(userInfo.discount)
+        
+        uiConfig.setNameAndLocation(
+            name: userInfo.name + " " + userInfo.surename,
+            location: userInfo.location.city + ", " + userInfo.location.country
+        )
+        
 //        uiConfig.setInfoDetails(type: .name, texts: (userInfo.name, userInfo.surename, userInfo.patrioticName))
 //        uiConfig.setInfoDetails(type: .contants, texts: (userInfo.email, userInfo.phoneNumber, userInfo.birthday))
 //        uiConfig.setInfoDetails(type: .company, texts: (userInfo.company, userInfo.department, userInfo.specialization))
@@ -120,7 +123,7 @@ extension ProfileInfoVC {
 //            let rawValue = i % gradients.count
 //            items.append(.item(title: statistic.title, percent: statistic.percent, colors: gradients[rawValue].asColors))
 //        }
-//        
+//
 //        uiConfig.setStatisticsItems(items)
     }
 }
