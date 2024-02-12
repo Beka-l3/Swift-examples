@@ -114,11 +114,11 @@ extension ProfileInfoVC {
 //        uiConfig.setInfoDetails(type: .company, texts: (userInfo.company, userInfo.department, userInfo.specialization))
 //        
 //        var items: [_ProfileStatisticsView.StatisticsItem] = []
-//        let colorsArr = _BgGradients.allCases
-//        
+        let gradients = BgGradients.allCases.shuffled()
+//
 //        for (i, statistic) in userInfo.statistics.enumerated() {
-//            let rawValue = i % colorsArr.count
-//            items.append(.item(title: statistic.title, percent: statistic.percent, colors: colorsArr[rawValue].asColors))
+//            let rawValue = i % gradients.count
+//            items.append(.item(title: statistic.title, percent: statistic.percent, colors: gradients[rawValue].asColors))
 //        }
 //        
 //        uiConfig.setStatisticsItems(items)
