@@ -12,12 +12,12 @@ final class ProfileInfoDetailsContainerView: UIView {
     
     private var topPadding: CGFloat
     
-    private lazy var nameLabel              = _TitleLabel(type: .first(alignment: .center), fontSize: Constants.nameLabelFontSize)
-    private lazy var locationLabel          = _TitleLabel(type: .first(alignment: .center), fontSize: Constants.locationLabelFontSize, textColor: .gray)
-    private lazy var nameDetailsView        = _ProfileInfoDetailsView(type: .name)
-    private lazy var contantsDetailsView    = _ProfileInfoDetailsView(type: .contants)
-    private lazy var companyDetailsView     = _ProfileInfoDetailsView(type: .company)
-    private lazy var statisticsView         = _ProfileStatisticsView()
+    private lazy var nameLabel              = TitleLabel(type: .first(alignment: .center), fontSize: Constants.nameLabelFontSize)
+    private lazy var locationLabel          = TitleLabel(type: .first(alignment: .center), fontSize: Constants.locationLabelFontSize, textColor: .gray)
+    private lazy var nameDetailsView        = ProfileInfoDetailsView(type: .name)
+    private lazy var contantsDetailsView    = ProfileInfoDetailsView(type: .contants)
+    private lazy var companyDetailsView     = ProfileInfoDetailsView(type: .company)
+    private lazy var statisticsView         = ProfileStatisticsView()
     
     
 //    MARK: lifeCycle
@@ -91,11 +91,11 @@ extension ProfileInfoDetailsContainerView {
         locationLabel.text = location
     }
     
-    func setStatisticsItems(_ items: [_ProfileStatisticsView.StatisticsItem]) {
+    func setStatisticsItems(_ items: [ProfileStatisticsView.StatisticsItem]) {
         statisticsView.setItems(items)
     }
     
-    func setInfoDetails(type: _ProfileInfoDetailsView.InfoType, texts: _ProfileInfoDetailsView.InfoType.CaptionTexts) {
+    func setInfoDetails(type: ProfileInfoDetailsView.InfoType, texts: ProfileInfoDetailsView.InfoType.CaptionTexts) {
         switch type {
             
         case .name:
