@@ -67,6 +67,10 @@
 		07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */; };
 		07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */; };
 		07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */; };
+		07FBDC362B7A2BFC00F5E672 /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */; };
+		07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */; };
+		07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */; };
+		07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +136,10 @@
 		07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCViewComponents.swift; sourceTree = "<group>"; };
 		07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewComponents.swift; sourceTree = "<group>"; };
 		07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Subsystem.swift"; sourceTree = "<group>"; };
+		07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
+		07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
+		07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Images.swift"; sourceTree = "<group>"; };
+		07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,7 @@
 				071312532B4870EA009246F6 /* AnimationViewController.swift */,
 				07583DCF2B4D625300A9F968 /* Protocols */,
 				07583DD42B4D688000A9F968 /* SquareHero.swift */,
+				07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +187,7 @@
 			children = (
 				071312602B4891F7009246F6 /* GConstnats+HIG.swift */,
 				0713125E2B4891E0009246F6 /* GConstants+Animations.swift */,
+				07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +434,7 @@
 				07B440512B40A5DB00F37D85 /* BasicAnimations */,
 				079599B92B5322F5008BEF20 /* WaveAnimationVC */,
 				07AF49A12B611ED000034831 /* TFYViewController */,
+				07FBDC342B7A2BEC00F5E672 /* ProfileInfoVC */,
 			);
 			path = VControllers;
 			sourceTree = "<group>";
@@ -483,6 +494,15 @@
 				07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		07FBDC342B7A2BEC00F5E672 /* ProfileInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */,
+				07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */,
+			);
+			path = ProfileInfoVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +581,7 @@
 				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
+				07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
 				07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */,
@@ -573,6 +594,7 @@
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
+				07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
@@ -590,6 +612,7 @@
 				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
+				07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
 				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
 				07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */,
@@ -602,6 +625,7 @@
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
 				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
+				07FBDC362B7A2BFC00F5E672 /* ProfileInfoVC.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,
 				079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */,
 				07AF49A32B611EF700034831 /* TFYViewController.swift in Sources */,
