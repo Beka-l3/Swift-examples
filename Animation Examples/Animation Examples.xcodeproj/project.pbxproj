@@ -75,6 +75,11 @@
 		07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */; };
 		07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */; };
 		07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */; };
+		07FBDC482B7A6FE900F5E672 /* ProfileStatisticsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */; };
+		07FBDC4B2B7A705A00F5E672 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */; };
+		07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */; };
+		07FBDC502B7A71F000F5E672 /* ProfileAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */; };
+		07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +153,11 @@
 		07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BgGradients+asHexes.swift"; sourceTree = "<group>"; };
 		07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoToSave.swift; sourceTree = "<group>"; };
+		07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatisticsItemView.swift; sourceTree = "<group>"; };
+		07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatisticsView.swift; sourceTree = "<group>"; };
+		07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
+		07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarDiscountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,11 +492,14 @@
 				07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */,
 				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
 				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
+				07FBDC4E2B7A71DF00F5E672 /* ProfileAvatarView */,
+				07FBDC492B7A703A00F5E672 /* Label */,
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
 				07C5E4422B5678A3000A8D78 /* PolkDots */,
 				07AF49BC2B61485900034831 /* BubbleTopbar */,
 				07AF49C52B614B3900034831 /* ThanksTicketView */,
+				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -523,6 +536,32 @@
 				07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */,
 			);
 			path = BgGradients;
+			sourceTree = "<group>";
+		};
+		07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */,
+				07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */,
+			);
+			path = ProfileStatisticsView;
+			sourceTree = "<group>";
+		};
+		07FBDC492B7A703A00F5E672 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		07FBDC4E2B7A71DF00F5E672 /* ProfileAvatarView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */,
+				07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */,
+			);
+			path = ProfileAvatarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
+				07FBDC502B7A71F000F5E672 /* ProfileAvatarView.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
 				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
@@ -609,6 +649,7 @@
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
 				07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */,
 				07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */,
+				07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
@@ -641,8 +682,10 @@
 				07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */,
 				079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */,
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
+				07FBDC482B7A6FE900F5E672 /* ProfileStatisticsItemView.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */,
 				07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
@@ -658,6 +701,7 @@
 				07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
 				07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */,
+				07FBDC4B2B7A705A00F5E672 /* TitleLabel.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
 				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,

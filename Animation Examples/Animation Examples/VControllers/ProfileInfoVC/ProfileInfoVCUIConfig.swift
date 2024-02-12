@@ -78,10 +78,10 @@ extension ProfileInfoVCUIConfig {
 //        containerView.setDiscount(newValue)
     }
     
-//    func setStatisticsItems(_ items: [_ProfileStatisticsView.StatisticsItem]) {
+    func setStatisticsItems(_ items: [ProfileStatisticsView.StatisticsItem]) {
 //        containerView.setStatisticsItems(items)
 //        rootView?.layoutIfNeeded()
-//    }
+    }
     
 //    func setInfoDetails(type: _ProfileInfoDetailsView.InfoType, texts: _ProfileInfoDetailsView.InfoType.CaptionTexts) {
 //        containerView.setInfoDetails(type: type, texts: texts)
