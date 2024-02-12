@@ -83,6 +83,7 @@
 		07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */; };
 		07FBDC572B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC562B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift */; };
 		07FBDC592B7A736800F5E672 /* ProfileInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC582B7A736800F5E672 /* ProfileInfoContainerView.swift */; };
+		07FBDC5B2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDetailsView.swift; sourceTree = "<group>"; };
 		07FBDC562B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDetailsContainerView.swift; sourceTree = "<group>"; };
 		07FBDC582B7A736800F5E672 /* ProfileInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoContainerView.swift; sourceTree = "<group>"; };
+		07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileInfoVC+EditVCDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -531,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */,
+				07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */,
 				07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */,
 			);
 			path = ProfileInfoVC;
@@ -661,6 +664,7 @@
 				07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
+				07FBDC5B2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift in Sources */,
 				07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,

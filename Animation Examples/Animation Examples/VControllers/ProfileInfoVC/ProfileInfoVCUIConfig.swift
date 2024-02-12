@@ -24,7 +24,7 @@ final class ProfileInfoVCUIConfig {
     
     private lazy var gradientBgLayer = BgGradients.tfOrange.asLayer
     
-//    lazy var containerView = _ProfileInfoContainerView()
+    lazy var containerView = ProfileInfoContainerView()
 }
 
 
@@ -52,11 +52,11 @@ extension ProfileInfoVCUIConfig {
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
-//            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-//            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-//            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-//            
-//            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
         
     }
@@ -71,28 +71,28 @@ extension ProfileInfoVCUIConfig {
 
 extension ProfileInfoVCUIConfig {
     func setNameAndLocation(name: String, location: String) {
-//        containerView.setNameAndLocation(name: name, location: location)
+        containerView.setNameAndLocation(name: name, location: location)
     }
     
     func setDiscount(_ newValue: Int) {
-//        containerView.setDiscount(newValue)
+        containerView.setDiscount(newValue)
     }
     
     func setStatisticsItems(_ items: [ProfileStatisticsView.StatisticsItem]) {
-//        containerView.setStatisticsItems(items)
-//        rootView?.layoutIfNeeded()
+        containerView.setStatisticsItems(items)
+        rootView?.layoutIfNeeded()
     }
     
-//    func setInfoDetails(type: _ProfileInfoDetailsView.InfoType, texts: _ProfileInfoDetailsView.InfoType.CaptionTexts) {
-//        containerView.setInfoDetails(type: type, texts: texts)
-//    }
+    func setInfoDetails(type: ProfileInfoDetailsView.InfoType, texts: ProfileInfoDetailsView.InfoType.CaptionTexts) {
+        containerView.setInfoDetails(type: type, texts: texts)
+    }
     
     func setAvatar(_ image: UIImage) {
-//        containerView.setAvatar(image)
+        containerView.setAvatar(image)
     }
     
     func setAvatar(with url: String) {
-//        containerView.setAvatar(with: url)
+        containerView.setAvatar(with: url)
     }
     
 }

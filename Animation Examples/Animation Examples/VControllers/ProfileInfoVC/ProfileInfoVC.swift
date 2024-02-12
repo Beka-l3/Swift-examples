@@ -55,7 +55,7 @@ extension ProfileInfoVC {
         uiConfig.configureUI()
         uiConfig.configureAutolayout()
         
-//        uiConfig.containerView.delegate = self
+        uiConfig.containerView.delegate = self
     }
     
     private func configureNavbar() {
@@ -112,18 +112,29 @@ extension ProfileInfoVC {
             location: userInfo.location.city + ", " + userInfo.location.country
         )
         
-//        uiConfig.setInfoDetails(type: .name, texts: (userInfo.name, userInfo.surename, userInfo.patrioticName))
-//        uiConfig.setInfoDetails(type: .contants, texts: (userInfo.email, userInfo.phoneNumber, userInfo.birthday))
-//        uiConfig.setInfoDetails(type: .company, texts: (userInfo.company, userInfo.department, userInfo.specialization))
-//        
+        uiConfig.setInfoDetails(type: .name, texts: (userInfo.name, userInfo.surename, userInfo.patrioticName))
+        uiConfig.setInfoDetails(type: .contants, texts: (userInfo.email, userInfo.phoneNumber, userInfo.birthday))
+        uiConfig.setInfoDetails(type: .company, texts: (userInfo.company, userInfo.department, userInfo.specialization))
+        
         var items: [ProfileStatisticsView.StatisticsItem] = []
         let gradients = BgGradients.allCases.shuffled()
-//
+
         for (i, statistic) in userInfo.statistics.enumerated() {
             let rawValue = i % gradients.count
             items.append(.item(title: statistic.title, percent: statistic.percent, gradient: gradients[rawValue]))
         }
 
         uiConfig.setStatisticsItems(items)
+    }
+}
+
+
+extension ProfileInfoVC: ProfileInfoContainerViewDelegate {
+    func didTapEditButton() {
+//        if let userInfo = userInfo {
+//            editVC = _EditProfileInfoVC(userInfo: userInfo)
+//            editVC?.delegate = self
+//            if let editVC = editVC { navigationController?.pushViewController(editVC, animated: true) }
+//        }
     }
 }
