@@ -66,6 +66,24 @@
 		07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */; };
 		07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */; };
 		07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */; };
+		07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */; };
+		07FBDC362B7A2BFC00F5E672 /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */; };
+		07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */; };
+		07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */; };
+		07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */; };
+		07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */; };
+		07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */; };
+		07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */; };
+		07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */; };
+		07FBDC482B7A6FE900F5E672 /* ProfileStatisticsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */; };
+		07FBDC4B2B7A705A00F5E672 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */; };
+		07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */; };
+		07FBDC502B7A71F000F5E672 /* ProfileAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */; };
+		07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */; };
+		07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */; };
+		07FBDC572B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC562B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift */; };
+		07FBDC592B7A736800F5E672 /* ProfileInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC582B7A736800F5E672 /* ProfileInfoContainerView.swift */; };
+		07FBDC5B2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +148,24 @@
 		07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCTableViewCells.swift; sourceTree = "<group>"; };
 		07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCViewComponents.swift; sourceTree = "<group>"; };
 		07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewComponents.swift; sourceTree = "<group>"; };
+		07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Subsystem.swift"; sourceTree = "<group>"; };
+		07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
+		07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
+		07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GConstants+Images.swift"; sourceTree = "<group>"; };
+		07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgGradients.swift; sourceTree = "<group>"; };
+		07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BgGradients+asHexes.swift"; sourceTree = "<group>"; };
+		07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoToSave.swift; sourceTree = "<group>"; };
+		07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatisticsItemView.swift; sourceTree = "<group>"; };
+		07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatisticsView.swift; sourceTree = "<group>"; };
+		07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
+		07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarDiscountView.swift; sourceTree = "<group>"; };
+		07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDetailsView.swift; sourceTree = "<group>"; };
+		07FBDC562B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDetailsContainerView.swift; sourceTree = "<group>"; };
+		07FBDC582B7A736800F5E672 /* ProfileInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoContainerView.swift; sourceTree = "<group>"; };
+		07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileInfoVC+EditVCDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +185,8 @@
 				071312532B4870EA009246F6 /* AnimationViewController.swift */,
 				07583DCF2B4D625300A9F968 /* Protocols */,
 				07583DD42B4D688000A9F968 /* SquareHero.swift */,
+				07FBDC3B2B7A2D6E00F5E672 /* UserInfo.swift */,
+				07FBDC442B7A3A3100F5E672 /* UserInfoToSave.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +214,7 @@
 			children = (
 				071312602B4891F7009246F6 /* GConstnats+HIG.swift */,
 				0713125E2B4891E0009246F6 /* GConstants+Animations.swift */,
+				07FBDC392B7A2CDE00F5E672 /* GConstants+Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +222,7 @@
 		07366A542B46FFA700A749E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				07FBDC412B7A338F00F5E672 /* BgGradients */,
 				0713125A2B4891A1009246F6 /* Global Constants */,
 				07366A552B46FFB100A749E9 /* Fonts */,
 				07C5E44C2B568C27000A8D78 /* Extensions */,
@@ -276,13 +316,13 @@
 			path = BAVMultipleSequence;
 			sourceTree = "<group>";
 		};
-		079599B92B5322F5008BEF20 /* Second */ = {
+		079599B92B5322F5008BEF20 /* WaveAnimationVC */ = {
 			isa = PBXGroup;
 			children = (
 				079599BA2B53230A008BEF20 /* WaveAnimationVC.swift */,
 				079599BC2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift */,
 			);
-			path = Second;
+			path = WaveAnimationVC;
 			sourceTree = "<group>";
 		};
 		07AF49A12B611ED000034831 /* TFYViewController */ = {
@@ -360,6 +400,7 @@
 			children = (
 				07C5E4492B568C0C000A8D78 /* String+Empty.swift */,
 				07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */,
+				07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -368,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				07C5E44B2B568C11000A8D78 /* UIKit */,
+				07FBDC312B7A2B6800F5E672 /* Logger */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,8 +461,9 @@
 			children = (
 				07E58B812B3DB3A30041BEF3 /* Root */,
 				07B440512B40A5DB00F37D85 /* BasicAnimations */,
-				079599B92B5322F5008BEF20 /* Second */,
+				079599B92B5322F5008BEF20 /* WaveAnimationVC */,
 				07AF49A12B611ED000034831 /* TFYViewController */,
+				07FBDC342B7A2BEC00F5E672 /* ProfileInfoVC */,
 			);
 			path = VControllers;
 			sourceTree = "<group>";
@@ -457,11 +500,15 @@
 				07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */,
 				07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */,
 				07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */,
+				07FBDC4E2B7A71DF00F5E672 /* ProfileAvatarView */,
+				07FBDC492B7A703A00F5E672 /* Label */,
 				0768C7A62B4C33D500AD0120 /* MyNavigationController */,
 				07583DD02B4D64FE00A9F968 /* AnimationViews */,
 				07C5E4422B5678A3000A8D78 /* PolkDots */,
 				07AF49BC2B61485900034831 /* BubbleTopbar */,
 				07AF49C52B614B3900034831 /* ThanksTicketView */,
+				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
+				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -472,6 +519,69 @@
 				07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		07FBDC312B7A2B6800F5E672 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		07FBDC342B7A2BEC00F5E672 /* ProfileInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */,
+				07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */,
+				07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */,
+			);
+			path = ProfileInfoVC;
+			sourceTree = "<group>";
+		};
+		07FBDC412B7A338F00F5E672 /* BgGradients */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC3D2B7A2EE300F5E672 /* BgGradients.swift */,
+				07FBDC422B7A358600F5E672 /* BgGradients+asHexes.swift */,
+			);
+			path = BgGradients;
+			sourceTree = "<group>";
+		};
+		07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC472B7A6FE900F5E672 /* ProfileStatisticsItemView.swift */,
+				07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */,
+			);
+			path = ProfileStatisticsView;
+			sourceTree = "<group>";
+		};
+		07FBDC492B7A703A00F5E672 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC4A2B7A705A00F5E672 /* TitleLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		07FBDC4E2B7A71DF00F5E672 /* ProfileAvatarView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */,
+				07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */,
+			);
+			path = ProfileAvatarView;
+			sourceTree = "<group>";
+		};
+		07FBDC532B7A72AF00F5E672 /* ProfileInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */,
+				07FBDC562B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift */,
+				07FBDC582B7A736800F5E672 /* ProfileInfoContainerView.swift */,
+			);
+			path = ProfileInfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,7 +612,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					07E58B662B3DA9D10041BEF3 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -546,24 +656,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C5E4482B567B26000A8D78 /* PolkDotGridView+WaveAnimation.swift in Sources */,
+				07FBDC502B7A71F000F5E672 /* ProfileAvatarView.swift in Sources */,
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
 				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
+				07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
+				07FBDC5B2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift in Sources */,
 				07AF49C22B61497B00034831 /* NotificationBellView.swift in Sources */,
 				07E58B6F2B3DA9D10041BEF3 /* RootViewController.swift in Sources */,
 				07366A5F2B47175200A749E9 /* GConstants.swift in Sources */,
 				07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */,
 				07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */,
+				07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */,
+				07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
+				07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
+				07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
+				07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
 				07AF49BB2B61485400034831 /* BubbleTopBar.swift in Sources */,
 				07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */,
@@ -577,27 +695,37 @@
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
 				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
+				07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
+				07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
 				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
 				07AF49BE2B6148C500034831 /* BubbleTopbarViewComponents.swift in Sources */,
 				079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */,
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
+				07FBDC482B7A6FE900F5E672 /* ProfileStatisticsItemView.swift in Sources */,
+				07FBDC572B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
+				07FBDC592B7A736800F5E672 /* ProfileInfoContainerView.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */,
+				07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
 				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
+				07FBDC362B7A2BFC00F5E672 /* ProfileInfoVC.swift in Sources */,
 				07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */,
 				079599AE2B52F36B008BEF20 /* BAVMultipleSequences+AnimateAlpha.swift in Sources */,
 				07AF49A32B611EF700034831 /* TFYViewController.swift in Sources */,
 				07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */,
 				0768C7A52B4C312400AD0120 /* MyNavigationController.swift in Sources */,
 				079599A92B52EAD7008BEF20 /* BAVMultipleSequences.swift in Sources */,
+				07FBDC432B7A358600F5E672 /* BgGradients+asHexes.swift in Sources */,
 				07583DCE2B4D614800A9F968 /* BasicUIViewAnimate.swift in Sources */,
 				07AF49C92B614BAD00034831 /* ThanksTicketDetailsViewComponents.swift in Sources */,
+				07FBDC4B2B7A705A00F5E672 /* TitleLabel.swift in Sources */,
 				07583DD52B4D688000A9F968 /* SquareHero.swift in Sources */,
 				079599B22B5303F3008BEF20 /* BAVMultipleSequences+AnimateRotation.swift in Sources */,
 				07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */,
@@ -654,6 +782,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -668,7 +797,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -714,6 +843,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -722,7 +852,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -757,6 +887,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -788,6 +919,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

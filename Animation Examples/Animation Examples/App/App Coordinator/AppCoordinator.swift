@@ -8,6 +8,12 @@
 import UIKit
 
 
+/// AppCoordinator For SceneDelegate
+protocol AppCoordinatorForSceneDelegate {
+    func setupScene(with window: UIWindow)
+}
+
+
 final class AppCoordinator {
     
     let rootViewController: RootViewController
@@ -27,11 +33,6 @@ final class AppCoordinator {
 }
 
 
-/// AppCoordinator For SceneDelegate
-protocol AppCoordinatorForSceneDelegate {
-    func setupScene(with window: UIWindow)
-}
-
 extension AppCoordinator: AppCoordinatorForSceneDelegate {
     
     func setupScene(with window: UIWindow) {        
@@ -41,10 +42,10 @@ extension AppCoordinator: AppCoordinatorForSceneDelegate {
 }
 
 
-
 extension AppCoordinator {
     enum Mocks {
         static let animationVCs: [AnimatoinViewController] = [
+            
             BasicAnimationsVC(
                 details: .init(title: "Basic Animations", description: "Basic animations with signle sequence"),
                 animationViews: [

@@ -28,6 +28,20 @@ final class TFYVCViewComponents {
         return btn
     }()
     
+    lazy var btn2: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Profile", for: .normal)
+        btn.titleLabel?.font = .boldSystemFont(ofSize: 19)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .systemGreen
+        btn.layer.cornerRadius = 8
+        NSLayoutConstraint.activate([
+            btn.widthAnchor.constraint(equalToConstant: 180),
+            btn.heightAnchor.constraint(equalToConstant: 60),
+        ])
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
     
 }
 
@@ -37,6 +51,7 @@ extension TFYVCViewComponents: BaseViewComponents {
     func setupViews(parent: UIView) {
         
         parent.addSubview(btn)
+        parent.addSubview(btn2)
         parent.addSubview(bubbleTopbar)
         parent.addSubview(thanksTicketView)
         
@@ -52,6 +67,9 @@ extension TFYVCViewComponents: BaseViewComponents {
             
             btn.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
             btn.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -200),
+            
+            btn2.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            btn2.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -100),
             
             thanksTicketView.topAnchor.constraint(equalTo: parent.topAnchor),
             thanksTicketView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),

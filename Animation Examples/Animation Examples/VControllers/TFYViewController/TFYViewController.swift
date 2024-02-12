@@ -66,6 +66,7 @@ final class TFYViewController: UIViewController, AnimatoinViewController {
         viewComponents.bubbleTopbar.delegate = self
         
         viewComponents.btn.addTarget(self, action: #selector(handleBtn), for: .touchUpInside)
+        viewComponents.btn2.addTarget(self, action: #selector(handleBtn2), for: .touchUpInside)
         
     }
     
@@ -94,6 +95,12 @@ extension TFYViewController {
     
     @objc func handleBtn() {
         viewComponents.thanksTicketView.show()
+    }
+    
+    @objc func handleBtn2() {
+        lazy var profileInfoVC = ProfileInfoVC()
+        profileInfoVC.setData(userInfo: .spampleData)
+        navigationController?.pushViewController(profileInfoVC, animated: true)
     }
     
 }
