@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 
 final class RootViewController: UIViewController {
@@ -25,6 +26,7 @@ final class RootViewController: UIViewController {
         self.viewComponents = .init()
         self.shouldUseSplashScreen = true
         super.init(nibName: nil, bundle: nil)
+        Logger.viewCycle.info("Hello from RootVC init")
     }
     
     required init?(coder: NSCoder) {

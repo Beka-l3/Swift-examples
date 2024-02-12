@@ -66,6 +66,7 @@
 		07E58B8A2B3DB69C0041BEF3 /* RootVCTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */; };
 		07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */; };
 		07E58B902B3DBA5A0041BEF3 /* BaseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */; };
+		07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		07E58B892B3DB69C0041BEF3 /* RootVCTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCTableViewCells.swift; sourceTree = "<group>"; };
 		07E58B8C2B3DB9AF0041BEF3 /* RootVCViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCViewComponents.swift; sourceTree = "<group>"; };
 		07E58B8F2B3DBA5A0041BEF3 /* BaseViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewComponents.swift; sourceTree = "<group>"; };
+		07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Subsystem.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,13 +278,13 @@
 			path = BAVMultipleSequence;
 			sourceTree = "<group>";
 		};
-		079599B92B5322F5008BEF20 /* Second */ = {
+		079599B92B5322F5008BEF20 /* WaveAnimationVC */ = {
 			isa = PBXGroup;
 			children = (
 				079599BA2B53230A008BEF20 /* WaveAnimationVC.swift */,
 				079599BC2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift */,
 			);
-			path = Second;
+			path = WaveAnimationVC;
 			sourceTree = "<group>";
 		};
 		07AF49A12B611ED000034831 /* TFYViewController */ = {
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				07C5E44B2B568C11000A8D78 /* UIKit */,
+				07FBDC312B7A2B6800F5E672 /* Logger */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,7 +422,7 @@
 			children = (
 				07E58B812B3DB3A30041BEF3 /* Root */,
 				07B440512B40A5DB00F37D85 /* BasicAnimations */,
-				079599B92B5322F5008BEF20 /* Second */,
+				079599B92B5322F5008BEF20 /* WaveAnimationVC */,
 				07AF49A12B611ED000034831 /* TFYViewController */,
 			);
 			path = VControllers;
@@ -474,6 +477,14 @@
 			path = ViewComponents;
 			sourceTree = "<group>";
 		};
+		07FBDC312B7A2B6800F5E672 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC322B7A2B7E00F5E672 /* Logger+Subsystem.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,7 +513,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					07E58B662B3DA9D10041BEF3 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -586,6 +597,7 @@
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
+				07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
 				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
@@ -654,6 +666,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -668,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -714,6 +727,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -722,7 +736,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -757,6 +771,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -788,6 +803,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
