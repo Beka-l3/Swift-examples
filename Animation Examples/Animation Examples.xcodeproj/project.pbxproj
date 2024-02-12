@@ -80,6 +80,7 @@
 		07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */; };
 		07FBDC502B7A71F000F5E672 /* ProfileAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */; };
 		07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */; };
+		07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,7 @@
 		07FBDC4C2B7A711200F5E672 /* ProfileStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatisticsView.swift; sourceTree = "<group>"; };
 		07FBDC4F2B7A71F000F5E672 /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
 		07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarDiscountView.swift; sourceTree = "<group>"; };
+		07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +502,7 @@
 				07AF49BC2B61485900034831 /* BubbleTopbar */,
 				07AF49C52B614B3900034831 /* ThanksTicketView */,
 				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
+				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -562,6 +565,14 @@
 				07FBDC512B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift */,
 			);
 			path = ProfileAvatarView;
+			sourceTree = "<group>";
+		};
+		07FBDC532B7A72AF00F5E672 /* ProfileInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC542B7A72BC00F5E672 /* ProfileInfoDetailsView.swift */,
+			);
+			path = ProfileInfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,6 +661,7 @@
 				07AF49A52B611F8200034831 /* TFYVCViewComponents.swift in Sources */,
 				07AF49CB2B614BF700034831 /* ThanksTicketDetailsView.swift in Sources */,
 				07FBDC4D2B7A711200F5E672 /* ProfileStatisticsView.swift in Sources */,
+				07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
