@@ -37,6 +37,7 @@ extension ProfileInfoVCUIConfig {
         rootView.layer.addSublayer(gradientBgLayer)
         rootView.addSubview(scrollView)
         
+        scrollView.addSubview(containerView)
     }
     
     func configureAutolayout() {
