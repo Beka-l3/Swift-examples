@@ -26,6 +26,8 @@
 		07449F282B7B71C60003DB4D /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F272B7B71C60003DB4D /* UITextField+Padding.swift */; };
 		07449F2B2B7B73010003DB4D /* EditProfileInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F2A2B7B73010003DB4D /* EditProfileInfoContainerView.swift */; };
 		07449F2D2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F2C2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift */; };
+		07449F302B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */; };
+		07449F322B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -116,6 +118,8 @@
 		07449F272B7B71C60003DB4D /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		07449F2A2B7B73010003DB4D /* EditProfileInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoContainerView.swift; sourceTree = "<group>"; };
 		07449F2C2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoContainerViewUIConfig.swift; sourceTree = "<group>"; };
+		07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoContainerView+HandleButtons.swift"; sourceTree = "<group>"; };
+		07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoContainerView+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -312,8 +316,18 @@
 			children = (
 				07449F2A2B7B73010003DB4D /* EditProfileInfoContainerView.swift */,
 				07449F2C2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift */,
+				07449F2E2B7B74050003DB4D /* Extensions */,
 			);
 			path = EditProfileInfoContainerView;
+			sourceTree = "<group>";
+		};
+		07449F2E2B7B74050003DB4D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */,
+				07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		07583DC22B4D557A00A9F968 /* ViewComponents */ = {
@@ -768,10 +782,12 @@
 				079599B42B5308E6008BEF20 /* BAVMultipleSequences+AnimateColor.swift in Sources */,
 				07B440532B40A5EE00F37D85 /* BasicAnimationsVC.swift in Sources */,
 				07E58B6D2B3DA9D10041BEF3 /* SceneDelegate.swift in Sources */,
+				07449F322B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift in Sources */,
 				079599B62B530A52008BEF20 /* BAVMultipleSequences+AnimateCombined1.swift in Sources */,
 				07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
+				07449F302B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift in Sources */,
 				07449F1D2B7B6E710003DB4D /* EditProfileNavbarView.swift in Sources */,
 				07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,

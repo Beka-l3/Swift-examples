@@ -68,18 +68,18 @@ extension EditProfileInfoVC {
 
 extension EditProfileInfoVC {
     @objc func handleBackButton() {
-//        pop()
+        pop()
     }
     
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            let contentInsets = UIEdgeInsets(
-//                top: 0, left: 0,
-//                bottom: keyboardSize.height + Constants.offsetForKeyboardAppearance, right: 0
-//            )
-//            uiConfig.scrollView.contentInset = contentInsets
-//            uiConfig.scrollView.scrollIndicatorInsets = contentInsets
-//            
+            let contentInsets = UIEdgeInsets(
+                top: 0, left: 0,
+                bottom: keyboardSize.height + Constants.offsetForKeyboardAppearance, right: 0
+            )
+            uiConfig.scrollView.contentInset = contentInsets
+            uiConfig.scrollView.scrollIndicatorInsets = contentInsets
+            
 //            if let activeTextField = findActiveTextField() {
 //                let rect = activeTextField.convert(activeTextField.bounds, to: uiConfig.scrollView)
 //                uiConfig.scrollView.scrollRectToVisible(rect, animated: true)
@@ -88,8 +88,8 @@ extension EditProfileInfoVC {
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-//        uiConfig.scrollView.contentInset = .zero
-//        uiConfig.scrollView.scrollIndicatorInsets = .zero
+        uiConfig.scrollView.contentInset = .zero
+        uiConfig.scrollView.scrollIndicatorInsets = .zero
     }
 }
 

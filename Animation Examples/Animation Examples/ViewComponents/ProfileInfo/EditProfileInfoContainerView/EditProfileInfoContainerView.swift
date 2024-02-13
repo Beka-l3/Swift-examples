@@ -13,7 +13,7 @@ protocol EditProfileInfoContainerViewDelegate: AnyObject {
     func safeToSave(with userInfoToSave: UserInfoToSave)
     func didTapVKButton()
     func didTapAvatarImage()
-//    func notSafeToSave(with error: EditProfileInfoContainerView.SaveError)
+    func notSafeToSave(with error: EditProfileInfoContainerView.SaveError)
 }
 
 
@@ -62,7 +62,7 @@ extension EditProfileInfoContainerView {
 }
 
 
-extension _EditProfileInfoContainerView {
+extension EditProfileInfoContainerView {
     
     func setData(userInfo: UserInfo) {
         uiConfig.nameField.textField.text           = userInfo.name
