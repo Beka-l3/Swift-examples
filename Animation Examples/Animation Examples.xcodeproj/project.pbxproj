@@ -16,6 +16,8 @@
 		07366A5C2B47015A00A749E9 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */; };
 		07366A5D2B4711C900A749E9 /* Odachi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 07366A572B46FFC100A749E9 /* Odachi.otf */; };
 		07366A5F2B47175200A749E9 /* GConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5E2B47175200A749E9 /* GConstants.swift */; };
+		07449F172B7B6C3E0003DB4D /* EditProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */; };
+		07449F192B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -96,6 +98,8 @@
 		07366A582B47004300A749E9 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		07366A5B2B47015A00A749E9 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		07366A5E2B47175200A749E9 /* GConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstants.swift; sourceTree = "<group>"; };
+		07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVC.swift; sourceTree = "<group>"; };
+		07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 				07366A572B46FFC100A749E9 /* Odachi.otf */,
 			);
 			path = Odachi;
+			sourceTree = "<group>";
+		};
+		07449F152B7B6C210003DB4D /* EditProfileInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */,
+				07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */,
+			);
+			path = EditProfileInfoVC;
 			sourceTree = "<group>";
 		};
 		07583DC22B4D557A00A9F968 /* ViewComponents */ = {
@@ -464,6 +477,7 @@
 				079599B92B5322F5008BEF20 /* WaveAnimationVC */,
 				07AF49A12B611ED000034831 /* TFYViewController */,
 				07FBDC342B7A2BEC00F5E672 /* ProfileInfoVC */,
+				07449F152B7B6C210003DB4D /* EditProfileInfoVC */,
 			);
 			path = VControllers;
 			sourceTree = "<group>";
@@ -662,6 +676,7 @@
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
 				07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */,
+				07449F172B7B6C3E0003DB4D /* EditProfileInfoVC.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
 				07FBDC5B2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift in Sources */,
@@ -680,6 +695,7 @@
 				071312592B488F33009246F6 /* Calculator.swift in Sources */,
 				07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
+				07449F192B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
