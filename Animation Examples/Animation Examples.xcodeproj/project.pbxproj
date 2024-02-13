@@ -18,6 +18,7 @@
 		07366A5F2B47175200A749E9 /* GConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07366A5E2B47175200A749E9 /* GConstants.swift */; };
 		07449F172B7B6C3E0003DB4D /* EditProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */; };
 		07449F192B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */; };
+		07449F1D2B7B6E710003DB4D /* EditProfileNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -100,6 +101,7 @@
 		07366A5E2B47175200A749E9 /* GConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstants.swift; sourceTree = "<group>"; };
 		07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVC.swift; sourceTree = "<group>"; };
 		07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
+		07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNavbarView.swift; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -258,6 +260,24 @@
 				07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */,
 			);
 			path = EditProfileInfoVC;
+			sourceTree = "<group>";
+		};
+		07449F1A2B7B6E460003DB4D /* ProfileInfo */ = {
+			isa = PBXGroup;
+			children = (
+				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
+				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
+				07449F1B2B7B6E550003DB4D /* EditProfileNavbarView */,
+			);
+			path = ProfileInfo;
+			sourceTree = "<group>";
+		};
+		07449F1B2B7B6E550003DB4D /* EditProfileNavbarView */ = {
+			isa = PBXGroup;
+			children = (
+				07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */,
+			);
+			path = EditProfileNavbarView;
 			sourceTree = "<group>";
 		};
 		07583DC22B4D557A00A9F968 /* ViewComponents */ = {
@@ -521,8 +541,7 @@
 				07C5E4422B5678A3000A8D78 /* PolkDots */,
 				07AF49BC2B61485900034831 /* BubbleTopbar */,
 				07AF49C52B614B3900034831 /* ThanksTicketView */,
-				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
-				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
+				07449F1A2B7B6E460003DB4D /* ProfileInfo */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -714,6 +733,7 @@
 				07FBDC3E2B7A2EE300F5E672 /* BgGradients.swift in Sources */,
 				071312572B488F17009246F6 /* Service.swift in Sources */,
 				071312612B4891F7009246F6 /* GConstnats+HIG.swift in Sources */,
+				07449F1D2B7B6E710003DB4D /* EditProfileNavbarView.swift in Sources */,
 				07FBDC3A2B7A2CDE00F5E672 /* GConstants+Images.swift in Sources */,
 				07A7F5342B51D47900F721ED /* BAVSingleSequence.swift in Sources */,
 				079599B02B53033D008BEF20 /* BAVMultipleSequences+AnimateSize.swift in Sources */,
