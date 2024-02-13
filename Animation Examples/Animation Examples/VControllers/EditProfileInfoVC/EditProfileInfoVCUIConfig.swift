@@ -23,6 +23,8 @@ final class EditProfileInfoVCUIConfig {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    lazy var loadingView: BasicLoadingView = .init()
 }
 
 
@@ -57,11 +59,11 @@ extension EditProfileInfoVCUIConfig {
 //            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
 //            
 //            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-//            
-//            loadingView.topAnchor.constraint(equalTo: rootView.topAnchor),
-//            loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-//            loadingView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-//            loadingView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: rootView.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
         ])
     }
     

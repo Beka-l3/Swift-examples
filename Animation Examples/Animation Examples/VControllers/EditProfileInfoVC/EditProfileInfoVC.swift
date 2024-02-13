@@ -47,7 +47,7 @@ final class EditProfileInfoVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        stopAnimatingLoad()
+        stopAnimatingLoad()
     }
 }
 
@@ -100,11 +100,11 @@ extension EditProfileInfoVC {
     }
     
     func startAnimatingLoad() {
-//        uiConfig.loadingView.show()
+        uiConfig.loadingView.show()
     }
     
     func stopAnimatingLoad() {
-//        uiConfig.loadingView.hide()
+        uiConfig.loadingView.hide()
     }
     
     func pop() {
