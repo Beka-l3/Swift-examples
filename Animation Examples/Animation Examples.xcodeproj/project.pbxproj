@@ -21,6 +21,9 @@
 		07449F1D2B7B6E710003DB4D /* EditProfileNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */; };
 		07449F1F2B7B6F170003DB4D /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F1E2B7B6F170003DB4D /* BasicLoadingView.swift */; };
 		07449F212B7B6FBB0003DB4D /* EditProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F202B7B6FBB0003DB4D /* EditProfileButton.swift */; };
+		07449F242B7B71170003DB4D /* EditProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F232B7B71170003DB4D /* EditProfileTextField.swift */; };
+		07449F262B7B71360003DB4D /* EditProfileTextFieldUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F252B7B71360003DB4D /* EditProfileTextFieldUIConfig.swift */; };
+		07449F282B7B71C60003DB4D /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F272B7B71C60003DB4D /* UITextField+Padding.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -106,6 +109,9 @@
 		07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNavbarView.swift; sourceTree = "<group>"; };
 		07449F1E2B7B6F170003DB4D /* BasicLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLoadingView.swift; sourceTree = "<group>"; };
 		07449F202B7B6FBB0003DB4D /* EditProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileButton.swift; sourceTree = "<group>"; };
+		07449F232B7B71170003DB4D /* EditProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTextField.swift; sourceTree = "<group>"; };
+		07449F252B7B71360003DB4D /* EditProfileTextFieldUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTextFieldUIConfig.swift; sourceTree = "<group>"; };
+		07449F272B7B71C60003DB4D /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
 				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
 				07449F1B2B7B6E550003DB4D /* EditProfileNavbarView */,
+				07449F222B7B710F0003DB4D /* EditProfileTextField */,
 			);
 			path = ProfileInfo;
 			sourceTree = "<group>";
@@ -284,6 +291,15 @@
 				07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */,
 			);
 			path = EditProfileNavbarView;
+			sourceTree = "<group>";
+		};
+		07449F222B7B710F0003DB4D /* EditProfileTextField */ = {
+			isa = PBXGroup;
+			children = (
+				07449F232B7B71170003DB4D /* EditProfileTextField.swift */,
+				07449F252B7B71360003DB4D /* EditProfileTextFieldUIConfig.swift */,
+			);
+			path = EditProfileTextField;
 			sourceTree = "<group>";
 		};
 		07583DC22B4D557A00A9F968 /* ViewComponents */ = {
@@ -440,6 +456,7 @@
 				07C5E4492B568C0C000A8D78 /* String+Empty.swift */,
 				07C5E44D2B569247000A8D78 /* TimeInterval+HalfSecond.swift */,
 				07FBDC3F2B7A2FE200F5E672 /* UIColor+Hex.swift */,
+				07449F272B7B71C60003DB4D /* UITextField+Padding.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -699,8 +716,10 @@
 				07583DD72B4D821200A9F968 /* UIStyle.swift in Sources */,
 				07AF49CD2B614C3900034831 /* ThanksTicketViewComponents.swift in Sources */,
 				07C5E44E2B569247000A8D78 /* TimeInterval+HalfSecond.swift in Sources */,
+				07449F242B7B71170003DB4D /* EditProfileTextField.swift in Sources */,
 				07C5E44A2B568C0C000A8D78 /* String+Empty.swift in Sources */,
 				07FBDC3C2B7A2D6E00F5E672 /* UserInfo.swift in Sources */,
+				07449F262B7B71360003DB4D /* EditProfileTextFieldUIConfig.swift in Sources */,
 				07449F172B7B6C3E0003DB4D /* EditProfileInfoVC.swift in Sources */,
 				07C5E4442B5678C2000A8D78 /* PolkDotView.swift in Sources */,
 				079599BB2B53230A008BEF20 /* WaveAnimationVC.swift in Sources */,
@@ -757,6 +776,7 @@
 				07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
+				07449F282B7B71C60003DB4D /* UITextField+Padding.swift in Sources */,
 				07AF49C72B614B7800034831 /* ThanksTicketStatusView.swift in Sources */,
 				07B440572B40AA6F00F37D85 /* AppCoordinator+NavbarStyle.swift in Sources */,
 				07FBDC362B7A2BFC00F5E672 /* ProfileInfoVC.swift in Sources */,
