@@ -11,7 +11,7 @@ import UIKit
 final class ProfileAvatarDiscountView: UIView {
     
     private(set) var discount: Int = 0 { didSet { label.text = "\(discount)%" } }
-    private lazy var label = _TitleLabel(type: .first(alignment: .center), fontSize: 15, textColor: Constants.fontColor)
+    private lazy var label = TitleLabel(type: .first(alignment: .center), fontSize: 15, textColor: Constants.fontColor)
     
     
 //    MARK: lifecycle

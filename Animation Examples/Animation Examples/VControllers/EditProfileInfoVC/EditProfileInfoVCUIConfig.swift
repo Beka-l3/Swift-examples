@@ -1,16 +1,18 @@
 //
-//  ProfileInfoVCUIConfig.swift
+//  EditProfileInfoVCUIConfig.swift
 //  Animation Examples
 //
-//  Created by Bekzhan Talgat on 12.02.2024.
+//  Created by Bekzhan Talgat on 13.02.2024.
 //
 
 import UIKit
 
 
-final class ProfileInfoVCUIConfig {
-    
+final class EditProfileInfoVCUIConfig {
     weak var rootView: UIView?
+    
+    
+    lazy var gradientBgLayer = BgGradients.tfOrange.asLayer
     
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -22,22 +24,23 @@ final class ProfileInfoVCUIConfig {
         return view
     }()
     
-    private lazy var gradientBgLayer = BgGradients.tfOrange.asLayer
+    lazy var containerView = EditProfileInfoContainerView()
     
-    lazy var containerView = ProfileInfoContainerView()
+    lazy var loadingView: BasicLoadingView = .init()
 }
 
 
-extension ProfileInfoVCUIConfig {
+extension EditProfileInfoVCUIConfig {
     
     func configureUI() {
         guard let rootView = rootView else { return }
-        rootView.backgroundColor = .white
         
         rootView.layer.addSublayer(gradientBgLayer)
         rootView.addSubview(scrollView)
+        rootView.addSubview(loadingView)
         
         scrollView.addSubview(containerView)
+        
     }
     
     func configureAutolayout() {
@@ -53,13 +56,17 @@ extension ProfileInfoVCUIConfig {
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
-            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: Constants.paddingL),
             containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             
             scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: rootView.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
         ])
-        
     }
     
     func configureFrames() {
@@ -70,41 +77,24 @@ extension ProfileInfoVCUIConfig {
 }
 
 
-extension ProfileInfoVCUIConfig {
-    func setNameAndLocation(name: String, location: String) {
-        containerView.setNameAndLocation(name: name, location: location)
+extension EditProfileInfoVCUIConfig {
+    
+    func setAvatarImage(_ image: UIImage) {
+        containerView.setAvatarImage(image)
     }
     
-    func setDiscount(_ newValue: Int) {
-        containerView.setDiscount(newValue)
+    func setData(userInfo: UserInfo) {
+        containerView.setData(userInfo: userInfo)
     }
-    
-    func setStatisticsItems(_ items: [ProfileStatisticsView.StatisticsItem]) {
-        containerView.setStatisticsItems(items)
-        rootView?.layoutIfNeeded()
-    }
-    
-    func setInfoDetails(type: ProfileInfoDetailsView.InfoType, texts: ProfileInfoDetailsView.InfoType.CaptionTexts) {
-        containerView.setInfoDetails(type: type, texts: texts)
-    }
-    
-    func setAvatar(_ image: UIImage) {
-        containerView.setAvatar(image)
-    }
-    
-    func setAvatar(with url: String) {
-        containerView.setAvatar(with: url)
-    }
-    
 }
 
 
-extension ProfileInfoVCUIConfig {
+extension EditProfileInfoVCUIConfig {
  
     enum Constants {
         
-        static let paddingS:                CGFloat     = 8
-        static let padding:                 CGFloat     = 12
+        static let paddingL:                CGFloat     = 44
         static let bgGradientHeight:        CGFloat     = 400
     }
 }
+

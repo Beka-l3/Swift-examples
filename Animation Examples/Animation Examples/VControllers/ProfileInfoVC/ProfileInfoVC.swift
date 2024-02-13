@@ -16,7 +16,7 @@ protocol ProfileInfoVCDelegate: AnyObject {
 final class ProfileInfoVC: UIViewController {
     
     weak var delegate: ProfileInfoVCDelegate?
-//    var editVC: _EditProfileInfoVC?
+    var editVC: EditProfileInfoVC?
     
     private var userInfo: UserInfo?
     private let uiConfig: ProfileInfoVCUIConfig = .init()
@@ -131,10 +131,10 @@ extension ProfileInfoVC {
 
 extension ProfileInfoVC: ProfileInfoContainerViewDelegate {
     func didTapEditButton() {
-//        if let userInfo = userInfo {
-//            editVC = _EditProfileInfoVC(userInfo: userInfo)
-//            editVC?.delegate = self
-//            if let editVC = editVC { navigationController?.pushViewController(editVC, animated: true) }
-//        }
+        if let userInfo = userInfo {
+            editVC = EditProfileInfoVC(userInfo: userInfo)
+            editVC?.delegate = self
+            if let editVC = editVC { navigationController?.pushViewController(editVC, animated: true) }
+        }
     }
 }

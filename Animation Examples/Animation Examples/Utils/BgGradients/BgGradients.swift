@@ -53,10 +53,6 @@ enum BgGradients: CaseIterable {
 
 
 extension BgGradients {
-        
-    var asColors: [UIColor] {
-        asHexes.enumerated().map { UIColor(hex: $1) ?? ($0 % 2 == 0 ? .gray : .black) }
-    }
     
     var textColor: UIColor {
         isGradientBright() ? .black : .white
@@ -85,13 +81,12 @@ extension BgGradients {
 
 extension BgGradients {
     
-    var asLayer: CAGradientLayer {
-        getGradient(with: asColors)
+    var asColors: [UIColor] {
+        asHexes.enumerated().map { UIColor(hex: $1) ?? ($0 % 2 == 0 ? .gray : .black) }
     }
     
-    private func getGradient(using hexes: [String]) -> CAGradientLayer {
-        let colors = hexes.map { (UIColor(hex: $0) ?? .clear) }
-        return getGradient(with: colors)
+    var asLayer: CAGradientLayer {
+        getGradient(with: asColors)
     }
     
     private func getGradient(with colors: [UIColor]) -> CAGradientLayer {

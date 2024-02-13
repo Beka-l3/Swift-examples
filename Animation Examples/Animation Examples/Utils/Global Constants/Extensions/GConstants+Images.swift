@@ -15,5 +15,6 @@ extension GConstants {
         static let backChevron      = UIImage(systemName: "chevron.backward")
         static let gear             = UIImage(systemName: "gearshape")
         static let pencil           = UIImage(systemName: "applepencil.and.scribble")
+        static let kipsign          = UIImage(systemName: "kipsign.square.fill")
     }
 }
