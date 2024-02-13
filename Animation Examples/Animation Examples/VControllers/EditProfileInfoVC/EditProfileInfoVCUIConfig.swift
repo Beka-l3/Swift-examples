@@ -24,6 +24,8 @@ final class EditProfileInfoVCUIConfig {
         return view
     }()
     
+    lazy var containerView = EditProfileInfoContainerView()
+    
     lazy var loadingView: BasicLoadingView = .init()
 }
 
@@ -35,9 +37,9 @@ extension EditProfileInfoVCUIConfig {
         
         rootView.layer.addSublayer(gradientBgLayer)
         rootView.addSubview(scrollView)
-//        rootView.addSubview(loadingView)
+        rootView.addSubview(loadingView)
         
-//        scrollView.addSubview(containerView)
+        scrollView.addSubview(containerView)
         
     }
     
@@ -54,11 +56,11 @@ extension EditProfileInfoVCUIConfig {
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
-//            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: Constants.paddingL),
-//            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-//            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-//            
-//            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: Constants.paddingL),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
             loadingView.topAnchor.constraint(equalTo: rootView.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
@@ -78,11 +80,11 @@ extension EditProfileInfoVCUIConfig {
 extension EditProfileInfoVCUIConfig {
     
     func setAvatarImage(_ image: UIImage) {
-//        containerView.setAvatarImage(image)
+        containerView.setAvatarImage(image)
     }
     
     func setData(userInfo: UserInfo) {
-//        containerView.setData(userInfo: userInfo)
+        containerView.setData(userInfo: userInfo)
     }
 }
 

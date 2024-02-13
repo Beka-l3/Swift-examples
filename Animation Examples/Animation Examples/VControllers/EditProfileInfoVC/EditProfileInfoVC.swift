@@ -26,7 +26,7 @@ final class EditProfileInfoVC: UIViewController {
     init(userInfo: UserInfo) {
         self.userInfo = userInfo
         super.init(nibName: nil, bundle: nil)
-//        uiConfig.containerView.setData(userInfo: userInfo)
+        uiConfig.containerView.setData(userInfo: userInfo)
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +61,7 @@ extension EditProfileInfoVC {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-//        uiConfig.containerView.delegate = self
+        uiConfig.containerView.delegate = self
     }
 }
 
@@ -80,10 +80,10 @@ extension EditProfileInfoVC {
             uiConfig.scrollView.contentInset = contentInsets
             uiConfig.scrollView.scrollIndicatorInsets = contentInsets
             
-//            if let activeTextField = findActiveTextField() {
-//                let rect = activeTextField.convert(activeTextField.bounds, to: uiConfig.scrollView)
-//                uiConfig.scrollView.scrollRectToVisible(rect, animated: true)
-//            }
+            if let activeTextField = findActiveTextField() {
+                let rect = activeTextField.convert(activeTextField.bounds, to: uiConfig.scrollView)
+                uiConfig.scrollView.scrollRectToVisible(rect, animated: true)
+            }
         }
     }
     
@@ -114,9 +114,9 @@ extension EditProfileInfoVC {
 
 
 extension EditProfileInfoVC {
-//    private func findActiveTextField() -> EditProfileTextField? {
-//        uiConfig.containerView.activeField
-//    }
+    private func findActiveTextField() -> EditProfileTextField? {
+        uiConfig.containerView.activeField
+    }
 }
 
 extension EditProfileInfoVC {

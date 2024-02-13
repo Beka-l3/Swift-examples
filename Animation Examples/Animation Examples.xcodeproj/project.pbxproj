@@ -28,6 +28,9 @@
 		07449F2D2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F2C2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift */; };
 		07449F302B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */; };
 		07449F322B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */; };
+		07449F352B7B75660003DB4D /* EditProfileInfoVC+ContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F342B7B75660003DB4D /* EditProfileInfoVC+ContainerDelegate.swift */; };
+		07449F372B7B75810003DB4D /* EditProfileInfoVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F362B7B75810003DB4D /* EditProfileInfoVC+ImagePicker.swift */; };
+		07449F392B7B759A0003DB4D /* EditProfileInfoVC+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F382B7B759A0003DB4D /* EditProfileInfoVC+ShowAlert.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -120,6 +123,9 @@
 		07449F2C2B7B730F0003DB4D /* EditProfileInfoContainerViewUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoContainerViewUIConfig.swift; sourceTree = "<group>"; };
 		07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoContainerView+HandleButtons.swift"; sourceTree = "<group>"; };
 		07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoContainerView+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		07449F342B7B75660003DB4D /* EditProfileInfoVC+ContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoVC+ContainerDelegate.swift"; sourceTree = "<group>"; };
+		07449F362B7B75810003DB4D /* EditProfileInfoVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoVC+ImagePicker.swift"; sourceTree = "<group>"; };
+		07449F382B7B759A0003DB4D /* EditProfileInfoVC+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileInfoVC+ShowAlert.swift"; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 			children = (
 				07449F162B7B6C3E0003DB4D /* EditProfileInfoVC.swift */,
 				07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */,
+				07449F332B7B75500003DB4D /* Extensions */,
 			);
 			path = EditProfileInfoVC;
 			sourceTree = "<group>";
@@ -326,6 +333,16 @@
 			children = (
 				07449F2F2B7B74230003DB4D /* EditProfileInfoContainerView+HandleButtons.swift */,
 				07449F312B7B745D0003DB4D /* EditProfileInfoContainerView+UITextFieldDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		07449F332B7B75500003DB4D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07449F382B7B759A0003DB4D /* EditProfileInfoVC+ShowAlert.swift */,
+				07449F362B7B75810003DB4D /* EditProfileInfoVC+ImagePicker.swift */,
+				07449F342B7B75660003DB4D /* EditProfileInfoVC+ContainerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,8 +634,8 @@
 			isa = PBXGroup;
 			children = (
 				07FBDC352B7A2BFC00F5E672 /* ProfileInfoVC.swift */,
-				07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */,
 				07FBDC372B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift */,
+				07FBDC5A2B7A743C00F5E672 /* ProfileInfoVC+EditVCDelegate.swift */,
 			);
 			path = ProfileInfoVC;
 			sourceTree = "<group>";
@@ -761,6 +778,7 @@
 				07FBDC552B7A72BC00F5E672 /* ProfileInfoDetailsView.swift in Sources */,
 				07E58B6B2B3DA9D10041BEF3 /* AppDelegate.swift in Sources */,
 				07FBDC452B7A3A3100F5E672 /* UserInfoToSave.swift in Sources */,
+				07449F372B7B75810003DB4D /* EditProfileInfoVC+ImagePicker.swift in Sources */,
 				07366A592B47004300A749E9 /* Fonts.swift in Sources */,
 				07E58B862B3DB4710041BEF3 /* AppCoordinator.swift in Sources */,
 				0768C7AB2B4C349C00AD0120 /* MyNavigationController+Presence.swift in Sources */,
@@ -768,6 +786,7 @@
 				07FBDC382B7A2C1D00F5E672 /* ProfileInfoVCUIConfig.swift in Sources */,
 				071312542B4870EA009246F6 /* AnimationViewController.swift in Sources */,
 				07449F192B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift in Sources */,
+				07449F392B7B759A0003DB4D /* EditProfileInfoVC+ShowAlert.swift in Sources */,
 				07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */,
 				07FBDC402B7A2FE200F5E672 /* UIColor+Hex.swift in Sources */,
 				0768C7A92B4C343D00AD0120 /* MyNavigationController+Style.swift in Sources */,
@@ -805,6 +824,7 @@
 				07E58B8D2B3DB9AF0041BEF3 /* RootVCViewComponents.swift in Sources */,
 				07FBDC522B7A71FF00F5E672 /* ProfileAvatarDiscountView.swift in Sources */,
 				07FBDC332B7A2B7E00F5E672 /* Logger+Subsystem.swift in Sources */,
+				07449F352B7B75660003DB4D /* EditProfileInfoVC+ContainerDelegate.swift in Sources */,
 				07C5E4462B5678CD000A8D78 /* PolkDotGridView.swift in Sources */,
 				079599BD2B5324AA008BEF20 /* WaveAnimationVCViewComponents.swift in Sources */,
 				07449F282B7B71C60003DB4D /* UITextField+Padding.swift in Sources */,
