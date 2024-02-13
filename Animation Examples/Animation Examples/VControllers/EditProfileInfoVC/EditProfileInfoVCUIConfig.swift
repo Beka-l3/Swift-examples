@@ -13,6 +13,16 @@ final class EditProfileInfoVCUIConfig {
     
     
     lazy var gradientBgLayer = BgGradients.tfOrange.asLayer
+    
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.backgroundColor = .clear
+        view.bounces = false
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 }
 
 
@@ -22,6 +32,10 @@ extension EditProfileInfoVCUIConfig {
         guard let rootView = rootView else { return }
         
         rootView.layer.addSublayer(gradientBgLayer)
+        rootView.addSubview(scrollView)
+//        rootView.addSubview(loadingView)
+        
+//        scrollView.addSubview(containerView)
         
     }
     
@@ -29,7 +43,25 @@ extension EditProfileInfoVCUIConfig {
         guard let rootView = rootView else { return }
         
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            
+//            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: Constants.paddingL),
+//            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+//            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+//            
+//            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+//            
+//            loadingView.topAnchor.constraint(equalTo: rootView.topAnchor),
+//            loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+//            loadingView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+//            loadingView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
         ])
     }
     
