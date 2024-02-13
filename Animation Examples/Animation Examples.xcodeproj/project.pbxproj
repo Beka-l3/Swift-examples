@@ -20,6 +20,7 @@
 		07449F192B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */; };
 		07449F1D2B7B6E710003DB4D /* EditProfileNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */; };
 		07449F1F2B7B6F170003DB4D /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F1E2B7B6F170003DB4D /* BasicLoadingView.swift */; };
+		07449F212B7B6FBB0003DB4D /* EditProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07449F202B7B6FBB0003DB4D /* EditProfileButton.swift */; };
 		07583DC42B4D559800A9F968 /* BasicAnimationsViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */; };
 		07583DC72B4D564C00A9F968 /* AnimationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */; };
 		07583DCA2B4D589500A9F968 /* BasicAnimationsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */; };
@@ -104,6 +105,7 @@
 		07449F182B7B6C470003DB4D /* EditProfileInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVCUIConfig.swift; sourceTree = "<group>"; };
 		07449F1C2B7B6E710003DB4D /* EditProfileNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNavbarView.swift; sourceTree = "<group>"; };
 		07449F1E2B7B6F170003DB4D /* BasicLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLoadingView.swift; sourceTree = "<group>"; };
+		07449F202B7B6FBB0003DB4D /* EditProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileButton.swift; sourceTree = "<group>"; };
 		07583DC32B4D559800A9F968 /* BasicAnimationsViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimationsViewComponents.swift; sourceTree = "<group>"; };
 		07583DC62B4D564C00A9F968 /* AnimationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTableViewCell.swift; sourceTree = "<group>"; };
 		07583DC92B4D589500A9F968 /* BasicAnimationsVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicAnimationsVC+TableView.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				07449F1E2B7B6F170003DB4D /* BasicLoadingView.swift */,
+				07449F202B7B6FBB0003DB4D /* EditProfileButton.swift */,
 				07FBDC462B7A6FD500F5E672 /* ProfileStatisticsView */,
 				07FBDC532B7A72AF00F5E672 /* ProfileInfoView */,
 				07449F1B2B7B6E550003DB4D /* EditProfileNavbarView */,
@@ -744,6 +747,7 @@
 				07449F1F2B7B6F170003DB4D /* BasicLoadingView.swift in Sources */,
 				079599B82B530B5F008BEF20 /* BAVMultipleSequences+AnimateCombined2.swift in Sources */,
 				079599AC2B52F348008BEF20 /* BAVMultipleSequences+AnimatePosition.swift in Sources */,
+				07449F212B7B6FBB0003DB4D /* EditProfileButton.swift in Sources */,
 				07FBDC482B7A6FE900F5E672 /* ProfileStatisticsItemView.swift in Sources */,
 				07FBDC572B7A731600F5E672 /* ProfileInfoDetailsContainerView.swift in Sources */,
 				07B440592B40AA9600F37D85 /* AppCoordinator+Navigation.swift in Sources */,
